@@ -1,0 +1,12 @@
+- name: authentication
+  displayName: Authentication
+  description: Plugins which are adding support various authentication systems
+  icon: users
+- name: administration
+  displayName: Administration
+  description: Plugins which makes the life of an SCM-Manager Administrator easier
+  icon: code
+- name: continius-integration
+  displayName: Continuous Integration
+  description: Support for various Continuous Integration systems
+  icon: sync
