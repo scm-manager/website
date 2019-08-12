@@ -6,7 +6,7 @@
   displayName: Administration
   description: Plugins which makes the life of an SCM-Manager Administrator easier
   icon: code
-- name: continius-integration
+- name: continuous-integration
   displayName: Continuous Integration
   description: Support for various Continuous Integration systems
   icon: sync

@@ -5,7 +5,7 @@ type Props = {
 };
 
 const Subtitle: FunctionComponent<Props> = ({ children }) => {
-  return <h1 className="subtitle">{children}</h1>;
+  return <h2 className="subtitle is-spaced">{children}</h2>;
 }
 
 export default Subtitle;

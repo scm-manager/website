@@ -17,7 +17,7 @@ const Plugin: FunctionComponent<Props> = ({ plugin }) => {
       <div className="media-content">
         <div className="content">
           <p>
-            <strong>{plugin.displayName}</strong> <small>{plugin.author}</small>
+            <strong>{plugin.displayName}</strong> <span class="is-size-6 has-text-grey">{plugin.author}</span>
             <br />
             {plugin.description}
             <br />

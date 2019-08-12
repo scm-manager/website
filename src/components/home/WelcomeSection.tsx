@@ -3,17 +3,17 @@ import WelcomeText from "./WelcomeText";
 import WelcomeImage from "./WelcomeImage";
 
 const WelcomeSection = () => (
-  <section className="section is-hero">
-    <div className="container">
-      <div className="columns is-vcentered">
-        <div className="column is-6">
+  <section className="hero is-welcome">
+    <div className="container hero-body">
+      <div className="columns is-vcentered has-text-centered">
+        <div className="column is-8">
           <WelcomeText />
         </div>
-        <div className="column is-6">
+        <div className="column is-4">
           <WelcomeImage />
         </div>
       </div>
-    </div>
+    </div> 
   </section>
 );
 

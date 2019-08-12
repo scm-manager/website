@@ -11,7 +11,7 @@ const Page: React.FunctionComponent<Props> = ({ children }) => (
   <>
     <Header />
     <Main>
-      <section className="section container">{children}</section>
+      <section>{children}</section>
     </Main>
     <Footer />
   </>

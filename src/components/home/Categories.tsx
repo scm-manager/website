@@ -60,8 +60,8 @@ const Categories = () => {
 
   return (
     <section className="section">
-      <div className="container">
-        <Title>Categories</Title>
+      <div className="container categories">
+        <h2 class="subtitle is-3">Categories</h2>
         {renderRows(rows)}
       </div>
     </section>

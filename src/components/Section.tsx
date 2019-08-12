@@ -5,5 +5,5 @@ type Props = {
 };
 
 export default function({ children }: Props) {
-  return <section className="section container">{children}</section>;
+  return <section className="section">{children}</section>;
 }

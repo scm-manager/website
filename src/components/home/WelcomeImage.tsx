@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 export default function() {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "images/scm-manager_logo_img.png" }) {
+      file(relativePath: { eq: "images/hero-image.png" }) {
         childImageSharp {
           fluid(maxWidth: 720) {
             ...GatsbyImageSharpFluid
@@ -18,7 +18,7 @@ export default function() {
   return (
     <div className="section-image">
       <Img
-        alt="SCM-Manager Logo"
+        alt="SCM-Manager Process Image"
         fluid={data.file.childImageSharp.fluid}
       />
     </div>

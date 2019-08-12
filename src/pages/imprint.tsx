@@ -5,8 +5,11 @@ import SEO from "../components/SEO";
 
 const ImprintPage = () => (
   <Page>
+    <div class="container section">
     <SEO title="Imprint" />
     <Title>Imprint</Title>
+     <div className="columns">
+        <div className="column is-three-quarters">
     <p>
       Cloudogu GmbH
       <br />
@@ -19,9 +22,7 @@ const ImprintPage = () => (
       &#105;&#110;&#102;&#111;&#64;&#115;&#99;&#109;&#45;&#109;&#97;&#110;&#97;&#103;&#101;&#114;&#46;&#111;&#114;&#103;
     </a>
     <p>&nbsp;</p>
-    <p>
-      <strong>Limitation of liability for internal content</strong>
-    </p>
+    <h3><strong>Limitation of liability for internal content</strong></h3>
     <p>
       The content of our website has been compiled with meticulous care and to
       the best of our knowledge. However, we cannot assume any liability for the
@@ -38,9 +39,8 @@ const ImprintPage = () => (
       concerning this matter can only be assumed from the point in time at which
       the infringement becomes known to us.
     </p>
-    <p>
-      <strong>Limitation of liability for external links</strong>
-    </p>
+    <p>&nbsp;</p>
+      <h3><strong>Limitation of liability for external links</strong></h3>
     <p>
       Our website contains links to the websites of third parties (“external
       links”). As the content of these websites is not under our control, we
@@ -51,18 +51,18 @@ const ImprintPage = () => (
       soon as an infringement of the law becomes known to us, we will
       immediately remove the link in question.
     </p>
-    <p>
-      <strong>Copyright</strong>
-    </p>
+    <p>&nbsp;</p>
+    <h3><strong>Copyright</strong>
+    </h3>
     <p>
       The content and works published on this website are governed by the
       copyright laws of Germany. Any duplication, processing, distribution or
       any form of utilisation beyond the scope of copyright law shall require
       the prior written consent of the author or authors in question.
     </p>
-    <p>
-      <strong>Data protection</strong>
-    </p>
+    <p>&nbsp;</p>
+    <h3><strong>Data protection</strong>
+    </h3>
     <p>
       A visit to our website can result in the storage on our server of
       information about the access (date, time, page accessed). This does not
@@ -86,9 +86,8 @@ const ImprintPage = () => (
       e.g., by means of spam mail.
     </p>
     <p>&nbsp;</p>
-    <p>
-      <strong>Disclaimer for Google-Analytics</strong>
-    </p>
+    <h3><strong>Disclaimer for Google-Analytics</strong>
+    </h3>
     <p>
       This website uses Google Analytics, a website analyst software of Google
       Inc. (“Google”). Google Analytics uses so called “Cookies&#8221;. These
@@ -106,6 +105,15 @@ const ImprintPage = () => (
       Through the visit of this website you agree to the usage of the above
       mentioned data/purpose with the above mentioned methods.
     </p>
+    <p>&nbsp;</p>
+    <h3><strong>Image sources</strong>
+    </h3>
+    <p>
+      Image index page: <a href="http://www.freepik.com" title="To Freepik">Designed by Freepik</a>
+    </p>
+    </div>
+    </div>
+    </div>
   </Page>
 );
 

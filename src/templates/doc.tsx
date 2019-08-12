@@ -22,9 +22,12 @@ const Plugin = ({ data }) => {
   const content = data.markdownRemark;
   return (
     <Page>
+    
+    <div class="container section">
+    <div class="container">
       <SEO title={content.frontmatter.title} />
       <div className="columns">
-        <div className="column is-four-fifths">
+        <div className="column is-three-quarters">
           <Title>{content.frontmatter.title}</Title>
           <Subtitle>{content.frontmatter.subtitle}</Subtitle>
           {renderToc(content)}
@@ -33,9 +36,11 @@ const Plugin = ({ data }) => {
             dangerouslySetInnerHTML={{ __html: content.html }}
           />
         </div>
-        <div className="column">
-          <h4>Navigation</h4>
+        <div className="column is-one-quarter">
+          <h4>NavigationNavigation</h4>
         </div>
+      </div>
+      </div>
       </div>
     </Page>
   );

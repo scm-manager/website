@@ -16,14 +16,19 @@ const Category = ({ data }) => {
   const category = categories[0];
   return (
     <Page>
+     <div class="container section is-category">
       <SEO title={"Category " + category.displayName} />
-      <Title>
-        <Icon icon={category.icon} inplace={true} /> {category.displayName}
-      </Title>
-      <Subtitle>{category.description}</Subtitle>
-      <div>
+         
+              <Title>
+                <Icon className="has-text-info" icon={category.icon} inplace={true} /> {category.displayName}
+              </Title>
+              <Subtitle>{category.description}</Subtitle>
+              </div>
+     <div class="container section is-category">
+       <div class="content">
         { data.allMarkdownRemark.nodes.map(node => <Plugin key={node.frontmatter.name} plugin={node.frontmatter} /> )}
-      </div>
+          </div>
+          </div>
     </Page>
   );
 };

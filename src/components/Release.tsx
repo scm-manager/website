@@ -11,13 +11,13 @@ const Release: FunctionComponent<Props> = ({ release }) => (
       <div className="media">
         <div className="media-content">
           <p className="title is-4">{release.tag}</p>
-          <p className="subtitle is-6">Released by {release.author}</p>
+          <p className="subtitle is-6"><span className="has-text-grey">Released by</span><br/>{release.author}</p>
         </div>
       </div>
       <div className="content">
-        Released at <time>{release.date}</time>
-        <br />
-        <a href={release.url}>Download</a>
+        <span className="has-text-grey">Released at</span>
+        <p><time>{release.date}</time></p>
+        <a className="button is-info is-outlined" href={release.url}>Download</a>
       </div>
     </div>
   </div>

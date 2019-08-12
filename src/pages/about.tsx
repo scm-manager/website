@@ -6,9 +6,15 @@ import SEO from "../components/SEO";
 
 const AboutPage = () => (
   <Page>
+    <div class="container section">
     <SEO title="about" />
+    <div className="columns">
+        <div className="column is-three-quarters">
     <Title>About</Title>
     <Subtitle>SCM-Manager Plugin Backend</Subtitle>
+    </div>
+    </div>
+    </div>
   </Page>
 );
 

@@ -14,9 +14,9 @@ const WelcomeText = () => {
   `);
   const metadata = data.site.siteMetadata;
   return (
-    <div className="section-header has-text-centered">
-      <h1 className="title is-spaced">{ metadata.title }</h1>
-      <h2 className="subtitle is-3">{ metadata.description }</h2>
+    <div className="section-header">
+      <h1 className="title">{ metadata.title }</h1>
+      <h2 className="subtitle is-4 is-spaced">{ metadata.description }</h2>
       <Link to="/plugins" className="button is-primary is-large">
         Explore
       </Link>
