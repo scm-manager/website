@@ -16,43 +16,35 @@ const Category = ({ data }) => {
   const category = categories[0];
   return (
     <Page>
-     <div class="container section is-category">
       <SEO title={"Category " + category.displayName} />
-         
-              <Title>
-                <Icon className="has-text-info" icon={category.icon} inplace={true} /> {category.displayName}
-              </Title>
-              <Subtitle>{category.description}</Subtitle>
-              </div>
-     <div class="container section is-category">
-       <div class="content">
-        { data.allMarkdownRemark.nodes.map(node => <Plugin key={node.frontmatter.name} plugin={node.frontmatter} /> )}
-          </div>
-          </div>
+      <div className="container section is-category">
+        <Title>
+          <Icon className="has-text-info" icon={category.icon} inplace={true} />{" "}
+          {category.displayName}
+        </Title>
+        <Subtitle>{category.description}</Subtitle>
+      </div>
+      <div className="container section is-category">
+        <div className="content">
+          {data.allMarkdownRemark.nodes.map(node => (
+            <Plugin key={node.frontmatter.name} plugin={node.frontmatter} />
+          ))}
+        </div>
+      </div>
     </Page>
   );
 };
 
 export const query = graphql`
   query($name: String!) {
-    allCategoriesYaml(filter: { 
-      name: { 
-        eq: $name 
-      }
-    }){
+    allCategoriesYaml(filter: { name: { eq: $name } }) {
       nodes {
         icon
         displayName
         description
       }
     }
-    allMarkdownRemark(filter: {
-      frontmatter: {
-        category: {
-          eq: $name
-        }
-      }
-    }) {
+    allMarkdownRemark(filter: { frontmatter: { category: { eq: $name } } }) {
       nodes {
         frontmatter {
           name

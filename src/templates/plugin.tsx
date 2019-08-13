@@ -22,22 +22,22 @@ const Plugin = ({ data }) => {
   const releases = data.allReleasesYaml.nodes;
   return (
     <Page>
-    <div class="container section is-plugin">
       <SEO title={"Plugin " + plugin.frontmatter.displayName} />
-      <div className="columns">
-        <div className="column is-three-quarters">
-          <Title>{plugin.frontmatter.displayName}</Title>
-          <Subtitle>{plugin.frontmatter.description}</Subtitle>
-          <div
-            className="content"
-            dangerouslySetInnerHTML={{ __html: plugin.html }}
-          />
+      <div className="container section is-plugin">
+        <div className="columns">
+          <div className="column is-three-quarters">
+            <Title>{plugin.frontmatter.displayName}</Title>
+            <Subtitle>{plugin.frontmatter.description}</Subtitle>
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{ __html: plugin.html }}
+            />
+          </div>
+          <div className="column content is-one-quarter">
+            <h2>Releases</h2>
+            {renderReleases(releases)}
+          </div>
         </div>
-        <div className="column content is-one-quarter">
-          <h2>Releases</h2>
-          {renderReleases(releases)}
-        </div>
-      </div>
       </div>
     </Page>
   );

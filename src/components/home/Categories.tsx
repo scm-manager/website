@@ -1,6 +1,5 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Title from "../Title";
 import { Category } from "../../types/category";
 import CategoryCard from "./CategoryCard";
 
@@ -61,7 +60,7 @@ const Categories = () => {
   return (
     <section className="section">
       <div className="container categories">
-        <h2 class="subtitle is-3">Categories</h2>
+        <h2 className="subtitle is-3">Categories</h2>
         {renderRows(rows)}
       </div>
     </section>
