@@ -1,4 +1,9 @@
 import React, { FunctionComponent } from "react";
+import styled from "styled-components"
+
+const PageMain = styled.main`
+flex: 1;
+`;
 
 type Props = {
   children: React.ReactNode
@@ -6,9 +11,9 @@ type Props = {
 
 const Main: FunctionComponent<Props> = ({ children }) => {
   return (
-    <main className="app-content">
+    <PageMain className="app-content">
       {children}
-    </main>
+    </PageMain>
   );
 }
 
