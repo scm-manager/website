@@ -5,6 +5,7 @@ import Page from "../layout/Page";
 import Title from "../components/Title";
 import Subtitle from "../components/Subtitle";
 import SEO from "../components/SEO";
+import DocNavigation from "../components/DocNavigation";
 
 const renderToc = content => {
   if (content.frontmatter.displayToc) {
@@ -36,7 +37,7 @@ const Plugin = ({ data }) => {
               />
             </div>
             <div className="column is-one-quarter">
-              <h4>NavigationNavigation</h4>
+              <DocNavigation />
             </div>
           </div>
         </div>

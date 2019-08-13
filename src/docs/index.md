@@ -2,6 +2,8 @@
 title: Documentation
 subtitle: SCM-Manager Plugin Documentation
 displayToc: true
+order: 0
+navigation: Home
 ---
 
 # Lorem
