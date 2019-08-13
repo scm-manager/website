@@ -1,21 +1,15 @@
 import React from "react";
-import Page from "../layout/Page";
 import Title from "../components/Title";
 import Subtitle from "../components/Subtitle";
 import SEO from "../components/SEO";
+import PageContainer from "../layout/PageContainer";
 
 const AboutPage = () => (
-  <Page>
+  <PageContainer>
     <SEO title="about" />
-    <div className="container section">
-      <div className="columns">
-        <div className="column is-three-quarters">
-          <Title>About</Title>
-          <Subtitle>SCM-Manager Plugin Backend</Subtitle>
-        </div>
-      </div>
-    </div>
-  </Page>
+    <Title>About</Title>
+    <Subtitle>SCM-Manager Plugin Backend</Subtitle>
+  </PageContainer>
 );
 
 export default AboutPage;

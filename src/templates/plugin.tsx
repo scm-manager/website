@@ -7,6 +7,7 @@ import Subtitle from "../components/Subtitle";
 import { Release as ReleaseType } from "../types/release";
 import Release from "../components/Release";
 import SEO from "../components/SEO";
+import PageContainer from "../layout/PageContainer";
 
 const renderReleases = (releases: ReleaseType[]) => {
   if (releases.length > 0) {
@@ -21,25 +22,23 @@ const Plugin = ({ data }) => {
   const plugin = data.markdownRemark;
   const releases = data.allReleasesYaml.nodes;
   return (
-    <Page>
+    <PageContainer>
       <SEO title={"Plugin " + plugin.frontmatter.displayName} />
-      <div className="container section is-plugin">
-        <div className="columns">
-          <div className="column is-three-quarters">
-            <Title>{plugin.frontmatter.displayName}</Title>
-            <Subtitle>{plugin.frontmatter.description}</Subtitle>
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{ __html: plugin.html }}
-            />
-          </div>
-          <div className="column content is-one-quarter">
-            <h2>Releases</h2>
-            {renderReleases(releases)}
-          </div>
+      <div className="columns">
+        <div className="column is-three-quarters is-plugin">
+          <Title>{plugin.frontmatter.displayName}</Title>
+          <Subtitle>{plugin.frontmatter.description}</Subtitle>
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{ __html: plugin.html }}
+          />
+        </div>
+        <div className="column content is-one-quarter">
+          <h2>Releases</h2>
+          {renderReleases(releases)}
         </div>
       </div>
-    </Page>
+    </PageContainer>
   );
 };
 

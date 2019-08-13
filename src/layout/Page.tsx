@@ -18,9 +18,7 @@ type Props = {
 const Page: React.FunctionComponent<Props> = ({ children }) => (
   <PageWrapper>
     <Header />
-    <Main>
-      <section>{children}</section>
-    </Main>
+    <Main>{children}</Main>
     <Footer />
   </PageWrapper>
 );
