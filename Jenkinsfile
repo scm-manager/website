@@ -49,7 +49,7 @@ pipeline {
       }
       steps {
         withCredentials([file(credentialsId: 'kubeconfig-oss-helm', variable: 'KUBECONFIG')]) {
-          sh "helm upgrade --install --set image.tag=${version} plugin-center helm/plugin-center"
+          sh "helm upgrade --install --set image.tag=${version} plugin-center deployment/plugin-center"
         }
       }
     }
