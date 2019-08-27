@@ -51,7 +51,7 @@ pipeline {
         }
       }
       steps {
-        withCredentials([file(credentialsId: 'kubeconfig-oss-helm', variable: 'KUBECONFIG')]) {
+        withCredentials([file(credentialsId: 'helm-client-scm-manager', variable: 'KUBECONFIG')]) {
           sh "helm upgrade --install --set image.tag=${version} plugin-center deployment/plugin-center"
         }
       }
