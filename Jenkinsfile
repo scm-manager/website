@@ -56,6 +56,15 @@ pipeline {
         }
       }
     }
+
+    stage('Trigger API Build') {
+      when {
+        branch 'master'
+      }
+      steps {
+        build job: 'scm-manager/scm-manager-bitbucket/plugin-center-api/master', wait: false
+      }
+    }
     
   }
 }
