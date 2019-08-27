@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: scmmanager/plugin-center
-  tag: 0.2.1
+  tag: latest
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
