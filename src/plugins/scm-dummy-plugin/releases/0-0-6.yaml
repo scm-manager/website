@@ -1,8 +1,8 @@
 plugin: scm-dummy-plugin
 tag: 0.0.6
-date: 2019-08-27T06:18:34Z
+date: 2019-08-27T06:32:29Z
 url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-dummy-plugin/0.0.6/scm-dummy-plugin-0.0.6.smp
-checksum: f5ff1f996a6c09f1ddd29aa9815d6d808d82c9a5c1da9959131055eb8257bd9b
+checksum: 8475c27c2785bcf66ab5c932da4691294e7227a4f8ffd7fc6f1227e3f5cecb01
 conditions:
   minVersion: 2.0.0-SNAPSHOT
   os:
