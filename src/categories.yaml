@@ -6,6 +6,10 @@
   displayName: Authentication
   description: Plugins which are adding support various authentication systems
   icon: users
+- name: authorization
+  displayName: Authorization
+  description: To be done...
+  icon: lock
 - name: continuous-integration
   displayName: Continuous Integration
   description: Support for various Continuous Integration systems
@@ -22,6 +26,10 @@
   displayName: Legacy Support
   description: To be done...
   icon: hand-holding
+- name: library
+  displayName: Library
+  description: To be done...
+  icon: envelope
 - name: workflow
   displayName: Workflow
   description: To be done...
