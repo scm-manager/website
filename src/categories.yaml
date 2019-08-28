@@ -10,3 +10,7 @@
   displayName: Continuous Integration
   description: Support for various Continuous Integration systems
   icon: sync
+- name: legacy-support
+  displayName: Legacy Support
+  description: To be done...
+  icon: hand-holding
