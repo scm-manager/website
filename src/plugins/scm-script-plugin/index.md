@@ -1,0 +1,9 @@
+---
+name: scm-script-plugin
+displayName: Script
+description: Script support for scm-manager
+category: workflow
+author: Cloudogu GmbH
+---
+
+To be done ...
