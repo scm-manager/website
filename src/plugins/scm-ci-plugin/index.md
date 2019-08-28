@@ -1,0 +1,9 @@
+---
+name: scm-ci-plugin
+displayName: Continuous integration
+description: Accepts analysis status and displays it
+category: continuous-integration
+author: Cloudogu GmbH
+---
+
+To be done ...
