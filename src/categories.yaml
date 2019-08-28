@@ -22,3 +22,7 @@
   displayName: Legacy Support
   description: To be done...
   icon: hand-holding
+- name: workflow
+  displayName: Workflow
+  description: To be done...
+  icon: comments
