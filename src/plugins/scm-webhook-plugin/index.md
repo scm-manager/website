@@ -1,0 +1,9 @@
+---
+name: scm-webhook-plugin
+displayName: Webhook
+description: Notifies a remote webserver whenever a repository is pushed to
+category: workflow
+author: Cloudogu GmbH
+---
+
+To be done ...
