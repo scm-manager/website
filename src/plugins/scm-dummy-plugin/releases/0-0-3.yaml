@@ -1,12 +1,12 @@
 plugin: scm-dummy-plugin
 tag: 0.0.3
-date: 2019-08-26T14:15:03Z
+date: 2019-08-29T05:41:16Z
 url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-dummy-plugin/0.0.3/scm-dummy-plugin-0.0.3.smp
-author: Cloudogu GmbH
-checksum: 5c9e41a0520fd81137ba7fd5d5e8d88066ab8c98c1f6cfa1be1a6ce664429480
+checksum: ecf758159b0e1d55447e8ed46260cc8f08d2dacf37f6da944ad14f8763bf63d3
 conditions:
   minVersion: 2.0.0-SNAPSHOT
   os:
   - Linux
   - Solaris
   arch: amd64
+  
