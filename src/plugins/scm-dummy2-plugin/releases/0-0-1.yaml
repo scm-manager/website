@@ -1,0 +1,12 @@
+plugin: scm-dummy2-plugin
+tag: 0.0.1
+date: 2019-09-03T11:33:48Z
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-dummy-plugin/0.0.1/scm-dummy-plugin-0.0.1.smp
+checksum: e1e3d588d6b5c21281d86178598e0e3ac680bb84d3c66eb1ea9504698e8a0f21
+conditions:
+  minVersion: 2.0.0-SNAPSHOT
+  os:
+  - Linux
+  - Solaris
+  arch: amd64
+  
