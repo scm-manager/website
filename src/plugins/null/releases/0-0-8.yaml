@@ -1,0 +1,12 @@
+plugin: null
+tag: 0.0.8
+date: 2019-09-03T07:28:14Z
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-dummy-plugin/0.0.8/scm-dummy-plugin-0.0.8.smp
+checksum: f345c4ee987f19cbed75b656c28c91644e8611b0f7ad6f4673540a30044f5aea
+conditions:
+  minVersion: 2.0.0-SNAPSHOT
+  os:
+  - Linux
+  - Solaris
+  arch: amd64
+  
