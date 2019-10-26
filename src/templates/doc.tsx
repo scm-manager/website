@@ -6,33 +6,46 @@ import Subtitle from "../components/Subtitle";
 import SEO from "../components/SEO";
 import DocNavigation from "../components/DocNavigation";
 import PageContainer from "../layout/PageContainer";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
-const renderToc = content => {
-  if (content.frontmatter.displayToc) {
+const renderToc = page => {
+  if (page.frontmatter.displayToc) {
     return (
       <aside
         className="content"
-        dangerouslySetInnerHTML={{ __html: content.tableOfContents }}
+        dangerouslySetInnerHTML={{ __html: page.tableOfContents }}
       />
     );
   }
   return null;
 };
 
-const Plugin = ({ data }) => {
-  const content = data.markdownRemark;
+const Doc = ({ data }) => {
+  let page;
+  let content;
+  if (data.markdownRemark) {
+    page = data.markdownRemark;
+    content = <div
+    className="content"
+    dangerouslySetInnerHTML={{ __html: page.html }}
+  />;
+  } else if (data.mdx) {
+    page = data.mdx;
+    content = <div className="content">
+      <MDXRenderer>
+        {data.mdx.body}
+      </MDXRenderer>
+    </div>
+  }
   return (
     <PageContainer>
-      <SEO title={content.frontmatter.title} />
+      <SEO title={page.frontmatter.title} />
       <div className="columns">
         <div className="column is-three-quarters">
-          <Title>{content.frontmatter.title}</Title>
-          <Subtitle>{content.frontmatter.subtitle}</Subtitle>
-          {renderToc(content)}
-          <div
-            className="content"
-            dangerouslySetInnerHTML={{ __html: content.html }}
-          />
+          <Title>{page.frontmatter.title}</Title>
+          <Subtitle>{page.frontmatter.subtitle}</Subtitle>
+          {renderToc(page)}
+          {content}
         </div>
         <div className="column is-one-quarter">
           <DocNavigation />
@@ -53,7 +66,16 @@ export const query = graphql`
         displayToc
       }
     }
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
+      tableOfContents
+      frontmatter {
+        title
+        subtitle
+        displayToc
+      }
+    }
   }
 `;
 
-export default Plugin;
+export default Doc;

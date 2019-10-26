@@ -9,9 +9,19 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
+// resolve src for mdx
+// https://github.com/ChristopherBiscardi/gatsby-mdx/issues/176#issuecomment-429569578
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
+  })
+}
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `MarkdownRemark` || node.internal.type === `Mdx`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` });
     createNodeField({
       node,
@@ -65,9 +75,23 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+      allMdx {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
     }
   `).then(result => {
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const edges = [
+      ...result.data.allMarkdownRemark.edges,
+      ...result.data.allMdx.edges,
+    ];
+
+    edges.forEach(({ node }) => {
       if (node.fields.slug.startsWith("/plugins")) {
         createPage(createPluginPage(node));
       } else {

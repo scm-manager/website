@@ -9,14 +9,23 @@ const createTitle = frontmatter => {
   return frontmatter.subtitle ? frontmatter.subtitle : frontmatter.title;
 };
 
+const createNavigationItems = (data) => {
+  return [
+    ...data.allMarkdownRemark.edges,
+    ...data.allMdx.edges
+  ].sort((a, b) => {
+    return a.node.frontmatter.order - b.node.frontmatter.order;
+  });
+}
+
 const DocNavigation = () => {
   const data = useStaticQuery(query);
-  console.log(data);
+  const items = createNavigationItems(data);
   return (
     <aside className="menu">
       <p className="menu-label">Documentation</p>
       <ul className="menu-list">
-        {data.allMarkdownRemark.edges.map(edge => (
+        {items.map(edge => (
           <li key={edge.node.fields.slug}>
             <Link
               to={edge.node.fields.slug}
@@ -36,7 +45,6 @@ const query = graphql`
   {
     allMarkdownRemark(
       filter: { fields: { slug: { glob: "/docs/**" } } }
-      sort: { fields: [frontmatter___order], order: ASC }
     ) {
       edges {
         node {
@@ -45,6 +53,24 @@ const query = graphql`
           }
           frontmatter {
             title
+            order
+            subtitle
+            navigation
+          }
+        }
+      }
+    }
+    allMdx(
+      filter: { fields: { slug: { glob: "/docs/**" } } }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            order
             subtitle
             navigation
           }
