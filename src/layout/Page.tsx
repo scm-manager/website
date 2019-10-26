@@ -1,9 +1,11 @@
 import * as React from "react";
 import styled from "styled-components";
+import { MDXProvider } from "@mdx-js/react";
 
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
+import MdxCodeBlock from "../components/MdxCodeBlock";
 
 const PageWrapper = styled.div`
   display: flex;
@@ -15,10 +17,17 @@ type Props = {
   children: React.ReactNode;
 };
 
+const components = {
+  code: MdxCodeBlock,
+  pre: ({ children }) => <>{children}</>,
+};
+
 const Page: React.FunctionComponent<Props> = ({ children }) => (
   <PageWrapper>
     <Header />
-    <Main>{children}</Main>
+    <MDXProvider components={components}>
+      <Main>{children}</Main>
+    </MDXProvider>
     <Footer />
   </PageWrapper>
 );
