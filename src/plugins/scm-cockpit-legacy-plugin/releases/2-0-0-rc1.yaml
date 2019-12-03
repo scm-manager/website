@@ -1,0 +1,10 @@
+plugin: scm-cockpit-legacy-plugin
+tag: 2.0.0-rc1
+date: 2019-12-03T06:54:17Z
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-cockpit-legacy-plugin/2.0.0-rc1/scm-cockpit-legacy-plugin-2.0.0-rc1.smp
+checksum: d8bcae999b4c9603706dc7dafe2b669dd14c5f4ba54a309b60817548149bc610
+conditions:
+  minVersion: 2.0.0-rc1
+  os:
+  arch: 
+  
