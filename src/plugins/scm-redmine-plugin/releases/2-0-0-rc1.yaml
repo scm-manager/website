@@ -1,0 +1,10 @@
+plugin: scm-redmine-plugin
+tag: 2.0.0-rc1
+date: 2019-12-03T08:29:27Z
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-redmine-plugin/2.0.0-rc1/scm-redmine-plugin-2.0.0-rc1.smp
+checksum: c2c48943a1c78b98b21fcb009b019b53d627b382d887fcaa36157c7f67424427
+conditions:
+  minVersion: 2.0.0-rc1
+  os:
+  arch: 
+  
