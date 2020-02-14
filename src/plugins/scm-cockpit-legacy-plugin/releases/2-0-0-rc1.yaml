@@ -8,4 +8,4 @@ dependencies:
 - scm-activity-plugin
 - scm-statistic-plugin
 conditions:
-  min-version: 2.0.0-rc1
+  minVersion: 2.0.0-rc1

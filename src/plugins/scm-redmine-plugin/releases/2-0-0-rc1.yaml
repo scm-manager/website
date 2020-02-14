@@ -6,4 +6,4 @@ checksum: 834285e06b2ca45896a5b1cbb531bc262a78eb177117d3a8ce6f8b45f3ed33be
 dependencies:
 - scm-issuetracker-plugin
 conditions:
-  min-version: 2.0.0-rc1
+  minVersion: 2.0.0-rc1

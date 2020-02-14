@@ -4,4 +4,4 @@ date: '2019-12-03T10:15:26Z'
 url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-jenkins-plugin/2.0.0-rc1/scm-jenkins-plugin-2.0.0-rc1.smp
 checksum: 891609773368c64515299d6800eaa3f6e958db1ee6549d6165a00859e0ec7a33
 conditions:
-  min-version: 2.0.0-rc1
+  minVersion: 2.0.0-rc1
