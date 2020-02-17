@@ -6,4 +6,4 @@ checksum: 0c1c5fbdcb65e8ffe7ae896bdff9491522662fab08404afb8f6c7e706ddb9f73
 dependencies:
 - scm-mail-plugin
 conditions:
-  min-version: 2.0.0-rc2
+  minVersion: 2.0.0-rc2
