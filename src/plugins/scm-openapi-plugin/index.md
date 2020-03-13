@@ -1,0 +1,9 @@
+---
+name: scm-openapi-plugin
+displayName: OpenAPI
+description: OpenAPI Spec and Swagger UI for SCM-Manager
+category: documentation
+author: Cloudogu GmbH
+---
+
+To be done ...

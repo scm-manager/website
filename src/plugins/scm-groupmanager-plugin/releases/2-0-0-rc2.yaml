@@ -1,0 +1,7 @@
+plugin: 2.0.0-rc2
+tag: 2.0.0-rc2
+date: '2020-03-13T08:51:05Z'
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-groupmanager-plugin/2.0.0-rc2/scm-groupmanager-plugin-2.0.0-rc2.smp
+checksum: 46cffa655f689d85645be299dc6668872565783db90022cb4d1f5fb8fb94c09a
+conditions:
+  minVersion: 2.0.0-rc5

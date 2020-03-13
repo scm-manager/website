@@ -1,0 +1,7 @@
+plugin: 2.0.0-rc2
+tag: 2.0.0-rc2
+date: '2020-03-13T09:51:57Z'
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-webhook-plugin/2.0.0-rc2/scm-webhook-plugin-2.0.0-rc2.smp
+checksum: 5aa46f1fc790a6b100d4db2c4f27015804072e39a0c753829cce9e67305b6cb1
+conditions:
+  minVersion: 2.0.0-rc5

@@ -1,0 +1,7 @@
+plugin: 2.0.0-rc3
+tag: 2.0.0-rc3
+date: '2020-03-13T09:13:03Z'
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-ssh-plugin/2.0.0-rc3/scm-ssh-plugin-2.0.0-rc3.smp
+checksum: 999e91a3836edfe23142c6c05d10767d71391a673405fc343e3612278eeb417e
+conditions:
+  minVersion: 2.0.0-rc5

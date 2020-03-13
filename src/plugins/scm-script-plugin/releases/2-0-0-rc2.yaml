@@ -1,0 +1,7 @@
+plugin: 2.0.0-rc2
+tag: 2.0.0-rc2
+date: '2020-03-13T09:02:04Z'
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-script-plugin/2.0.0-rc2/scm-script-plugin-2.0.0-rc2.smp
+checksum: 03ae2fd067fbe36ed0db936d992f0611a7bac41a8c87bcf031785c08a44f1ac7
+conditions:
+  minVersion: 2.0.0-rc5

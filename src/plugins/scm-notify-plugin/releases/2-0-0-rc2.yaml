@@ -1,0 +1,9 @@
+plugin: 2.0.0-rc2
+tag: 2.0.0-rc2
+date: '2020-03-13T10:34:38Z'
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-notify-plugin/2.0.0-rc2/scm-notify-plugin-2.0.0-rc2.smp
+checksum: 7974233ce61fec3c9af629145b171c2de484f543ae7e67e6e8e8fc609be2710f
+dependencies:
+- scm-mail-plugin
+conditions:
+  minVersion: 2.0.0-rc5

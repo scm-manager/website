@@ -1,0 +1,7 @@
+plugin: 2.0.0-rc3
+tag: 2.0.0-rc3
+date: '2020-03-13T09:47:28Z'
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-pathwp-plugin/2.0.0-rc3/scm-pathwp-plugin-2.0.0-rc3.smp
+checksum: 7459bb1d35a84973c23d95e8fceb1a74c34375dfb8cd27046943fad12e10d343
+conditions:
+  minVersion: 2.0.0-rc5

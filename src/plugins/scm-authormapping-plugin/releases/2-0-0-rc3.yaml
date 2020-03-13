@@ -1,0 +1,7 @@
+plugin: 2.0.0-rc3
+tag: 2.0.0-rc3
+date: '2020-03-13T09:45:35Z'
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-authormapping-plugin/2.0.0-rc3/scm-authormapping-plugin-2.0.0-rc3.smp
+checksum: 5a07860ae918c50bc475a3db543669afc22c5777ce849d0468b81d94ba505d52
+conditions:
+  minVersion: 2.0.0-rc5

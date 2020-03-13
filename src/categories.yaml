@@ -14,6 +14,10 @@
   displayName: Continuous Integration
   description: Support for various Continuous Integration systems
   icon: sync
+- name: documentation
+  displayName: Documentation
+  description: To be done ...
+  icon: book
 - name: information
   displayName: Information
   description: To be done...
