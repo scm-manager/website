@@ -1,0 +1,9 @@
+plugin: 2.0.0-rc7
+tag: 2.0.0-rc7
+date: '2020-03-16T15:10:40Z'
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-review-plugin/2.0.0-rc7/scm-review-plugin-2.0.0-rc7.smp
+checksum: 9874cf862eb6b29c7227c2282166dbde7f7b4310499fb286f422b52cd5ff570e
+dependencies:
+- scm-mail-plugin
+conditions:
+  minVersion: 2.0.0-rc3
