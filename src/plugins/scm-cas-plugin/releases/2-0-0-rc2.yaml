@@ -1,0 +1,7 @@
+plugin: scm-cas-plugin
+tag: 2.0.0-rc2
+date: '2020-03-13T08:55:54Z'
+url: https://maven.scm-manager.org/nexus/service/local/repositories/plugin-releases/content/sonia/scm/plugins/scm-cas-plugin/2.0.0-rc2/scm-cas-plugin-2.0.0-rc2.smp
+checksum: 13e2a83996b84b86a29acb64773e91289aab7492
+conditions:
+  minVersion: 2.0.0-rc5
