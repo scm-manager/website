@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `SCM-Manager Plugin Center`,
-    description: `Find the right plugin for your SCM-Manager instance`,
+    title: `SCM-Manager`,
+    description: `The easiest way to share and manage your Git, Mercurial and Subversion repositories.`,
     author: `@ssdorra`,
   },
   plugins: [
@@ -19,8 +19,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `SCM-Manager Plugin Center`,
-        short_name: `scm-manager pc`,
+        name: `SCM-Manager`,
+        short_name: `scm-manager`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#33b2e8`,

@@ -101,7 +101,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     result.data.allCategoriesYaml.nodes.forEach(node => {
       createPage({
-        path: `/categories/${node.name}`,
+        path: `/plugins/categories/${node.name}`,
         component: path.resolve(`./src/templates/category.tsx`),
         context: {
           // Data passed to context is available

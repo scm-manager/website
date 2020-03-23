@@ -21,6 +21,7 @@ const NavbarMenu = ({ active, toggleActive }: Props) => {
       <div className="navbar-end">
         <NavbarItem to="/" value="Home" />
         <NavbarItem to="/docs/" value="Docs" partiallyActive={true} />
+        <NavbarItem to="/plugins/" value="Plugins" partiallyActive={true} />
         <NavbarItem to="/about" value="About" />
       </div>
     </div>
