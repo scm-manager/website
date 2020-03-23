@@ -1,17 +1,19 @@
 import React, { FunctionComponent } from "react";
+import { Plugin } from "../types/plugin";
 import { Release as ReleaseType } from "../types/release";
 
 type Props = {
+  plugin: Plugin;
   release: ReleaseType;
 };
 
-const Release: FunctionComponent<Props> = ({ release }) => (
+const Release: FunctionComponent<Props> = ({ plugin, release }) => (
   <div className="card">
     <div className="card-content">
       <div className="media">
         <div className="media-content">
           <p className="title is-4">{release.tag}</p>
-          <p className="subtitle is-6"><span className="has-text-grey">Released by</span><br/>{release.author}</p>
+          <p className="subtitle is-6"><span className="has-text-grey">Released by</span><br/>{plugin.author}</p>
         </div>
       </div>
       <div className="content">

@@ -1,0 +1,7 @@
+plugin: scm-editor-plugin
+tag: 2.0.0-rc3
+date: '2020-03-13T10:46:31Z'
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-editor-plugin/2.0.0-rc3/scm-editor-plugin-2.0.0-rc3.smp
+checksum: 93eb0d482b4076de583a1ec0a953aa233c47bff833272894f6b2eead13333d8d
+conditions:
+  minVersion: 2.0.0-rc5

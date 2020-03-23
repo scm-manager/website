@@ -1,0 +1,7 @@
+plugin: scm-statistic-plugin
+tag: 2.0.0-rc2
+date: '2020-03-13T09:37:05Z'
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-statistic-plugin/2.0.0-rc2/scm-statistic-plugin-2.0.0-rc2.smp
+checksum: 4a77b6e01dc20637b4434d8e53b4a62cd76155ec1c7110e5a751ee4f8e53c260
+conditions:
+  minVersion: 2.0.0-rc5

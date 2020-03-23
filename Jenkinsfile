@@ -62,7 +62,7 @@ pipeline {
         branch 'master'
       }
       steps {
-        build job: 'scm-manager/scm-manager-bitbucket/plugin-center-api/master', wait: false
+        build job: 'scm-manager-github/plugin-center-api/master', wait: false
       }
     }
     

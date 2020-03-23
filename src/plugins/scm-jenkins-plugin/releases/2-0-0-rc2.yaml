@@ -1,0 +1,7 @@
+plugin: scm-jenkins-plugin
+tag: 2.0.0-rc2
+date: '2020-03-13T09:54:48Z'
+url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-jenkins-plugin/2.0.0-rc2/scm-jenkins-plugin-2.0.0-rc2.smp
+checksum: 4346b14e3e0da614cb8fb550436dbb82ded61cee906a4364d6e8e495f3d8e1f1
+conditions:
+  minVersion: 2.0.0-rc5
