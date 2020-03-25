@@ -1,22 +1,19 @@
 import React, { FC } from "react";
-import FeatureColumn from "./FeatureColumn";
-import Title from "../Title";
-import Feature from "./Feature";
+import Feature, { FeatureProps } from "./Feature";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import TextColumn from "./TextColumn";
+import ImageColumn from "./ImageColumn";
 
-const NoDependencies: FC = () => (
-  <Feature>
-    <FeatureColumn alignRight>
+const NoDependencies: FC<FeatureProps> = props => (
+  <Feature {...props}>
+    <TextColumn title="No dependencies">
+      No webservers, databases or caches are required. SCM-Manager is very
+      lightweight and does not force you to install a ton of infrastructure
+      components.
+    </TextColumn>
+    <ImageColumn>
       <FontAwesomeIcon icon="project-diagram" size="4x" />
-    </FeatureColumn>
-    <FeatureColumn>
-      <Title>No dependencies</Title>
-      <p>
-        No webservers, databases or caches are required. SCM-Manager is very
-        lightweight and does not force you to install a ton of infrastructure
-        components.
-      </p>
-    </FeatureColumn>
+    </ImageColumn>
   </Feature>
 );
 

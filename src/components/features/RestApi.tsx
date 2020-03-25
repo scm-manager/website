@@ -1,25 +1,22 @@
 import React, { FC } from "react";
-import FeatureColumn from "./FeatureColumn";
-import Title from "../Title";
-import Feature from "./Feature";
+import Feature, { FeatureProps } from "./Feature";
 import { Openapiinitiative } from "@icons-pack/react-simple-icons";
+import TextColumn from "./TextColumn";
+import ImageColumn from "./ImageColumn";
 
-const RestApi: FC = () => (
-  <Feature>
-    <FeatureColumn alignRight>
-      <Title>REST API</Title>
-      <p>
-        We provide you a rich{" "}
-        <a href="https://martinfowler.com/articles/richardsonMaturityModel.html">
-          Level 3 RESTful WebService
-        </a>{" "}
-        for every funktion of SCM-Manager. This makes it easy to integrate with
-        your internal processes.
-      </p>
-    </FeatureColumn>
-    <FeatureColumn>
+const RestApi: FC<FeatureProps> = props => (
+  <Feature {...props}>
+    <TextColumn title="REST API">
+      We provide you a rich{" "}
+      <a href="https://martinfowler.com/articles/richardsonMaturityModel.html">
+        Level 3 RESTful WebService
+      </a>{" "}
+      for every funktion of SCM-Manager. This makes it easy to integrate with
+      your internal processes.
+    </TextColumn>
+    <ImageColumn>
       <Openapiinitiative size="4em" />
-    </FeatureColumn>
+    </ImageColumn>
   </Feature>
 );
 

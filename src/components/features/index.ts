@@ -1,3 +1,4 @@
+export { default as Features } from "./Features";
 export { default as SourceCodeManagement } from "./SourceCodeManagement";
 export { default as EasyInstallation } from "./EasyInstallation";
 export { default as SimpleConfiguration } from "./SimpleConfiguration";

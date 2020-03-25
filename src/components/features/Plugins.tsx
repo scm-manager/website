@@ -1,7 +1,5 @@
 import React, { FC } from "react";
-import FeatureColumn from "./FeatureColumn";
-import Title from "../Title";
-import Feature from "./Feature";
+import Feature, { FeatureProps } from "./Feature";
 import IconGroup from "../IconGroup";
 import {
   Jira,
@@ -13,17 +11,16 @@ import {
   Git,
   Subversion,
 } from "@icons-pack/react-simple-icons";
+import TextColumn from "./TextColumn";
+import ImageColumn from "./ImageColumn";
 
-const Plugins: FC = () => (
-  <Feature>
-    <FeatureColumn alignRight>
-      <Title>Plugins</Title>
-      <p>
-        We provide you a lot of useful plugins from a wide range of categories
-        out of the box.
-      </p>
-    </FeatureColumn>
-    <FeatureColumn>
+const Plugins: FC<FeatureProps> = props => (
+  <Feature {...props}>
+    <TextColumn title="Plugins">
+      We provide you a lot of useful plugins from a wide range of categories out
+      of the box.
+    </TextColumn>
+    <ImageColumn>
       <IconGroup>
         <Jira />
         <Jenkins />
@@ -36,7 +33,7 @@ const Plugins: FC = () => (
         <Git />
         <Subversion />
       </IconGroup>
-    </FeatureColumn>
+    </ImageColumn>
   </Feature>
 );
 

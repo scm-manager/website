@@ -17,6 +17,7 @@ import {
   Plugins,
   Extensible,
   OpenSource,
+  Features,
 } from "../components/features";
 
 const IndexPage = () => {
@@ -56,17 +57,19 @@ const IndexPage = () => {
       </section>
       <section className="hero">
         <div className="container hero-body">
-          <SourceCodeManagement />
-          <EasyInstallation />
-          <SimpleConfiguration />
-          <NoDependencies />
-          <Authentication />
-          <Authorization />
-          <RestApi />
-          <UserInterface />
-          <Plugins />
-          <Extensible />
-          <OpenSource />
+          <Features>
+            <SourceCodeManagement />
+            <EasyInstallation />
+            <Plugins />
+            <Extensible />
+            <RestApi />
+            <Authentication />
+            <Authorization />
+            <SimpleConfiguration />
+            <NoDependencies />
+            <UserInterface />
+            <OpenSource />
+          </Features>
         </div>
       </section>
     </Page>

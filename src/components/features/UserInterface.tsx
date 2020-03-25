@@ -1,7 +1,6 @@
 import React, { FC } from "react";
-import FeatureColumn from "./FeatureColumn";
 import Title from "../Title";
-import Feature from "./Feature";
+import Feature, { FeatureProps } from "./Feature";
 import {
   Html5,
   Css3,
@@ -12,10 +11,16 @@ import {
   Bulma,
 } from "@icons-pack/react-simple-icons";
 import IconGroup from "../IconGroup";
+import TextColumn from "./TextColumn";
+import ImageColumn from "./ImageColumn";
 
-const UserInterface: FC = () => (
-  <Feature>
-    <FeatureColumn alignRight>
+const UserInterface: FC<FeatureProps> = props => (
+  <Feature {...props}>
+    <TextColumn title="User Interface">
+      SCM-Manager comes with a nice looking rich user interface, which provides
+      you with a smooth user experience.
+    </TextColumn>
+    <ImageColumn>
       <IconGroup>
         <Html5 />
         <Css3 />
@@ -27,14 +32,7 @@ const UserInterface: FC = () => (
         <Reactrouter />
         <Bulma />
       </IconGroup>
-    </FeatureColumn>
-    <FeatureColumn>
-      <Title>User Interface</Title>
-      <p>
-        SCM-Manager comes with a nice looking rich user interface, which
-        provides you with a smooth user experience.
-      </p>
-    </FeatureColumn>
+    </ImageColumn>
   </Feature>
 );
 

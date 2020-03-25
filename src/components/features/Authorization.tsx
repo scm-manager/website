@@ -1,21 +1,18 @@
 import React, { FC } from "react";
-import FeatureColumn from "./FeatureColumn";
-import Title from "../Title";
-import Feature from "./Feature";
+import Feature, { FeatureProps } from "./Feature";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import TextColumn from "./TextColumn";
+import ImageColumn from "./ImageColumn";
 
-const Authorization: FC = () => (
-  <Feature>
-    <FeatureColumn alignRight>
+const Authorization: FC<FeatureProps> = props => (
+  <Feature {...props}>
+    <TextColumn title="Authorization">
+      SCM-Manager provides a fine grained authorization model. Give users or
+      groups of users exactly the permissions the need.
+    </TextColumn>
+    <ImageColumn>
       <FontAwesomeIcon icon="users-cog" size="4x" />
-    </FeatureColumn>
-    <FeatureColumn>
-      <Title>Authorization</Title>
-      <p>
-        SCM-Manager provides a fine grained authorization model. Give users or
-        groups of users exactly the permissions the need.
-      </p>
-    </FeatureColumn>
+    </ImageColumn>
   </Feature>
 );
 
