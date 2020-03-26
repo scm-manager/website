@@ -4,7 +4,7 @@ import Page from "../layout/Page";
 import Title from "../components/Title";
 import Subtitle from "../components/Subtitle";
 import Img from "gatsby-image";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import {
   SourceCodeManagement,
   EasyInstallation,
@@ -45,6 +45,9 @@ const IndexPage = () => {
                 The easiest way to share and manage your Git, Mercurial and
                 Subversion repositories
               </Subtitle>
+              <Link className="button is-primary is-large" to="/docs/installation/">
+                Getting started
+              </Link>
             </div>
             <div className="column is-4">
               <Img

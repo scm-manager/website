@@ -1,10 +1,11 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 
-type Props = {
+export type TabProps = {
   title: string;
+  icon?: ReactNode;
 };
 
-const Tab: FC<Props> = ({ children }) => {
+const Tab: FC<TabProps> = ({ children }) => {
   return <>{children}</>;
 };
 

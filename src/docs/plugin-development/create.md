@@ -2,7 +2,6 @@
 title: Create a plugin
 subtitle: Create a plugin from Maven Archetype
 displayToc: true
-order: 10
 ---
 
 # Requirements

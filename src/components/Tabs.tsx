@@ -1,6 +1,11 @@
 import React, { FC, ReactNode, useState } from "react";
+import styled from "styled-components";
 
 type Props = {};
+
+const Icon = styled.span`
+  margin-right: 0.5rem;
+`;
 
 export const Tabs: FC<Props> = ({ children }) => {
   const [active, setActive] = useState(0);
@@ -12,9 +17,11 @@ export const Tabs: FC<Props> = ({ children }) => {
     }
     return (
       <li className={tabClass}>
-        {/**
+        <a onClick={() => setActive(i)}>
+          {/**
         // @ts-ignore */}
-        <a onClick={() => setActive(i)}>{child.props.title}</a>
+         {child.props.icon ? <Icon>{child.props.icon}</Icon> : ""}{child.props.title}
+        </a>
       </li>
     );
   };

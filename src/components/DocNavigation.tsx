@@ -9,43 +9,58 @@ const createTitle = frontmatter => {
   return frontmatter.subtitle ? frontmatter.subtitle : frontmatter.title;
 };
 
-const createNavigationItems = (data) => {
-  return [
-    ...data.allMarkdownRemark.edges,
-    ...data.allMdx.edges
-  ].sort((a, b) => {
-    return a.node.frontmatter.order - b.node.frontmatter.order;
+const createNavigationItems = data => {
+  const items = {};
+  [...data.allMarkdownRemark.edges, ...data.allMdx.edges].forEach(edge => {
+    items[edge.node.fields.slug] = {
+      ...edge.node.frontmatter,
+      slug: edge.node.fields.slug,
+    };
   });
-}
+  return items;
+};
 
 const DocNavigation = () => {
   const data = useStaticQuery(query);
   const items = createNavigationItems(data);
   return (
     <aside className="menu">
-      <p className="menu-label">Documentation</p>
-      <ul className="menu-list">
-        {items.map(edge => (
-          <li key={edge.node.fields.slug}>
-            <Link
-              to={edge.node.fields.slug}
-              activeClassName="is-active"
-              title={createTitle(edge.node.frontmatter)}
-            >
-              {createLabel(edge.node.frontmatter)}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {data.allNavigationYaml.nodes.map(node => (
+        <React.Fragment key={node.section}>
+          <p className="menu-label">{node.section}</p>
+          <ul className="menu-list">
+            {node.entries
+              .map(entry => items["/docs" + entry])
+              .filter(node => !!node)
+              .map(node => {
+                return (
+                  <li key={node.slug}>
+                    <Link
+                      to={node.slug}
+                      activeClassName="is-active"
+                      title={createTitle(node)}
+                    >
+                      {createLabel(node)}
+                    </Link>
+                  </li>
+                );
+              })}
+          </ul>
+        </React.Fragment>
+      ))}
     </aside>
   );
 };
 
 const query = graphql`
   {
-    allMarkdownRemark(
-      filter: { fields: { slug: { glob: "/docs/**" } } }
-    ) {
+    allNavigationYaml {
+      nodes {
+        section
+        entries
+      }
+    }
+    allMarkdownRemark(filter: { fields: { slug: { glob: "/docs/**" } } }) {
       edges {
         node {
           fields {
@@ -53,16 +68,12 @@ const query = graphql`
           }
           frontmatter {
             title
-            order
             subtitle
-            navigation
           }
         }
       }
     }
-    allMdx(
-      filter: { fields: { slug: { glob: "/docs/**" } } }
-    ) {
+    allMdx(filter: { fields: { slug: { glob: "/docs/**" } } }) {
       edges {
         node {
           fields {
@@ -70,9 +81,7 @@ const query = graphql`
           }
           frontmatter {
             title
-            order
             subtitle
-            navigation
           }
         }
       }

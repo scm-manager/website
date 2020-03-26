@@ -1,7 +1,6 @@
 ---
 title: Publish
 subtitle: Publish your Plugin
-order: 99
 ---
 
 If you want to share your plugin with SCM-Manager users, you can publish it to the SCM-Manager Plugin Center by following the steps below.

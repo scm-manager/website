@@ -1,0 +1,9 @@
+- section: Getting started
+  entries:
+  - /installation/
+
+- section: Plugin Development
+  entries:
+  - /plugin-development/create/
+  - /plugin-development/i18n/
+  - /plugin-development/publish/
