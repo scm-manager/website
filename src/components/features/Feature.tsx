@@ -23,14 +23,20 @@ const Feature: FC<FeatureProps> = ({ children, textRight }) => {
   const columns = [];
   if (textRight) {
     columns.push(React.cloneElement(image, {
-      alignRight: true
+      alignRight: true,
+      key: 1
     }));
-    columns.push(text);
+    columns.push(React.cloneElement(text, {
+      key: 2
+    }));
   } else {
     columns.push(React.cloneElement(text, {
-      alignRight: true
+      alignRight: true,
+      key: 1
     }));
-    columns.push(image);
+    columns.push(React.cloneElement(image, {
+      key: 2
+    }));
   }
 
   return (
