@@ -39,7 +39,7 @@ const IndexPage = () => {
       <section className="hero is-welcome">
         <div className="container hero-body">
           <div className="columns is-vcentered has-text-centered">
-            <div className="column is-8">
+            <div className="column is-three-quarters-tablet">
               <Title>SCM-Manager</Title>
               <Subtitle>
                 The easiest way to share and manage your Git, Mercurial and
@@ -49,7 +49,7 @@ const IndexPage = () => {
                 Getting started
               </Link>
             </div>
-            <div className="column is-4">
+            <div className="column is-hidden-mobile">
               <Img
                 alt="SCM-Manager Logo"
                 fluid={data.file.childImageSharp.fluid}
