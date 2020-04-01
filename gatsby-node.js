@@ -54,6 +54,16 @@ const createDocPage = (node) => {
   };
 };
 
+const createPost = (node) => {
+  return {
+    path: `/blog${node.fields.slug}`,
+    component: path.resolve(`./src/templates/post.tsx`),
+    context: {
+      slug: node.fields.slug,
+    },
+  };
+};
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return graphql(`
@@ -94,8 +104,10 @@ exports.createPages = ({ graphql, actions }) => {
     edges.forEach(({ node }) => {
       if (node.fields.slug.startsWith("/plugins")) {
         createPage(createPluginPage(node));
-      } else {
+      } else if (node.fields.slug.startsWith("/docs")) {
         createPage(createDocPage(node));
+      } else if (node.fields.slug.startsWith("/posts")) {
+        createPage(createPost(node));
       }
     });
 
