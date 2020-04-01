@@ -23,13 +23,16 @@ const Paginator: FC<Props> = ({ slugBase, numPages, currentPage }) => {
       to = slugBase + previousPage + "/";
     }
 
+    const props: any = {};
+
     let classes = className;
     if (currentPage <= 1) {
       classes += " is-disabled";
+      props.onClick = (e) => e.preventDefault();
     }
 
     return (
-      <Link className={classes} to={to}>
+      <Link {...props} className={classes} to={to}>
         {label ? label : previousPage.toString()}
       </Link>
     );
@@ -38,13 +41,18 @@ const Paginator: FC<Props> = ({ slugBase, numPages, currentPage }) => {
   const renderNextButton = (className: string, label?: string) => {
     let nextPage = currentPage + 1;
 
+    const props: any = {};
+
     let classes = className;
     if (currentPage + 1 > numPages) {
       nextPage = currentPage;
       classes += " is-disabled";
+      props.onClick = (e) => e.preventDefault();
     }
+
+
     return (
-      <Link className={classes} to={slugBase + nextPage + "/"}>
+      <Link {...props} className={classes} to={slugBase + nextPage + "/"}>
         {label ? label : nextPage.toString()}
       </Link>
     );
