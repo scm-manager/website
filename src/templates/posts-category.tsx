@@ -26,11 +26,12 @@ const PostsCategory = ({ pageContext, data }) => {
 };
 
 export const query = graphql`
-  query($category: String!) {
+  query($category: String!, $skip: Int!, $limit: Int!) {
     posts: allMarkdownRemark(
       filter: { frontmatter: { categories: { eq: $category } } }
       sort: { fields: [frontmatter___date, frontmatter___title], order: DESC }
-      limit: 10
+      limit: $limit
+      skip: $skip
     ) {
       edges {
         node {
