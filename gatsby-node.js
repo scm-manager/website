@@ -64,6 +64,26 @@ const createPost = (node) => {
   };
 };
 
+const createBlogCategory = (category) => {
+  return {
+    path: `/blog/categories/${category}`,
+    component: path.resolve(`./src/templates/posts-category.tsx`),
+    context: {
+      category
+    },
+  }
+};
+
+const createBlogAuthor = (author) => {
+  return {
+    path: `/blog/authors/${author}`,
+    component: path.resolve(`./src/templates/posts-author.tsx`),
+    context: {
+      author
+    },
+  }
+};
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return graphql(`
@@ -94,6 +114,20 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+      categories: allMarkdownRemark(
+        filter: { fields: { slug: { glob: "/posts/**" } } }
+      ) {
+        group(field: frontmatter___categories) {
+          fieldValue
+        }
+      }
+      authors: allMarkdownRemark(
+        filter: { fields: { slug: { glob: "/posts/**" } } }
+      ) {
+        group(field: frontmatter___author) {
+          fieldValue
+        }
+      }
     }
   `).then(result => {
     const edges = [
@@ -121,6 +155,13 @@ exports.createPages = ({ graphql, actions }) => {
           name: node.name,
         },
       });
+    });
+
+    result.data.categories.group.forEach(category => {
+      createPage(createBlogCategory(category.fieldValue));
+    });
+    result.data.authors.group.forEach(author => {
+      createPage(createBlogAuthor(author.fieldValue));
     });
   });
 };

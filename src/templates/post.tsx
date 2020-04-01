@@ -1,41 +1,42 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 
 import Title from "../components/Title";
-import Subtitle from "../components/Subtitle";
 import SEO from "../components/SEO";
 import PageContainer from "../layout/PageContainer";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import BlogSideNavigation from "../components/BlogSideNavigation";
 
-const Post = ({ data }) => {
-  let page;
-  let content;
-  if (data.markdownRemark) {
-    page = data.markdownRemark;
-    content = (
-      <div
-        className="content"
-        dangerouslySetInnerHTML={{ __html: page.html }}
-      />
-    );
-  } else if (data.mdx) {
-    page = data.mdx;
-    content = (
-      <div className="content">
-        <MDXRenderer>{data.mdx.body}</MDXRenderer>
-      </div>
-    );
-  }
+const Post = ({ data: { post } }) => {
   return (
     <PageContainer>
-      <SEO title={page.frontmatter.title} />
+      <SEO title={post.frontmatter.title} />
       <div className="columns">
         <div className="column is-three-quarters">
-          <Title>{page.frontmatter.title}</Title>
-          <Subtitle>{page.frontmatter.author}</Subtitle>
-          {content}
+          <Title>{post.frontmatter.title}</Title>
+          <p className="has-text-grey	">
+            Posted on {post.frontmatter.date} by{" "}
+            <Link to={`/blog/authors/${post.frontmatter.author}`}>
+              {post.frontmatter.author}
+            </Link>
+          </p>
+          <hr />
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+          <hr />
+          <p className="has-text-grey">
+            Posted in{" "}
+            {post.frontmatter.categories.map((category, i) => (
+              <>
+                <Link to={`/blog/categories/${category}`}>{category}</Link>
+                {i + 1 < post.frontmatter.categories.length ? ", " : ""}
+              </>
+            ))}
+          </p>
+          <hr />
         </div>
-        <div className="column is-one-quarter"></div>
+        <BlogSideNavigation />
       </div>
     </PageContainer>
   );
@@ -43,22 +44,13 @@ const Post = ({ data }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    post: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      tableOfContents
       frontmatter {
         title
-        subtitle
-        displayToc
-      }
-    }
-    mdx(fields: { slug: { eq: $slug } }) {
-      body
-      tableOfContents
-      frontmatter {
-        title
-        subtitle
-        displayToc
+        date(formatString: "YYYY-MM-DD")
+        author
+        categories
       }
     }
   }
