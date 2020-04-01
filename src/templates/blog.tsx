@@ -6,8 +6,9 @@ import { graphql } from "gatsby";
 import Subtitle from "../components/Subtitle";
 import BlogSideNavigation from "../components/BlogSideNavigation";
 import PostList from "../components/PostList";
+import Paginator from "../components/Paginator";
 
-const Posts = ({ data }) => {
+const Posts = ({ data, pageContext }) => {
   return (
     <PageContainer>
       <SEO title="Blog" />
@@ -16,6 +17,7 @@ const Posts = ({ data }) => {
           <Title>Blog</Title>
           <Subtitle>News and posts from the SCM-Manager team</Subtitle>
           <PostList posts={data.posts.edges.map(edge => edge.node)} />
+          <Paginator slugBase="/blog/" {...pageContext} />
         </div>
         <BlogSideNavigation />
       </div>
@@ -24,11 +26,12 @@ const Posts = ({ data }) => {
 };
 
 export const query = graphql`
-  query {
+  query($skip: Int!, $limit: Int!) {
     posts: allMarkdownRemark(
       filter: { fields: { slug: { glob: "/posts/**" } } }
-      sort: { fields: [frontmatter___date, frontmatter___title], order: DESC }
-      limit: 10
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: $limit
+      skip: $skip
     ) {
       edges {
         node {

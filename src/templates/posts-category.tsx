@@ -6,16 +6,18 @@ import { graphql } from "gatsby";
 import Subtitle from "../components/Subtitle";
 import BlogSideNavigation from "../components/BlogSideNavigation";
 import PostList from "../components/PostList";
+import Paginator from "../components/Paginator";
 
-const PostsCategory = ({ pageContext: { category }, data }) => {
+const PostsCategory = ({ pageContext, data }) => {
   return (
     <PageContainer>
       <SEO title="Blog" />
       <div className="columns">
         <div className="column is-three-quarters">
-          <Title>Category: {category}</Title>
-          <Subtitle>News and posts from {category} category</Subtitle>
+          <Title>Category: {pageContext.category}</Title>
+          <Subtitle>News and posts from {pageContext.category} category</Subtitle>
           <PostList posts={data.posts.edges.map(edge => edge.node)} />
+          <Paginator slugBase={`/blog/categories/${pageContext.category}/`} {...pageContext} />
         </div>
         <BlogSideNavigation />
       </div>

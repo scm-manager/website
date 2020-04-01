@@ -14,10 +14,10 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      modules: [path.resolve(__dirname, "src"), "node_modules"],
     },
-  })
-}
+  });
+};
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
@@ -31,7 +31,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-const createPluginPage = (node) => {
+const createPluginPage = node => {
   return {
     path: node.fields.slug,
     component: path.resolve(`./src/templates/plugin.tsx`),
@@ -44,7 +44,7 @@ const createPluginPage = (node) => {
   };
 };
 
-const createDocPage = (node) => {
+const createDocPage = node => {
   return {
     path: node.fields.slug,
     component: path.resolve(`./src/templates/doc.tsx`),
@@ -54,7 +54,7 @@ const createDocPage = (node) => {
   };
 };
 
-const createPost = (node) => {
+const createPost = node => {
   return {
     path: `/blog${node.fields.slug}`,
     component: path.resolve(`./src/templates/post.tsx`),
@@ -64,27 +64,7 @@ const createPost = (node) => {
   };
 };
 
-const createBlogCategory = (category) => {
-  return {
-    path: `/blog/categories/${category}`,
-    component: path.resolve(`./src/templates/posts-category.tsx`),
-    context: {
-      category
-    },
-  }
-};
-
-const createBlogAuthor = (author) => {
-  return {
-    path: `/blog/authors/${author}`,
-    component: path.resolve(`./src/templates/posts-author.tsx`),
-    context: {
-      author
-    },
-  }
-};
-
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
   return graphql(`
     {
@@ -93,6 +73,7 @@ exports.createPages = ({ graphql, actions }) => {
           name
         }
       }
+
       allMarkdownRemark {
         edges {
           node {
@@ -105,6 +86,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+
       allMdx {
         edges {
           node {
@@ -114,22 +96,44 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+
       categories: allMarkdownRemark(
         filter: { fields: { slug: { glob: "/posts/**" } } }
       ) {
         group(field: frontmatter___categories) {
           fieldValue
+          totalCount
         }
       }
+
       authors: allMarkdownRemark(
         filter: { fields: { slug: { glob: "/posts/**" } } }
       ) {
         group(field: frontmatter___author) {
           fieldValue
+          totalCount
+        }
+      }
+
+      posts: allMarkdownRemark(
+        filter: { fields: { slug: { glob: "/posts/**" } } }
+        sort: { fields: [frontmatter___date, frontmatter___title], order: DESC }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
         }
       }
     }
   `).then(result => {
+    if (result.errors) {
+      reporter.panicOnBuild(`Error while running GraphQL query.`);
+      return;
+    }
+
     const edges = [
       ...result.data.allMarkdownRemark.edges,
       ...result.data.allMdx.edges,
@@ -157,11 +161,65 @@ exports.createPages = ({ graphql, actions }) => {
       });
     });
 
+    const postsPerPage = 10;
+
     result.data.categories.group.forEach(category => {
-      createPage(createBlogCategory(category.fieldValue));
+      const numPages = Math.ceil(category.totalCount / postsPerPage);
+      Array.from({ length: category.totalCount }).forEach((_, i) => {
+        let pagePath = `/blog/categories/${category.fieldValue}`;
+        if (i > 0) {
+          pagePath += "/" + (i + 1);
+        }
+
+        createPage({
+          path: pagePath,
+          component: path.resolve(`./src/templates/posts-category.tsx`),
+          context: {
+            category: category.fieldValue,
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            numPages,
+            currentPage: i + 1,
+          },
+        });
+      });
     });
+
     result.data.authors.group.forEach(author => {
-      createPage(createBlogAuthor(author.fieldValue));
+      const numPages = Math.ceil(author.totalCount / postsPerPage);
+      Array.from({ length: author.totalCount }).forEach((_, i) => {
+        let pagePath = `/blog/authors/${author.fieldValue}`;
+        if (i > 0) {
+          pagePath += "/" + (i + 1);
+        }
+
+        createPage({
+          path: pagePath,
+          component: path.resolve(`./src/templates/posts-author.tsx`),
+          context: {
+            author: author.fieldValue,
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            numPages,
+            currentPage: i + 1,
+          },
+        });
+      });
+    });
+
+    const posts = result.data.posts.edges;
+    const numPages = Math.ceil(posts.length / postsPerPage);
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+        component: path.resolve("./src/templates/blog.tsx"),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1,
+        },
+      });
     });
   });
 };
