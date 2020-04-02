@@ -1,8 +1,56 @@
+const rssMetadataQuery = `
+{
+  site {
+    siteMetadata {
+      title
+      description
+      siteUrl
+      site_url: siteUrl
+    }
+  }
+}
+`;
+
+const rssEntryQuery = `
+{
+  allMarkdownRemark(
+    filter: { fields: { slug: { glob: "/posts/**" } } },
+    sort: { order: DESC, fields: [frontmatter___date] },
+  ) {
+    edges {
+      node {
+        excerpt
+        html
+        fields { slug }
+        frontmatter {
+          title
+          date
+        }
+      }
+    }
+  }
+}
+`;
+
+const rssEntrySerializer = ({ query: { site, allMarkdownRemark } }) => {
+  return allMarkdownRemark.edges.map(edge => {
+    return Object.assign({}, edge.node.frontmatter, {
+      description: edge.node.excerpt,
+      date: edge.node.frontmatter.date,
+      url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+      guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+      custom_elements: [{ "content:encoded": edge.node.html }],
+    })
+  })
+};
+
+
 module.exports = {
   siteMetadata: {
     title: `SCM-Manager`,
     description: `The easiest way to share and manage your Git, Mercurial and Subversion repositories.`,
     author: `@ssdorra`,
+    siteUrl: `https://scm-manager.org`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -58,6 +106,20 @@ module.exports = {
       },
     },
     `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: rssMetadataQuery,
+        feeds: [
+          {
+            serialize: rssEntrySerializer,
+            query: rssEntryQuery,
+            output: "/rss.xml",
+            title: "SCM-Manager RSS Feed",
+          },
+        ],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
