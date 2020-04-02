@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
+import styled from "styled-components";
 
 const createLabel = frontmatter => {
   return frontmatter.navigation ? frontmatter.navigation : frontmatter.title;
@@ -20,21 +21,25 @@ const createNavigationItems = data => {
   return items;
 };
 
+const Label = styled.label`
+  padding-left: 0.75rem;
+`;
+
 type SettingProps = {
   label: string;
   options: string[];
 };
 
 const Setting: FC<SettingProps> = ({ label, options }) => (
-  <div className="is-horizontal field">
-    <div className="field-label">
-      <label className="label">{label}</label>
+  <div className="columns is-horizontal field">
+    <div className="field-label column has-text-left is-one-third is-vcentered">
+      <Label>{label}</Label>
     </div>
-    <div className="field-body">
+    <div className="field-body column">
       <div className="field">
         <div className="control">
-          <div className="select">
-            <select>
+          <div className="select is-fullwidth">
+            <select className="is-fullwidth">
               {options.map(option => (
                 <option key={option}>{option}</option>
               ))}
