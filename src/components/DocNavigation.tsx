@@ -73,6 +73,7 @@ const DocNavigation = () => {
                       to={node.slug}
                       activeClassName="is-active"
                       title={createTitle(node)}
+                      partiallyActive={node.partiallyActive}
                     >
                       {createLabel(node)}
                     </Link>
@@ -116,6 +117,7 @@ const query = graphql`
           frontmatter {
             title
             subtitle
+            partiallyActive
           }
         }
       }

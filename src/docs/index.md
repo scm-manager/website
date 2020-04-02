@@ -1,10 +1,11 @@
 ---
 title: Documentation
-subtitle: SCM-Manager Plugin Documentation
+subtitle: SCM-Managert Documentation
 ---
 
-This documentation describes the development of plugins for SCM-Manager from zero up to the deployment in to the plugin center.
+This documentation describes the administration and usage of SCM-Manager.
 
-# Getting started
+## Version and language
 
-... to be done
+The documentation belongs to a specific language and version of SCM-Manager.
+You can choose your version and language on the menu to the right.
