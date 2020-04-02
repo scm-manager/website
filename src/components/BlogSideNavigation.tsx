@@ -32,7 +32,8 @@ const query = graphql`
 `;
 
 const MenuEntryIcon = styled(FontAwesomeIcon)`
-  width: 2.25rem !important;
+  width: 2rem !important;
+  margin-right: 0.5rem;
 `;
 
 const BlogSideNavigation: FC = () => {
