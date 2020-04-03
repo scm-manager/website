@@ -25,17 +25,19 @@ const Doc = ({ data }) => {
   let content;
   if (data.markdownRemark) {
     page = data.markdownRemark;
-    content = <div
-    className="content"
-    dangerouslySetInnerHTML={{ __html: page.html }}
-  />;
+    content = (
+      <div
+        className="content"
+        dangerouslySetInnerHTML={{ __html: page.html }}
+      />
+    );
   } else if (data.mdx) {
     page = data.mdx;
-    content = <div className="content">
-      <MDXRenderer>
-        {data.mdx.body}
-      </MDXRenderer>
-    </div>
+    content = (
+      <div className="content">
+        <MDXRenderer>{data.mdx.body}</MDXRenderer>
+      </div>
+    );
   }
   return (
     <PageContainer>
@@ -48,7 +50,7 @@ const Doc = ({ data }) => {
           {content}
         </div>
         <div className="column is-one-quarter">
-          <DocNavigation />
+          <DocNavigation navigation={data.navigation} />
         </div>
       </div>
     </PageContainer>
@@ -56,7 +58,14 @@ const Doc = ({ data }) => {
 };
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: String!, $version: String!, $language: String!) {
+    navigation: allNavigationYaml(
+      filter: {
+        fields: { version: { eq: $version }, language: { eq: $language } }
+      }
+    ) {
+      ...DocNavigation
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       tableOfContents

@@ -45,7 +45,7 @@ const IndexPage = () => {
                 The easiest way to share and manage your Git, Mercurial and
                 Subversion repositories
               </Subtitle>
-              <Link className="button is-primary is-large" to="/docs/installation/">
+              <Link className="button is-primary is-large" to="/docs/2.0.x/en/installation/">
                 Getting started
               </Link>
             </div>

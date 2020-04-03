@@ -28,6 +28,28 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       value: slug,
     });
+  } else if (node.internal.type === `NavigationYaml`) {
+    const slug = createFilePath({ node, getNode, basePath: `docs` });
+    createNodeField({
+      node,
+      name: `slug`,
+      value:
+        "/docs" + slug.substring(0, slug.length - ("navigation".length + 1)),
+    });
+
+    const slugParts = slug.split("/");
+    // array starts with an empty string
+    slugParts.shift();
+    createNodeField({
+      node,
+      name: `version`,
+      value: slugParts.shift(),
+    });
+    createNodeField({
+      node,
+      name: `language`,
+      value: slugParts.shift(),
+    });
   }
 };
 
@@ -45,11 +67,21 @@ const createPluginPage = node => {
 };
 
 const createDocPage = node => {
+  const slugParts = node.fields.slug.split("/");
+  // array start with an empty string
+  slugParts.shift();
+  // followed by docs
+  slugParts.shift();
+  const version = slugParts.shift();
+  const language = slugParts.shift();
   return {
     path: node.fields.slug,
     component: path.resolve(`./src/templates/doc.tsx`),
     context: {
       slug: node.fields.slug,
+      version,
+      language,
+      relativePath: "/" + slugParts.join("/"),
     },
   };
 };
@@ -222,4 +254,66 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       });
     });
   });
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = `
+    union Markdown = MarkdownRemark | Mdx
+
+    type NavigationYaml implements Node @infer {
+      entries: [Markdown]
+    }
+
+    type MarkdownRemark implements Node @infer {
+      frontmatter: MarkdownFrontmatter
+    }
+
+    type MarkdownFrontmatter @infer {
+      title: String
+      navigation: String
+      partiallyActive: Boolean
+    }
+
+    type Mdx implements Node @infer {
+      frontmatter: MdxFrontmatter
+    }
+
+    type MdxFrontmatter @infer {
+      title: String
+      navigation: String
+      partiallyActive: Boolean
+    }
+  `;
+
+  createTypes(typeDefs);
+};
+
+exports.createResolvers = ({ createResolvers, reporter }) => {
+  const resolvers = {
+    NavigationYaml: {
+      entries: {
+        resolve(source, args, context) {
+          const base = `/docs/${source.fields.version}/${source.fields.language}`;
+          return source.entries.map(entry => {
+            const entrySlug = base + entry;
+            let node = context.nodeModel
+              .getAllNodes({ type: "MarkdownRemark" })
+              .find(node => node.fields.slug === entrySlug);
+            if (!node) {
+              node = context.nodeModel
+              .getAllNodes({ type: "Mdx" })
+              .find(node => node.fields.slug === entrySlug);
+            }
+            if (!node) {
+              reporter.error(`could not find navigation entry for ${entrySlug}`);
+            }
+            return node;
+          });
+        },
+      },
+    },
+  };
+  createResolvers(resolvers);
 };
