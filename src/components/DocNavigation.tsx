@@ -74,23 +74,13 @@ export const docNavigationFragment = graphql`
     nodes {
       section
       entries {
-        ... on MarkdownRemark {
-          frontmatter {
-            title
-            subtitle
-          }
-          fields {
-            slug
-          }
+        frontmatter {
+          title
+          subtitle
+          partiallyActive
         }
-        ... on Mdx {
-          frontmatter {
-            title
-            subtitle
-          }
-          fields {
-            slug
-          }
+        fields {
+          slug
         }
       }
     }

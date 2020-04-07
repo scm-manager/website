@@ -6,7 +6,6 @@ import Subtitle from "../components/Subtitle";
 import SEO from "../components/SEO";
 import DocNavigation from "../components/DocNavigation";
 import PageContainer from "../layout/PageContainer";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 
 const renderToc = page => {
   if (page.frontmatter.displayToc) {
@@ -20,42 +19,25 @@ const renderToc = page => {
   return null;
 };
 
-const Doc = ({ data }) => {
-  let page;
-  let content;
-  if (data.markdownRemark) {
-    page = data.markdownRemark;
-    content = (
-      <div
-        className="content"
-        dangerouslySetInnerHTML={{ __html: page.html }}
-      />
-    );
-  } else if (data.mdx) {
-    page = data.mdx;
-    content = (
-      <div className="content">
-        <MDXRenderer>{data.mdx.body}</MDXRenderer>
+const Doc = ({ data }) => (
+  <PageContainer>
+    <SEO title={data.markdownRemark.frontmatter.title} />
+    <div className="columns">
+      <div className="column is-three-quarters">
+        <Title>{data.markdownRemark.frontmatter.title}</Title>
+        <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
+        {renderToc(data.markdownRemark)}
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+        />
       </div>
-    );
-  }
-  return (
-    <PageContainer>
-      <SEO title={page.frontmatter.title} />
-      <div className="columns">
-        <div className="column is-three-quarters">
-          <Title>{page.frontmatter.title}</Title>
-          <Subtitle>{page.frontmatter.subtitle}</Subtitle>
-          {renderToc(page)}
-          {content}
-        </div>
-        <div className="column is-one-quarter">
-          <DocNavigation navigation={data.navigation} />
-        </div>
+      <div className="column is-one-quarter">
+        <DocNavigation navigation={data.navigation} />
       </div>
-    </PageContainer>
-  );
-};
+    </div>
+  </PageContainer>
+);
 
 export const query = graphql`
   query($slug: String!, $version: String!, $language: String!) {
@@ -68,15 +50,6 @@ export const query = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      tableOfContents
-      frontmatter {
-        title
-        subtitle
-        displayToc
-      }
-    }
-    mdx(fields: { slug: { eq: $slug } }) {
-      body
       tableOfContents
       frontmatter {
         title

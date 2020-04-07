@@ -21,7 +21,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === `MarkdownRemark` || node.internal.type === `Mdx`) {
+  if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` });
     createNodeField({
       node,
@@ -119,16 +119,6 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         }
       }
 
-      allMdx {
-        edges {
-          node {
-            fields {
-              slug
-            }
-          }
-        }
-      }
-
       categories: allMarkdownRemark(
         filter: { fields: { slug: { glob: "/posts/**" } } }
       ) {
@@ -166,10 +156,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       return;
     }
 
-    const edges = [
-      ...result.data.allMarkdownRemark.edges,
-      ...result.data.allMdx.edges,
-    ];
+    const edges = result.data.allMarkdownRemark.edges;
 
     edges.forEach(({ node }) => {
       if (node.fields.slug.startsWith("/plugins")) {
@@ -260,30 +247,8 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   const typeDefs = `
-    union Markdown = MarkdownRemark | Mdx
-
     type NavigationYaml implements Node @infer {
-      entries: [Markdown]
-    }
-
-    type MarkdownRemark implements Node @infer {
-      frontmatter: MarkdownFrontmatter
-    }
-
-    type MarkdownFrontmatter @infer {
-      title: String
-      navigation: String
-      partiallyActive: Boolean
-    }
-
-    type Mdx implements Node @infer {
-      frontmatter: MdxFrontmatter
-    }
-
-    type MdxFrontmatter @infer {
-      title: String
-      navigation: String
-      partiallyActive: Boolean
+      entries: [MarkdownRemark]
     }
   `;
 
@@ -301,11 +266,6 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
             let node = context.nodeModel
               .getAllNodes({ type: "MarkdownRemark" })
               .find(node => node.fields.slug === entrySlug);
-            if (!node) {
-              node = context.nodeModel
-              .getAllNodes({ type: "Mdx" })
-              .find(node => node.fields.slug === entrySlug);
-            }
             if (!node) {
               reporter.error(`could not find navigation entry for ${entrySlug}`);
             }
