@@ -7,7 +7,7 @@ import Categories from "../components/plugins/Categories";
 
 const IndexPage = () => (
   <Page>
-    <SEO title="Home" />
+    <SEO title="Plugins" />
     <WelcomeSection />
     <Categories />
   </Page>
