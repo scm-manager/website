@@ -58,8 +58,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
-        path: `${__dirname}/src/`,
+        name: `components`,
+        path: `${__dirname}/content/`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -73,7 +73,7 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#33b2e8`,
         display: `minimal-ui`,
-        icon: `src/images/scm-manager_logo_img.png`, // This path is relative to the root of the site.
+        icon: `content/images/scm-manager_logo_img.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-typescript`,

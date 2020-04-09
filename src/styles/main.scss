@@ -21,7 +21,7 @@ $navbar-item-img-max-height: 6rem;
 //Navbar
 .app-header {
   // background-color: #002e4b;
-  // background-image: url(../images/scmManagerHero.jpg);
+  // background-image: url(./assets/scmManagerHero.jpg);
   // background-size: cover;
   // background-position: top center;
 }
@@ -79,7 +79,7 @@ a.navbar-item.is-active:after,
 // Welcome Section
 .is-welcome {
   background-color: #ccecf9;
-  background-image: url("../images/scm_pattern.svg");
+  background-image: url("./assets/scm_pattern.svg");
   background-size: cover;
 }
 .is-welcome .hero-body {
