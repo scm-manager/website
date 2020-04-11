@@ -1,5 +1,5 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React, { FC } from "react";
+import { graphql, PageProps } from "gatsby";
 
 import Title from "../components/Title";
 import Subtitle from "../components/Subtitle";
@@ -19,7 +19,11 @@ const renderToc = page => {
   return null;
 };
 
-const Doc = ({ data }) => (
+type DocPageProps = PageProps & {
+  data: any;
+};
+
+const Doc: FC<DocPageProps> = ({ path, data }) => (
   <PageContainer>
     <SEO title={data.markdownRemark.frontmatter.title} />
     <div className="columns">
@@ -33,7 +37,7 @@ const Doc = ({ data }) => (
         />
       </div>
       <div className="column is-one-quarter">
-        <DocNavigation navigation={data.navigation} />
+        <DocNavigation path={path} navigation={data.navigation} />
       </div>
     </div>
   </PageContainer>

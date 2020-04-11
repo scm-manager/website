@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { graphql, Link } from "gatsby";
+import { graphql, Link, navigate } from "gatsby";
 import styled from "styled-components";
 
 const createLabel = frontmatter => {
@@ -14,12 +14,42 @@ const Label = styled.label`
   padding-left: 0.75rem;
 `;
 
-type SettingProps = {
+type OptionObject = {
   label: string;
-  options: string[];
+  value: string;
 };
 
-const Setting: FC<SettingProps> = ({ label, options }) => (
+type Option = string | OptionObject;
+
+type SettingProps = {
+  label: string;
+  value: string;
+  options: Option[];
+  onChange: (value: string) => void;
+};
+
+const isOptionObject = (opt: Option): opt is OptionObject => {
+  return !!(opt as OptionObject).label;
+};
+
+const createOption = (opt: Option) => {
+  let label;
+  let value;
+  if (isOptionObject(opt)) {
+    label = opt.label;
+    value = opt.value;
+  } else {
+    label = opt as string;
+    value = opt as string;
+  }
+  return (
+    <option key={value} value={value}>
+      {label}
+    </option>
+  );
+};
+
+const Setting: FC<SettingProps> = ({ label, value, options, onChange }) => (
   <div className="columns is-horizontal field">
     <div className="field-label column has-text-left is-one-third is-vcentered">
       <Label>{label}</Label>
@@ -28,10 +58,12 @@ const Setting: FC<SettingProps> = ({ label, options }) => (
       <div className="field">
         <div className="control">
           <div className="select is-fullwidth">
-            <select className="is-fullwidth">
-              {options.map(option => (
-                <option key={option}>{option}</option>
-              ))}
+            <select
+              className="is-fullwidth"
+              onChange={e => onChange(e.target.value)}
+              value={value}
+            >
+              {options.map(createOption)}
             </select>
           </div>
         </div>
@@ -40,11 +72,61 @@ const Setting: FC<SettingProps> = ({ label, options }) => (
   </div>
 );
 
-const DocNavigation = ({ navigation }) => (
+const changeVersion = (path: string, version: string) => {
+  navigate(replacePathPart(path, 2, version));
+};
+
+const changeLanguage = (path: string, lang: string) => {
+  navigate(replacePathPart(path, 3, lang));
+};
+
+const findVersion = (path: string) => {
+  return findPathPart(path, 2);
+};
+
+const findLanguage = (path: string) => {
+  return findPathPart(path, 3);
+};
+
+const findPathPart = (path: string, index: number) => {
+  return path.split("/")[index];
+};
+
+const replacePathPart = (path: string, index: number, newPart: string) => {
+  const pathParts = path.split("/");
+  pathParts[index] = newPart;
+  return pathParts.join("/");
+};
+
+type Props = {
+  path: string;
+  navigation: any;
+};
+
+const DocNavigation: FC<Props> = ({ path, navigation }) => (
   <aside className="menu">
     <p className="menu-label">Settings</p>
-    <Setting label="Version" options={["2.0.x", "1.60.x"]} />
-    <Setting label="Language" options={["English", "Deutsch"]} />
+    <Setting
+      label="Version"
+      value={findVersion(path)}
+      options={["2.0.x", "1.60.x"]}
+      onChange={version => changeVersion(path, version)}
+    />
+    <Setting
+      label="Language"
+      value={findLanguage(path)}
+      options={[
+        {
+          value: "en",
+          label: "English",
+        },
+        {
+          value: "de",
+          label: "Deutsch",
+        },
+      ]}
+      onChange={language => changeLanguage(path, language)}
+    />
     {navigation.nodes.map(node => (
       <React.Fragment key={node.section}>
         <p className="menu-label">{node.section}</p>
