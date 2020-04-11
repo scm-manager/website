@@ -28,10 +28,10 @@ const Post = ({ data: { post } }) => {
           <p className="has-text-grey">
             Posted in{" "}
             {post.frontmatter.categories.map((category, i) => (
-              <>
+              <React.Fragment key={category}>
                 <Link to={`/blog/categories/${category}`}>{category}</Link>
                 {i + 1 < post.frontmatter.categories.length ? ", " : ""}
-              </>
+              </React.Fragment>
             ))}
           </p>
           <hr />

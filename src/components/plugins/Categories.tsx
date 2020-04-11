@@ -53,10 +53,7 @@ const Categories = () => {
     }
   `);
 
-  console.log(data);
-
   const rows = createRows(data.allCategoriesYaml.nodes);
-
   return (
     <section className="section">
       <div className="container categories">

@@ -13,11 +13,9 @@ const SmallMaringHR = styled.hr`
 const PostList: FC<Props> = ({ posts }) => (
   <>
     {posts.map(post => (
-      <div className="content">
+      <div key={post.fields.slug} className="content">
         <h2>
-          <Link to={`/blog${post.fields.slug}`}>
-            {post.frontmatter.title}
-          </Link>
+          <Link to={`/blog${post.fields.slug}`}>{post.frontmatter.title}</Link>
         </h2>
         <p className="has-text-grey	">
           Posted on {post.frontmatter.date} by{" "}
@@ -31,10 +29,10 @@ const PostList: FC<Props> = ({ posts }) => (
         <p className="has-text-grey">
           Posted in{" "}
           {post.frontmatter.categories.map((category, i) => (
-            <>
+            <React.Fragment key={category}>
               <Link to={`/blog/categories/${category}`}>{category}</Link>
               {i + 1 < post.frontmatter.categories.length ? ", " : ""}
-            </>
+            </React.Fragment>
           ))}
         </p>
         <SmallMaringHR />
