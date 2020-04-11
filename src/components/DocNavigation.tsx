@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { graphql, Link, navigate } from "gatsby";
+import { graphql, Link, navigate, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 
 const createLabel = frontmatter => {
@@ -103,53 +103,66 @@ type Props = {
   navigation: any;
 };
 
-const DocNavigation: FC<Props> = ({ path, navigation }) => (
-  <aside className="menu">
-    <p className="menu-label">Settings</p>
-    <Setting
-      label="Version"
-      value={findVersion(path)}
-      options={["2.0.x", "1.60.x"]}
-      onChange={version => changeVersion(path, version)}
-    />
-    <Setting
-      label="Language"
-      value={findLanguage(path)}
-      options={[
-        {
-          value: "en",
-          label: "English",
-        },
-        {
-          value: "de",
-          label: "Deutsch",
-        },
-      ]}
-      onChange={language => changeLanguage(path, language)}
-    />
-    {navigation.nodes.map(node => (
-      <React.Fragment key={node.section}>
-        <p className="menu-label">{node.section}</p>
-        <ul className="menu-list">
-          {node.entries.map(entry => {
-            return (
-              <li key={entry.fields.slug}>
-                <Link
-                  to={entry.fields.slug}
-                  activeClassName="is-active"
-                  title={createTitle(entry.frontmatter)}
-                  partiallyActive={entry.frontmatter.partiallyActive}
-                >
-                  {createLabel(entry.frontmatter)}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </React.Fragment>
-    ))}
-  </aside>
-);
+const DocNavigation: FC<Props> = ({ path, navigation }) => {
+  const data = useStaticQuery(versionAndLanguage);
+  return (
+    <aside className="menu">
+      <p className="menu-label">Settings</p>
+      <Setting
+        label="Version"
+        value={findVersion(path)}
+        options={data.versions.group
+          .map(g => g.fieldValue)
+          .sort()
+          .reverse()}
+        onChange={version => changeVersion(path, version)}
+      />
+      <Setting
+        label="Language"
+        value={findLanguage(path)}
+        options={data.languages.childrenLanguagesYaml}
+        onChange={language => changeLanguage(path, language)}
+      />
+      {navigation.nodes.map(node => (
+        <React.Fragment key={node.section}>
+          <p className="menu-label">{node.section}</p>
+          <ul className="menu-list">
+            {node.entries.map(entry => {
+              return (
+                <li key={entry.fields.slug}>
+                  <Link
+                    to={entry.fields.slug}
+                    activeClassName="is-active"
+                    title={createTitle(entry.frontmatter)}
+                    partiallyActive={entry.frontmatter.partiallyActive}
+                  >
+                    {createLabel(entry.frontmatter)}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </React.Fragment>
+      ))}
+    </aside>
+  );
+};
+
+const versionAndLanguage = graphql`
+  query {
+    languages: file(relativePath: { eq: "docs/languages.yml" }) {
+      childrenLanguagesYaml {
+        label
+        value
+      }
+    }
+    versions: allMarkdownRemark {
+      group(field: fields___version) {
+        fieldValue
+      }
+    }
+  }
+`;
 
 export const docNavigationFragment = graphql`
   fragment DocNavigation on NavigationYamlConnection {

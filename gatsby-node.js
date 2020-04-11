@@ -28,6 +28,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       value: slug,
     });
+    if (slug.startsWith("/docs")) {
+      appendVersionAndLanguageFields(createNodeField, node, slug.substring(5));
+    }
   } else if (node.internal.type === `NavigationYaml`) {
     const slug = createFilePath({ node, getNode, basePath: `docs` });
     createNodeField({
@@ -36,21 +39,24 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value:
         "/docs" + slug.substring(0, slug.length - ("navigation".length + 1)),
     });
-
-    const slugParts = slug.split("/");
-    // array starts with an empty string
-    slugParts.shift();
-    createNodeField({
-      node,
-      name: `version`,
-      value: slugParts.shift(),
-    });
-    createNodeField({
-      node,
-      name: `language`,
-      value: slugParts.shift(),
-    });
+    appendVersionAndLanguageFields(createNodeField, node, slug);
   }
+};
+
+const appendVersionAndLanguageFields = (createNodeField, node, slug) => { 
+  const slugParts = slug.split("/");
+  // array starts with an empty string
+  slugParts.shift();
+  createNodeField({
+    node,
+    name: `version`,
+    value: slugParts.shift(),
+  });
+  createNodeField({
+    node,
+    name: `language`,
+    value: slugParts.shift(),
+  });
 };
 
 const createPluginPage = node => {
@@ -267,7 +273,9 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
               .getAllNodes({ type: "MarkdownRemark" })
               .find(node => node.fields.slug === entrySlug);
             if (!node) {
-              reporter.error(`could not find navigation entry for ${entrySlug}`);
+              reporter.error(
+                `could not find navigation entry for ${entrySlug}`
+              );
             }
             return node;
           });
