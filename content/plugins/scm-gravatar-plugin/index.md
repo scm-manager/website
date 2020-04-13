@@ -1,9 +1,0 @@
----
-name: scm-gravatar-plugin
-displayName: Gravatar
-description: Gravatar icons for SCM-Manager
-category: information
-author: Cloudogu GmbH
----
-
-To be done ...

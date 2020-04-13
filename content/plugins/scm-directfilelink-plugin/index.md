@@ -1,9 +1,0 @@
----
-name: scm-directfilelink-plugin
-displayName: Direct Filelink
-description: Creates a direct link to the latest version of a file
-category: workflow
-author: Cloudogu GmbH
----
-
-To be done ...

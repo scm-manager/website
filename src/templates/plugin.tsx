@@ -19,39 +19,35 @@ const renderReleases = (plugin: PluginType, releases: ReleaseType[]) => {
   return <p>No releases yet</p>;
 };
 
-const Plugin = ({ data }) => {
-  const plugin = data.markdownRemark;
-  const releases = data.allReleasesYaml.nodes;
-  return (
-    <PageContainer>
-      <SEO title={"Plugin " + plugin.frontmatter.displayName} />
-      <div className="columns">
-        <div className="column is-three-quarters is-plugin">
-          <Title>{plugin.frontmatter.displayName}</Title>
-          <Subtitle>{plugin.frontmatter.description}</Subtitle>
-          <HtmlContent content={plugin.html} />
-        </div>
-        <div className="column content is-one-quarter">
-          <h2>Releases</h2>
-          {renderReleases(plugin.frontmatter, releases)}
-        </div>
+const Plugin = ({ data }) => (
+  <PageContainer>
+    <SEO title={"Plugin " + data.plugin.displayName} />
+    <div className="columns">
+      <div className="column is-three-quarters is-plugin">
+        <Title>{data.plugin.displayName}</Title>
+        <Subtitle>{data.plugin.description}</Subtitle>
+        <HtmlContent content={data.readme.html} />
       </div>
-    </PageContainer>
-  );
-};
+      <div className="column content is-one-quarter">
+        <h2>Releases</h2>
+        {renderReleases(data.plugin, data.releases.nodes)}
+      </div>
+    </div>
+  </PageContainer>
+);
 
 export const query = graphql`
-  query($slug: String!, $name: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        name
-        displayName
-        description
-        author
-      }
+  query($name: String!) {
+    plugin: pluginYaml(name: { eq: $name }) {
+      name
+      displayName
+      description
+      author
     }
-    allReleasesYaml(filter: { plugin: { eq: $name } }) {
+    readme: markdownRemark(fields: { plugin: { eq: $name } }) {
+      html
+    }
+    releases: allReleasesYaml(filter: { plugin: { eq: $name } }) {
       nodes {
         tag
         date(formatString: "Y-MM-DD")

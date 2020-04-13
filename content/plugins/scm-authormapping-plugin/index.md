@@ -1,9 +1,0 @@
----
-name: scm-authormapping-plugin
-displayName: Author Mapping
-description: Lookup and transform usernames to the real names stored in the scm-manager user database or in a mapping table
-category: information
-author: Cloudogu GmbH
----
-
-To be done ...

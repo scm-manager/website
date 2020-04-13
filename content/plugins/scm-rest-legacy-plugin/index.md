@@ -1,9 +1,0 @@
----
-name: scm-rest-legacy-plugin
-displayName: Rest
-description: Offers a subset of the SCM-Manager v1 REST API
-category: legacy-support
-author: Cloudogu GmbH
----
-
-To be done ...

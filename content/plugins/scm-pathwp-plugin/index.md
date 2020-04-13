@@ -1,9 +1,0 @@
----
-name: scm-pathwp-plugin
-displayName: Path Write Protection
-description: Adds path write protection for repositories
-category: authorization
-author: Cloudogu GmbH
----
-
-To be done ...

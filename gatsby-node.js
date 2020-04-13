@@ -30,6 +30,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     });
     if (slug.startsWith("/docs")) {
       appendVersionAndLanguageFields(createNodeField, node, slug.substring(5));
+    } else if (slug.startsWith("/plugins")) {
+      const plugin = slug.split("/")[2];
+      createNodeField({
+        node,
+        name: `plugin`,
+        value: plugin,
+      });
     }
   } else if (node.internal.type === `NavigationYaml`) {
     const slug = createFilePath({ node, getNode, basePath: `docs` });
@@ -61,13 +68,10 @@ const appendVersionAndLanguageFields = (createNodeField, node, slug) => {
 
 const createPluginPage = node => {
   return {
-    path: node.fields.slug,
+    path: `/plugins/${node.name}`,
     component: path.resolve(`./src/templates/plugin.tsx`),
     context: {
-      // Data passed to context is available
-      // in page queries as GraphQL variables.
-      slug: node.fields.slug,
-      name: node.frontmatter.name,
+      name: node.name,
     },
   };
 };
@@ -112,14 +116,17 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         }
       }
 
+      allPluginYaml {
+        nodes {
+          name
+        }
+      }
+
       allMarkdownRemark {
         edges {
           node {
             fields {
               slug
-            }
-            frontmatter {
-              name
             }
           }
         }
@@ -189,17 +196,17 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       redirectInBrowser: true,
     });
 
-    const edges = result.data.allMarkdownRemark.edges;
-
-    edges.forEach(({ node }) => {
-      if (node.fields.slug.startsWith("/plugins")) {
-        createPage(createPluginPage(node));
-      } else if (node.fields.slug.startsWith("/docs")) {
+    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      if (node.fields.slug.startsWith("/docs")) {
         createPage(createDocPage(node));
       } else if (node.fields.slug.startsWith("/posts")) {
         createPage(createPost(node));
       }
     });
+
+    result.data.allPluginYaml.nodes.forEach(node =>
+      createPage(createPluginPage(node))
+    );
 
     result.data.allCategoriesYaml.nodes.forEach(node => {
       createPage({

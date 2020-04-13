@@ -9,7 +9,7 @@ import Plugin from "../components/Plugin";
 import SEO from "../components/SEO";
 
 const Category = ({ data }) => {
-  const categories = data.allCategoriesYaml.nodes;
+  const categories = data.categories.nodes;
   if (!categories) {
     return null;
   }
@@ -26,8 +26,8 @@ const Category = ({ data }) => {
       </div>
       <div className="container section is-category">
         <div className="content">
-          {data.allMarkdownRemark.nodes.map(node => (
-            <Plugin key={node.frontmatter.name} plugin={node.frontmatter} />
+          {data.plugins.nodes.map(node => (
+            <Plugin key={node.name} plugin={node} />
           ))}
         </div>
       </div>
@@ -37,21 +37,19 @@ const Category = ({ data }) => {
 
 export const query = graphql`
   query($name: String!) {
-    allCategoriesYaml(filter: { name: { eq: $name } }) {
+    categories: allCategoriesYaml(filter: { name: { eq: $name } }) {
       nodes {
         icon
         displayName
         description
       }
     }
-    allMarkdownRemark(filter: { frontmatter: { category: { eq: $name } } }) {
+    plugins: allPluginYaml(filter: { category: { eq: $name } }) {
       nodes {
-        frontmatter {
-          name
-          author
-          displayName
-          description
-        }
+        name
+        author
+        displayName
+        description
       }
     }
   }

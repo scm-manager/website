@@ -1,9 +1,0 @@
----
-name: scm-cockpit-legacy-plugin
-displayName: Cockpit
-description: Offers a subset of the SCM-Manager v1 REST API for the use of Cloudogu Ecosystem Cockpit
-category: legacy-support
-author: Cloudogu GmbH
----
-
-To be done ...

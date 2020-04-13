@@ -1,9 +1,0 @@
----
-name: scm-jenkins-plugin
-displayName: Jenkins
-description: Pings your Jenkins CI server when a new commit is pushed to SCM-Manager
-category: continuous-integration
-author: Cloudogu GmbH
----
-
-To be done ...
