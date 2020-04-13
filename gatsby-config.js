@@ -104,6 +104,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-catch-links`,
     `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-plugin-feed`,
