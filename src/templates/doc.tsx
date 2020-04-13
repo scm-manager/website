@@ -6,15 +6,12 @@ import Subtitle from "../components/Subtitle";
 import SEO from "../components/SEO";
 import DocNavigation from "../components/DocNavigation";
 import PageContainer from "../layout/PageContainer";
+import HtmlContent from "../layout/HtmlContent";
+import TableOfContents from "../layout/TableOfContents";
 
 const renderToc = page => {
   if (page.frontmatter.displayToc) {
-    return (
-      <aside
-        className="content"
-        dangerouslySetInnerHTML={{ __html: page.tableOfContents }}
-      />
-    );
+    return <TableOfContents content={page.tableOfContents} />;
   }
   return null;
 };
@@ -31,10 +28,7 @@ const Doc: FC<DocPageProps> = ({ path, data }) => (
         <Title>{data.markdownRemark.frontmatter.title}</Title>
         <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
         {renderToc(data.markdownRemark)}
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
-        />
+        <HtmlContent content={data.markdownRemark.html} />
       </div>
       <div className="column is-one-quarter">
         <DocNavigation path={path} navigation={data.navigation} />

@@ -4,6 +4,8 @@ import SEO from "../../components/SEO";
 import Title from "../../components/Title";
 import Subtitle from "../../components/Subtitle";
 import { PageProps, graphql, useStaticQuery, Link } from "gatsby";
+import Menu from "../../components/Menu";
+import NavigationSettings from "../../components/NavigationSettings";
 
 type PathContext = {
   version?: string;
@@ -189,8 +191,17 @@ const DocsNotFoundPage: FC<PageProps> = ({ location }) => {
   return (
     <PageContainer>
       <SEO title="404: Documentation not found" />
-      <Title>Documentation not Found</Title>
-      {content}
+      <div className="columns">
+        <div className="column is-three-quarters">
+          <Title>Documentation not Found</Title>
+          {content}
+        </div>
+        <div className="column is-one-quarter">
+          <Menu>
+            <NavigationSettings path={location.pathname} />
+          </Menu>
+        </div>
+      </div>
     </PageContainer>
   );
 };

@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
+import HtmlContent from "../layout/HtmlContent";
 
 type Props = {
   posts: Array<any>;
@@ -24,7 +25,7 @@ const PostList: FC<Props> = ({ posts }) => (
           </Link>
         </p>
         <SmallMaringHR />
-        <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+        <HtmlContent content={post.excerpt} />
         <SmallMaringHR />
         <p className="has-text-grey">
           Posted in{" "}

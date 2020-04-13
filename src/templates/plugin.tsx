@@ -8,6 +8,7 @@ import { Plugin as PluginType } from "../types/plugin";
 import Release from "../components/Release";
 import SEO from "../components/SEO";
 import PageContainer from "../layout/PageContainer";
+import HtmlContent from "../layout/HtmlContent";
 
 const renderReleases = (plugin: PluginType, releases: ReleaseType[]) => {
   if (releases.length > 0) {
@@ -28,10 +29,7 @@ const Plugin = ({ data }) => {
         <div className="column is-three-quarters is-plugin">
           <Title>{plugin.frontmatter.displayName}</Title>
           <Subtitle>{plugin.frontmatter.description}</Subtitle>
-          <div
-            className="content"
-            dangerouslySetInnerHTML={{ __html: plugin.html }}
-          />
+          <HtmlContent content={plugin.html} />
         </div>
         <div className="column content is-one-quarter">
           <h2>Releases</h2>

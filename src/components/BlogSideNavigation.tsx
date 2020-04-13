@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Menu from "./Menu";
 
 const Count = styled.span`
   width: 2rem;
@@ -40,7 +41,7 @@ const BlogSideNavigation: FC = () => {
   const { categories, authors } = useStaticQuery(query);
   return (
     <div className="column is-one-quarter">
-      <aside className="menu">
+      <Menu>
         <p className="menu-label">Special</p>
         <ul className="menu-list">
           <li>
@@ -77,7 +78,7 @@ const BlogSideNavigation: FC = () => {
             </li>
           ))}
         </ul>
-      </aside>
+      </Menu>
     </div>
   );
 };

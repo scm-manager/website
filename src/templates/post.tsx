@@ -5,6 +5,7 @@ import Title from "../components/Title";
 import SEO from "../components/SEO";
 import PageContainer from "../layout/PageContainer";
 import BlogSideNavigation from "../components/BlogSideNavigation";
+import HtmlContent from "../layout/HtmlContent";
 
 const Post = ({ data: { post } }) => {
   return (
@@ -20,10 +21,7 @@ const Post = ({ data: { post } }) => {
             </Link>
           </p>
           <hr />
-          <div
-            className="content"
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
+          <HtmlContent content={post.html} />
           <hr />
           <p className="has-text-grey">
             Posted in{" "}
