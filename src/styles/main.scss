@@ -10,6 +10,10 @@ $navbar-item-img-max-height: 6rem;
 
 @import "bulma/bulma.sass";
 
+div.content {
+  overflow: scroll;
+}
+
 .spacing-right {
   margin-right: 1rem;
 }
@@ -46,7 +50,6 @@ a.navbar-item.is-active:after,
   display: block !important;
 }
 
-// Cards
 .categories {
   margin-bottom: 2rem;
 
@@ -72,6 +75,7 @@ a.navbar-item.is-active:after,
     }
   }
 }
+
 .pointer {
   cursor: pointer;
 }
