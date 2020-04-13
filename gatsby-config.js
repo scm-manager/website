@@ -53,6 +53,7 @@ module.exports = {
     siteUrl: `https://scm-manager.org`,
   },
   plugins: [
+    `gatsby-plugin-meta-redirect`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {

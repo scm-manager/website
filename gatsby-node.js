@@ -43,7 +43,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-const appendVersionAndLanguageFields = (createNodeField, node, slug) => { 
+const appendVersionAndLanguageFields = (createNodeField, node, slug) => {
   const slugParts = slug.split("/");
   // array starts with an empty string
   slugParts.shift();
@@ -103,7 +103,7 @@ const createPost = node => {
 };
 
 exports.createPages = ({ graphql, actions, reporter }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
   return graphql(`
     {
       allCategoriesYaml {
@@ -155,12 +155,39 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           }
         }
       }
+
+      languages: file(relativePath: { eq: "docs/languages.yml" }) {
+        childrenLanguagesYaml {
+          label
+          value
+        }
+      }
+
+      versions: allMarkdownRemark {
+        group(field: fields___version) {
+          fieldValue
+        }
+      }
     }
   `).then(result => {
     if (result.errors) {
       reporter.panicOnBuild(`Error while running GraphQL query.`);
       return;
     }
+
+    const defaultLanguage =
+      result.data.languages.childrenLanguagesYaml[0].value;
+    const latestVersion = result.data.versions.group
+      .map(g => g.fieldValue)
+      .sort()
+      .reverse()[0];
+
+    createRedirect({
+      fromPath: "/docs/",
+      toPath: `/docs/${latestVersion}/${defaultLanguage}/`,
+      isPermanent: true,
+      redirectInBrowser: true,
+    });
 
     const edges = result.data.allMarkdownRemark.edges;
 
@@ -286,7 +313,6 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
   createResolvers(resolvers);
 };
 
-
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage, deletePage } = actions;
   // Check if the page is a localized 404
@@ -296,4 +322,4 @@ exports.onCreatePage = async ({ page, actions }) => {
     deletePage(oldPage);
     createPage(page);
   }
-}
+};
