@@ -82,6 +82,8 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-autolink-headers`,
+          `gatsby-remark-external-links`,
           `gatsby-remark-prismjs`,
           {
             resolve: `gatsby-remark-images`,
@@ -94,7 +96,6 @@ module.exports = {
             },
           },
           `gatsby-remark-images-medium-zoom`,
-          `gatsby-remark-autolink-headers`,
           {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
