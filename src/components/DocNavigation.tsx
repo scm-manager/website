@@ -2,6 +2,8 @@ import React, { FC } from "react";
 import { graphql, Link } from "gatsby";
 import NavigationSettings from "./NavigationSettings";
 import Menu from "./Menu";
+import MenuSection from "./MenuSection";
+import MenuEntry from "./MenuEntry";
 
 const createLabel = frontmatter => {
   return frontmatter.navigation ? frontmatter.navigation : frontmatter.title;
@@ -21,25 +23,22 @@ const DocNavigation: FC<Props> = ({ path, navigation }) => {
     <Menu>
       <NavigationSettings path={path} />
       {navigation.nodes.map(node => (
-        <React.Fragment key={node.section}>
-          <p className="menu-label">{node.section}</p>
-          <ul className="menu-list">
-            {node.entries.map(entry => {
-              return (
-                <li key={entry.fields.slug}>
-                  <Link
-                    to={entry.fields.slug}
-                    activeClassName="is-active"
-                    title={createTitle(entry.frontmatter)}
-                    partiallyActive={entry.frontmatter.partiallyActive}
-                  >
-                    {createLabel(entry.frontmatter)}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </React.Fragment>
+        <MenuSection key={node.section} title={node.section}>
+          {node.entries.map(entry => {
+            return (
+              <MenuEntry key={entry.fields.slug}>
+                <Link
+                  to={entry.fields.slug}
+                  activeClassName="is-active"
+                  title={createTitle(entry.frontmatter)}
+                  partiallyActive={entry.frontmatter.partiallyActive}
+                >
+                  {createLabel(entry.frontmatter)}
+                </Link>
+              </MenuEntry>
+            );
+          })}
+        </MenuSection>
       ))}
     </Menu>
   );

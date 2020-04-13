@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Menu from "./Menu";
+import MenuSection from "./MenuSection";
+import MenuEntry from "./MenuEntry";
 
 const Count = styled.span`
   width: 2rem;
@@ -42,18 +44,16 @@ const BlogSideNavigation: FC = () => {
   return (
     <div className="column is-one-quarter">
       <Menu>
-        <p className="menu-label">Special</p>
-        <ul className="menu-list">
-          <li>
+        <MenuSection title="Special">
+          <MenuEntry>
             <a href="/rss.xml" target="_blank">
               <MenuEntryIcon icon="rss" /> RSS
             </a>
-          </li>
-        </ul>
-        <p className="menu-label">Categories</p>
-        <ul className="menu-list">
+          </MenuEntry>
+        </MenuSection>
+        <MenuSection title="Categories">
           {categories.group.map(c => (
-            <li key={c.fieldValue}>
+            <MenuEntry key={c.fieldValue}>
               <Link
                 to={`/blog/categories/${c.fieldValue}`}
                 activeClassName="is-active"
@@ -61,13 +61,12 @@ const BlogSideNavigation: FC = () => {
                 <Count className="tag is-rounded">{c.totalCount}</Count>{" "}
                 {c.fieldValue}
               </Link>
-            </li>
+            </MenuEntry>
           ))}
-        </ul>
-        <p className="menu-label">Authors</p>
-        <ul className="menu-list">
+        </MenuSection>
+        <MenuSection title="Authors">
           {authors.group.map(a => (
-            <li key={a.fieldValue}>
+            <MenuEntry key={a.fieldValue}>
               <Link
                 to={`/blog/authors/${a.fieldValue}`}
                 activeClassName="is-active"
@@ -75,9 +74,9 @@ const BlogSideNavigation: FC = () => {
                 <Count className="tag is-rounded">{a.totalCount}</Count>{" "}
                 {a.fieldValue}
               </Link>
-            </li>
+            </MenuEntry>
           ))}
-        </ul>
+        </MenuSection>
       </Menu>
     </div>
   );
