@@ -15,13 +15,13 @@ There is a new release of SCM-Manager Universe is available now: “Draco- 14.7�
 
 Besides that the configuration of servers like Tomcat webapplication server or the MySQL server was modified, and tools were updated.
 
-In addition to those changes the conditions for the update service were changed. From now on you only need to register at [www.scm-manager.com](http://www.scm-manager.com/) to enjoy the benefits of automatic updates for the appliance SCM-Manager Universe.
+In addition to those changes the conditions for the update service were changed. From now on you only need to register at [www.scm-manager.com](https://www.scm-manager.com/) to enjoy the benefits of automatic updates for the appliance SCM-Manager Universe.
 
-**Download of SCM-Manager Universe 14.7 – Draco: **[https://www.scm-manager.com/scm-manager-](https://www.scm-manager.com/scm-manager-universe)[https://www.scm-manager.com/scm-manager-universe](https://www.scm-manager.com/scm-manager-universe/)[universe](https://www.scm-manager.com/scm-manager-universe)
+**Download of SCM-Manager Universe 14.7 – Draco:** [https://www.scm-manager.com/scm-manager-universe](https://www.scm-manager.com/scm-manager-universe)
 
-**Release Notes: **<https://www.scm-manager.com/scm-manager-universe/release-notes/>
+**Release Notes:** <https://www.scm-manager.com/scm-manager-universe/release-notes/>
 
-**Further information (Release): **<https://www.scm-manager.com/2014/07/draco-protector-of-the-universe/>
+**Further information (Release):** <https://www.scm-manager.com/2014/07/draco-protector-of-the-universe/>
 
-**Further information (Update service): **<https://www.scm-manager.com/2014/07/new-registration-option-update-service/>
+**Further information (Update service):** <https://www.scm-manager.com/2014/07/new-registration-option-update-service/>
 

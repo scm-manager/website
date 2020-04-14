@@ -10,11 +10,11 @@ categories:
 ---
 Version 1.5 of SCM-Manager is now available for download.
 
-**Download**: <https://bitbucket.org/sdorra/scm-manager/wiki/download>  
-**Release notes**: <https://bitbucket.org/sdorra/scm-manager/wiki/release-notes>  
-**Getting started**: <https://bitbucket.org/sdorra/scm-manager/wiki/getting-started>
+**Download**: [https://www.scm-manager.org/download/](https://www.scm-manager.org/download/ "Download")  
+**Release notes**: [https://bitbucket.org/sdorra/scm-manager/wiki/release-notes](https://bitbucket.org/sdorra/scm-manager/wiki/release-notes "Release Notes")  
+**Getting started**: [https://bitbucket.org/sdorra/scm-manager/wiki/getting-started](https://bitbucket.org/sdorra/scm-manager/wiki/getting-started "Getting started")
 
 **Screenshots**
-
-![](assets/release-1.5-01.jpg)![](assets/release-1.5-02.jpg)
+![](assets/release-1.5-01.jpg)
+![](assets/release-1.5-02.jpg)
 

@@ -7,13 +7,13 @@ categories:
   - scm-manager
 
 ---
-Good news for all mac users. SCM-Manager is now available via <a title="Homebrew" href="http://mxcl.github.com/homebrew/" target="_blank">homebrew</a>.
+Good news for all mac users. SCM-Manager is now available via <a title="Homebrew" href="https://mxcl.github.com/homebrew/" target="_blank" rel="noopener noreferrer">homebrew</a>.
 
 Just install SCM-Manager with:
 
-<pre>  brew install scm-manager</pre>
+`brew install scm-manager`
 
 And start it with:
 
-<pre>  scm-server</pre>
+`scm-server`
 

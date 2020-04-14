@@ -5,7 +5,8 @@ author: Sebastian Sdorra
 slug: /plugins/bamboo-plugin/
 categories:
   - plugins
+  - continuous-integration-plugins
 
 ---
-New SCM-Manager plugin for the continuous integration server <a href="http://www.atlassian.com/software/bamboo/" target="_blank">Atlassian Bamboo</a> available.
+New SCM-Manager plugin for the continuous integration server <a href="https://www.atlassian.com/software/bamboo" target="_blank" rel="noopener noreferrer">Atlassian Bamboo</a> available.
 

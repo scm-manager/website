@@ -5,8 +5,8 @@ author: Sebastian Sdorra
 slug: /plugins/plugin-for-atlassian-crowd/
 categories:
   - plugins
-  - scm-manager
+  - authentication-plugins
 
 ---
-This plugin enables use of <a href="http://www.atlassian.com/software/crowd/" title="Atlassian Crowd" target="_blank">Atlassian Crowd</a> as an authentication handler. The plugin requires version 1.6 or later of SCM-Manager. The source is available on <a href="https://github.com/soudmaijer/scm-crowd-plugin" title="scm-crowd-plugin on GitHub" target="_blank">GitHub</a>.
+This plugin enables use of <a href="https://www.atlassian.com/software/crowd" target="_blank" rel="noopener noreferrer">Atlassian Crowd</a> as an authentication handler. The plugin requires version 1.6 or later of SCM-Manager. The source is available on [scm-crowd-plugin](https://github.com/soudmaijer/scm-crowd-plugin "scm-crowd-plugin on GitHub").
 

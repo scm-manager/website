@@ -8,7 +8,7 @@ categories:
   - scm-manager
 
 ---
-Release 2 of SCM-Manager brings a lot of changes, some small, some big. Besides the most obvious change, the completely new user interface, there is the new  <a href="https://martinfowler.com/articles/richardsonMaturityModel.html" target="_blank" rel="noopener noreferrer">level 3 REST API</a>, which took us a considerable amount of effort to create.
+Release 2 of SCM-Manager brings a lot of changes, some small, some big. Besides the most obvious change, the completely new user interface, there is the new <a href="https://martinfowler.com/articles/richardsonMaturityModel.html" target="_blank" rel="noopener noreferrer">level 3 REST API</a>, which took us a considerable amount of effort to create.
 
 The new REST API allows scripts and other applications to “navigate” from the top level REST resource (`/scm/api/v2`) to every resource available and to change them: repositories, sources, configurations, and items from plugins like pull requests. Using the editor plugin it is possible, to add or change files in repositories without checking them out, first.
 
@@ -47,4 +47,3 @@ You can download the RC-5 here
 or use it via Docker
 
 `docker run -p 8080:8080 -v scm-home:/var/lib/scm --name scm scmmanager/scm-manager:2.0.0-rc5`
-

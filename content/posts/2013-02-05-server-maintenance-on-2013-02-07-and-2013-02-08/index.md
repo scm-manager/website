@@ -11,9 +11,8 @@ Between  2013-02-07 and 2013-02-08, we have to do some maintenance work on the
 
 The following sites are affected of the server maintenance and could be temporarily unavailable:
 
-- [www.scm-manager.org](http://www.scm-manager.org "www.scm-manager.org")
-- <a title="maven.scm-manager.org" href="http://maven.scm-manager.org" target="_blank">maven.scm-manager.org</a>
-- <a title="plugins.scm-manager.org" href="http://plugins.scm-manager.org" target="_blank">plugins.scm-manager.org</a>
-- <a title="download.scm-manager.org" href="http://download.scm-manager.org" target="_blank">download.scm-manager.org</a>
-- <a title="docs.scm-manager.org" href="http://docs.scm-manager.org" target="_blank">docs.scm-manager.org</a>
-
+- [www.scm-manager.org](https://www.scm-manager.org "www.scm-manager.org")
+- [maven.scm-manager.org](https://maven.scm-manager.org "maven.scm-manager.org")
+- [plugins.scm-manager.org](https://plugins.scm-manager.org "plugins.scm-manager.org")
+- [download.scm-manager.org](https://download.scm-manager.org "download.scm-manager.org")
+- [docs.scm-manager.org](https://docs.scm-manager.org "docs.scm-manager.org")

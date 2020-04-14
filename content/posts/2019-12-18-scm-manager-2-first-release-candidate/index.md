@@ -2,8 +2,9 @@
 title: SCM-Manager 2 - First release candidate
 date: 2019-12-18T14:14:36+00:00
 author: Daniel Huchthausen
-slug: /scm-manager-2/scm-manager-2-first-release-candidate/
+slug: /release/scm-manager-2-first-release-candidate/
 categories:
+  - release
   - scm-manager
 
 ---
@@ -36,7 +37,7 @@ First of all: Before you try migrating to SCM-Manager 2 we advice you to backup 
 
 If you already want to migrate from SCM-Manager 1 to the new version, you can do that pretty easily. All you have to do is to upgrade your SCM-Manager to at least version 1.60. Once you have done that, you have to start SCM-Manager 2 with the same home folder. When you access SCM-Manager 2, there will be a wizard that will help you to migrate your repositories to the new structure of SCM-Manager. After that, it will perform the migration fully automatically.
 
-[![](assets/screencapture-localhost-8080-scm-2019-12-05-15_06_29.png)](https://www.scm-manager.org/wp-content/uploads/2019/12/screencapture-localhost-8080-scm-2019-12-05-15_06_29.png)
+[![](assets/screencapture-localhost-8080-scm-2019-12-05-15_06_29.png)](assets/screencapture-localhost-8080-scm-2019-12-05-15_06_29.png)
 
 For more information about the migration have a look [here](https://bitbucket.org/sdorra/scm-manager/wiki/v2/Migration-Wizard).
 
@@ -51,5 +52,5 @@ Even though SCM-Manager 1 already was pretty good, we are convinced that SCM-Man
 
 ## Give feedback
 
-If you run into problems or you want to give us feedback for the new version, feel free to contact us using the [mailing list](https://groups.google.com/forum/#!forum/scmmanager) ([scmmanager@googlegroups.com](mailto:scmmanager@googlegroups.com)).
+If you run into problems, or you want to give us feedback for the new version, feel free to contact us using the [mailing list](https://groups.google.com/forum/#!forum/scmmanager) ([scmmanager@googlegroups.com](mailto:scmmanager@googlegroups.com)).
 

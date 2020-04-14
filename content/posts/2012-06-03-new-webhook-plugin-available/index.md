@@ -5,12 +5,10 @@ author: Sebastian Sdorra
 slug: /plugins/new-webhook-plugin-available/
 categories:
   - plugins
-  - webhook-plugin
+  - workflow-plugins
 
 ---
-Version 1.0 of the <a title="scm-webhook-plugin" href="https://bitbucket.org/sdorra/scm-webhook-plugin" target="_blank">scm-webhook-plugin</a> is now available. The plugin can notify a remote webserver whenever a repository is pushed to.
+Version 1.0 of the [scm-webhook-plugin](https://github.com/scm-manager/scm-webhook-plugin) is now available. The plugin can notify a remote webserver whenever a repository is pushed to.
 
-- <a title="Plugin informations" href="http://plugins.scm-manager.org/scm-plugin-backend/page/detail/sonia.scm.plugins/scm-webhook-plugin.html" target="_blank">Plugin informations</a>
-- <a title="Project website" href="https://bitbucket.org/sdorra/scm-webhook-plugin" target="_blank">Project website</a>
-- <a title="Documentation" href="https://bitbucket.org/sdorra/scm-manager/wiki/webhook-plugin" target="_blank">Documentation</a>
+**Wiki:** <a href="https://bitbucket.org/sdorra/scm-manager/wiki/webhook-plugin" target="_blank" rel="noopener noreferrer">https://bitbucket.org/sdorra/scm-manager/wiki/webhook-plugin </a>
 

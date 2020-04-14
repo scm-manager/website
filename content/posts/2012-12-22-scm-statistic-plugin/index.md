@@ -5,13 +5,16 @@ author: Sebastian Sdorra
 slug: /plugins/scm-statistic-plugin/
 categories:
   - plugins
-  - statistic-plugin
+  - information-plugins
 
 ---
-Build statistics for every repository in SCM-Manager.
+Build statistics for every repository in SCM-Manager with the new [scm-statistic-plugin](https://github.com/scm-manager/scm-statistic-plugin).
 
-**Source**: <a title="scm-statistic-plugin" href="https://bitbucket.org/sdorra/scm-statistic-plugin" target="_blank">https&#x3A;//bitbucket.org/sdorra/scm-statistic-plugin<br /> <strong>S</strong></a>**creenshots:  
-** </pre>
-
-![](assets/screenshot.01.png)![](assets/screenshot.02.png)![](assets/screenshot.03.png)![](assets/screenshot.04.png)![](assets/screenshot.05.png)![](assets/screenshot.06.png)
+**Screenshots:**
+![](assets/screenshot.01.png)
+![](assets/screenshot.02.png)
+![](assets/screenshot.03.png)
+![](assets/screenshot.04.png)
+![](assets/screenshot.05.png)
+![](assets/screenshot.06.png)
 

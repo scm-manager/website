@@ -7,5 +7,5 @@ categories:
   - server
 
 ---
-In the last week there were are a lot of problems with the server hosting the Plugin-Backend (plugins.scm-manager.org) and the Maven-Repository (maven.scm-manager.org). Yesterday i migrated the services to a new hardware to fix this problems.
+In the last week there were are a lot of problems with the server hosting the [Plugin-Backend](https://plugins.scm-manager.org) and the [Maven-Repository](https://maven.scm-manager.org). Yesterday i migrated the services to a new hardware to fix this problems.
 

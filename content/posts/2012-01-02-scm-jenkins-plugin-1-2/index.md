@@ -4,16 +4,16 @@ date: 2012-01-02T13:07:14+00:00
 author: Sebastian Sdorra
 slug: /plugins/scm-jenkins-plugin-1-2/
 categories:
-  - jenkins-plugin
   - plugins
+  - continuous-integration-plugins
 
 ---
-New version of the <a title="scm-jenkins-plugin" href="https://bitbucket.org/sdorra/scm-jenkins-plugin" target="_blank">scm-jenkins-plugin</a> is now available.
+New version of the [scm-jenkins-plugin](https://github.com/scm-manager/scm-jenkins-plugin) is now available.
 
 **Changes:**
 
 - Support for Mercurial/Git notifyCommit
 - Global configuration
 
-For more details see <a title="Issue 81 - Support jenkins notifyCommit" href="https://bitbucket.org/sdorra/scm-manager/issue/81/support-jenkins-notifycommit" target="_blank">issue 81</a>.
+For more details see [Issue 81 - Support jenkins notifyCommit](https://github.com/scm-manager/scm-manager/issues/81).
 

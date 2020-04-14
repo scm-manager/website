@@ -5,12 +5,12 @@ author: Sebastian Sdorra
 slug: /plugins/scm-script-plugin-1-2/
 categories:
   - plugins
-  - script-plugin
+  - workflow-plugins
 
 ---
-New version of the <a title="scm-script-plugin" href="https://bitbucket.org/sdorra/scm-script-plugin" target="_blank">scm-script-plugin</a> is available.
+New version of the [scm-script-plugin](https://github.com/scm-manager/scm-script-plugin) is available.
 
 **Changes:**
 
-- <span style="line-height: 13px;">Added sample scripts to the ui</span>
+- Added sample scripts to the ui
 

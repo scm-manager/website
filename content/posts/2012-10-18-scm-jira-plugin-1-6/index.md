@@ -4,11 +4,11 @@ date: 2012-10-18T14:49:09+00:00
 author: Sebastian Sdorra
 slug: /plugins/scm-jira-plugin-1-6/
 categories:
-  - jira-plugin
   - plugins
+  - issue-tracker-plugins
 
 ---
-Version 1.6 of the <a title="scm-jira-plugin" href="https://bitbucket.org/sdorra/scm-jira-plugin" target="_blank">scm-jira-plugin</a> is available.
+Version 1.6 of the [scm-jira-plugin](https://github.com/scm-manager/scm-jira-plugin) is available.
 
 **Changes:**
 

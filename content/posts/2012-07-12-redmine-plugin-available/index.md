@@ -5,10 +5,10 @@ author: Sebastian Sdorra
 slug: /plugins/redmine-plugin-available/
 categories:
   - plugins
-  - redmine-plugin
+  - issue-tracker-plugins
 
 ---
-A new SCM-Manager plugin for the the project management tool <a title="Redmine" href="http://www.redmine.org/" target="_blank">Redmine</a> is now available.
+A new SCM-Manager plugin for the project management tool <a title="Redmine" href="https://www.redmine.org" target="_blank" rel="noopener noreferrer">Redmine</a> is now available.
 
 **Features:**
 

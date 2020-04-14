@@ -9,8 +9,8 @@ categories:
 ---
 The following SCM-Manager pages are changed to https.
 
-- <a title="www.scm-manager.org" href="https://www.scm-manager.org" target="_blank">www.scm-manager.org</a>
-- <a title="docs.scm-manager.org" href="https://docs.scm-manager.org" target="_blank">docs.scm-manager.org</a>
+- [www.scm-manager.org](https://www.scm-manager.org)
+- [docs.scm-manager.org](https://docs.scm-manager.org)
 
 This pages are now only accessible over https (with spdy enabled). The other pages will follow later.
 

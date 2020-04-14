@@ -4,11 +4,11 @@ date: 2012-01-24T20:38:13+00:00
 author: Sebastian Sdorra
 slug: /plugins/scm-activedirectory-auth-plugin/
 categories:
-  - activedirectory-plugin
   - plugins
+  - authentication-plugins
 
 ---
-Version 1.6 of the <a title="scm-activedirectory-auth-plugin" href="https://bitbucket.org/davidmc24/scm-activedirectory-auth-plugin" target="_blank">scm-activedirectory-auth-plugin</a> is available.
+Version 1.6 of the [scm-activedirectory-auth-plugin](https://bitbucket.org/davidmc24/scm-activedirectory-auth-plugin) available.
 
 **Changes:**
 

@@ -5,10 +5,7 @@ author: Sebastian Sdorra
 slug: /plugins/scm-pushlog-plugin-available/
 categories:
   - plugins
-  - pushlog-plugin
+  - administration-plugins
 
 ---
-The new scm-pushlog-plugin is now available over the scm-manager plugin center. The scm-pushlog-plugin tracks who pushed what to a repository.
-
-**Source:** <a title="scm-pushlog-plugin" href="https://bitbucket.org/sdorra/scm-pushlog-plugin" target="_blank">https&#x3A;//bitbucket.org/sdorra/scm-pushlog-plugin</a>
-
+The new [scm-pushlog-plugin](https://github.com/scm-manager/scm-pushlog-plugin) is now available over the scm-manager plugin center. The scm-pushlog-plugin tracks who pushed what to a repository.

@@ -1,14 +1,16 @@
 ---
-title: SCM-Manager 1.19
-date: 2012-08-18T14:32:54+00:00
+title: SCM-Manager 1.18
+date: 2012-08-12T15:25:51+00:00
 author: Sebastian Sdorra
-slug: /release/scm-manager-1-19/
+slug: /release/scm-manager-1-18/
 categories:
   - release
   - scm-manager
 
 ---
-Version 1.19 of SCM-Manager is now available for download.
+Version 1.18 of SCM-Manager is now available for download.
+
+**Note:** Version 1.18 requires mercurial 1.9 or newer.
 
 **Download**: [https://www.scm-manager.org/download/](https://www.scm-manager.org/download/ "Download")  
 **Release notes**: [https://bitbucket.org/sdorra/scm-manager/wiki/release-notes](https://bitbucket.org/sdorra/scm-manager/wiki/release-notes "Release Notes")  

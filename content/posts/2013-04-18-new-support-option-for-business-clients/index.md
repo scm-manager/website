@@ -13,5 +13,5 @@ The experts of TRIOLOGY will assist you through installation and in all issues, 
 
 So business-clients have all benefits from both worlds: free open-source software with professional support. Use the support packages of TRIOLOGY to ensure business continuity and improve the efficiency of your development process – in other words: “Open Source. More Business.”.
 
-If you are interested in professional support or need more information about the service of TRIOLOGY read more <a title="SCM-Manager support by TRIOLOGY" href="http://www.scm-manager.com" target="_blank">here</a>.
+If you are interested in professional support or need more information about the service of TRIOLOGY read more <a title="SCM-Manager support by TRIOLOGY" href="https://www.scm-manager.com" target="_blank" rel="noopener noreferrer">here</a>.
 

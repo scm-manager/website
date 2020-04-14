@@ -5,10 +5,10 @@ author: Sebastian Sdorra
 slug: /plugins/scm-userrepo-plugin-1-2/
 categories:
   - plugins
-  - userrepo-plugin
+  - authorization-plugins
 
 ---
-Version 1.2 of the <a title="scm-userrepo-plugin" href="https://bitbucket.org/sdorra/scm-userrepo-plugin" target="_blank">scm-userrepo-plugin</a> is available.
+Version 1.2 of the [scm-userrepo-plugin](https://bitbucket.org/sdorra/scm-userrepo-plugin) is available.
 
 **Changes:**
 

@@ -5,12 +5,11 @@ author: Sebastian Sdorra
 slug: /plugins/scm-statistic-plugin-1-2/
 categories:
   - plugins
-  - statistic-plugin
+  - information-plugins
 
 ---
-New version of the <a title="scm-statistic-plugin" href="https://bitbucket.org/sdorra/scm-statistic-plugin" target="_blank">scm-statistic-plugin</a> is available.
+New version of the [scm-statistic-plugin](https://github.com/scm-manager/scm-statistic-plugin) is available.
 
 **Changes:**
 
-- <span style="line-height: 13px;">added statistic for top words from commit messages<br /> </span>
-
+- added statistic for top words from commit messages

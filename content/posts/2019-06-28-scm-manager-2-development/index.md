@@ -10,7 +10,7 @@ categories:
 ---
 Over the last couple of years it became clear that SCM-Manager 1 does not have the capabilities to fulfill the requirements of a modern SourceCodeManagement Tool. Great feature requests had to be rejected, because they simply could not be implemented with SCM-Manager 1. That is why the development of SCM-Manager 2 started. Now, thanks to the tremendous effort of [Cloudogu](https://cloudogu.com/en/blog/scm-manager-collaboration), it is almost done and ready to use. This is what it looks like.
 
-[![SCM-Manager 2 screenshot](assets/scm-manager-2-overview.png)](https://www.scm-manager.org/wp-content/uploads/2019/06/scm-manager-2-overview.png)
+[![Repository overview of SCM-Manager 2](assets/scm-manager-2-overview.png)](assets/scm-manager-2-overview.png "Repository overview of SCM-Manager 2")
 
 ## Major changes at a glance
 
@@ -22,7 +22,7 @@ Based on the new architecture and on acquired experiences from SCM-Manager 1, th
 
 Even though the development of SCM-Manager 2 is almost complete, there are still some features missing. That is for example the plugin center and a migration path from SCM-Manager 1 to 2.
 
-If you can’t wait for the official release, you can get the latest build of SCM-Manager 2 [here](https://oss.cloudogu.com/jenkins/job/scm-manager/job/scm-manager-2.x/job/2.0.0-m3/) or the latest Docker image [here](https://hub.docker.com/r/cloudogu/scm-manager/tags).
+If you can’t wait for the official release, you can get the <a href="https://oss.cloudogu.com/jenkins/job/scm-manager-github/job/scm-manager/" target="_blank" rel="noopener noreferrer">latest build of SCM-Manager 2</a> or the <a href="https://hub.docker.com/r/cloudogu/scm-manager/tags" target="_blank" rel="noopener noreferrer">latest Docker image</a>.
 
 From now on, we will share details about the new features of SCM-Manager 2 here.
 

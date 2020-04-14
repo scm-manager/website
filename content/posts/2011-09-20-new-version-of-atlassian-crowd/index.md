@@ -5,7 +5,8 @@ author: Sebastian Sdorra
 slug: /plugins/new-version-of-atlassian-crowd/
 categories:
   - plugins
+  - authentication-plugins
 
 ---
-The version 1.2 of the authentication plugin for <a href="http://www.atlassian.com/software/crowd/" title="Atlassian Crowd" target="_blank">Atlassian Crowd</a> is now available. This new version has support for the SSO mechanism of Crowd.
+The version 1.2 of the authentication plugin for <a href="https://www.atlassian.com/software/crowd" target="_blank" rel="noopener noreferrer">Atlassian Crowd</a> is now available. This new version has support for the SSO mechanism of Crowd.
 

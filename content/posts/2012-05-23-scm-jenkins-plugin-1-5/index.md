@@ -4,11 +4,11 @@ date: 2012-05-23T16:29:15+00:00
 author: Sebastian Sdorra
 slug: /plugins/scm-jenkins-plugin-1-5/
 categories:
-  - jenkins-plugin
   - plugins
+  - continuous-integration-plugins
 
 ---
-Version 1.5 of the <a title="scm-jenkins-plugin" href="https://bitbucket.org/sdorra/scm-jenkins-plugin" target="_blank">scm-jenkins-plugin</a> is available.
+Version 1.5 of the [scm-jenkins-plugin](https://github.com/scm-manager/scm-jenkins-plugin) is available.
 
 **Changes**:
 

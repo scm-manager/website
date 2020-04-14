@@ -5,10 +5,10 @@ author: Sebastian Sdorra
 slug: /plugins/scm-statistic-plugin-1-1/
 categories:
   - plugins
-  - statistic-plugin
+  - information-plugins
 
 ---
-New version of the <a title="scm-statistic-plugin" href="https://bitbucket.org/sdorra/scm-statistic-plugin" target="_blank">scm-statistic-plugin</a> is available.
+New version of the [scm-statistic-plugin](https://github.com/scm-manager/scm-statistic-plugin) is available.
 
 **Changes:**
 

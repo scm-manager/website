@@ -4,11 +4,11 @@ date: 2011-12-18T14:12:16+00:00
 author: Sebastian Sdorra
 slug: /plugins/scm-auth-ldap-plugin-version-1-7/
 categories:
-  - ldap-plugin
   - plugins
+  - authentication-plugins
 
 ---
-New version of <a title="scm-auth-ldap-plugin" href="https://bitbucket.org/tludewig/scm-auth-ldap-plugin" target="_blank">scm-auth-ldap-plugin</a> available.
+New version of [scm-ldap-plugin](https://github.com/scm-manager/scm-ldap-plugin) available.
 
 **Changes**:
 

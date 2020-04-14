@@ -5,10 +5,10 @@ author: Sebastian Sdorra
 slug: /plugins/scm-webhook-plugin-1-5/
 categories:
   - plugins
-  - webhook-plugin
+  - workflow-plugins
 
 ---
-Version 1.5 of the scm-webhook-plugin is available for download.
+Version 1.5 of the [scm-webhook-plugin](https://github.com/scm-manager/scm-webhook-plugin) is available for download.
 
 **Changes:**
 
