@@ -8,8 +8,7 @@ const Authentication: FC<FeatureProps> = props => (
   <Feature {...props}>
     <TextColumn title="Authentication">
       SCM-Manager comes with an very flexible authentication mechanism. You can
-      configure the authentication mechanism which are you need or use the
-      embedded one.
+      configure the mechanism which are you need or use the embedded one.
     </TextColumn>
     <ImageColumn>
       <FontAwesomeIcon icon="users" size="4x" />

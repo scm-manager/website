@@ -17,7 +17,7 @@ import ImageColumn from "./ImageColumn";
 const EasyInstallation: FC<FeatureProps> = props => (
   <Feature {...props}>
     <TextColumn title="Easy Installation">
-      SCM-Manager can be installed on the platform where you want it. We are
+      SCM-Manager can be easily installed on the platform of your choice. We are
       trying to make the installation on every platform as easy as possible.
     </TextColumn>
     <ImageColumn>

@@ -9,7 +9,7 @@ const SourceCodeManagement: FC<FeatureProps> = props => (
   <Feature {...props}>
     <TextColumn title="SouceCode Management">
       SCM-Manager comes out of the box with support for Git, Mercurial and
-      Subversion. All three types can be manageged the same way over one
+      Subversion. All three types can be managed the same way over one
       interface.
     </TextColumn>
     <ImageColumn>
