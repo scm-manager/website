@@ -1,0 +1,8 @@
+plugin: "scm-activity-plugin"
+tag: "2.0.0-rc3"
+date: "2020-04-15T10:17:23Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-activity-plugin/2.0.0-rc3/scm-activity-plugin-2.0.0-rc3.smp"
+checksum: "030204e01d17c7a55c5c3d7877849b4cefe4adabaeb337b153f165e5d89ffb11"
+dependencies: []
+conditions:
+  minVersion: "2.0.0-rc7"
