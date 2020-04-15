@@ -1,9 +1,16 @@
 import React, { FC } from "react";
+import styled from "styled-components";
 
 export type ColumnProps = {
   alignRight?: boolean;
   className?: string;
 };
+
+const MobileReadyColumn = styled.div`
+  @media screen and (max-width: 768px) {
+    padding: 0.5rem;
+  }
+`;
 
 const Column: FC<ColumnProps> = ({ alignRight, className, children }) => {
   let classes = "column section";
@@ -13,7 +20,7 @@ const Column: FC<ColumnProps> = ({ alignRight, className, children }) => {
   if (className) {
     classes += " " + className;
   }
-  return <div className={classes}>{children}</div>;
+  return <MobileReadyColumn className={classes}>{children}</MobileReadyColumn>;
 };
 
 export default Column;
