@@ -5,7 +5,7 @@ author: Sebastian Sdorra
 slug: /plugins/scm-fork-plugin-1-1-pull-requests/
 categories:
   - plugins
-  - workflow-plugins
+  - miscellaneous-plugins
 
 ---
 Version 1.1 of the [scm-fork-plugin](https://bitbucket.org/sdorra/scm-fork-plugin) is available for download.

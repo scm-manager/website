@@ -5,9 +5,7 @@ author: Sebastian Sdorra
 slug: /plugins/scm-archive-plugin/
 categories:
   - plugins
-  - workflow-plugins
+  - miscellaneous-plugins
 
 ---
-The archive plugin is able to create a zip file of a repository.
-
-**Source:** [scm-archive-plugin](https://bitbucket.org/sdorra/scm-archive-plugin)
+The [scm-archive-plugin](https://bitbucket.org/sdorra/scm-archive-plugin) is able to create a zip file of a repository.

@@ -5,7 +5,7 @@ author: Sebastian Sdorra
 slug: /plugins/scm-userrename-plugin-available/
 categories:
   - plugins
-  - authorization-plugins
+  - administration-plugins
 
 ---
 Version 1.0 of the [scm-userrename-plugin](https://bitbucket.org/sdorra/scm-userrename-plugin) is now available. This plugin allows to rename a user, inclusive all permissions.

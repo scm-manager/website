@@ -2,7 +2,7 @@
 title: Repository Import Wizard
 date: 2014-12-02T10:44:41+00:00
 author: Sebastian Sdorra
-slug: /scm-manager/repository-import-wizard/
+slug: /scm-manager-2/repository-import-wizard/
 categories:
   - scm-manager
 

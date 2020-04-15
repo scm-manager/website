@@ -5,7 +5,7 @@ author: Sebastian Sdorra
 slug: /plugins/scm-archive-plugin-1-1/
 categories:
   - plugins
-  - workflow-plugins
+  - miscellaneous-plugins
 
 ---
 New version of the [scm-archive-plugin](https://bitbucket.org/sdorra/scm-archive-plugin) is available.

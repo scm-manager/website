@@ -2,7 +2,7 @@
 title: SCM-Manager 1.18
 date: 2012-08-12T15:25:51+00:00
 author: Sebastian Sdorra
-slug: /release/scm-manager-1-18/
+slug: /release/scm-manager-1-17-2/
 categories:
   - release
   - scm-manager

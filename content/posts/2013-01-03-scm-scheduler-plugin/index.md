@@ -5,7 +5,7 @@ author: Sebastian Sdorra
 slug: /plugins/scm-scheduler-plugin/
 categories:
   - plugins
-  - workflow-plugins
+  - library-plugins
 
 ---
 The [scm-scheduler-plugin](https://bitbucket.org/sdorra/scm-scheduler-plugin) provides an api for other plugins to execute scheduled  

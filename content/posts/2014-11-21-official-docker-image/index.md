@@ -2,7 +2,7 @@
 title: Official docker image
 date: 2014-11-21T17:56:55+00:00
 author: Sebastian Sdorra
-slug: /scm-manager/official-docker-image/
+slug: /scm-manager-2/official-docker-image/
 categories:
   - scm-manager
 
@@ -14,7 +14,7 @@ The official SCM-Manager docker image has arrived the docker registry.
 
 Here are some examples for the usage of the image:
 
-```shell script
+```bash
 # run the latest scm-manager version
 docker run sdorra/scm-manager
 

@@ -5,7 +5,7 @@ author: Sebastian Sdorra
 slug: /plugins/plugin-updates/
 categories:
   - plugins
-  - authorization-plugins
+  - miscellaneous-plugins
   - information-plugins
   - issue-tracker-plugins
 

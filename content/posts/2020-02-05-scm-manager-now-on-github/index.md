@@ -2,7 +2,7 @@
 title: SCM-Manager now on GitHub
 date: 2020-02-05T13:15:35+00:00
 author: Daniel Huchthausen
-slug: /scm-manager/scm-manager-now-on-github/
+slug: /uncategorized/scm-manager-now-on-github/
 categories:
   - scm-manager
 

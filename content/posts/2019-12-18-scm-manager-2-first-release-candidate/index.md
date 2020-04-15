@@ -2,7 +2,7 @@
 title: SCM-Manager 2 - First release candidate
 date: 2019-12-18T14:14:36+00:00
 author: Daniel Huchthausen
-slug: /release/scm-manager-2-first-release-candidate/
+slug: /scm-manager-2/scm-manager-2-first-release-candidate/
 categories:
   - release
   - scm-manager
