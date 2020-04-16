@@ -4,11 +4,11 @@
   icon: code
 - name: authentication
   displayName: Authentication
-  description: Plugins which are adding support various authentication systems
+  description: These plugins add support for various authentication systems
   icon: users
 - name: authorization
   displayName: Authorization
-  description: To be done...
+  description: Plugins which are adding protection for repositories or workflows
   icon: lock
 - name: continuous-integration
   displayName: Continuous Integration
@@ -16,25 +16,37 @@
   icon: sync
 - name: documentation
   displayName: Documentation
-  description: To be done ...
+  description: Plugins which help with better documentation
   icon: book
 - name: information
   displayName: Information
-  description: To be done...
+  description: A bunch of plugins that provide more information
   icon: info
 - name: issue-tracker
   displayName: Issue Tracker
-  description: To be done...
+  description: With this collection, issue trackers can be integrated into the system
   icon: tasks
 - name: legacy-support
   displayName: Legacy Support
-  description: To be done...
+  description: We take care about legacies that can be found here
   icon: hand-holding
 - name: library
   displayName: Library
-  description: To be done...
+  description: Helper plugins to create awesome functionalities
   icon: envelope
+- name: mercurial
+  displayName: Mercurial
+  description: Special plugins for the revision-control system Mercurial
+  icon: code-branch
+- name: miscellaneous
+  displayName: Miscellaneous
+  description: Plugins which cover none of the above categories
+  icon: box-open
+- name: subversion
+  displayName: Subversion
+  description: Special plugins for the revision-control system Subversion
+  icon: code-branch
 - name: workflow
   displayName: Workflow
-  description: To be done...
+  description: This bunch of plugins helps improve your workflow
   icon: comments
