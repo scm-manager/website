@@ -7,7 +7,7 @@ import ImageColumn from "./ImageColumn";
 const SimpleConfiguration: FC<FeatureProps> = props => (
   <Feature {...props}>
     <TextColumn title="Simple configuration">
-      SCM-Manager is completely configureable from its Web-Interface. There is
+      SCM-Manager is completely configurable from its Web-Interface. There is
       no need to hack configuration files.
     </TextColumn>
     <ImageColumn>

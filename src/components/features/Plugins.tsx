@@ -17,8 +17,8 @@ import ImageColumn from "./ImageColumn";
 const Plugins: FC<FeatureProps> = props => (
   <Feature {...props}>
     <TextColumn title="Plugins">
-      We provide you a lot of useful plugins from a wide range of categories out
-      of the box.
+      We provide a variety of useful plugins from a wide range of categories out
+      of the box which can be expanded individually.
     </TextColumn>
     <ImageColumn>
       <IconGroup>

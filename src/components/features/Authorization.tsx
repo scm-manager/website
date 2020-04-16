@@ -8,7 +8,7 @@ const Authorization: FC<FeatureProps> = props => (
   <Feature {...props}>
     <TextColumn title="Authorization">
       SCM-Manager provides a fine grained authorization model. Give users or
-      groups of users exactly the permissions the need.
+      groups of users exactly the permissions they need.
     </TextColumn>
     <ImageColumn>
       <FontAwesomeIcon icon="users-cog" size="4x" />
