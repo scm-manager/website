@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import Menu from "./Menu";
 import MenuSection from "./MenuSection";
 import MenuEntry from "./MenuEntry";
+import ExternalLink from "./ExternalLink";
 
 type Props = {
   path: string;
@@ -13,6 +14,15 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
   return (
     <Menu>
       <MenuSection title="Getting started">
+        <MenuEntry>
+          <Link
+            to={`${path}`}
+            activeClassName="is-active"
+            title="Readme"
+          >
+            Readme
+          </Link>
+        </MenuEntry>
         <MenuEntry>
           <Link
             to={`${path}/installation`}
@@ -52,34 +62,13 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
       </MenuSection>
       <MenuSection title="External links">
         <MenuEntry>
-          <a
-            href={`https://oss.cloudogu.com/jenkins/job/scm-manager-plugins/job/${name}/`}
-            title="Jenkins"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Jenkins
-          </a>
+          <ExternalLink to={`https://oss.cloudogu.com/jenkins/job/scm-manager-plugins/job/${name}/`} value="Jenkins" />
         </MenuEntry>
         <MenuEntry>
-          <a
-            href={`https://sonarcloud.io/dashboard?id=sonia.scm.plugins%3A${name}`}
-            title="SonarQube"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            SonarQube
-          </a>
+          <ExternalLink to={`https://sonarcloud.io/dashboard?id=sonia.scm.plugins%3A${name}`} value="SonarQube" />
         </MenuEntry>
         <MenuEntry>
-          <a
-            href={`https://github.com/scm-manager/${name}`}
-            title="GitHub"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
+          <ExternalLink to={`https://github.com/scm-manager/${name}`} value="GitHub" />
         </MenuEntry>
       </MenuSection>
     </Menu>
