@@ -76,6 +76,39 @@ const createPluginPage = node => {
   };
 };
 
+const createPluginInstallationPage = node => {
+  return {
+    path: `/plugins/${node.name}/install`,
+    component: path.resolve(`./src/templates/plugin-install.tsx`),
+    context: {
+      name: node.name,
+    },
+  };
+};
+
+// TODO: render further variants depending on version called
+const createPluginReleasesPage = node => {
+  return {
+    path: `/plugins/${node.name}/releases`,
+    component: path.resolve(`./src/templates/plugin-releases.tsx`),
+    context: {
+      name: node.name,
+    },
+  };
+};
+
+// TODO: render plugin docs depending on version and language (including redirect to last version)
+
+const createPluginLicensePage = node => {
+  return {
+    path: `/plugins/${node.name}/license`,
+    component: path.resolve(`./src/templates/plugin-license.tsx`),
+    context: {
+      name: node.name,
+    },
+  };
+};
+
 const createDocPage = node => {
   const slugParts = node.fields.slug.split("/");
   // array start with an empty string
@@ -204,8 +237,12 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       }
     });
 
-    result.data.allPluginYaml.nodes.forEach(node =>
-      createPage(createPluginPage(node))
+    result.data.allPluginYaml.nodes.forEach(node => {
+        createPage(createPluginPage(node));
+        createPage(createPluginInstallationPage(node));
+        createPage(createPluginReleasesPage(node));
+        createPage(createPluginLicensePage(node));
+      },
     );
 
     result.data.allCategoriesYaml.nodes.forEach(node => {
@@ -308,7 +345,7 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
               .find(node => node.fields.slug === entrySlug);
             if (!node) {
               reporter.error(
-                `could not find navigation entry for ${entrySlug}`
+                `could not find navigation entry for ${entrySlug}`,
               );
             }
             return node;

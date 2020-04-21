@@ -10,13 +10,21 @@ type Props = {
   name: string;
 };
 
+/* TODO: replace helper function with a more sensible approach */
+const pluginPath = path => {
+  if (path.split("/").length > 3) {
+    return path.substr(0, path.lastIndexOf("/"));
+  }
+  return path;
+};
+
 const PluginNavigation: FC<Props> = ({ path, name }) => {
   return (
     <Menu>
       <MenuSection title="Getting started">
         <MenuEntry>
           <Link
-            to={`${path}`}
+            to={`${pluginPath(path)}`}
             activeClassName="is-active"
             title="Readme"
           >
@@ -25,7 +33,7 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
         </MenuEntry>
         <MenuEntry>
           <Link
-            to={`${path}/installation`}
+            to={`${pluginPath(path)}/install`}
             activeClassName="is-active"
             title="Installation"
           >
@@ -34,7 +42,7 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
         </MenuEntry>
         <MenuEntry>
           <Link
-            to={`${path}/documentation`}
+            to={`${pluginPath(path)}/docs`}
             activeClassName="is-active"
             title="Documentation"
           >
@@ -43,7 +51,7 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
         </MenuEntry>
         <MenuEntry>
           <Link
-            to={`${path}/releases`}
+            to={`${pluginPath(path)}/releases`}
             activeClassName="is-active"
             title="Releases"
           >
@@ -52,7 +60,7 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
         </MenuEntry>
         <MenuEntry>
           <Link
-            to={`${path}/license`}
+            to={`${pluginPath(path)}/license`}
             activeClassName="is-active"
             title="License"
           >
