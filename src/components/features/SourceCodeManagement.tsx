@@ -4,6 +4,7 @@ import IconGroup from "../IconGroup";
 import Feature, { FeatureProps } from "./Feature";
 import TextColumn from "./TextColumn";
 import ImageColumn from "./ImageColumn";
+import MercurialLogo from "../../../content/images/mercurial-logo.svg"
 
 const SourceCodeManagement: FC<FeatureProps> = props => (
   <Feature {...props}>
@@ -15,7 +16,11 @@ const SourceCodeManagement: FC<FeatureProps> = props => (
     <ImageColumn>
       <IconGroup>
         <Git size="3em" />
-        {/* TODO mercurial */}
+        <img
+          alt="Mercurial Logo"
+          src={MercurialLogo}
+          width="48px"
+        />
         <Subversion size="3em" />
       </IconGroup>
     </ImageColumn>
