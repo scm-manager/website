@@ -1,27 +1,34 @@
 import React from "react";
 import { graphql } from "gatsby";
-import PluginLayout from "../layout/PluginLayout";
-import NavigationSettings from "../components/NavigationSettings";
+import PluginDocsLayout from "../layout/PluginDocsLayout";
+import Title from "../components/Title";
+import Subtitle from "../components/Subtitle";
+import HtmlContent from "../layout/HtmlContent";
 
-/* TODO: correct path and add markdown underneath */
 const PluginInstallation = ({ data, path }) => (
-  <PluginLayout data={data} path={path}>
-    <div className="columns">
-      <div className="column is-two-thirds">
-        <NavigationSettings path={path}/>
-      </div>
-    </div>
-    <p>No doc found</p>
-  </PluginLayout>
+  <PluginDocsLayout data={data} path={path}>
+    <Title>{data.markdownRemark.frontmatter.title}</Title>
+    <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
+    <HtmlContent content={data.markdownRemark.html}/>
+  </PluginDocsLayout>
 );
 
 export const query = graphql`
-  query($name: String!) {
+  query($name: String!, $slug: String!) {
     plugin: pluginYaml(name: { eq: $name }) {
       name
       displayName
       description
       author
+    }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      tableOfContents
+      frontmatter {
+        title
+        subtitle
+        displayToc
+      }
     }
   }
 `;

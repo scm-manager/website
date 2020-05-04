@@ -97,7 +97,27 @@ const createPluginReleasesPage = node => {
   };
 };
 
-// TODO: render plugin docs depending on version and language (including redirect to last version)
+const createPluginDocPage = node => {
+  const slugParts = node.fields.slug.split("/");
+  // array start with an empty string
+  slugParts.shift();
+  // followed by plugins
+  slugParts.shift();
+  const name = slugParts.shift();
+  const version = slugParts.shift();
+  const language = slugParts.shift();
+  return {
+    path: node.fields.slug,
+    component: path.resolve(`./src/templates/plugin-docs.tsx`),
+    context: {
+      name,
+      slug: node.fields.slug,
+      version,
+      language,
+      relativePath: "/" + slugParts.join("/"),
+    },
+  };
+};
 
 const createPluginLicensePage = node => {
   return {
@@ -234,6 +254,11 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         createPage(createDocPage(node));
       } else if (node.fields.slug.startsWith("/posts")) {
         createPage(createPost(node));
+      } else if (node.fields.slug.startsWith("/plugins")) {
+        const slugParts = node.fields.slug.split("/");
+        if(slugParts[3] === "docs") {
+          createPage(createPluginDocPage(node));
+        }
       }
     });
 
