@@ -1,43 +1,79 @@
-import React from "react";
 import { graphql } from "gatsby";
+import React from "react";
+import styled from "styled-components";
 import PluginLayout from "../layout/PluginLayout";
+import Accordion from "../layout/Accordion";
 import HtmlContent from "../layout/HtmlContent";
 
-const Changelog = ({changelog}) => {
-  if (changelog && changelog.html) {
-    return <HtmlContent content={changelog.html} />;
+const ChecksumText = styled.small`
+  margin-left: 0.5rem;
+  font-family: monospace;
+  font-size: 75%;
+`;
+
+const Download = ({ url }) => {
+  if (url) {
+    return <a className="button is-info is-outlined"
+              href={url}>Download</a>;
   }
   return null;
 };
 
-const Releases = ({releases}) => {
+const Checksum = ({ checksum, url }) => {
+  if (checksum && url) {
+    const filename = url.split("/").pop();
+    return <p>
+      {filename} (sha1):<br/>
+      <ChecksumText>{checksum}</ChecksumText>
+    </p>;
+  }
+  return null;
+};
+
+const Conditions = ({ conditions }) => {
+  if (conditions && conditions.minVersion) {
+    return <p>Requires at least SCM-Manager version {conditions.minVersion}.</p>;
+  }
+  return null;
+};
+
+const Changelog = ({ changelog }) => {
+  if (changelog && changelog.html) {
+    return <HtmlContent content={changelog.html}/>;
+  }
+  return null;
+};
+
+const Releases = ({ releases, changelog }) => {
   if (releases.length === 0) {
-    return <p className="notification is-info">No CHANGELOG.md found</p>
+    return <p className="notification is-info">No CHANGELOG.md found</p>;
   }
 
-  // * Accordeon
-  // Heading: Tag & Date
-  // Content:
-  // * Download + Checksum
-  // * Conditions ... Requires at leas SCM-Manager version {minVersion} ...
-  // * Changelog
-
   return (
-    <ul>
-      { releases.map((release) => (
-        <li key={release.tag}>
-          {release.tag}
-        </li>
-      )) }
-    </ul>
+    <>
+      {releases.map((release) => (
+        <Accordion label={`${release.tag} (${release.date})`} key={release.tag}>
+          <div className="media">
+            <div className="media-left">
+              <Download url={release.url}/>
+            </div>
+            <div className="media-content">
+              <Conditions conditions={release.conditions}/>
+            </div>
+          </div>
+          <Checksum checksum={release.checksum} url={release.url}/>
+          <hr/>
+          <Changelog changelog={changelog}/>
+        </Accordion>
+      ))}
+    </>
   );
 };
 
 const PluginReleases = ({ data, path }) => (
-    <PluginLayout plugin={data.plugin} path={path}>
-      <Releases releases={data.releases.nodes} />
-      <Changelog changelog={data.changelog} />
-    </PluginLayout>
+  <PluginLayout plugin={data.plugin} path={path}>
+    <Releases releases={data.releases.nodes} changelog={data.changelog}/>
+  </PluginLayout>
 );
 
 export const query = graphql`
@@ -53,6 +89,10 @@ export const query = graphql`
         tag
         date(formatString: "Y-MM-DD HH:mm")
         url
+        checksum
+        conditions {
+          minVersion
+        }
       }
     }
     changelog: markdownRemark(
