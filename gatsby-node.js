@@ -267,6 +267,15 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         createPage(createPluginInstallationPage(node));
         createPage(createPluginReleasesPage(node));
         createPage(createPluginLicensePage(node));
+
+        // TODO find it
+        const latestPluginDocVersion = "2.0.x";
+        createRedirect({
+          fromPath: `/plugins/${node.name}/docs`,
+          toPath: `/plugins/${node.name}/docs/${latestPluginDocVersion}/${defaultLanguage}/`,
+          isPermanent: true,
+          redirectInBrowser: true,
+        });
       },
     );
 
