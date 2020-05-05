@@ -4,7 +4,7 @@ import PluginLayout from "../layout/PluginLayout";
 
 /* TODO: render LICENSE.txt instead */
 const PluginLicense = ({ data, path }) => (
-  <PluginLayout data={data} path={path}>
+  <PluginLayout plugin={data.plugin} path={path}>
     <License data={data}/>
   </PluginLayout>
 );
@@ -22,10 +22,7 @@ const License = ({ data }) => {
 export const query = graphql`
   query($name: String!) {
     plugin: pluginYaml(name: { eq: $name }) {
-      name
-      displayName
-      description
-      author
+      ...PluginLayout
     }
     license: markdownRemark(fields: { plugin: { eq: $name }, slug: {glob: "**/README"}}) {
       rawMarkdownBody

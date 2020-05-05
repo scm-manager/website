@@ -14,7 +14,7 @@ const Plugin = ({ path, data }) => {
     return <p>No README.md found</p>;
   };
 
-  return <PluginLayout data={data} path={path}>
+  return <PluginLayout plugin={data.plugin} path={path}>
     {renderReadme()}
   </PluginLayout>;
 };
@@ -22,10 +22,7 @@ const Plugin = ({ path, data }) => {
 export const query = graphql`
   query($name: String!) {
     plugin: pluginYaml(name: { eq: $name }) {
-      name
-      displayName
-      description
-      author
+      ...PluginLayout
     }
     readme: markdownRemark(fields: { plugin: { eq: $name }, slug: {glob: "**/README"}}) {
       html

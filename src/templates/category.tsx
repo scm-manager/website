@@ -44,7 +44,7 @@ export const query = graphql`
         description
       }
     }
-    plugins: allPluginYaml(filter: { category: { eq: $name } }) {
+    plugins: allPluginYaml(filter: { category: { name: { eq: $name } } }) {
       nodes {
         name
         author

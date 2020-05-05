@@ -4,21 +4,31 @@ import SEO from "../components/SEO";
 import Title from "../components/Title";
 import Subtitle from "../components/Subtitle";
 import PluginNavigation from "../components/PluginNavigation";
+import { graphql } from "gatsby";
 
-const PluginLayout = ({ data, children, path }) => (
+const PluginLayout = ({ plugin, children, path }) => (
   <PageContainer>
-    <SEO title={"Plugin " + data.plugin.displayName}/>
+    <SEO title={"Plugin " + plugin.displayName}/>
     <div className="columns">
       <div className="column is-three-quarters is-plugin">
-        <Title>{data.plugin.displayName}</Title>
-        <Subtitle>{data.plugin.description}</Subtitle>
+        <Title>{plugin.displayName}</Title>
+        <Subtitle>{plugin.description}</Subtitle>
         {children}
       </div>
       <div className="column is-one-quarter">
-        <PluginNavigation path={path} name={data.plugin.name}/>
+        <PluginNavigation path={path} name={plugin.name}/>
       </div>
     </div>
   </PageContainer>
 );
+
+
+export const pluginLayoutFragment = graphql`
+  fragment PluginLayout on PluginYaml {
+    name
+    displayName
+    description
+  }
+`;
 
 export default PluginLayout;

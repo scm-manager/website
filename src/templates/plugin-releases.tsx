@@ -47,7 +47,7 @@ const PluginReleases = ({ data, path }) => {
   };
 
   /* TODO: link to correct documentation of release version */
-  return <PluginLayout data={data} path={path}>
+  return <PluginLayout plugin={data.plugin} path={path}>
     <div className="columns">
       <div className="column">
         <p>Latest release:</p>
@@ -66,10 +66,7 @@ const PluginReleases = ({ data, path }) => {
 export const query = graphql`
   query($name: String!) {
     plugin: pluginYaml(name: { eq: $name }) {
-      name
-      displayName
-      description
-      author
+      ...PluginLayout
     }
     releases: allReleasesYaml(filter: { plugin: { eq: $name } }) {
       nodes {

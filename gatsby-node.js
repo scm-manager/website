@@ -352,6 +352,10 @@ exports.createSchemaCustomization = ({ actions }) => {
     type NavigationYaml implements Node @infer {
       entries: [MarkdownRemark]
     }
+
+    type PluginYaml implements Node @infer {
+      category: CategoriesYaml!
+    }
   `;
 
   createTypes(typeDefs);
@@ -359,6 +363,21 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 exports.createResolvers = ({ createResolvers, reporter }) => {
   const resolvers = {
+    PluginYaml: {
+      category: {
+        resolve(source, args, context) {
+          let node = context.nodeModel
+            .getAllNodes({ type: "CategoriesYaml" })
+            .find(node => node.name === source.category);
+          if (!node) {
+            reporter.error(
+              `could not find category for ${source.category}`,
+            );
+          }
+          return node;
+        }
+      }
+    },
     NavigationYaml: {
       entries: {
         resolve(source, args, context) {
