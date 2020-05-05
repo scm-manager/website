@@ -109,6 +109,13 @@ module.exports = {
         ],
       },
     },
+    `gatsby-transformer-plaintext`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./content/plugins/`,
+      },
+    },
     `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-transformer-yaml`,
