@@ -1,81 +1,63 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Release as ReleaseType } from "../types/release";
-import { Plugin as PluginType } from "../types/plugin";
 import PluginLayout from "../layout/PluginLayout";
 import HtmlContent from "../layout/HtmlContent";
-import Release from "../components/Release";
 
-/* TODO: render correct setting component instead */
-const PlaceholderSetting = () => (
-  <div className="columns is-horizontal field">
-    <div className="field-body column">
-      <div className="field">
-        <div className="control">
-          <div className="select is-fullwidth">
-            <select
-              className="is-fullwidth"
-            >
-              <option>2.0.x</option>
-              <option>1.60.x</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-const PluginReleases = ({ data, path }) => {
-  const renderLastRelease = (plugin: PluginType, releases: ReleaseType[]) => {
-    if (releases.length > 0) {
-      let latestRelease = null;
-      releases.map((release: ReleaseType) => {
-          if (!latestRelease || latestRelease.date < release.date) latestRelease = release;
-        },
-      );
-      return <Release key={latestRelease.tag} release={latestRelease} plugin={plugin}/>;
-    }
-    return <p>No releases yet.</p>;
-  };
-
-  const renderChangelog = () => {
-    if (data.changelog && data.changelog.html) {
-      return <HtmlContent content={data.changelog.html}/>;
-    }
-    return <p>No CHANGELOG.md found</p>;
-  };
-
-  /* TODO: link to correct documentation of release version */
-  return <PluginLayout plugin={data.plugin} path={path}>
-    <div className="columns">
-      <div className="column">
-        <p>Latest release:</p>
-        {renderLastRelease(data.plugin, data.releases.nodes)}
-      </div>
-      <div className="column is-one-third has-text-right">
-        <p>Change version:</p>
-        <PlaceholderSetting/>
-        <p>LINK TO DOC OF THIS VERSION</p>
-      </div>
-    </div>
-    {renderChangelog()}
-  </PluginLayout>;
+const Changelog = ({changelog}) => {
+  if (changelog && changelog.html) {
+    return <HtmlContent content={changelog.html} />;
+  }
+  return null;
 };
+
+const Releases = ({releases}) => {
+  if (releases.length === 0) {
+    return <p className="notification is-info">No CHANGELOG.md found</p>
+  }
+
+  // * Accordeon
+  // Heading: Tag & Date
+  // Content:
+  // * Download + Checksum
+  // * Conditions ... Requires at leas SCM-Manager version {minVersion} ...
+  // * Changelog
+
+  return (
+    <ul>
+      { releases.map((release) => (
+        <li key={release.tag}>
+          {release.tag}
+        </li>
+      )) }
+    </ul>
+  );
+};
+
+const PluginReleases = ({ data, path }) => (
+    <PluginLayout plugin={data.plugin} path={path}>
+      <Releases releases={data.releases.nodes} />
+      <Changelog changelog={data.changelog} />
+    </PluginLayout>
+);
 
 export const query = graphql`
   query($name: String!) {
     plugin: pluginYaml(name: { eq: $name }) {
       ...PluginLayout
     }
-    releases: allReleasesYaml(filter: { plugin: { eq: $name } }) {
+    releases: allReleasesYaml(
+      filter: { plugin: { eq: $name } }
+      sort: { fields: date, order: DESC }
+    ) {
       nodes {
         tag
-        date(formatString: "Y-MM-DD")
+        date(formatString: "Y-MM-DD HH:mm")
         url
       }
     }
-    changelog: markdownRemark(fields: { plugin: { eq: $name }, slug: {glob: "**/CHANGELOG"}}) {
+    changelog: markdownRemark(
+      fields: { plugin: { eq: $name }, slug: { glob: "**/CHANGELOG" } }
+    ) {
       html
     }
   }
