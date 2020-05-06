@@ -4,30 +4,30 @@ import PluginLayout from "../layout/PluginLayout";
 
 const PluginLicense = ({ data, path }) => (
   <PluginLayout plugin={data.plugin} path={path}>
-    <License data={data}/>
+    <License data={data} />
   </PluginLayout>
 );
 
 const License = ({ data }) => {
-  if (data.license && data.license.childPlainText && data.license.childPlainText.content) {
-    return <>
-      <p>The plugin is released under the following license:</p>
-      <pre><code>{data.license.childPlainText.content}</code></pre>
-    </>;
+  if (data.license && data.license.content) {
+    return (
+      <pre>
+        <code>{data.license.content}</code>
+      </pre>
+    );
   }
   return <p>No LICENSE.txt found</p>;
 };
 
-/* TODO: search plugin specific license */
 export const query = graphql`
   query($name: String!) {
     plugin: pluginYaml(name: { eq: $name }) {
       ...PluginLayout
     }
-    license: file(relativePath: { glob: "**/LICENSE.txt" }) {
-      childPlainText {
-        content
-      }
+    license: plainText(
+      fields: { plugin: { eq: $name }, slug: { glob: "**/LICENSE/**" } }
+    ) {
+      content
     }
   }
 `;
