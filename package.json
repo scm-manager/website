@@ -31,6 +31,7 @@
     "gatsby-remark-images-medium-zoom": "^1.2.1",
     "gatsby-remark-prismjs": "^3.3.3",
     "gatsby-source-filesystem": "^2.1.5",
+    "gatsby-transformer-keepachangelog": "^1.1.0",
     "gatsby-transformer-plaintext": "^1.0.0",
     "gatsby-transformer-remark": "^2.6.9",
     "gatsby-transformer-sharp": "^2.2.4",

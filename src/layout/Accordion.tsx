@@ -1,13 +1,13 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState, ReactNode } from "react";
 import Icon from "../components/Icon";
 
 type Props = {
-  label: string;
-  children: React.ReactNode;
+  label: ReactNode;
+  open?: boolean;
 };
 
-const Accordion: FC<Props> = ({ label, children }) => {
-  const [isOpen, collapseContent] = useState(false);
+const Accordion: FC<Props> = ({ label, open = false, children }) => {
+  const [isOpen, collapseContent] = useState(open);
 
   useEffect(() => {
     collapseContent(isOpen);
@@ -24,7 +24,7 @@ const Accordion: FC<Props> = ({ label, children }) => {
       </header>
       {isOpen && (
       <div className="card-content">
-        <div className="content">{children}</div>
+        {children}
       </div>
       )}
     </div>

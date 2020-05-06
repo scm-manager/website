@@ -56,6 +56,8 @@ module.exports = {
     siteUrl: `https://scm-manager.org`,
   },
   plugins: [
+    `gatsby-transformer-plaintext`,
+    `gatsby-transformer-keepachangelog`,
     `gatsby-plugin-meta-redirect`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
@@ -107,13 +109,6 @@ module.exports = {
             },
           },
         ],
-      },
-    },
-    `gatsby-transformer-plaintext`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `./content/plugins/`,
       },
     },
     `gatsby-plugin-catch-links`,

@@ -47,6 +47,19 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         "/docs" + slug.substring(0, slug.length - ("navigation".length + 1)),
     });
     appendVersionAndLanguageFields(createNodeField, node, slug);
+  } else if (node.internal.type === `Changelog` || node.internal.type === "PlainText") {
+    const slug = createFilePath({ node, getNode, basePath: `plugins` });
+    const plugin = slug.split("/")[1];
+    createNodeField({
+      node,
+      name: `plugin`,
+      value: plugin,
+    });
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    });
   }
 };
 
