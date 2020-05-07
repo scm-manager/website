@@ -63,7 +63,7 @@ const Checksum = ({ checksum }) => {
     return (
       <>
         <strong>Checksum (SHA256):</strong>
-        <p>{checksum}</p>
+        <p className="ellipsis-overflow">{checksum}</p>
       </>
     );
   }
@@ -90,7 +90,7 @@ const Release = ({ release, changelog }) => {
           <Download url={release.url} />
           <ChecksumButton onClick={() => setShowChecksum(!showChecksum)} />
         </div>
-        <div className="media-content">
+        <div className="media-content ellipsis-overflow">
           <Conditions conditions={release.conditions} />
           {showChecksum && <Checksum checksum={release.checksum} />}
         </div>

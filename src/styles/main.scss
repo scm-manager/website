@@ -122,3 +122,8 @@ a.navbar-item.is-active:after,
     display: flex;
   }
 }
+
+.ellipsis-overflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
