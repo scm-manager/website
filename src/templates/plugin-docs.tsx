@@ -5,7 +5,7 @@ import Title from "../components/Title";
 import Subtitle from "../components/Subtitle";
 import HtmlContent from "../layout/HtmlContent";
 
-const PluginInstallation = ({ data, path }) => (
+const PluginDocs = ({ data, path }) => (
   <PluginDocsLayout data={data} path={path}>
     <Title>{data.markdownRemark.frontmatter.title}</Title>
     <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
@@ -20,6 +20,10 @@ export const query = graphql`
       displayName
       description
       author
+      documentation {
+        version
+        languages
+      }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
@@ -33,4 +37,4 @@ export const query = graphql`
   }
 `;
 
-export default PluginInstallation;
+export default PluginDocs;

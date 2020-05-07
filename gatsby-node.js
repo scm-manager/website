@@ -55,14 +55,39 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       }
     }
   } else if (node.internal.type === `NavigationYaml`) {
-    const slug = createFilePath({ node, getNode, basePath: `docs` });
+    const slug = createFilePath({ node, getNode });
+    const parts = slug.split("/").filter(p => p.length > 0);
+
+    const docsIndex = parts.indexOf("docs");
+    if (docsIndex >= 0 && parts.length >= docsIndex + 2) {
+      createNodeField({
+        node,
+        name: "version",
+        value: parts[docsIndex + 1]
+      });
+      createNodeField({
+        node,
+        name: "language",
+        value: parts[docsIndex + 2]
+      });
+    }
+
+    const pluginsIndex =  parts.indexOf("plugins");
+    if (pluginsIndex >= 0 && parts.length >= pluginsIndex + 1) {
+      createNodeField({
+        node,
+        name: "plugin",
+        value: parts[pluginsIndex + 1]
+      });
+    }
+
+    // remove navigation part
+    parts.pop();
     createNodeField({
       node,
       name: `slug`,
-      value:
-        "/docs" + slug.substring(0, slug.length - ("navigation".length + 1)),
+      value: "/" + parts.join("/") + "/"
     });
-    appendVersionAndLanguageFields(createNodeField, node, slug);
   } else if (
     node.internal.type === `Changelog` ||
     node.internal.type === "PlainText"
@@ -480,9 +505,12 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
     NavigationYaml: {
       entries: {
         resolve(source, args, context) {
-          const base = `/docs/${source.fields.version}/${source.fields.language}`;
           return source.entries.map(entry => {
-            const entrySlug = base + entry;
+            let path = entry;
+            if (entry.startsWith("/")) {
+              path = entry.substring(1);
+            }
+            const entrySlug = source.fields.slug + path;
             let node = context.nodeModel
               .getAllNodes({ type: "MarkdownRemark" })
               .find(node => node.fields.slug === entrySlug);
