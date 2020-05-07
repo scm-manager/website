@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, ReactNode } from "react";
+import React, { FC, useState, ReactNode } from "react";
 import Icon from "../components/Icon";
 
 type Props = {
@@ -8,10 +8,6 @@ type Props = {
 
 const Accordion: FC<Props> = ({ label, open = false, children }) => {
   const [isOpen, collapseContent] = useState(open);
-
-  useEffect(() => {
-    collapseContent(isOpen);
-  });
 
   const icon = isOpen ? "angle-down" : "angle-right";
 
