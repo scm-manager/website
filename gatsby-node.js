@@ -155,23 +155,16 @@ const createPluginReleasesPage = node => {
 };
 
 const createPluginDocPage = node => {
-  const slugParts = node.fields.slug.split("/");
-  // array start with an empty string
-  slugParts.shift();
-  // followed by plugins
-  slugParts.shift();
-  const name = slugParts.shift();
-  const version = slugParts.shift();
-  const language = slugParts.shift();
+  const slugParts = node.fields.slug.split("/").filter(p => p.length > 0);
+  // e.g.: /plugins/scm-review-plugin/docs/2.0.x/en/tasks
   return {
     path: node.fields.slug,
     component: path.resolve(`./src/templates/plugin-docs.tsx`),
     context: {
-      name,
+      name: slugParts[1],
       slug: node.fields.slug,
-      version,
-      language,
-      relativePath: "/" + slugParts.join("/"),
+      version: slugParts[3],
+      language: slugParts[4],
     },
   };
 };

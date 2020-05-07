@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import { graphql, Link } from "gatsby";
 import NavigationSettings from "./NavigationSettings";
 import Menu from "./Menu";
@@ -15,13 +15,15 @@ const createTitle = frontmatter => {
 
 type Props = {
   path: string;
+  afterSettings?: ReactNode;
   navigation: any;
 };
 
-const DocNavigation: FC<Props> = ({ path, navigation }) => {
+const DocNavigation: FC<Props> = ({ path, afterSettings, navigation }) => {
   return (
     <Menu>
       <NavigationSettings path={path} />
+      {afterSettings}
       {navigation.nodes.map(node => (
         <MenuSection key={node.section} title={node.section}>
           {node.entries.map(entry => {
@@ -42,6 +44,10 @@ const DocNavigation: FC<Props> = ({ path, navigation }) => {
       ))}
     </Menu>
   );
+};
+
+DocNavigation.defaultProps = {
+  afterSettings: null
 };
 
 export const docNavigationFragment = graphql`
