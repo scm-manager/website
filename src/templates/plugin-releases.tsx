@@ -1,10 +1,10 @@
 import { graphql } from "gatsby";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import PluginLayout from "../layout/PluginLayout";
 import Accordion from "../layout/Accordion";
 import HtmlContent from "../layout/HtmlContent";
-import Checksum from "../components/Checksum";
+import Icon from "../components/Icon";
 
 const Download = ({ url }) => {
   if (url) {
@@ -16,7 +16,6 @@ const Download = ({ url }) => {
   }
   return null;
 };
-
 
 const Conditions = ({ conditions }) => {
   if (conditions && conditions.minVersion) {
@@ -49,6 +48,60 @@ const Changelog = ({ changelog, tag }) => {
   return null;
 };
 
+const ChecksumToggleWrapper = styled.div`
+  text-align: center;
+  margin-top: 0.5rem;
+`;
+
+const ChecksumToggler = styled.small`
+  text-decoration: underline dotted grey;
+  cursor: pointer;
+`;
+
+const Checksum = ({ checksum }) => {
+  if (checksum) {
+    return (
+      <>
+        <strong>Checksum (SHA256):</strong>
+        <p>{checksum}</p>
+      </>
+    );
+  }
+  return null;
+};
+
+const ChecksumButton = ({ onClick }) => (
+  <ChecksumToggleWrapper>
+    <ChecksumToggler onClick={onClick} title="Toggle checksum visiblity">
+      Checksum{" "}
+      <span className="has-text-info">
+        <Icon icon="info" size="sm" />
+      </span>
+    </ChecksumToggler>
+  </ChecksumToggleWrapper>
+);
+
+const Release = ({ release, changelog }) => {
+  const [showChecksum, setShowChecksum] = useState(false);
+  return (
+    <>
+      <div className="media">
+        <div className="media-left">
+          <Download url={release.url} />
+          <ChecksumButton onClick={() => setShowChecksum(!showChecksum)} />
+        </div>
+        <div className="media-content">
+          <Conditions conditions={release.conditions} />
+          {showChecksum && <Checksum checksum={release.checksum} />}
+        </div>
+      </div>
+      <h6 className="has-text-weight-bold">Changes:</h6>
+      <hr />
+      <Changelog tag={release.tag} changelog={changelog} />
+    </>
+  );
+};
+
 const Releases = ({ releases, changelog }) => {
   if (releases.length === 0) {
     return <p className="notification is-info">No CHANGELOG.md found</p>;
@@ -56,24 +109,13 @@ const Releases = ({ releases, changelog }) => {
 
   return (
     <>
-      {releases.map((release,i) => (
+      {releases.map((release, i) => (
         <Accordion
           label={`${release.tag} - (${release.date})`}
-          open={i===0}
+          open={i === 0}
           key={release.tag}
         >
-          <div className="media">
-            <div className="media-left">
-              <Download url={release.url} />
-            </div>
-            <div className="media-content">
-              <Conditions conditions={release.conditions} />
-            </div>
-          </div>
-          <Checksum checksum={release.checksum} url={release.url} />
-          <h6 className="has-text-weight-bold">Changes:</h6>
-          <hr />
-          <Changelog tag={release.tag} changelog={changelog} />
+          <Release release={release} changelog={changelog} />
         </Accordion>
       ))}
     </>
