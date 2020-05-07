@@ -24,7 +24,7 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
       <MenuSection title="Getting started">
         <MenuEntry>
           <Link
-            to={`${pluginPath(path)}`}
+            to={`${pluginPath(path)}/`}
             activeClassName="is-active"
             title="Readme"
           >
@@ -33,7 +33,7 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
         </MenuEntry>
         <MenuEntry>
           <Link
-            to={`${pluginPath(path)}/install`}
+            to={`${pluginPath(path)}/install/`}
             activeClassName="is-active"
             title="Installation"
           >
@@ -51,7 +51,7 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
         </MenuEntry>
         <MenuEntry>
           <Link
-            to={`${pluginPath(path)}/releases`}
+            to={`${pluginPath(path)}/releases/`}
             activeClassName="is-active"
             title="Releases"
           >
@@ -60,7 +60,7 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
         </MenuEntry>
         <MenuEntry>
           <Link
-            to={`${pluginPath(path)}/license`}
+            to={`${pluginPath(path)}/license/`}
             activeClassName="is-active"
             title="License"
           >

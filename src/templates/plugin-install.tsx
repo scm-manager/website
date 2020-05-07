@@ -9,7 +9,7 @@ const PluginInstallation = ({ data, path }) => (
         To install the <q>{data.plugin.displayName}</q> plugin on your
         scm-manager instance, follow the steps below:
       </p>
-      <div className="notification is-info">
+      <div className="notification is-warning">
         <ul>
           <li>
             Plugin installations should only be done, if no one else is currently

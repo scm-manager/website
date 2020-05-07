@@ -25,7 +25,7 @@ export const query = graphql`
       ...PluginLayout
     }
     license: plainText(
-      fields: { plugin: { eq: $name }, slug: { glob: "**/LICENSE/**" } }
+      fields: { plugin: { eq: $name }, slug: { glob: "**/LICENSE/" } }
     ) {
       content
     }
