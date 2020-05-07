@@ -43,7 +43,13 @@ const Changelog = ({ changelog, tag }) => {
   }
   const version = changelog.versions.find(v => tag === v.tag);
   if (version && version.changes) {
-    return <Changes className="content" content={version.changes.html} />;
+    return (
+      <>
+        <h6 className="has-text-weight-bold">Changes:</h6>
+        <hr />
+        <Changes className="content" content={version.changes.html} />
+      </>
+    );
   }
   return null;
 };
@@ -95,8 +101,6 @@ const Release = ({ release, changelog }) => {
           {showChecksum && <Checksum checksum={release.checksum} />}
         </div>
       </div>
-      <h6 className="has-text-weight-bold">Changes:</h6>
-      <hr />
       <Changelog tag={release.tag} changelog={changelog} />
     </>
   );
