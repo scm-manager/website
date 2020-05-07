@@ -33,24 +33,6 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
         </MenuEntry>
         <MenuEntry>
           <Link
-            to={`${pluginPath(path)}/install/`}
-            activeClassName="is-active"
-            title="Installation"
-          >
-            Installation
-          </Link>
-        </MenuEntry>
-        <MenuEntry>
-          <Link
-            to={`${pluginPath(path)}/docs`}
-            activeClassName="is-active"
-            title="Documentation"
-          >
-            Documentation
-          </Link>
-        </MenuEntry>
-        <MenuEntry>
-          <Link
             to={`${pluginPath(path)}/releases/`}
             activeClassName="is-active"
             title="Releases"
@@ -67,16 +49,43 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
             License
           </Link>
         </MenuEntry>
+        <MenuEntry>
+          <Link
+            to={`${pluginPath(path)}/install/`}
+            activeClassName="is-active"
+            title="Installation"
+          >
+            Installation
+          </Link>
+        </MenuEntry>
+        <MenuEntry>
+          <Link
+            to={`${pluginPath(path)}/docs`}
+            activeClassName="is-active"
+            title="Documentation"
+          >
+            Documentation
+          </Link>
+        </MenuEntry>
       </MenuSection>
       <MenuSection title="External links">
         <MenuEntry>
-          <ExternalLink to={`https://oss.cloudogu.com/jenkins/job/scm-manager-plugins/job/${name}/`} value="Jenkins" />
+          <ExternalLink
+            to={`https://oss.cloudogu.com/jenkins/job/scm-manager-plugins/job/${name}/`}
+            value="Jenkins"
+          />
         </MenuEntry>
         <MenuEntry>
-          <ExternalLink to={`https://sonarcloud.io/dashboard?id=sonia.scm.plugins%3A${name}`} value="SonarQube" />
+          <ExternalLink
+            to={`https://sonarcloud.io/dashboard?id=sonia.scm.plugins%3A${name}`}
+            value="SonarQube"
+          />
         </MenuEntry>
         <MenuEntry>
-          <ExternalLink to={`https://github.com/scm-manager/${name}`} value="GitHub" />
+          <ExternalLink
+            to={`https://github.com/scm-manager/${name}`}
+            value="GitHub"
+          />
         </MenuEntry>
       </MenuSection>
     </Menu>
