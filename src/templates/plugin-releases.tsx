@@ -4,12 +4,7 @@ import styled from "styled-components";
 import PluginLayout from "../layout/PluginLayout";
 import Accordion from "../layout/Accordion";
 import HtmlContent from "../layout/HtmlContent";
-
-const ChecksumText = styled.small`
-  margin-left: 0.5rem;
-  font-family: monospace;
-  font-size: 75%;
-`;
+import Checksum from "../components/Checksum";
 
 const Download = ({ url }) => {
   if (url) {
@@ -22,19 +17,6 @@ const Download = ({ url }) => {
   return null;
 };
 
-const Checksum = ({ checksum, url }) => {
-  if (checksum && url) {
-    const filename = url.split("/").pop();
-    return (
-      <p>
-        File: {filename}:
-        <br />
-        Checksum: <ChecksumText>{checksum}</ChecksumText>
-      </p>
-    );
-  }
-  return null;
-};
 
 const Conditions = ({ conditions }) => {
   if (conditions && conditions.minVersion) {
@@ -88,6 +70,7 @@ const Releases = ({ releases, changelog }) => {
               <Conditions conditions={release.conditions} />
             </div>
           </div>
+          <Checksum checksum={release.checksum} url={release.url} />
           <h6 className="has-text-weight-bold">Changes:</h6>
           <hr />
           <Changelog tag={release.tag} changelog={changelog} />
