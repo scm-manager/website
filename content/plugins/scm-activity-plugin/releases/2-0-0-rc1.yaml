@@ -1,10 +1,9 @@
 plugin: scm-activity-plugin
 tag: 2.0.0-rc1
-date: 2019-12-02T15:14:53Z
+date: '2019-12-02T15:14:53Z'
 url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-activity-plugin/2.0.0-rc1/scm-activity-plugin-2.0.0-rc1.smp
 checksum: 2fc2ca99c8e96c39b1ed83759e998b97223cafc5cf243ccb3d3fc636926b9a30
 conditions:
   minVersion: 
   os:
   arch: 
-  

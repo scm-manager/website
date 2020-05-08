@@ -1,10 +1,9 @@
 plugin: scm-groupmanager-plugin
 tag: 2.0.0-rc1
-date: 2019-12-02T15:26:32Z
+date: '2019-12-02T15:26:32Z'
 url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-groupmanager-plugin/2.0.0-rc1/scm-groupmanager-plugin-2.0.0-rc1.smp
 checksum: 91fb5351a39830c2b99fb5e9f4fcd88253af4ed56b6c7e139f90131ad053938f
 conditions:
   minVersion: 
   os:
   arch: 
-  

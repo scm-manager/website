@@ -143,7 +143,7 @@ export const query = graphql`
     ) {
       nodes {
         tag
-        date(formatString: "Y-MM-DD HH:mm")
+        date(formatString: "YYYY-MM-DD HH:mm")
         url
         checksum
         conditions {

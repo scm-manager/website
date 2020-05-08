@@ -1,10 +1,9 @@
 plugin: scm-readme-plugin
 tag: 2.0.0-rc1
-date: 2019-12-02T16:18:29Z
+date: '2019-12-02T16:18:29Z'
 url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-readme-plugin/2.0.0-rc1/scm-readme-plugin-2.0.0-rc1.smp
 checksum: 91a125b84085b9249e3ecccc87c46c423a253f6cd2488e669c62209a2fd8bee4
 conditions:
   minVersion: 
   os:
   arch: 
-  

@@ -1,10 +1,9 @@
 plugin: scm-pushlog-plugin
 tag: 2.0.0-rc1
-date: 2019-12-02T13:41:35Z
+date: '2019-12-02T13:41:35Z'
 url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-pushlog-plugin/2.0.0-rc1/scm-pushlog-plugin-2.0.0-rc1.smp
 checksum: 42ebb93fb27f207aac2e897e03e42b49eb59fcb7a1e98485031db2aee33dc70f
 conditions:
   minVersion: 2.0.0-rc1
   os:
   arch: 
-  

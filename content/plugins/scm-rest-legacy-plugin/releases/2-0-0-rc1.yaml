@@ -1,10 +1,9 @@
 plugin: scm-rest-legacy-plugin
 tag: 2.0.0-rc1
-date: 2019-12-02T15:51:23Z
+date: '2019-12-02T15:51:23Z'
 url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-rest-legacy-plugin/2.0.0-rc1/scm-rest-legacy-plugin-2.0.0-rc1.smp
 checksum: a7293f25e29032f79eed6f6b9b9a7a1b25480e80f2e814880e902e8edb615f2c
 conditions:
   minVersion: 2.0.0-rc1
   os:
   arch: 
-  

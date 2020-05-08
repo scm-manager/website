@@ -1,10 +1,9 @@
 plugin: scm-script-plugin
 tag: 2.0.0-rc1
-date: 2019-12-02T14:47:04Z
+date: '2019-12-02T14:47:04Z'
 url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-script-plugin/2.0.0-rc1/scm-script-plugin-2.0.0-rc1.smp
 checksum: aa0f6e584587007d1aa7d63de69a4dba0aa8dea5f22e1901ff249b2894f2ff41
 conditions:
   minVersion: 2.0.0-rc1
   os:
   arch: 
-  

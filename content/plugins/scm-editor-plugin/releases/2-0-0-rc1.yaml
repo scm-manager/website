@@ -1,10 +1,9 @@
 plugin: scm-editor-plugin
 tag: 2.0.0-rc1
-date: 2019-12-02T16:20:03Z
+date: '2019-12-02T16:20:03Z'
 url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-editor-plugin/2.0.0-rc1/scm-editor-plugin-2.0.0-rc1.smp
 checksum: 359cb1b03cb7d21c23e90e632a7eb730fc049677db4d22e3a792a80496fd4a83
 conditions:
   minVersion: 2.0.0-rc1
   os:
   arch: 
-  

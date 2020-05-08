@@ -1,6 +1,5 @@
 plugin: scm-webhook-plugin
 tag: 2.0.0-rc1
-date: 2019-12-02T15:20:12Z
+date: '2019-12-02T15:20:12Z'
 url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-webhook-plugin/2.0.0-rc1/scm-webhook-plugin-2.0.0-rc1.smp
 checksum: dfdbc56c46653218be0cd8be99333cc411e8d627c3490abcf242b6174b3fb26b
-  

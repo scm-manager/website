@@ -1,10 +1,9 @@
 plugin: scm-gravatar-plugin
 tag: 2.0.0-rc1
-date: 2019-12-02T15:35:21Z
+date: '2019-12-02T15:35:21Z'
 url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-gravatar-plugin/2.0.0-rc1/scm-gravatar-plugin-2.0.0-rc1.smp
 checksum: a2aed830b8464f1c1674f2603ca3817c43a80fb400831283b7a793c662b3f521
 conditions:
   minVersion: 2.0.0-rc1
   os:
   arch: 
-  

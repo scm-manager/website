@@ -1,10 +1,9 @@
 plugin: scm-issuetracker-plugin
 tag: 2.0.0-rc1
-date: 2019-12-02T15:38:54Z
+date: '2019-12-02T15:38:54Z'
 url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-issuetracker-plugin/2.0.0-rc1/scm-issuetracker-plugin-2.0.0-rc1.smp
 checksum: 521b10164097e26998ea749c38601e65beb056a05fe918cb977a1b2e56663a3e
 conditions:
   minVersion: 2.0.0-rc1
   os:
   arch: 
-  

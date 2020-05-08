@@ -1,10 +1,9 @@
 plugin: scm-support-plugin
 tag: 2.0.0-rc1
-date: 2019-12-02T15:31:10Z
+date: '2019-12-02T15:31:10Z'
 url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-support-plugin/2.0.0-rc1/scm-support-plugin-2.0.0-rc1.smp
 checksum: 9dbed6cc0892bfaab38627ddcd5be049b8924e8233b263c8c890e0a3c8ed79c5
 conditions:
   minVersion: 2.0.0-rc1
   os:
   arch: 
-  
