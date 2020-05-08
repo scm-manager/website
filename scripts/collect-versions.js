@@ -1,17 +1,17 @@
 "use strict";
 
-const { Octokit } = require("@octokit/rest");
 const semver = require("semver");
-const collectSupportBranches = require("./collect-support-branches");
-const collectReleases = require("./collect-releases");
+const { collectSupportBranches } = require("./collect-support-branches");
+const { collectReleases } = require("./collect-releases");
 
 /**
+ * @param {Octokit} api
+ * @param {string} repository
  * @returns {Promise<{supportBranches: Array<{range: string, sha: string}>, releases: {version: string, sha: string}[]}>}
  */
-async function collectVersions() {
-  const octokit = new Octokit();
-  const releases = await collectReleases(octokit);
-  const supportBranches = await collectSupportBranches(octokit);
+async function collectVersions(api, repository) {
+  const releases = await collectReleases(api, repository);
+  const supportBranches = await collectSupportBranches(api, repository);
   const filteredReleases = releases.filter(({ version }) =>
     // Filter out releases which are covered by a support branch
     !supportBranches.some(({ range }) => semver.satisfies(version, range, {
@@ -39,10 +39,4 @@ function isGreaterPatchVersion(version, other) {
     semver.gt(version, other);
 }
 
-if (require.main === module) {
-  collectVersions()
-    .then(console.log)
-    .catch(console.error);
-} else {
-  exports.collectTags = collectVersions;
-}
+exports.collectVersions = collectVersions;

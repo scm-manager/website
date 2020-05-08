@@ -1,15 +1,16 @@
-const { organization, repository } = require("./config");
+const { organization } = require("./config");
 const parse = require("parse-link-header");
 
 const supportBranchRegex = /^support\/([1-9]+\.[1-9]+[0-9]*\.x)$/g;
 
 /**
- * @param {Octokit} api
+ * @param {RestEndpointMethodTypes} api
+ * @param {string} repository
  * @returns {Promise<Array<{range: string, sha: string}>>}
  */
-module.exports = async function collectSupportBranches(api) {
+async function collectSupportBranches(api, repository) {
   const supportBranches = [];
-  const branchItr = asyncBranchItr(api);
+  const branchItr = asyncBranchItr(api, repository);
 
   for await (const branches of branchItr) {
     for (const branch of branches) {
@@ -31,9 +32,10 @@ module.exports = async function collectSupportBranches(api) {
 
 /**
  * @param {Octokit} api
+ * @param {string} repository
  * @returns {{[Symbol.asyncIterator](): {next: function(): Promise<{result: any, done}>, page: number}}|{next: (function(): {result: *, done: boolean}), page: number}}
  */
-function asyncBranchItr(api) {
+function asyncBranchItr(api, repository) {
   return {
     [Symbol.asyncIterator]() {
       return {
@@ -59,3 +61,5 @@ function asyncBranchItr(api) {
     },
   };
 }
+
+exports.collectSupportBranches = collectSupportBranches;

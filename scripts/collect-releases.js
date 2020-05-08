@@ -1,13 +1,14 @@
-const { organization, repository } = require("./config");
+const { organization } = require("./config");
 const semver = require("semver");
 
 const semverRegex = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/g;
 
 /**
  * @param {Octokit} api
+ * @param {string} repository
  * @returns {Promise<Array<{version: string, sha: string}>>}
  */
-module.exports = async function collectReleases(api) {
+async function collectReleases(api, repository) {
   const releases = [];
 
   const tags = (await api.repos.listTags({
@@ -30,4 +31,6 @@ module.exports = async function collectReleases(api) {
   }
 
   return releases;
-};
+}
+
+exports.collectReleases = collectReleases;

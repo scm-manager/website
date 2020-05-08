@@ -1,4 +1,7 @@
 {
   "organization": "scm-manager",
-  "repository": "scm-manager"
+  "core": "scm-manager",
+  "plugins": [
+
+  ]
 }
