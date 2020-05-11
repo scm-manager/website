@@ -51,7 +51,7 @@ function asyncBranchItr(api, repository) {
             page: this.page++,
           });
           const links = parse(response.headers.link);
-          this.done = !links.next;
+          this.done = !links || !links.next;
           return {
             done: false,
             value: response.data,

@@ -1,7 +1,4 @@
 {
   "organization": "scm-manager",
-  "core": "scm-manager",
-  "plugins": [
-
-  ]
+  "core": "scm-manager"
 }
