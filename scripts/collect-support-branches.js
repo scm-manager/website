@@ -4,7 +4,7 @@ const parse = require("parse-link-header");
 const supportBranchRegex = /^support\/([1-9]+\.[1-9]+[0-9]*\.x)$/g;
 
 /**
- * @param {RestEndpointMethodTypes} api
+ * @param {Octokit} api
  * @param {string} repository
  * @returns {Promise<Array<{range: string, sha: string}>>}
  */
