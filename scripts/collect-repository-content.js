@@ -6,51 +6,47 @@ const exec = util.promisify(require('child_process').exec);
 const { organization } = require('./config');
 const { join } = require('path');
 const { tmpdir } = require('os');
+const logger = require("./logger");
 
 /**
  * @param {Octokit} api
  * @param {string} repository
- * @param {{supportBranches: Array<{range: string, sha: string}>, releases: {version: string, sha: string}[]}} versions
+ * @param {Array<{range: string, sha: string}>} versions
  * @param {string} outPath
  *
  * @see https://stackoverflow.com/a/52269934
  */
-async function collectRepositoryContent(api, repository, { supportBranches, releases }, outPath) {
-  console.info(`Collecting ${repository} ...`);
+async function collectRepositoryContent(api, repository, versions, outPath) {
+  logger.info(`Collecting ${repository} ...`);
 
   const tmpClonePath = await mkdtemp(join(tmpdir(), `${repository}-`));
   const docsPath = join(outPath, "docs");
 
   try {
-    console.debug(`Cloning ${repository} into ${tmpClonePath} ...`);
+    logger.debug(`Cloning ${repository} into ${tmpClonePath} ...`);
     await exec(`git clone --no-checkout git@github.com:${organization}/${repository}.git . && git sparse-checkout init && git sparse-checkout set docs/ README.md LICENSE.txt CHANGELOG.md`, {
       cwd: tmpClonePath
     });
 
-    console.debug(`Collecting root files for ${repository} from default branch ...`);
+    logger.debug(`Collecting root files for ${repository} from default branch ...`);
     await Promise.all([
       moveFileIfExsists(tmpClonePath, outPath, 'README.md'),
       moveFileIfExsists(tmpClonePath, outPath, 'CHANGELOG.md'),
       moveFileIfExsists(tmpClonePath, outPath, 'LICENSE.txt'),
     ]);
 
-    console.log(`Collecting support branches for ${repository} ...`)
-    for (const { range, sha } of supportBranches) {
+    logger.debug(`Collecting versions for ${repository} ...`)
+    for (const { range, sha } of versions) {
       await collectVersionContent(tmpClonePath, range, sha, docsPath);
     }
-
-    console.log(`Collecting releases for ${repository} ...`)
-    for (const { version, sha } of releases) {
-      await collectVersionContent(tmpClonePath, version, sha, docsPath);
-    }
   } finally {
-    console.debug(`Removing temporary working directory: ${tmpClonePath} ...`)
+    logger.debug(`Removing temporary working directory: ${tmpClonePath} ...`)
     await remove(tmpClonePath);
   }
 }
 
 async function collectVersionContent(tmpDir, version, sha, outPath) {
-  console.log(`Checking out ${version} (${sha}) ...`)
+  logger.debug(`Checking out ${version} (${sha}) ...`)
   await exec(`git checkout -f ${sha}`, {
     cwd: tmpDir
   });
@@ -59,13 +55,13 @@ async function collectVersionContent(tmpDir, version, sha, outPath) {
   const docsPath = join(tmpDir, 'docs');
 
   if (await pathExists(docsPath)) {
-    console.debug(`Collecting contents of docs folder for version ${version} ...`);
+    logger.debug(`Collecting contents of docs folder for version ${version} ...`);
     await ensureDir(versionPath);
     await emptyDir(versionPath);
 
     await moveDirContents(versionPath, docsPath);
   } else {
-    console.debug(`No docs folder in version ${version}, skipping ...`)
+    logger.debug(`No docs folder in version ${version}, skipping ...`)
   }
 }
 
@@ -86,13 +82,13 @@ function moveFileIfExsists(from, to, file) {
  */
 async function moveIfExsists(from, to) {
   if (await pathExists(from)) {
-    console.trace(`Moving '${from}' to '${to}' ...`)
+    logger.trace(`Moving '${from}' to '${to}' ...`)
     await move(from, to, {
       overwrite: true
     })
-    console.trace(`Moved '${from}' to '${to}'!`)
+    logger.trace(`Moved '${from}' to '${to}'!`)
   } else {
-    console.warn(`Nothing to move, '${from}' does not exist!`)
+    logger.warn(`Nothing to move, '${from}' does not exist!`)
   }
 }
 

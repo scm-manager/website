@@ -1,4 +1,5 @@
 const { organization } = require("./config");
+const { asyncIterator } = require('./async-iterator');
 const parse = require("parse-link-header");
 
 const supportBranchRegex = /^support\/([1-9]+\.[1-9]+[0-9]*\.x)$/g;
@@ -10,7 +11,19 @@ const supportBranchRegex = /^support\/([1-9]+\.[1-9]+[0-9]*\.x)$/g;
  */
 async function collectSupportBranches(api, repository) {
   const supportBranches = [];
-  const branchItr = asyncBranchItr(api, repository);
+  const branchItr = asyncIterator(async page => {
+    const response = await api.repos.listBranches({
+      owner: organization,
+      repo: repository,
+      page,
+    });
+    const links = parse(response.headers.link);
+    const done = !links || !links.next;
+    return {
+      done,
+      value: response.data
+    }
+  });
 
   for await (const branches of branchItr) {
     for (const branch of branches) {
@@ -28,38 +41,6 @@ async function collectSupportBranches(api, repository) {
   }
 
   return supportBranches;
-};
-
-/**
- * @param {Octokit} api
- * @param {string} repository
- * @returns {{[Symbol.asyncIterator](): {next: function(): Promise<{result: any, done}>, page: number}}|{next: (function(): {result: *, done: boolean}), page: number}}
- */
-function asyncBranchItr(api, repository) {
-  return {
-    [Symbol.asyncIterator]() {
-      return {
-        page: 0,
-        done: false,
-        async next() {
-          if (this.done) {
-            return { done: true };
-          }
-          const response = await api.repos.listBranches({
-            owner: organization,
-            repo: repository,
-            page: this.page++,
-          });
-          const links = parse(response.headers.link);
-          this.done = !links || !links.next;
-          return {
-            done: false,
-            value: response.data,
-          };
-        },
-      };
-    },
-  };
 }
 
 exports.collectSupportBranches = collectSupportBranches;

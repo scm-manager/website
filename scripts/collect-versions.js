@@ -7,7 +7,7 @@ const { collectReleases } = require("./collect-releases");
 /**
  * @param {Octokit} api
  * @param {string} repository
- * @returns {Promise<{supportBranches: Array<{range: string, sha: string}>, releases: {version: string, sha: string}[]}>}
+ * @returns {Promise<Array<{range: string, sha: string}>>}
  */
 async function collectVersions(api, repository) {
   const releases = await collectReleases(api, repository);
@@ -25,12 +25,16 @@ async function collectVersions(api, repository) {
     // Only keep latest patch version of each minor version
     !releases.some(other => other.version !== version && isGreaterPatchVersion(other.version, version)),
   );
+  const releaseRanges = filteredReleases.map(({ version, sha}) => ({
+    range: `${semver.major(version)}.${semver.minor(version)}.x`,
+    sha
+  }))
 
   // Return result
-  return {
-    releases: filteredReleases,
-    supportBranches,
-  };
+  return [
+    ...releaseRanges,
+    ...supportBranches,
+  ];
 }
 
 function isGreaterPatchVersion(version, other) {
