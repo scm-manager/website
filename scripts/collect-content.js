@@ -6,7 +6,9 @@ const { core } = require("./config");
 
 async function collectContent() {
   const now = Date.now();
-  const api = new Octokit();
+  const api = new Octokit({
+    auth: process.env.GITHUB_API_TOKEN
+  });
   const plugins = await findPlugins();
   console.debug(`Found ${plugins.length} plugin(s): `, plugins);
   console.info(`Collecting content...`);
