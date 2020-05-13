@@ -1,4 +1,8 @@
 FROM node:12.16.2 as builder
+
+ARG GITHUB_API_TOKEN
+ENV GITHUB_API_TOKEN=$GITHUB_API_TOKEN
+
 WORKDIR /src/app
 COPY package.json yarn.lock ./
 RUN yarn install

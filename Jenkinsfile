@@ -32,9 +32,11 @@ pipeline {
       }
       steps {
         script {
-          docker.withRegistry('', 'hub.docker.com-cesmarvin') {
-            def image = docker.build("scmmanager/plugin-center:${version}")
-            image.push()
+          withCredentials([usernamePassword(credentialsId: 'cesmarvin-github', passwordVariable: 'GITHUB_API_TOKEN')]) {
+            docker.withRegistry('', 'hub.docker.com-cesmarvin') {
+              def image = docker.build("scmmanager/plugin-center:${version}", "--build-arg GITHUB_API_TOKEN=${GITHUB_API_TOKEN} .")
+              image.push()
+            }
           }
         }
       }
