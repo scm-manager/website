@@ -2,6 +2,7 @@
   "organization": "scm-manager",
   "core": "scm-manager",
   "logging": {
-    "level": "info"
+    "level": "info",
+    "prettyPrint": true
   }
 }

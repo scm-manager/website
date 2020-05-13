@@ -1,8 +1,8 @@
-const bunyan = require('bunyan');
+const createLogger = require('pino');
 const { logging } = require('./config');
 const { name } = require("../package");
 
-module.exports = bunyan.createLogger({
+module.exports = createLogger({
   name,
   ...logging
 });
