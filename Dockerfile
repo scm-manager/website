@@ -1,8 +1,9 @@
-FROM node:12.16.2 as builder
+FROM scmmanager/node-build:12.16.3 as builder
 
 ARG GITHUB_API_TOKEN
 ENV GITHUB_API_TOKEN=$GITHUB_API_TOKEN
 
+# compile application
 WORKDIR /src/app
 COPY package.json yarn.lock ./
 RUN yarn install
