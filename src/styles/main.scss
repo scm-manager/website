@@ -10,16 +10,16 @@ $navbar-item-img-max-height: 6rem;
 
 @import "bulma/bulma.sass";
 
-div.content {
-  overflow: scroll;
-}
-
 .spacing-right {
   margin-right: 1rem;
 }
 
 .has-full-height {
   height: 100%;
+}
+
+.is-scrollable-x {
+  overflow-x: auto;
 }
 
 //Navbar
@@ -125,4 +125,9 @@ a.navbar-item.is-active:after,
     align-items: center;
     display: flex;
   }
+}
+
+.ellipsis-overflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

@@ -9,11 +9,11 @@ import Plugin from "../components/Plugin";
 import SEO from "../components/SEO";
 
 const Category = ({ data }) => {
-  const categories = data.categories.nodes;
-  if (!categories) {
+  const category = data.category;
+  if (!category) {
     return null;
   }
-  const category = categories[0];
+  
   return (
     <Page>
       <SEO title={"Category " + category.displayName} />
@@ -37,14 +37,15 @@ const Category = ({ data }) => {
 
 export const query = graphql`
   query($name: String!) {
-    categories: allCategoriesYaml(filter: { name: { eq: $name } }) {
-      nodes {
-        icon
-        displayName
-        description
-      }
+    category: categoriesYaml(name: { eq: $name }) {
+      icon
+      displayName
+      description
     }
-    plugins: allPluginYaml(filter: { category: { eq: $name } }) {
+    plugins: allPluginYaml(
+      filter: { category: { name: { eq: $name } } }
+      sort: { fields: displayName }
+    ) {
       nodes {
         name
         author

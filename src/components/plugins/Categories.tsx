@@ -42,7 +42,7 @@ const renderRows = (rows: Category[][]) => {
 const Categories = () => {
   const data = useStaticQuery(graphql`
     {
-      allCategoriesYaml {
+      allCategoriesYaml(sort: {fields: displayName}) {
         nodes {
           icon
           name

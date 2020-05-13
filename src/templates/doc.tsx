@@ -41,7 +41,11 @@ export const query = graphql`
   query($slug: String!, $version: String!, $language: String!) {
     navigation: allNavigationYaml(
       filter: {
-        fields: { version: { eq: $version }, language: { eq: $language } }
+        fields: {
+          version: { eq: $version }
+          language: { eq: $language }
+          plugin: { eq: null }
+        }
       }
     ) {
       ...DocNavigation

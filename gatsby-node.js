@@ -9,6 +9,9 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
+const compareVersions = require("semver/functions/compare");
+const minVersion = require("semver/ranges/min-version");
+
 // resolve src for mdx
 // https://github.com/ChristopherBiscardi/gatsby-mdx/issues/176#issuecomment-429569578
 exports.onCreateWebpackConfig = ({ actions }) => {
@@ -31,22 +34,76 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     if (slug.startsWith("/docs")) {
       appendVersionAndLanguageFields(createNodeField, node, slug.substring(5));
     } else if (slug.startsWith("/plugins")) {
-      const plugin = slug.split("/")[2];
+      const parts = slug.split("/");
+      const plugin = parts[2];
       createNodeField({
         node,
         name: `plugin`,
         value: plugin,
       });
+      if (parts.length > 4 && parts[3] == "docs") {
+        createNodeField({
+          node,
+          name: `version`,
+          value: parts[4],
+        });
+        createNodeField({
+          node,
+          name: `language`,
+          value: parts[5],
+        });
+      }
     }
   } else if (node.internal.type === `NavigationYaml`) {
-    const slug = createFilePath({ node, getNode, basePath: `docs` });
+    const slug = createFilePath({ node, getNode });
+    const parts = slug.split("/").filter(p => p.length > 0);
+
+    const docsIndex = parts.indexOf("docs");
+    if (docsIndex >= 0 && parts.length >= docsIndex + 2) {
+      createNodeField({
+        node,
+        name: "version",
+        value: parts[docsIndex + 1]
+      });
+      createNodeField({
+        node,
+        name: "language",
+        value: parts[docsIndex + 2]
+      });
+    }
+
+    const pluginsIndex =  parts.indexOf("plugins");
+    if (pluginsIndex >= 0 && parts.length >= pluginsIndex + 1) {
+      createNodeField({
+        node,
+        name: "plugin",
+        value: parts[pluginsIndex + 1]
+      });
+    }
+
+    // remove navigation part
+    parts.pop();
     createNodeField({
       node,
       name: `slug`,
-      value:
-        "/docs" + slug.substring(0, slug.length - ("navigation".length + 1)),
+      value: "/" + parts.join("/") + "/"
     });
-    appendVersionAndLanguageFields(createNodeField, node, slug);
+  } else if (
+    node.internal.type === `Changelog` ||
+    node.internal.type === "PlainText"
+  ) {
+    const slug = createFilePath({ node, getNode, basePath: `plugins` });
+    const plugin = slug.split("/")[1];
+    createNodeField({
+      node,
+      name: `plugin`,
+      value: plugin,
+    });
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    });
   }
 };
 
@@ -70,6 +127,52 @@ const createPluginPage = node => {
   return {
     path: `/plugins/${node.name}`,
     component: path.resolve(`./src/templates/plugin.tsx`),
+    context: {
+      name: node.name,
+    },
+  };
+};
+
+const createPluginInstallationPage = node => {
+  return {
+    path: `/plugins/${node.name}/install`,
+    component: path.resolve(`./src/templates/plugin-install.tsx`),
+    context: {
+      name: node.name,
+    },
+  };
+};
+
+// TODO: render further variants depending on version called
+const createPluginReleasesPage = node => {
+  return {
+    path: `/plugins/${node.name}/releases`,
+    component: path.resolve(`./src/templates/plugin-releases.tsx`),
+    context: {
+      name: node.name,
+    },
+  };
+};
+
+const createPluginDocPage = node => {
+  const slugParts = node.fields.slug.split("/").filter(p => p.length > 0);
+  // e.g.: /plugins/scm-review-plugin/docs/2.0.x/en/tasks
+  return {
+    path: node.fields.slug,
+    component: path.resolve(`./src/templates/plugin-docs.tsx`),
+    context: {
+      name: slugParts[1],
+      slug: node.fields.slug,
+      version: slugParts[3],
+      language: slugParts[4],
+    },
+  };
+};
+
+const createPluginLicensePage = node => {
+  return {
+    path: `/plugins/${node.name}/license`,
+    component: path.resolve(`./src/templates/plugin-license.tsx`),
     context: {
       name: node.name,
     },
@@ -119,6 +222,10 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       allPluginYaml {
         nodes {
           name
+          documentation {
+            version
+            languages
+          }
         }
       }
 
@@ -201,12 +308,38 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         createPage(createDocPage(node));
       } else if (node.fields.slug.startsWith("/posts")) {
         createPage(createPost(node));
+      } else if (node.fields.slug.startsWith("/plugins")) {
+        const slugParts = node.fields.slug.split("/");
+        if (slugParts[3] === "docs") {
+          createPage(createPluginDocPage(node));
+        }
       }
     });
 
-    result.data.allPluginYaml.nodes.forEach(node =>
-      createPage(createPluginPage(node))
-    );
+    result.data.allPluginYaml.nodes.forEach(node => {
+      createPage(createPluginPage(node));
+      createPage(createPluginInstallationPage(node));
+      createPage(createPluginReleasesPage(node));
+      createPage(createPluginLicensePage(node));
+
+      const doc = node.documentation;
+      if (doc && doc.length > 0) {
+        createRedirect({
+          fromPath: `/plugins/${node.name}/docs`,
+          toPath: `/plugins/${node.name}/docs/${doc[0].version}/${defaultLanguage}/`,
+          isPermanent: true,
+          redirectInBrowser: true,
+        });        
+      } else {
+        createPage({
+          path: `/plugins/${node.name}/docs`,
+          component: path.resolve(`./src/templates/plugin-no-docs.tsx`),
+          context: {
+            name: node.name
+          }
+        });
+      }
+    });
 
     result.data.allCategoriesYaml.nodes.forEach(node => {
       createPage({
@@ -290,6 +423,16 @@ exports.createSchemaCustomization = ({ actions }) => {
     type NavigationYaml implements Node @infer {
       entries: [MarkdownRemark]
     }
+
+    type Documentation {
+      version: String!
+      languages: [String]!
+    }
+
+    type PluginYaml implements Node @infer {
+      category: CategoriesYaml!
+      documentation: [Documentation]
+    }
   `;
 
   createTypes(typeDefs);
@@ -297,12 +440,70 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 exports.createResolvers = ({ createResolvers, reporter }) => {
   const resolvers = {
+    PluginYaml: {
+      category: {
+        resolve(source, args, context) {
+          let node = context.nodeModel
+            .getAllNodes({ type: "CategoriesYaml" })
+            .find(node => node.name === source.category);
+          if (!node) {
+            reporter.error(`could not find category for ${source.category}`);
+          }
+          return node;
+        },
+      },
+      documentation: {
+        type: ["Documentation!"],
+        resolve(source, args, context) {
+          // we use getAllNodes instead of runQuery,
+          // because we get an error from runQuery
+          return context.nodeModel
+            .getAllNodes({ type: "MarkdownRemark" })
+            .filter(node => {
+              const fields = node.fields;
+              return (
+                fields.plugin === source.name && fields.slug.includes("docs")
+              );
+            })
+            .map(node => {
+              const { language, version } = node.fields;
+              return {
+                language,
+                version,
+              };
+            })
+            .reduce((acc, node) => {
+              const doc = acc.find(d => d.version === node.version);
+              if (doc) {
+                if (!doc.languages.includes(node.language)) {
+                  doc.languages.push(node.language);
+                }
+              } else {
+                acc.push({
+                  version: node.version,
+                  languages: [node.language],
+                });
+              }
+              return acc;
+            }, [])
+            .sort((a, b) => {
+              return (
+                compareVersions(minVersion(a.version), minVersion(b.version)) *
+                -1
+              );
+            });
+        },
+      },
+    },
     NavigationYaml: {
       entries: {
         resolve(source, args, context) {
-          const base = `/docs/${source.fields.version}/${source.fields.language}`;
           return source.entries.map(entry => {
-            const entrySlug = base + entry;
+            let path = entry;
+            if (entry.startsWith("/")) {
+              path = entry.substring(1);
+            }
+            const entrySlug = source.fields.slug + path;
             let node = context.nodeModel
               .getAllNodes({ type: "MarkdownRemark" })
               .find(node => node.fields.slug === entrySlug);

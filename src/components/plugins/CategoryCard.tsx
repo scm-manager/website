@@ -8,7 +8,7 @@ type Props = {
 };
 
 const CategoryCard: FC<Props> = ({ category}) => {
-  const to = "/plugins/categories/" + category.name;
+  const to = "/plugins/categories/" + category.name + "/";
   return (
     <div className="column is-4">
       <div className="pointer card has-full-height" onClick={e => navigate(to)}>

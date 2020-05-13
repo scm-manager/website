@@ -3,10 +3,11 @@ import "../styles/prism.scss";
 
 type Props = {
   content: string;
+  className?: string;
 };
 
-const HtmlContent: FC<Props> = ({ content }) => (
-  <div className="content" dangerouslySetInnerHTML={{ __html: content }} />
+const HtmlContent: FC<Props> = ({ content, className }) => (
+  <div className={ "content " + (className ? className : "") } dangerouslySetInnerHTML={{ __html: content }} />
 );
 
 export default HtmlContent;

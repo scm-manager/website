@@ -31,6 +31,8 @@
     "gatsby-remark-images-medium-zoom": "^1.2.1",
     "gatsby-remark-prismjs": "^3.3.3",
     "gatsby-source-filesystem": "^2.1.5",
+    "gatsby-transformer-keepachangelog": "^1.1.0",
+    "gatsby-transformer-plaintext": "^1.0.0",
     "gatsby-transformer-remark": "^2.6.9",
     "gatsby-transformer-sharp": "^2.2.4",
     "gatsby-transformer-yaml": "^2.2.3",
@@ -42,6 +44,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "semver": "^7.3.2",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
