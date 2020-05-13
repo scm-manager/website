@@ -24,7 +24,9 @@ async function collectRepositoryContent(api, repository, versions, outPath) {
 
   try {
     logger.debug(`Cloning ${repository} into ${tmpClonePath} ...`);
-    await exec(`git clone --no-checkout https://github.com/${organization}/${repository} . && git sparse-checkout init && git sparse-checkout set docs/ README.md LICENSE.txt CHANGELOG.md`, {
+
+    const cloneUrl = createCloneURL(repository);
+    await exec(`git clone --no-checkout ${cloneUrl} . && git sparse-checkout init && git sparse-checkout set docs/ README.md LICENSE.txt CHANGELOG.md`, {
       cwd: tmpClonePath
     });
 
@@ -43,6 +45,15 @@ async function collectRepositoryContent(api, repository, versions, outPath) {
     logger.debug(`Removing temporary working directory: ${tmpClonePath} ...`)
     await remove(tmpClonePath);
   }
+}
+
+function createCloneURL(repository) {
+  let auth = "";
+  const apiToken = process.env.GITHUB_API_TOKEN;
+  if (apiToken) {
+    auth = apiToken + "@";
+  }
+  return `https://${auth}github.com/${organization}/${repository}`;
 }
 
 async function collectVersionContent(tmpDir, version, sha, outPath) {
