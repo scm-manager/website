@@ -48,27 +48,34 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
+    "@octokit/rest": "^17.8.0",
+    "@types/fs-extra": "^8.1.0",
     "@types/node": "^12.6.8",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
     "@types/react-helmet": "^5.0.8",
     "@types/styled-components": "4.1.8",
     "babel-plugin-styled-components": "^1.10.6",
+    "bunyan": "^1.8.12",
+    "fs-extra": "^9.0.0",
     "gatsby-plugin-sass": "^2.1.3",
     "node-sass": "^4.12.0",
-    "prettier": "^1.18.2"
+    "parse-link-header": "^1.0.1",
+    "prettier": "^1.18.2",
+    "semver": "^7.3.2"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "npm run collect-content && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "collect-content": "node ./scripts/collect-content.js | bunyan"
   },
   "repository": {
     "type": "git",
