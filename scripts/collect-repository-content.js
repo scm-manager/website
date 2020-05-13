@@ -24,7 +24,7 @@ async function collectRepositoryContent(api, repository, versions, outPath) {
 
   try {
     logger.debug(`Cloning ${repository} into ${tmpClonePath} ...`);
-    await exec(`git clone --no-checkout https://github.com:${organization}/${repository} . && git sparse-checkout init && git sparse-checkout set docs/ README.md LICENSE.txt CHANGELOG.md`, {
+    await exec(`git clone --no-checkout https://github.com/${organization}/${repository} . && git sparse-checkout init && git sparse-checkout set docs/ README.md LICENSE.txt CHANGELOG.md`, {
       cwd: tmpClonePath
     });
 
