@@ -1,16 +1,16 @@
 const { readFile, writeFile } = require("fs-extra");
-const { join, sep } = require("path");
+const { join } = require("path");
 const { forEachFileInDirectoryRecursive } = require("./foreach-file-in-directory-recursive");
 const { EOL } = require("os");
 
 const OUT_FILE = join(__dirname, "..", "deployment", "docker", "redirects.conf");
 const SLUG_REGEX = /slug: (.+)/;
-const FILE_NAME_WITHOUT_EXTENSION_REGEX = /^(.+)\.md$/
+const FILE_NAME_WITHOUT_EXTENSION_REGEX = /^(.+)\.md$/;
 
 async function main() {
   const dir = join(__dirname, "..", "content", "posts");
   const resultMap = {
-    "/feed/": "rss.xml"
+    "/feed/": "rss.xml",
   };
   await forEachFileInDirectoryRecursive(dir, path => read(dir, path, resultMap));
   const resultMapString = Object.entries(resultMap).reduce((result, [slug, redirectUrl], idx) => {
@@ -24,6 +24,7 @@ async function main() {
 }
 
 /**
+ * @param {string} root
  * @param {Array<string>} path
  * @param result
  * @returns {Promise<void>}
