@@ -12,6 +12,7 @@ RUN yarn build
 
 FROM nginx:1.17.9
 
+COPY deployment/docker/redirects.conf /etc/nginx/redirects.conf
 COPY deployment/docker/nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder /src/app/public /usr/share/nginx/html
 
