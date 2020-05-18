@@ -41,7 +41,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         name: `plugin`,
         value: plugin,
       });
-      if (parts.length > 4 && parts[3] == "docs") {
+      if (parts.length > 4 && parts[3] === "docs") {
         createNodeField({
           node,
           name: `version`,

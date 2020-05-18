@@ -2,6 +2,12 @@ import React, { FC } from "react";
 import { graphql, navigate, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 
+export const PATH_PART_INDEX_DOCS_VERSION = 2;
+export const PATH_PART_INDEX_DOCS_LANGUAGE = 3;
+
+export const PATH_PART_INDEX_PLUGIN_VERSION = 4;
+export const PATH_PART_INDEX_PLUGIN_LANGUAGE = 5;
+
 const Label = styled.label`
   padding-left: 0.75rem;
 `;
@@ -64,20 +70,20 @@ const Setting: FC<SettingProps> = ({ label, value, options, onChange }) => (
   </div>
 );
 
-const changeVersion = (path: string, version: string) => {
-  navigate(replacePathPart(path, 2, version));
+const changeVersion = (path: string, version: string, index = PATH_PART_INDEX_DOCS_VERSION) => {
+  navigate(replacePathPart(path, index, version));
 };
 
-const changeLanguage = (path: string, lang: string) => {
-  navigate(replacePathPart(path, 3, lang));
+const changeLanguage = (path: string, lang: string, index = PATH_PART_INDEX_DOCS_LANGUAGE) => {
+  navigate(replacePathPart(path, index, lang));
 };
 
-const findVersion = (path: string) => {
-  return findPathPart(path, 2);
+const findVersion = (path: string, index = PATH_PART_INDEX_DOCS_VERSION) => {
+  return findPathPart(path, index);
 };
 
-const findLanguage = (path: string) => {
-  return findPathPart(path, 3);
+const findLanguage = (path: string, index = PATH_PART_INDEX_DOCS_LANGUAGE) => {
+  return findPathPart(path, index);
 };
 
 const findPathPart = (path: string, index: number) => {
@@ -92,46 +98,36 @@ const replacePathPart = (path: string, index: number, newPart: string) => {
 
 type Props = {
   path: string;
+  versions: { group: { fieldValue: string }[] };
+  languages: { group: { fieldValue: string }[] }
+  versionPathIndex: number;
+  languagePathIndex: number;
 };
 
-const NavigationSettings: FC<Props> = ({ path }) => {
-  const data = useStaticQuery(versionAndLanguage);
+const NavigationSettings: FC<Props> = ({ path, versionPathIndex, languagePathIndex, versions, languages }) => {
   return (
     <>
       <p className="menu-label">Settings</p>
       <Setting
         label="Version"
-        value={findVersion(path)}
-        options={data.versions.group
+        value={findVersion(path, versionPathIndex)}
+        options={versions.group
           .map(g => g.fieldValue)
           .sort()
           .reverse()}
-        onChange={version => changeVersion(path, version)}
+        onChange={version => changeVersion(path, version, versionPathIndex)}
       />
       <Setting
         label="Language"
-        value={findLanguage(path)}
-        options={data.languages.childrenLanguagesYaml}
-        onChange={language => changeLanguage(path, language)}
+        value={findLanguage(path, languagePathIndex)}
+        options={languages.group
+          .map(g => g.fieldValue)
+          .sort()
+          .reverse()}
+        onChange={language => changeLanguage(path, language, languagePathIndex)}
       />
     </>
   );
 };
-
-const versionAndLanguage = graphql`
-  query {
-    languages: file(relativePath: { eq: "docs/languages.yml" }) {
-      childrenLanguagesYaml {
-        label
-        value
-      }
-    }
-    versions: allMarkdownRemark {
-      group(field: fields___version) {
-        fieldValue
-      }
-    }
-  }
-`;
 
 export default NavigationSettings;

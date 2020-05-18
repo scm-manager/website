@@ -8,10 +8,14 @@ import TableOfContents from "../layout/TableOfContents";
 import DocNavigation from "../components/DocNavigation";
 import MenuSection from "../components/MenuSection";
 import MenuEntry from "../components/MenuEntry";
+import {
+  PATH_PART_INDEX_PLUGIN_LANGUAGE,
+  PATH_PART_INDEX_PLUGIN_VERSION,
+} from "../components/NavigationSettings";
 
 const renderToc = page => {
   if (page.frontmatter.displayToc) {
-    return <TableOfContents content={page.tableOfContents} />;
+    return <TableOfContents content={page.tableOfContents}/>;
   }
   return null;
 };
@@ -41,11 +45,15 @@ const PluginDocs = ({ data, path, pageContext }) => {
           <Title>{data.markdownRemark.frontmatter.title}</Title>
           <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
           {renderToc(data.markdownRemark)}
-          <HtmlContent content={data.markdownRemark.html} />
+          <HtmlContent content={data.markdownRemark.html}/>
         </div>
         <div className="column is-one-quarter">
           <DocNavigation
             path={path}
+            versions={data.versions}
+            languages={data.languages}
+            versionPathIndex={PATH_PART_INDEX_PLUGIN_VERSION}
+            languagePathIndex={PATH_PART_INDEX_PLUGIN_LANGUAGE}
             afterSettings={
               <Navigation
                 plugin={data.plugin.name}
@@ -83,6 +91,16 @@ export const query = graphql`
       }
     ) {
       ...DocNavigation
+    }
+    versions: allMarkdownRemark(filter: { fields: { plugin: { eq: $name } } }) {
+      group(field: fields___version) {
+        fieldValue
+      }
+    }
+    languages: allMarkdownRemark(filter: { fields: { plugin: { eq: $name }, version: { eq: $version } } }) {
+      group(field: fields___language) {
+        fieldValue
+      }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html

@@ -8,6 +8,7 @@ import DocNavigation from "../components/DocNavigation";
 import PageContainer from "../layout/PageContainer";
 import HtmlContent from "../layout/HtmlContent";
 import TableOfContents from "../layout/TableOfContents";
+import { PATH_PART_INDEX_DOCS_LANGUAGE, PATH_PART_INDEX_DOCS_VERSION } from "../components/NavigationSettings";
 
 const renderToc = page => {
   if (page.frontmatter.displayToc) {
@@ -31,7 +32,7 @@ const Doc: FC<DocPageProps> = ({ path, data }) => (
         <HtmlContent content={data.markdownRemark.html} />
       </div>
       <div className="column is-one-quarter">
-        <DocNavigation path={path} navigation={data.navigation} />
+        <DocNavigation versions={data.versions} languages={data.languages} path={path} navigation={data.navigation} versionPathIndex={PATH_PART_INDEX_DOCS_VERSION} languagePathIndex={PATH_PART_INDEX_DOCS_LANGUAGE} />
       </div>
     </div>
   </PageContainer>
@@ -49,6 +50,16 @@ export const query = graphql`
       }
     ) {
       ...DocNavigation
+    }
+    versions: allMarkdownRemark(filter: { fields: { plugin: { eq: null } } }) {
+      group(field: fields___version) {
+        fieldValue
+      }
+    }
+    languages: allMarkdownRemark(filter: { fields: { plugin: { eq: null }, version: { eq: $version } } }) {
+      group(field: fields___language) {
+        fieldValue
+      }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
