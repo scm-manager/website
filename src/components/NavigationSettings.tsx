@@ -11,7 +11,7 @@ export const PATH_PART_INDEX_PLUGIN_LANGUAGE = 5;
 
 
 const changeVersion = (path: string, version: string, index = PATH_PART_INDEX_DOCS_VERSION) => {
-  navigate(replacePathPart(path, index, version));
+  navigate(replacePathPartAndCutOff(path, index, version, "en"));
 };
 
 const changeLanguage = (path: string, lang: string, index = PATH_PART_INDEX_DOCS_LANGUAGE) => {
@@ -35,6 +35,11 @@ const replacePathPart = (path: string, index: number, newPart: string) => {
   pathParts[index] = newPart;
   return pathParts.join("/");
 };
+
+const replacePathPartAndCutOff = (path: string, index: number, ...newParts: string[]) => {
+  const pathParts = path.split("/").slice(0, index);
+  return [...pathParts, ...newParts].join("/");
+}
 
 type Props = {
   path: string;

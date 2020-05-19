@@ -10,7 +10,7 @@ const WelcomeSection = () => (
           <WelcomeText />
         </div>
         <div className="column is-4">
-          {/*<WelcomeImage />*/}
+          <WelcomeImage />
         </div>
       </div>
     </div> 
