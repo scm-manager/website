@@ -1,83 +1,29 @@
 import React, { FC } from "react";
-import { graphql, navigate, useStaticQuery } from "gatsby";
-import styled from "styled-components";
+import { navigate } from "gatsby";
+import Setting from "./Setting";
+import LanguageSetting from "./LanguageSetting";
 
-const Label = styled.label`
-  padding-left: 0.75rem;
-`;
+export const PATH_PART_INDEX_DOCS_VERSION = 2;
+export const PATH_PART_INDEX_DOCS_LANGUAGE = 3;
 
-type OptionObject = {
-  label: string;
-  value: string;
+export const PATH_PART_INDEX_PLUGIN_VERSION = 4;
+export const PATH_PART_INDEX_PLUGIN_LANGUAGE = 5;
+
+
+const changeVersion = (path: string, version: string, index = PATH_PART_INDEX_DOCS_VERSION) => {
+  navigate(replacePathPartAndCutOff(path, index, version, "en"));
 };
 
-type Option = string | OptionObject;
-
-type SettingProps = {
-  label: string;
-  value: string;
-  options: Option[];
-  onChange: (value: string) => void;
+const changeLanguage = (path: string, lang: string, index = PATH_PART_INDEX_DOCS_LANGUAGE) => {
+  navigate(replacePathPart(path, index, lang));
 };
 
-const isOptionObject = (opt: Option): opt is OptionObject => {
-  return !!(opt as OptionObject).label;
+const findVersion = (path: string, index = PATH_PART_INDEX_DOCS_VERSION) => {
+  return findPathPart(path, index);
 };
 
-const createOption = (opt: Option) => {
-  let label;
-  let value;
-  if (isOptionObject(opt)) {
-    label = opt.label;
-    value = opt.value;
-  } else {
-    label = opt as string;
-    value = opt as string;
-  }
-  return (
-    <option key={value} value={value}>
-      {label}
-    </option>
-  );
-};
-
-const Setting: FC<SettingProps> = ({ label, value, options, onChange }) => (
-  <div className="columns is-horizontal field">
-    <div className="field-label column has-text-left is-one-third is-vcentered">
-      <Label>{label}</Label>
-    </div>
-    <div className="field-body column">
-      <div className="field">
-        <div className="control">
-          <div className="select is-fullwidth">
-            <select
-              className="is-fullwidth"
-              onChange={e => onChange(e.target.value)}
-              value={value}
-            >
-              {options.map(createOption)}
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-const changeVersion = (path: string, version: string) => {
-  navigate(replacePathPart(path, 2, version));
-};
-
-const changeLanguage = (path: string, lang: string) => {
-  navigate(replacePathPart(path, 3, lang));
-};
-
-const findVersion = (path: string) => {
-  return findPathPart(path, 2);
-};
-
-const findLanguage = (path: string) => {
-  return findPathPart(path, 3);
+const findLanguage = (path: string, index = PATH_PART_INDEX_DOCS_LANGUAGE) => {
+  return findPathPart(path, index);
 };
 
 const findPathPart = (path: string, index: number) => {
@@ -90,48 +36,41 @@ const replacePathPart = (path: string, index: number, newPart: string) => {
   return pathParts.join("/");
 };
 
+const replacePathPartAndCutOff = (path: string, index: number, ...newParts: string[]) => {
+  const pathParts = path.split("/").slice(0, index);
+  return [...pathParts, ...newParts].join("/");
+}
+
 type Props = {
   path: string;
+  versions: { group: { fieldValue: string }[] };
+  languages: { group: { fieldValue: string }[] }
+  versionPathIndex: number;
+  languagePathIndex: number;
 };
 
-const NavigationSettings: FC<Props> = ({ path }) => {
-  const data = useStaticQuery(versionAndLanguage);
+const NavigationSettings: FC<Props> = ({ path, versionPathIndex, languagePathIndex, versions, languages }) => {
   return (
     <>
       <p className="menu-label">Settings</p>
       <Setting
         label="Version"
-        value={findVersion(path)}
-        options={data.versions.group
+        value={findVersion(path, versionPathIndex)}
+        options={versions.group
           .map(g => g.fieldValue)
           .sort()
           .reverse()}
-        onChange={version => changeVersion(path, version)}
+        onChange={version => changeVersion(path, version, versionPathIndex)}
       />
-      <Setting
-        label="Language"
-        value={findLanguage(path)}
-        options={data.languages.childrenLanguagesYaml}
-        onChange={language => changeLanguage(path, language)}
+      <LanguageSetting
+        value={findLanguage(path, languagePathIndex)}
+        languages={languages.group
+          .map(g => g.fieldValue)
+          .sort()}
+        onChange={language => changeLanguage(path, language, languagePathIndex)}
       />
     </>
   );
 };
-
-const versionAndLanguage = graphql`
-  query {
-    languages: file(relativePath: { eq: "docs/languages.yml" }) {
-      childrenLanguagesYaml {
-        label
-        value
-      }
-    }
-    versions: allMarkdownRemark {
-      group(field: fields___version) {
-        fieldValue
-      }
-    }
-  }
-`;
 
 export default NavigationSettings;

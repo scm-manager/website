@@ -17,12 +17,16 @@ type Props = {
   path: string;
   afterSettings?: ReactNode;
   navigation: any;
+  languagePathIndex: number;
+  versionPathIndex: number;
+  versions: { group: { fieldValue: string }[] };
+  languages: { group: { fieldValue: string }[] };
 };
 
-const DocNavigation: FC<Props> = ({ path, afterSettings, navigation }) => {
+const DocNavigation: FC<Props> = ({ path, languagePathIndex, versionPathIndex, afterSettings, navigation, versions, languages }) => {
   return (
     <Menu>
-      <NavigationSettings path={path} />
+      <NavigationSettings path={path} versions={versions} languages={languages} languagePathIndex={languagePathIndex} versionPathIndex={versionPathIndex} />
       {afterSettings}
       {navigation.nodes.map(node => (
         <MenuSection key={node.section} title={node.section}>

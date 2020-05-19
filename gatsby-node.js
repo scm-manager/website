@@ -41,7 +41,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         name: `plugin`,
         value: plugin,
       });
-      if (parts.length > 4 && parts[3] == "docs") {
+      if (parts.length > 4 && parts[3] === "docs") {
         createNodeField({
           node,
           name: `version`,
@@ -270,7 +270,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         }
       }
 
-      languages: file(relativePath: { eq: "docs/languages.yml" }) {
+      languages: file(relativePath: { eq: "languages.yml" }) {
         childrenLanguagesYaml {
           label
           value
@@ -519,15 +519,4 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
     },
   };
   createResolvers(resolvers);
-};
-
-exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage, deletePage } = actions;
-  // Check if the page is a localized 404
-  if (page.path === "/docs/404/") {
-    const oldPage = { ...page };
-    page.matchPath = `/docs/*`;
-    deletePage(oldPage);
-    createPage(page);
-  }
 };
