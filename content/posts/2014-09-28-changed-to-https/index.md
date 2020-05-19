@@ -4,7 +4,7 @@ date: 2014-09-28T10:47:14+00:00
 author: Sebastian Sdorra
 slug: /server/changed-to-https/
 categories:
-  - server
+  - infrastructure
 
 ---
 The following SCM-Manager pages are changed to https.

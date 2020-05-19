@@ -4,7 +4,7 @@ date: 2013-02-05T14:45:28+00:00
 author: Sebastian Sdorra
 slug: /server/server-maintenance-on-2013-02-07-and-2013-02-08/
 categories:
-  - server
+  - infrastructure
 
 ---
 Between  2013-02-07 and 2013-02-08, we have to do some maintenance work on the server infrastructure of SCM-Manager.

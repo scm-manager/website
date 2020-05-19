@@ -5,6 +5,7 @@ author: Sebastian Sdorra
 slug: /scm-manager-2/new-home-for-scm-manager-packages/
 categories:
   - scm-manager
+  - infrastructure
 ---
 
 Before launching our 2.0.0 release we decided to optimize and modernize our infrastructure. One of the first notable changes is the new packages.scm-manager.org Nexus 3 instance replacing our old Nexus 2 instance on maven.scm-manager.org. With this migration most paths have been changed. But fortunately we were able to create redirects for most cases. Only users of the debian package will get errors because a redirect was not possible.

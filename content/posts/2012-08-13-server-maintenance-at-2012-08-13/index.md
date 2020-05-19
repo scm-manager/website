@@ -4,7 +4,7 @@ date: 2012-08-13T16:36:13+00:00
 author: Sebastian Sdorra
 slug: /server/server-maintenance-at-2012-08-13/
 categories:
-  - server
+  - infrastructure
 
 ---
 The SCM-Manager services will not be available from 2012-08-13 04:00 GMT until 2012-08-13 06:00 GMT.

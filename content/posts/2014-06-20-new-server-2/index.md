@@ -4,7 +4,7 @@ date: 2014-06-20T16:20:38+00:00
 author: Sebastian Sdorra
 slug: /server/new-server-2/
 categories:
-  - server
+  - infrastructure
 
 ---
 The following SCM-Manager pages has been moved to a new server:
