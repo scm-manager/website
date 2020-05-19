@@ -270,7 +270,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         }
       }
 
-      languages: file(relativePath: { eq: "docs/languages.yml" }) {
+      languages: file(relativePath: { eq: "languages.yml" }) {
         childrenLanguagesYaml {
           label
           value

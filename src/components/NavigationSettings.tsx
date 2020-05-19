@@ -1,6 +1,7 @@
 import React, { FC } from "react";
-import { graphql, navigate, useStaticQuery } from "gatsby";
-import styled from "styled-components";
+import { navigate } from "gatsby";
+import Setting from "./Setting";
+import LanguageSetting from "./LanguageSetting";
 
 export const PATH_PART_INDEX_DOCS_VERSION = 2;
 export const PATH_PART_INDEX_DOCS_LANGUAGE = 3;
@@ -8,67 +9,6 @@ export const PATH_PART_INDEX_DOCS_LANGUAGE = 3;
 export const PATH_PART_INDEX_PLUGIN_VERSION = 4;
 export const PATH_PART_INDEX_PLUGIN_LANGUAGE = 5;
 
-const Label = styled.label`
-  padding-left: 0.75rem;
-`;
-
-type OptionObject = {
-  label: string;
-  value: string;
-};
-
-type Option = string | OptionObject;
-
-type SettingProps = {
-  label: string;
-  value: string;
-  options: Option[];
-  onChange: (value: string) => void;
-};
-
-const isOptionObject = (opt: Option): opt is OptionObject => {
-  return !!(opt as OptionObject).label;
-};
-
-const createOption = (opt: Option) => {
-  let label;
-  let value;
-  if (isOptionObject(opt)) {
-    label = opt.label;
-    value = opt.value;
-  } else {
-    label = opt as string;
-    value = opt as string;
-  }
-  return (
-    <option key={value} value={value}>
-      {label}
-    </option>
-  );
-};
-
-const Setting: FC<SettingProps> = ({ label, value, options, onChange }) => (
-  <div className="columns is-horizontal field">
-    <div className="field-label column has-text-left is-one-third is-vcentered">
-      <Label>{label}</Label>
-    </div>
-    <div className="field-body column">
-      <div className="field">
-        <div className="control">
-          <div className="select is-fullwidth">
-            <select
-              className="is-fullwidth"
-              onChange={e => onChange(e.target.value)}
-              value={value}
-            >
-              {options.map(createOption)}
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-);
 
 const changeVersion = (path: string, version: string, index = PATH_PART_INDEX_DOCS_VERSION) => {
   navigate(replacePathPart(path, index, version));
@@ -117,13 +57,11 @@ const NavigationSettings: FC<Props> = ({ path, versionPathIndex, languagePathInd
           .reverse()}
         onChange={version => changeVersion(path, version, versionPathIndex)}
       />
-      <Setting
-        label="Language"
+      <LanguageSetting
         value={findLanguage(path, languagePathIndex)}
-        options={languages.group
+        languages={languages.group
           .map(g => g.fieldValue)
-          .sort()
-          .reverse()}
+          .sort()}
         onChange={language => changeLanguage(path, language, languagePathIndex)}
       />
     </>
