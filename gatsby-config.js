@@ -165,10 +165,10 @@ module.exports = {
     , {
       resolve: 'gatsby-plugin-matomo',
       options: {
-        siteId: '3',
+        siteId: 3,
         matomoUrl: 'https://cloudogu.matomo.cloud',
         siteUrl: 'https://scm-manager.org/',
-        dev: true
+        disableCookies: true
       }
     }
   ]
