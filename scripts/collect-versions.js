@@ -3,6 +3,7 @@
 const semver = require("semver");
 const { collectSupportBranches } = require("./collect-support-branches");
 const { collectReleases } = require("./collect-releases");
+const logger = require('./logger');
 
 /**
  * @param {Octokit} api
@@ -25,6 +26,7 @@ async function collectVersions(api, repository) {
     // Only keep latest patch version of each minor version
     !releases.some(other => other.version !== version && isGreaterPatchVersion(other.version, version)),
   );
+  logger.info(releases)
   const releaseRanges = filteredReleases.map(({ version, sha}) => ({
     range: `${semver.major(version)}.${semver.minor(version)}.x`,
     sha
