@@ -1,6 +1,4 @@
 const { organization } = require("./config");
-const { asyncIterator } = require('./async-iterator');
-const parse = require("parse-link-header");
 const semver = require("semver");
 
 const semverRegex = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/g;
@@ -13,23 +11,12 @@ const semverRegex = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*
 async function collectReleases(api, repository) {
   const releases = [];
 
-  const tagsItr = asyncIterator(async page => {
-    const response = await api.repos.listTags({
-      owner: organization,
-      repo: repository,
-      page: page + 1, // Because async iterator starts with page=0
-    });
-    const links = parse(response.headers.link);
-    const done = !links || !links.next;
-    return {
-      done,
-      value: response.data
-    }
-  });
-
-  for await (const tags of tagsItr) {
+  for await (const tags of api.paginate.iterator(api.repos.listTags, {
+    owner: organization,
+    repo: repository,
+  })) {
     // logger.info(tags.map(t => t.name))
-    for (const tag of tags) {
+    for (const tag of tags.data) {
       const regexResult = semverRegex.exec(tag.name);
       if (regexResult) {
         const [matched] = regexResult;
