@@ -44,7 +44,7 @@ const renderRows = (rows: Category[][]) => {
 const Categories = () => {
   const data = useStaticQuery(graphql`
     {
-      allCategoriesYaml(sort: {fields: displayName}) {
+      allCategoriesYaml(sort: { fields: displayName }) {
         nodes {
           icon
           name
@@ -60,11 +60,9 @@ const Categories = () => {
     <section className="section">
       <div className="container categories">
         <Title>
-        <a id="categories"></a>Categories
+          <a id="categories"></a>Categories
         </Title>
-        <Subtitle>
-          SCM-Manager v2 Plugin categories
-        </Subtitle>
+        <Subtitle>SCM-Manager v2 Plugin categories</Subtitle>
         {renderRows(rows)}
       </div>
     </section>
