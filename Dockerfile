@@ -1,6 +1,7 @@
 FROM scmmanager/node-build:12.16.3 as builder
 
 ARG GITHUB_API_TOKEN
+ENV LOG_LEVEL=debug
 ENV GITHUB_API_TOKEN=$GITHUB_API_TOKEN
 
 # compile application
