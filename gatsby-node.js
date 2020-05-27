@@ -57,6 +57,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   } else if (node.internal.type === `NavigationYaml`) {
     const slug = createFilePath({ node, getNode });
     const parts = slug.split("/").filter(p => p.length > 0);
+
     const docsIndex = parts.indexOf("docs");
     if (docsIndex >= 0 && parts.length >= docsIndex + 2) {
       createNodeField({
@@ -78,12 +79,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         name: "plugin",
         value: parts[pluginsIndex + 1]
       });
-    } else {
-      createNodeField({
-        node,
-        name: "plugin",
-        value: null
-      })
     }
 
     // remove navigation part
@@ -93,7 +88,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       value: "/" + parts.join("/") + "/"
     });
-
   } else if (
     node.internal.type === `Changelog` ||
     node.internal.type === "PlainText"
@@ -127,11 +121,6 @@ const appendVersionAndLanguageFields = (createNodeField, node, slug) => {
     name: `language`,
     value: slugParts.shift(),
   });
-  createNodeField({
-    node,
-    name: 'plugin',
-    value: null
-  })
 };
 
 const createPluginPage = node => {
