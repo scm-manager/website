@@ -15,7 +15,6 @@ async function collectReleases(api, repository) {
     owner: organization,
     repo: repository,
   })) {
-    // logger.info(tags.map(t => t.name))
     for (const tag of tags.data) {
       const regexResult = semverRegex.exec(tag.name);
       if (regexResult) {

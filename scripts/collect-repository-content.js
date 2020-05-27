@@ -74,10 +74,12 @@ async function collectVersionContent(tmpDir, version, sha, outPath) {
     await ensureDir(versionPath);
     await emptyDir(versionPath);
 
+    logger.debug(`Move content from ${docsPath} to ${versionPath} ...`);
     await moveDirContents(versionPath, docsPath);
   } else {
     logger.debug(`No docs folder in version ${version}, skipping ...`)
   }
+  logger.debug(`Content collected for ${version} and moved to ${outPath}`);
 }
 
 /**
