@@ -444,6 +444,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       category: CategoriesYaml!
       documentation: [Documentation]
     }
+    
+    type NavigationYamlFields @infer {
+      plugin: String
+    }
   `;
 
   createTypes(typeDefs);
