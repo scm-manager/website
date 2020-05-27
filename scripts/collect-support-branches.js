@@ -15,7 +15,7 @@ async function collectSupportBranches(api, repository) {
     const response = await api.repos.listBranches({
       owner: organization,
       repo: repository,
-      page,
+      page: page + 1, // Because async iterator starts with page=0
     });
     const links = parse(response.headers.link);
     const done = !links || !links.next;
