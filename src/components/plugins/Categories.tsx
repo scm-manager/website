@@ -2,6 +2,8 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { Category } from "../../types/category";
 import CategoryCard from "./CategoryCard";
+import Title from "../Title";
+import Subtitle from "../Subtitle";
 
 const createRows = (categories: Category[]) => {
   if (!categories || categories.length === 0) {
@@ -57,9 +59,12 @@ const Categories = () => {
   return (
     <section className="section">
       <div className="container categories">
-        <h2 className="subtitle is-3">
-          <a id="categories"></a>Categories
-        </h2>
+        <Title>
+        <a id="categories"></a>Categories
+        </Title>
+        <Subtitle>
+          SCM-Manager v2 Plugin categories
+        </Subtitle>
         {renderRows(rows)}
       </div>
     </section>
