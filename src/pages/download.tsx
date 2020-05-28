@@ -24,10 +24,6 @@ type Package = {
   checksum?: string;
 };
 
-type PackageProps = {
-  pkg: Package;
-};
-
 const Checksum = ({ checksum }) => {
   if (checksum) {
     return (
@@ -45,92 +41,13 @@ const Checksum = ({ checksum }) => {
 
 type PackageDownloadProps = {
   icon: ReactNode;
+  title: string;
   description: string;
   type: string;
   url?: string;
   checksum?: string;
   instructions?: string;
 };
-
-const DebianDownload: FC<PackageProps> = ({ pkg }) => (
-  <PackageDownload
-    icon={<Debian size="3rem" />}
-    description="You can use our apt repository for Debian based distributions."
-    instructions="/docs/en/installation/debian"
-    {...pkg}
-  />
-);
-
-const RedHatDownload: FC<PackageProps> = ({ pkg }) => (
-  <PackageDownload
-    icon={<Redhat size="3rem" />}
-    description="You can use our yum repository for Red Hat based distributions."
-    instructions="/docs/en/installation/redhat"
-    {...pkg}
-  />
-);
-
-const WindowsDownload: FC<PackageProps> = ({ pkg }) => (
-  <PackageDownload
-    icon={<Windows size="3rem" />}
-    description="Download the package and follow the installation instructions."
-    instructions="/docs/en/installation/windows"
-    {...pkg}
-  />
-);
-
-const OsxDownload: FC<PackageProps> = ({ pkg }) => (
-  <PackageDownload
-    icon={<Apple size="3rem" />}
-    description="You can use our homebrew tap."
-    instructions="/docs/en/installation/unix"
-    {...pkg}
-  />
-);
-
-const UnixDownload: FC<PackageProps> = ({ pkg }) => (
-  <PackageDownload
-    icon={<Linux size="3rem" />}
-    description="Download the package and follow the installation instructions."
-    instructions="/docs/en/installation/unix"
-    {...pkg}
-  />
-);
-
-const DockerDownload: FC<PackageProps> = ({ pkg }) => (
-  <PackageDownload
-    icon={<Docker size="3rem" />}
-    description="We provide a docker image on the offical Docker Hub."
-    instructions="/docs/en/installation/unix"
-    {...pkg}
-  />
-);
-
-const KubernetesDownload: FC<PackageProps> = ({ pkg }) => (
-  <PackageDownload
-    icon={<Kubernetes size="3rem" />}
-    description="You can use our Helm repository for Kubernetes installations."
-    instructions="/docs/en/installation/unix"
-    {...pkg}
-  />
-);
-
-const WarDownload: FC<PackageProps> = ({ pkg }) => (
-  <PackageDownload
-    icon={<Java size="3rem" />}
-    description="Download the war file and deploy it to your application server."
-    {...pkg}
-  />
-);
-
-const CliDownload: FC<PackageProps> = ({ pkg }) => (
-  <PackageDownload
-    icon={<Gnubash size="3rem" />}
-    description="Download the cli and have a look at the instructions."
-    instructions="/docs/en/administration/command-line-client/"
-    {...pkg}
-  />
-);
 
 type ButtonProps = {
   color: string;
@@ -149,6 +66,7 @@ const Button: FC<ButtonProps> = ({ color, href, label }) => (
 
 const PackageDownload: FC<PackageDownloadProps> = ({
   icon,
+  title,
   description,
   url,
   checksum,
@@ -162,7 +80,7 @@ const PackageDownload: FC<PackageDownloadProps> = ({
     <div className="media-content">
       <a id={type}></a>
       <div className="content">
-        <h5>{createTitle(type)}:</h5>
+        <h5>{title}:</h5>
         <p>{description}</p>
         {checksum && <Checksum checksum={checksum} />}
         <div className="field is-grouped">
@@ -180,58 +98,93 @@ const PackageDownload: FC<PackageDownloadProps> = ({
   </article>
 );
 
-const createTitle = (type: string) => {
-  switch (type) {
-    case "debian":
-      return "Debian/Ubuntu users";
-    case "redhat":
-      return "Red Hat/Centos/Fedora users";
-    case "windows":
-      return "Windows users";
-    case "unix":
-      return "Generic Linux/Unix users";
-    case "osx":
-      return "Mac OS X users";
-    case "docker":
-      return "Docker users";
-    case "k8s":
-      return "Kubernetes users";
-    case "war":
-      return "WebApp users";
-    case "cli":
-      return "Command line users";
-    default:
-      return `${type} users`;
-  }
-};
-
-const createDownload = (pkg: Package) => {
+const createProps = (pkg: Package) => {
   switch (pkg.type) {
     case "debian":
-      return <DebianDownload pkg={pkg} />;
+      return {
+        ...pkg,
+        icon: <Debian size="3rem" />,
+        title: "Debian/Ubuntu users",
+        description:
+          "You can use our apt repository for Debian based distributions.",
+        instructions: "/docs/en/installation/debian",
+      };
+      break;
     case "redhat":
-      return <RedHatDownload pkg={pkg} />;
+      return {
+        ...pkg,
+        icon: <Redhat size="3rem" />,
+        title: "Red Hat/Centos/Fedora users",
+        description:
+          "You can use our yum repository for Red Hat based distributions.",
+        instructions: "/docs/en/installation/redhat",
+      };
     case "windows":
-      return <WindowsDownload pkg={pkg} />;
+      return {
+        ...pkg,
+        icon: <Windows size="3rem" />,
+        title: "Windows users",
+        description:
+          "Download the package and follow the installation instructions.",
+        instructions: "/docs/en/installation/windows",
+      };
     case "unix":
-      return <UnixDownload pkg={pkg} />;
+      return {
+        ...pkg,
+        icon: <Linux size="3rem" />,
+        title: "Generic Linux/Unix users",
+        description:
+          "Download the package and follow the installation instructions.",
+        instructions: "/docs/en/installation/unix",
+      };
     case "osx":
-      return <OsxDownload pkg={pkg} />;
+      return {
+        ...pkg,
+        icon: <Apple size="3rem" />,
+        title: "Mac OS X users",
+        description: "You can use our homebrew tap.",
+        instructions: "/docs/en/installation/unix",
+      };
     case "docker":
-      return <DockerDownload pkg={pkg} />;
+      return {
+        ...pkg,
+        icon: <Docker size="3rem" />,
+        title: "Docker users",
+        description: "We provide a docker image on the offical Docker Hub.",
+        instructions: "/docs/en/installation/unix",
+      };
     case "k8s":
-      return <KubernetesDownload pkg={pkg} />;
+      return {
+        ...pkg,
+        icon: <Kubernetes size="3rem" />,
+        title: "Kubernetes users",
+        description:
+          "You can use our Helm repository for Kubernetes installations.",
+        instructions: "/docs/en/installation/unix",
+      };
     case "war":
-      return <WarDownload pkg={pkg} />;
+      return {
+        ...pkg,
+        icon: <Java size="3rem" />,
+        title: "WebApp users",
+        description:
+          "Download the war file and deploy it to your application server.",
+      };
     case "cli":
-      return <CliDownload pkg={pkg} />;
+      return {
+        ...pkg,
+        icon: <Gnubash size="3rem" />,
+        title: `${pkg.type} users`,
+        description: "Download the cli and have a look at the instructions.",
+        instructions: "/docs/en/administration/command-line-client/",
+      };
     default:
       return null;
   }
 };
 
 type TableOfContentsProps = {
-  packages: Package[];
+  packages: PackageDownloadProps[];
 };
 
 const TableOfContents: FC<TableOfContentsProps> = ({ packages }) => (
@@ -242,12 +195,13 @@ const TableOfContents: FC<TableOfContentsProps> = ({ packages }) => (
         <ul>
           {packages.map(pkg => (
             <li>
-              <a href={`#${pkg.type}`}>{createTitle(pkg.type)}</a>
+              <a href={`#${pkg.type}`} title={pkg.description}>
+                {pkg.title}
+              </a>
             </li>
           ))}
         </ul>
       </li>
-
       <li>
         <a href="#changelog">Changelog</a>
       </li>
@@ -280,6 +234,8 @@ const Changelog: FC<ChangelogProps> = ({ changelog, version }) => {
 
 const DownloadPage = ({ data }) => {
   const release = data.releases.nodes[0];
+  const props = release.packages.map(createProps).filter(p => p != null);
+  console.log(props);
   return (
     <PageContainer>
       <SEO title="Download" />
@@ -294,10 +250,12 @@ const DownloadPage = ({ data }) => {
         If you searching for an older version of SCM-Manager, please have a look
         at the <a href="">archive</a>.
       </p>
-      <TableOfContents packages={release.packages} />
+      <TableOfContents packages={props} />
       <h3 className="title is-5">Packages</h3>
       <a id="packages"></a>
-      {release.packages.map(createDownload)}
+      {props.map(p => (
+        <PackageDownload {...p} />
+      ))}
       <Changelog
         version={release.tag}
         changelog={data.changelog.childChangelog}
