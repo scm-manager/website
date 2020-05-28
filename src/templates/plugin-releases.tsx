@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import PluginLayout from "../layout/PluginLayout";
 import Accordion from "../layout/Accordion";
-import HtmlContent from "../layout/HtmlContent";
 import Icon from "../components/Icon";
+import Changes from "../components/Changes";
 
 const Download = ({ url }) => {
   if (url) {
@@ -28,14 +28,6 @@ const Conditions = ({ conditions }) => {
   }
   return null;
 };
-
-const Changes = styled(HtmlContent)`
-  margin-bottom: 0 !important;
-
-  h3 {
-    font-size: 1em;
-  }
-`;
 
 const Changelog = ({ changelog, tag }) => {
   if (!changelog) {
