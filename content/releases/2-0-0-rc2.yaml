@@ -1,0 +1,9 @@
+tag: '2.0.0-rc2'
+date: '2020-01-29T16:16:16Z'
+packages:
+- type: unix
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/2.0.0-rc2/scm-server-2.0.0-rc2-app.tar.gz
+  checksum: 90d8f2b1f4de8585303cd088d3c9a206d742c01ac749f55b33346358406c0bbf
+- type: windows
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/2.0.0-rc2/scm-server-2.0.0-rc2-app.zip
+  checksum: 1cc6d23fe44fdf762c22eb145a04ceb0df07798442abe5d4c10e575a33c9c6a4

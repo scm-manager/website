@@ -1,0 +1,9 @@
+tag: '1.60'
+date: '2018-05-04T11:33:07Z'
+packages:
+- type: unix
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.60/scm-server-1.60-app.tar.gz
+  checksum: cf47f6e190e50597b4dfc5d431ff7f9433021bcdc4a5d4ce7bf233351784df0b
+- type: windows
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.60/scm-server-1.60-app.zip
+  checksum: 2cb841757861dc9a28fede3aafdf9ef91d147c01f6de76ae6ddc8e6d117ad7c4
