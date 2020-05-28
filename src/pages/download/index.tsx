@@ -1,10 +1,10 @@
 import React from "react";
-import SEO from "../components/SEO";
-import Title from "../components/Title";
-import Subtitle from "../components/Subtitle";
-import PageContainer from "../layout/PageContainer";
+import SEO from "../../components/SEO";
+import Title from "../../components/Title";
+import Subtitle from "../../components/Subtitle";
+import PageContainer from "../../layout/PageContainer";
 import { graphql } from "gatsby";
-import Download from "../components/Download";
+import Download from "../../components/Download";
 
 const DownloadPage = ({ data }) => {
   return (

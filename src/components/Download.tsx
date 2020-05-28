@@ -53,7 +53,6 @@ type ButtonProps = {
 
 const Button: FC<ButtonProps> = ({ color, href, label }) => (
   <p className="control">
-    {}
     <a className={`button is-${color} is-outlined`} href={href}>
       {label}
     </a>
@@ -94,12 +93,12 @@ const PackageDownload: FC<PackageDownloadProps> = ({
   </article>
 );
 
-const createProps = (pkg: Package) => {
+export const createProps = (pkg: Package, size: string) => {
   switch (pkg.type) {
     case "debian":
       return {
         ...pkg,
-        icon: <Debian size="3rem" />,
+        icon: <Debian size={size} />,
         title: "Debian/Ubuntu users",
         description:
           "You can use our apt repository for Debian based distributions.",
@@ -109,7 +108,7 @@ const createProps = (pkg: Package) => {
     case "redhat":
       return {
         ...pkg,
-        icon: <Redhat size="3rem" />,
+        icon: <Redhat size={size} />,
         title: "Red Hat/Centos/Fedora users",
         description:
           "You can use our yum repository for Red Hat based distributions.",
@@ -118,7 +117,7 @@ const createProps = (pkg: Package) => {
     case "windows":
       return {
         ...pkg,
-        icon: <Windows size="3rem" />,
+        icon: <Windows size={size} />,
         title: "Windows users",
         description:
           "Download the package and follow the installation instructions.",
@@ -127,7 +126,7 @@ const createProps = (pkg: Package) => {
     case "unix":
       return {
         ...pkg,
-        icon: <Linux size="3rem" />,
+        icon: <Linux size={size} />,
         title: "Generic Linux/Unix users",
         description:
           "Download the package and follow the installation instructions.",
@@ -136,7 +135,7 @@ const createProps = (pkg: Package) => {
     case "osx":
       return {
         ...pkg,
-        icon: <Apple size="3rem" />,
+        icon: <Apple size={size} />,
         title: "Mac OS X users",
         description: "You can use our homebrew tap.",
         instructions: "/docs/en/installation/unix",
@@ -144,7 +143,7 @@ const createProps = (pkg: Package) => {
     case "docker":
       return {
         ...pkg,
-        icon: <Docker size="3rem" />,
+        icon: <Docker size={size} />,
         title: "Docker users",
         description: "We provide a docker image on the offical Docker Hub.",
         instructions: "/docs/en/installation/unix",
@@ -152,7 +151,7 @@ const createProps = (pkg: Package) => {
     case "k8s":
       return {
         ...pkg,
-        icon: <Kubernetes size="3rem" />,
+        icon: <Kubernetes size={size} />,
         title: "Kubernetes users",
         description:
           "You can use our Helm repository for Kubernetes installations.",
@@ -161,7 +160,7 @@ const createProps = (pkg: Package) => {
     case "war":
       return {
         ...pkg,
-        icon: <Java size="3rem" />,
+        icon: <Java size={size} />,
         title: "WebApp users",
         description:
           "Download the war file and deploy it to your application server.",
@@ -169,8 +168,8 @@ const createProps = (pkg: Package) => {
     case "cli":
       return {
         ...pkg,
-        icon: <Gnubash size="3rem" />,
-        title: `${pkg.type} users`,
+        icon: <Gnubash size={size} />,
+        title: `Command line users`,
         description: "Download the cli and have a look at the instructions.",
         instructions: "/docs/en/administration/command-line-client/",
       };
@@ -234,7 +233,7 @@ type DownloadProps = {
 };
 
 const Download: FC<DownloadProps> = ({ release, changelog }) => {
-  const props = release.packages.map(createProps).filter(p => p != null);
+  const props = release.packages.map(pkg => createProps(pkg, "3rem")).filter(p => p != null);
   return (
     <>
       <h2 className="title is-4">

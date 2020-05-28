@@ -7,3 +7,4 @@ packages:
 - type: windows
   url: https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/2.0.0-rc3/scm-server-2.0.0-rc3-app.zip
   checksum: 6b29fa04832f12d3930bc818a3b48560223166daf4d31c15b549240c6e7a313f
+- type: docker
