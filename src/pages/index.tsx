@@ -18,6 +18,7 @@ import {
   Extensible,
   OpenSource,
   Features,
+  Cloudogu,
 } from "../components/features";
 
 const IndexPage = () => {
@@ -72,6 +73,7 @@ const IndexPage = () => {
             <NoDependencies />
             <UserInterface />
             <OpenSource />
+            <Cloudogu />
           </Features>
         </div>
       </section>
