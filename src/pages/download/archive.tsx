@@ -34,7 +34,7 @@ const DownloadArchiv = ({ data }) => (
             <Column className="has-text-centered">{release.date}</Column>
             <Column className="has-text-centered">
               {release.packages
-                .map(p => createProps(p, "1.5rem"))
+                .map(p => createProps(release.tag, p, "1.5rem"))
                 .map(props => (
                   <Icon to={`/download/${release.tag}/#${props.type}`}>
                     {props.icon}

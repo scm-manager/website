@@ -93,7 +93,18 @@ const PackageDownload: FC<PackageDownloadProps> = ({
   </article>
 );
 
-export const createProps = (pkg: Package, size: string) => {
+const createDocBaseUrl = (version: string) => {
+  const parts = version.split('.');
+  const major = parts[0];
+  const minor = parts[1];
+  return `/docs/${major}.${minor}.x/en`;
+};
+
+const createDefaultInstructionUrl = (version: string, type: string) => {
+  return `${createDocBaseUrl(version)}/installation/${type}/`;
+};
+
+export const createProps = (version: string, pkg: Package, size: string) => {
   switch (pkg.type) {
     case "debian":
       return {
@@ -102,7 +113,7 @@ export const createProps = (pkg: Package, size: string) => {
         title: "Debian/Ubuntu users",
         description:
           "You can use our apt repository for Debian based distributions.",
-        instructions: "/docs/en/installation/debian",
+        instructions: createDefaultInstructionUrl(version, pkg.type),
       };
       break;
     case "redhat":
@@ -112,7 +123,7 @@ export const createProps = (pkg: Package, size: string) => {
         title: "Red Hat/Centos/Fedora users",
         description:
           "You can use our yum repository for Red Hat based distributions.",
-        instructions: "/docs/en/installation/redhat",
+        instructions: createDefaultInstructionUrl(version, pkg.type),
       };
     case "windows":
       return {
@@ -121,7 +132,7 @@ export const createProps = (pkg: Package, size: string) => {
         title: "Windows users",
         description:
           "Download the package and follow the installation instructions.",
-        instructions: "/docs/en/installation/windows",
+        instructions: createDefaultInstructionUrl(version, pkg.type),
       };
     case "unix":
       return {
@@ -130,7 +141,7 @@ export const createProps = (pkg: Package, size: string) => {
         title: "Generic Linux/Unix users",
         description:
           "Download the package and follow the installation instructions.",
-        instructions: "/docs/en/installation/unix",
+        instructions: createDefaultInstructionUrl(version, pkg.type),
       };
     case "osx":
       return {
@@ -138,7 +149,7 @@ export const createProps = (pkg: Package, size: string) => {
         icon: <Apple size={size} />,
         title: "Mac OS X users",
         description: "You can use our homebrew tap.",
-        instructions: "/docs/en/installation/unix",
+        instructions: createDefaultInstructionUrl(version, pkg.type),
       };
     case "docker":
       return {
@@ -146,7 +157,7 @@ export const createProps = (pkg: Package, size: string) => {
         icon: <Docker size={size} />,
         title: "Docker users",
         description: "We provide a docker image on the offical Docker Hub.",
-        instructions: "/docs/en/installation/unix",
+        instructions: createDefaultInstructionUrl(version, pkg.type),
       };
     case "k8s":
       return {
@@ -155,9 +166,10 @@ export const createProps = (pkg: Package, size: string) => {
         title: "Kubernetes users",
         description:
           "You can use our Helm repository for Kubernetes installations.",
-        instructions: "/docs/en/installation/unix",
+        instructions: createDefaultInstructionUrl(version, pkg.type),
       };
     case "war":
+      // TODO instructions?
       return {
         ...pkg,
         icon: <Java size={size} />,
@@ -166,12 +178,14 @@ export const createProps = (pkg: Package, size: string) => {
           "Download the war file and deploy it to your application server.",
       };
     case "cli":
+      // TODO is the instructions link correct? what if we have a version 2 cli?
       return {
         ...pkg,
         icon: <Gnubash size={size} />,
         title: `Command line users`,
         description: "Download the cli and have a look at the instructions.",
-        instructions: "/docs/en/administration/command-line-client/",
+        instructions:
+          createDocBaseUrl(version) + "/administration/command-line-client/",
       };
     default:
       return null;
@@ -233,15 +247,17 @@ type DownloadProps = {
 };
 
 const Download: FC<DownloadProps> = ({ release, changelog }) => {
-  const props = release.packages.map(pkg => createProps(pkg, "3rem")).filter(p => p != null);
+  const props = release.packages
+    .map(pkg => createProps(release.tag, pkg, "3rem"))
+    .filter(p => p != null);
   return (
     <>
       <h2 className="title is-4">
         {release.tag} - ({release.date})
       </h2>
       <p>
-        If you are looking for an other version of SCM-Manager, please have a look
-        at the <Link to="/download/archive">archiv</Link>.
+        If you are looking for an other version of SCM-Manager, please have a
+        look at the <Link to="/download/archive">archiv</Link>.
       </p>
       <TableOfContents packages={props} />
       <h3 className="title is-5">Packages</h3>
