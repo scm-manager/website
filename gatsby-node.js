@@ -282,6 +282,15 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           fieldValue
         }
       }
+
+      releases: allReleasesYaml(
+        filter: { plugin: { eq: null } }
+        sort: { fields: [date], order: DESC }
+      ) {
+        nodes {
+          tag
+        }
+      }
     }
   `).then(result => {
     if (result.errors) {
@@ -329,7 +338,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           toPath: `/plugins/${node.name}/docs/${doc[0].version}/${defaultLanguage}/`,
           isPermanent: true,
           redirectInBrowser: true,
-        });        
+        });      
       } else {
         createPage({
           path: `/plugins/${node.name}/docs`,
@@ -411,6 +420,24 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           numPages,
           currentPage: i + 1,
         },
+      });
+    });
+
+    const lastRelease = result.data.releases.nodes[0].tag;
+    createRedirect({
+      fromPath: `/download/`,
+      toPath: `/download/${lastRelease}/`,
+      isPermanent: false,
+      redirectInBrowser: true,
+    });
+
+    result.data.releases.nodes.map(node => node.tag).forEach(tag => {
+      createPage({
+        path: `/download/${tag}`,
+        component: path.resolve("./src/templates/download.tsx"),
+        context: {
+          tag: tag
+        }
       });
     });
   });

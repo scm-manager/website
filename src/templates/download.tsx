@@ -1,10 +1,10 @@
 import React from "react";
-import SEO from "../../components/SEO";
-import Title from "../../components/Title";
-import Subtitle from "../../components/Subtitle";
-import PageContainer from "../../layout/PageContainer";
+import SEO from "../components/SEO";
+import Title from "../components/Title";
+import Subtitle from "../components/Subtitle";
+import PageContainer from "../layout/PageContainer";
 import { graphql } from "gatsby";
-import Download from "../../components/Download";
+import Download from "../components/Download";
 
 const DownloadPage = ({ data }) => {
   return (
@@ -23,9 +23,9 @@ const DownloadPage = ({ data }) => {
 };
 
 export const query = graphql`
-  query {
+  query($tag: String!) {
     releases: allReleasesYaml(
-      filter: { plugin: { eq: null } }
+      filter: { plugin: { eq: null }, tag: { eq: $tag } }
       sort: { fields: [date], order: DESC }
       limit: 1
     ) {
@@ -35,7 +35,7 @@ export const query = graphql`
     }
     changelog: file(relativePath: { eq: "CHANGELOG.md" }) {
       childChangelog {
-        versions {
+        versions(tag: $tag) {
           ...DownloadChangelogFragment
         }
       }
