@@ -21,6 +21,16 @@ const Icon = styled(Link)`
   margin-right: 1rem;
 `;
 
+type Changelog = {
+  versions: {
+    tag: string;
+  }[];
+};
+
+const hasChangelog = (changelog: Changelog, tag: string) => {
+  return !!changelog.versions.find(version => version.tag === tag);
+};
+
 const DownloadArchiv = ({ data }) => (
   <PageContainer>
     <SEO title="Download" />
@@ -43,19 +53,21 @@ const DownloadArchiv = ({ data }) => (
             </Column>
             <Column>
               <div className="buttons is-right">
+                {hasChangelog(data.changelog.childChangelog, release.tag) && (
+                  <Link
+                    className="button is-outlined is-info"
+                    title={`Downlaod version ${release.tag}`}
+                    to={`/download/${release.tag}/#changelog`}
+                  >
+                    Changelog
+                  </Link>
+                )}
                 <Link
                   className="button is-outlined is-primary"
                   title={`Downlaod version ${release.tag}`}
                   to={`/download/${release.tag}`}
                 >
-                  Downloads
-                </Link>
-                <Link
-                  className="button is-outlined is-info"
-                  title={`Downlaod version ${release.tag}`}
-                  to={`/download/${release.tag}/#changelog`}
-                >
-                  Changelog
+                  Packages
                 </Link>
               </div>
             </Column>
@@ -77,6 +89,13 @@ export const query = graphql`
         date(formatString: "Y-MM-DD")
         packages {
           type
+        }
+      }
+    }
+    changelog: file(relativePath: { eq: "CHANGELOG.md" }) {
+      childChangelog {
+        versions {
+          tag
         }
       }
     }

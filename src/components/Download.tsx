@@ -105,7 +105,12 @@ const createDefaultInstructionUrl = (version: string, type: string) => {
   return `${createDocBaseUrl(version)}/installation/${type}/`;
 };
 
-export const createProps = (version: string, pkg: Package, size: string, align?: Alignment) => {
+export const createProps = (
+  version: string,
+  pkg: Package,
+  size: string,
+  align?: Alignment
+) => {
   switch (pkg.type) {
     case "ces":
       return {
@@ -202,9 +207,10 @@ export const createProps = (version: string, pkg: Package, size: string, align?:
 
 type TableOfContentsProps = {
   packages: PackageDownloadProps[];
+  versionLog: any;
 };
 
-const TableOfContents: FC<TableOfContentsProps> = ({ packages }) => (
+const TableOfContents: FC<TableOfContentsProps> = ({ packages, versionLog }) => (
   <div className="content">
     <ul>
       <li>
@@ -219,24 +225,24 @@ const TableOfContents: FC<TableOfContentsProps> = ({ packages }) => (
           ))}
         </ul>
       </li>
-      <li>
-        <a href="#changelog">Changelog</a>
-      </li>
+      {versionLog && (
+        <li>
+          <a href="#changelog">Changelog</a>
+        </li>
+      )}
     </ul>
   </div>
 );
 
 type ChangelogProps = {
-  changelog: any;
-  version: string;
+  versionLog: any;
 };
 
 const ChangelogContainer = styled.div`
   margin-top: 2rem;
 `;
 
-const Changelog: FC<ChangelogProps> = ({ changelog, version }) => {
-  const versionLog = changelog.versions.find(v => v.tag === version);
+const Changelog: FC<ChangelogProps> = ({ versionLog }) => {
   if (!versionLog) {
     return null;
   }
@@ -258,6 +264,8 @@ const Download: FC<DownloadProps> = ({ release, changelog }) => {
   const props = release.packages
     .map(pkg => createProps(release.tag, pkg, "3rem", "top"))
     .filter(p => p != null);
+
+  const versionLog = changelog.versions.find(v => v.tag === release.tag);
   return (
     <>
       <h2 className="title is-4">
@@ -267,13 +275,13 @@ const Download: FC<DownloadProps> = ({ release, changelog }) => {
         If you are looking for an other version of SCM-Manager, please have a
         look at the <Link to="/download/archive">archiv</Link>.
       </p>
-      <TableOfContents packages={props} />
+      <TableOfContents packages={props} versionLog={versionLog} />
       <h3 className="title is-5">Packages</h3>
       <a id="packages"></a>
       {props.map(p => (
         <PackageDownload {...p} />
       ))}
-      <Changelog version={release.tag} changelog={changelog} />
+      <Changelog versionLog={versionLog} />
     </>
   );
 };
