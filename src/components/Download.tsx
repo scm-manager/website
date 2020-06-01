@@ -13,6 +13,7 @@ import {
 } from "@icons-pack/react-simple-icons";
 import styled from "styled-components";
 import Changes from "../components/Changes";
+import CesDownloadIcon, { Alignment } from "./CesDownloadIcon";
 
 type Package = {
   type: string;
@@ -94,7 +95,7 @@ const PackageDownload: FC<PackageDownloadProps> = ({
 );
 
 const createDocBaseUrl = (version: string) => {
-  const parts = version.split('.');
+  const parts = version.split(".");
   const major = parts[0];
   const minor = parts[1];
   return `/docs/${major}.${minor}.x/en`;
@@ -104,8 +105,16 @@ const createDefaultInstructionUrl = (version: string, type: string) => {
   return `${createDocBaseUrl(version)}/installation/${type}/`;
 };
 
-export const createProps = (version: string, pkg: Package, size: string) => {
+export const createProps = (version: string, pkg: Package, size: string, align?: Alignment) => {
   switch (pkg.type) {
+    case "ces":
+      return {
+        ...pkg,
+        icon: <CesDownloadIcon size={size} align={align} />,
+        title: "Cloudogu EcoSystem users",
+        description: "We provide a Dogu for the Cloudogu EcoSystem.",
+        instructions: createDefaultInstructionUrl(version, pkg.type),
+      };
     case "debian":
       return {
         ...pkg,
@@ -115,7 +124,6 @@ export const createProps = (version: string, pkg: Package, size: string) => {
           "You can use our apt repository for Debian based distributions.",
         instructions: createDefaultInstructionUrl(version, pkg.type),
       };
-      break;
     case "redhat":
       return {
         ...pkg,
@@ -248,7 +256,7 @@ type DownloadProps = {
 
 const Download: FC<DownloadProps> = ({ release, changelog }) => {
   const props = release.packages
-    .map(pkg => createProps(release.tag, pkg, "3rem"))
+    .map(pkg => createProps(release.tag, pkg, "3rem", "top"))
     .filter(p => p != null);
   return (
     <>
