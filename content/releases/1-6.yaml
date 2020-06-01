@@ -1,0 +1,19 @@
+tag: '1.6'
+date: '2011-08-11T09:26:56Z'
+packages:
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.6/scm-server-1.6-app.tar.gz
+    checksum: 34ccbf66d50202de8aa85664a3b2e370712929461b0fb636f4f5d9a5cd38d13c
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.6/scm-server-1.6-app.zip
+    checksum: 711ec8a871219f6b2419fe46e507e30610b09f4b3240d6276b5269adb9593181
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.6/scm-webapp-1.6.war
+    checksum: 698e5b6808e425717d0f94fb072771dc932cc15b20a2abc63fb813fe78d992a2
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.6/scm-cli-client-1.6-jar-with-dependencies.jar
+    checksum: ebf0c48f082315b4f22958113f255c37bd3c2441b85c8e9c8ca1020c4ebf1d99

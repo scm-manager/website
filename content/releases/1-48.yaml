@@ -1,0 +1,22 @@
+tag: '1.48'
+date: '2016-06-28T11:11:13Z'
+packages:
+  - type: ces
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.48/scm-server-1.48-app.tar.gz
+    checksum: d75daa321cbb72efd3f7a5b7172a2a264d99becf36effead07045deffb31133f
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.48/scm-server-1.48-app.zip
+    checksum: a9c1f01437bbee4f3c015497224f37d2ae1becaedc495e426e3103063830197c
+  - type: redhat
+  - type: debian
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.48/scm-webapp-1.48.war
+    checksum: 587a6817c269da4c2f4463dcae4d9a486b7f2120a3f3601d528ce7aab7db39c8
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.48/scm-cli-client-1.48-jar-with-dependencies.jar
+    checksum: bc5c603250fbec833d1e78ec5ac80e859fbe125dea24697b3dd883c8ffaef8d0

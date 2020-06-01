@@ -1,0 +1,22 @@
+tag: '1.50'
+date: '2016-11-24T13:11:36Z'
+packages:
+  - type: ces
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.50/scm-server-1.50-app.tar.gz
+    checksum: 9ed0f7ed776977fe30c89cbb659d9a05a58a1cefc30ce1e7fb367992f9bb9604
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.50/scm-server-1.50-app.zip
+    checksum: 7a2ebebc61908c6478ea2094d199fbb851dc37d680357a0ae7d2aa6194e92f82
+  - type: redhat
+  - type: debian
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.50/scm-webapp-1.50.war
+    checksum: b19726c4b6224c97e5ddf388fc81f43a4eba04a0117a4183fdc01aaf25d3621e
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.50/scm-cli-client-1.50-jar-with-dependencies.jar
+    checksum: dd69ee79a9121ddc9cf628e2fe2209baaa3b3c81f489ca8c8556ba57b789d75b

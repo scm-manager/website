@@ -1,0 +1,21 @@
+tag: '1.56'
+date: '2018-01-15T13:51:10Z'
+packages:
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.56/scm-server-1.56-app.tar.gz
+    checksum: 19235a2710309d802b82ef5606cd198793f1f2e18961321db8af2cb27a57fbf4
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.56/scm-server-1.56-app.zip
+    checksum: 644f5ad5d6ca59fb7ff3f66e3703aecd532ba153a1ae99350fa936cd12ebd025
+  - type: redhat
+  - type: debian
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.56/scm-webapp-1.56.war
+    checksum: db943e1f8c2f120ccad23ab11ecd32431f91093f40c915069f59d32a1c4b7349
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.56/scm-cli-client-1.56-jar-with-dependencies.jar
+    checksum: 7e25ee677f83c7e3010f4331a0d480d7605ad684c6f0fb9ef43e2167ec64cfd6

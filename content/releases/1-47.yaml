@@ -1,0 +1,21 @@
+tag: '1.47'
+date: '2016-05-31T09:12:37Z'
+packages:
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.47/scm-server-1.47-app.tar.gz
+    checksum: 58e86e0cd3465733a14db09d95a0ef72906b69df1341140ee7d0329a5bbe47a3
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.47/scm-server-1.47-app.zip
+    checksum: 1805322c36665d9fe50376ec6b95ea76bc7ca9d5ccdde3605abeb351fae4d198
+  - type: redhat
+  - type: debian
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.47/scm-webapp-1.47.war
+    checksum: a62d3a97a12e284eaf6d579c7c7e501e6a971446f5ea75b701dffe3c71150f96
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.47/scm-cli-client-1.47-jar-with-dependencies.jar
+    checksum: d4424b9d5104a1668f90278134cbe86a52d8bceba7bc85c4c9f5991debc54739

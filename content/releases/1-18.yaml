@@ -1,0 +1,19 @@
+tag: '1.18'
+date: '2012-08-12T13:03:17Z'
+packages:
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.18/scm-server-1.18-app.tar.gz
+    checksum: 3b00de3a6387d2a75990f49456d51b5527fdab8bb7d44f14dd4e83262ee8b00b
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.18/scm-server-1.18-app.zip
+    checksum: d97d710d06ec202a30416f5d7b836b22d9ca6806d8b8da68b5b3fc89e5610be0
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.18/scm-webapp-1.18.war
+    checksum: e1efd28349b9495a9c86230990e0cd20e2ab6964ab7916e43aa78550976db73d
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.18/scm-cli-client-1.18-jar-with-dependencies.jar
+    checksum: bb2f5e9a6bb8e32afbff115c7d53d6d035c5e41932e408a9195a4db9767c2470

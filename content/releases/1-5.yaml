@@ -1,0 +1,19 @@
+tag: '1.5'
+date: '2011-07-09T13:11:06Z'
+packages:
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.5/scm-server-1.5-app.tar.gz
+    checksum: 450fd68b3e245e8b519cd6eb562cce6e15f4b0c71c7bd2b8f9d517cdd5afeff0
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.5/scm-server-1.5-app.zip
+    checksum: a962a8c700a84b2114ca7519e545bbd4d12d377f123458c772d22200c040cc99
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.5/scm-webapp-1.5.war
+    checksum: 4207e01a8af96c7ac1ed97af014da20927a80da1a21e6cdb5c3c9171ea73f1cd
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.5/scm-cli-client-1.5-jar-with-dependencies.jar
+    checksum: 5e1e50b59344c4b0187f391b74ae0600c3d239feb67d9ac16e7bbf9681cc4b37

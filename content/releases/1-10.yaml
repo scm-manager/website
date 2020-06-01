@@ -1,0 +1,19 @@
+tag: '1.10'
+date: '2011-12-26T14:51:21Z'
+packages:
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.10/scm-server-1.10-app.tar.gz
+    checksum: c2d1484c0426d08fcb55b2dd7b71916f38a75cf74543d2db0ad301daa3a405f4
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.10/scm-server-1.10-app.zip
+    checksum: a70852eaa7e8ebee76c78b514c7a9c70d54288d7fb5c25d9b9dd647b30bd5072
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.10/scm-webapp-1.10.war
+    checksum: f66520528e2d6d182344820bbd1be81325740288db0f56d804aa2e0d9568ba86
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.10/scm-cli-client-1.10-jar-with-dependencies.jar
+    checksum: fd3d60091e3da0803d78b093cd4c55f7f76e95f3b3f06786d7cbaf3824ee581c

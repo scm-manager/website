@@ -1,0 +1,21 @@
+tag: '1.40'
+date: '2014-07-04T06:18:16Z'
+packages:
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.40/scm-server-1.40-app.tar.gz
+    checksum: 3005c6cd87e7f8a238a98a91f4915795c483f4635e1bd60fbeb5d3315b040b3e
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.40/scm-server-1.40-app.zip
+    checksum: 8a663cf8c1b94325b2fb91b73d9589c9ac8308e5168eaafbccc7eead7414f29d
+  - type: redhat
+  - type: debian
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.40/scm-webapp-1.40.war
+    checksum: 233ca4a86e2f016588b039ff91dcfd252cd4f664fd09a64662a74936e38f63d1
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.40/scm-cli-client-1.40-jar-with-dependencies.jar
+    checksum: db1096b1a246dddf940515e11be35a44022c200d541fbe75bd773cd6b3684424

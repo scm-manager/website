@@ -1,0 +1,19 @@
+tag: '1.23'
+date: '2012-12-15T16:04:42Z'
+packages:
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.23/scm-server-1.23-app.tar.gz
+    checksum: 0af7d780baeb03f61eecc190e980e8e644d03dbc5b40f9bd492717781af0a2b2
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.23/scm-server-1.23-app.zip
+    checksum: 08cccd37ccf85d449c25a7f9b1d30d3ae07beb627f6a2ef42fa849e641937239
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.23/scm-webapp-1.23.war
+    checksum: 6b0c40882808befbec7621971c7a5b6aad5bddbb685295ab0705ae755478a588
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.23/scm-cli-client-1.23-jar-with-dependencies.jar
+    checksum: 735eccc204ee4d721bf4f0a281f207dde5fc38ea564ccc056ecde7084aa30d3a

@@ -1,0 +1,21 @@
+tag: '1.42'
+date: '2014-10-20T07:34:52Z'
+packages:
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.42/scm-server-1.42-app.tar.gz
+    checksum: c1021557eb4f71bb8a1af69ebab1b67c65a46a9311df15ee50a703fd4d703622
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.42/scm-server-1.42-app.zip
+    checksum: 14c672532630f532b9c79ffb6637502f095ba1427016decff78f24c4d68f1ab5
+  - type: redhat
+  - type: debian
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.42/scm-webapp-1.42.war
+    checksum: dc0089b4ce85eb0304143b4b8a4120b64a5002a21aee44370d589408b01699da
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.42/scm-cli-client-1.42-jar-with-dependencies.jar
+    checksum: a2497d3be730aad46b4916968177cef05aea14dbf009a484ca39b0ec3a70f1b6

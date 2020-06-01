@@ -1,0 +1,22 @@
+tag: '1.53'
+date: '2017-05-17T06:36:54Z'
+packages:
+  - type: ces
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.53/scm-server-1.53-app.tar.gz
+    checksum: 42fb5f933cb224080fc5cc6c8d00ea2fdff45571d45aadfaa9600ae714799b21
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.53/scm-server-1.53-app.zip
+    checksum: f815ee1e3d512bc2874bef840acead292125b1f9bd219494bdd96a2f393f2e88
+  - type: redhat
+  - type: debian
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.53/scm-webapp-1.53.war
+    checksum: 592ff6e81037cd35e24cd821902f52acbef3bcd556682deacc1d8cd8255273b6
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.53/scm-cli-client-1.53-jar-with-dependencies.jar
+    checksum: 337c9662496b96240aaa5f648931dbc89f34f7929ea1368f448925e25b2108c2

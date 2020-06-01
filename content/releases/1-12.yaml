@@ -1,0 +1,19 @@
+tag: '1.12'
+date: '2012-02-05T12:33:23Z'
+packages:
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.12/scm-server-1.12-app.tar.gz
+    checksum: 1534dd5afaf425d5d8987b283313be2a356d091f3aec6106f1aec0cbf3dde34e
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.12/scm-server-1.12-app.zip
+    checksum: 702e8ae5aedb22f9cc211007c56f2e1eced2812f8eef8e90a574801bdb476953
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.12/scm-webapp-1.12.war
+    checksum: c177b23304d71f73f0c463ad792663027d7c9e7a437bf04c9e8f2ee88759e084
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.12/scm-cli-client-1.12-jar-with-dependencies.jar
+    checksum: 9623b60294771420da4f9c83f66333684de6f06c6e3feede3707baa6c0d4e423

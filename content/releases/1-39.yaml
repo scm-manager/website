@@ -1,0 +1,21 @@
+tag: '1.39'
+date: '2014-07-02T12:58:09Z'
+packages:
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.39/scm-server-1.39-app.tar.gz
+    checksum: 29a42d479d045487ed222483535face908dc02a9cbac174bd0da73a6761a2e3c
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.39/scm-server-1.39-app.zip
+    checksum: ac877e01fc1c41cda9ce8739ede9c1d2a5703c924f89a9f5bfc1e9c839b192de
+  - type: redhat
+  - type: debian
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.39/scm-webapp-1.39.war
+    checksum: 357fffec0b5743709c8ccc3a58dd9d426f458ca7c439ea45f330354034e09d8f
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.39/scm-cli-client-1.39-jar-with-dependencies.jar
+    checksum: b9cda58e6f01a9f3a69ed71c588121a447b1f55c673613ff3646466ba68e75c5

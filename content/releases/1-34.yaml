@@ -1,0 +1,19 @@
+tag: '1.34'
+date: '2013-10-05T10:43:22Z'
+packages:
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.34/scm-server-1.34-app.tar.gz
+    checksum: 237f1a5acda472167aa1bef7a218c75a46ead6814b511af371380e57e6b0683b
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.34/scm-server-1.34-app.zip
+    checksum: 30e1c477a8e0a6dfad5051ca6780a2432b8a722776135075d0655b65895bfac7
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.34/scm-webapp-1.34.war
+    checksum: 24cb0ddb3dcd3a84725ab258242c48273b04cd277dbd4a3ac9d9d06c35b70d14
+  - type: cli
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.34/scm-cli-client-1.34-jar-with-dependencies.jar
+    checksum: 85b23ad55100e7c81534f04ff0f27024e3781efed67ef3f572425a2cb925d5c1

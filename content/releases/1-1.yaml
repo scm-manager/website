@@ -1,0 +1,15 @@
+tag: '1.1'
+date: '2011-04-01T06:43:13Z'
+packages:
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.1/scm-server-1.1-app.tar.gz
+    checksum: 791f68a80243e8172edcd451d567279e4edf7aa6a2d1071468af8e9b591f9323
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.1/scm-server-1.1-app.zip
+    checksum: ed9b904decaf369d0dfef996efa662946bb81b92cd6b279c7da60bc323fd3fe9
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.1/scm-webapp-1.1.war
+    checksum: bf2c6b8b59312c2ae6d0f0a79c30ee7047c773f3f91e0aa6878f524fc002acc4

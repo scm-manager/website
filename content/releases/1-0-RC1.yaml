@@ -1,0 +1,15 @@
+tag: 1.0-RC1
+date: '2011-02-23T13:01:05Z'
+packages:
+  - type: unix
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.0-RC1/scm-server-1.0-RC1-app.tar.gz
+    checksum: 0cfc3069e52b8a3f5671890301cf93745bbcb240fa91f4ffb4baff52debde21f
+  - type: windows
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/1.0-RC1/scm-server-1.0-RC1-app.zip
+    checksum: 47a967438750d44f62f19d43c034c0b68845ff3aeca74e961765ac2efe884e43
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.0-RC1/scm-webapp-1.0-RC1.war
+    checksum: 53ccb815206f1c9f53db974cd4ff5fb1aa46304b27afc82eb85df4c034ac9d37

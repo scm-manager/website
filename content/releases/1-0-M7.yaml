@@ -1,0 +1,7 @@
+tag: 1.0-M7
+date: '2011-01-30T14:38:25Z'
+packages:
+  - type: war
+    url: >-
+      https://packages.scm-manager.org/repository/releases/sonia/scm/scm-webapp/1.0-M7/scm-webapp-1.0-M7.war
+    checksum: 6fbe85406124a628cbd223fc167091488047c50496157e7b4edfe602be346912
