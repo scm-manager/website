@@ -9,8 +9,6 @@
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@icons-pack/react-simple-icons": "^2.5.0",
-    "@mdx-js/mdx": "^1.5.1",
-    "@mdx-js/react": "^1.5.1",
     "bulma": "^0.8.1",
     "gatsby": "^2.20.12",
     "gatsby-image": "^2.2.6",
