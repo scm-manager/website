@@ -13,7 +13,7 @@ import {
 } from "@icons-pack/react-simple-icons";
 import styled from "styled-components";
 import Changes from "../components/Changes";
-import CesDownloadIcon, { Alignment } from "./CesDownloadIcon";
+import CloudoguLogo, { Alignment } from "./CloudoguLogo";
 
 type Package = {
   type: string;
@@ -119,7 +119,7 @@ export const createProps = (
     case "ces":
       return {
         ...pkg,
-        icon: <CesDownloadIcon size={size} align={align} />,
+        icon: <CloudoguLogo size={size} align={align} />,
         title: "Cloudogu EcoSystem users",
         description: "We provide a Dogu for the Cloudogu EcoSystem.",
         instructions: createDefaultInstructionUrl(version, pkg.type),

@@ -8,7 +8,7 @@ type Props = {
   align?: Alignment;
 };
 
-const CesDownloadIcon: FC<Props> = ({ size, color, align }) => (
+const CloudoguLogo: FC<Props> = ({ size, color, align }) => (
   <svg
     version="1.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -89,10 +89,10 @@ const CesDownloadIcon: FC<Props> = ({ size, color, align }) => (
   </svg>
 );
 
-CesDownloadIcon.defaultProps = {
+CloudoguLogo.defaultProps = {
   color: "currentColor",
   size: 24,
   align: "center",
 };
 
-export default CesDownloadIcon;
+export default CloudoguLogo;
