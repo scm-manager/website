@@ -4,11 +4,11 @@ ingress:
     kubernetes.io/ingress.class: traefik
     kubernetes.io/tls-acme: "true"
   hosts:
-    - host: website-staging.scm-manager.org
+    - host: staging-website.scm-manager.org
       paths:
         - /
 
   tls: 
-    - secretName: website-staging-tls
+    - secretName: staging-website-tls
       hosts:
-        - website-staging.scm-manager.org
+        - staging-website.scm-manager.org

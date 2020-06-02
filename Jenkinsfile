@@ -54,7 +54,7 @@ pipeline {
       }
       steps {
         withCredentials([file(credentialsId: 'helm-client-scm-manager', variable: 'KUBECONFIG')]) {
-          sh "helm upgrade --install --values=deployment/staging.yml --set image.tag=${version} website-staging deployment/website"
+          sh "helm upgrade --install --values=deployment/staging.yml --set image.tag=${version} staging-website deployment/website"
         }
       }
     }
