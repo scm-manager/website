@@ -10,3 +10,5 @@ export { default as UserInterface } from "./UserInterface";
 export { default as Plugins } from "./Plugins";
 export { default as Extensible } from "./Extensible";
 export { default as OpenSource } from "./OpenSource";
+export { default as Cloudogu } from "./Cloudogu";
+
