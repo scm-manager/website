@@ -221,7 +221,7 @@ const TableOfContents: FC<TableOfContentsProps> = ({ packages, versionLog }) => 
         <a href="#packages">Packages</a>
         <ul>
           {packages.map(pkg => (
-            <li>
+            <li key={pkg.type}>
               <a href={`#${pkg.type}`} title={pkg.description}>
                 {pkg.title}
               </a>
@@ -277,13 +277,13 @@ const Download: FC<DownloadProps> = ({ release, changelog }) => {
       </h2>
       <p>
         If you are looking for an other version of SCM-Manager, please have a
-        look at the <Link to="/download/archive">archiv</Link>.
+        look at the <Link to="/download/archive">archive</Link>.
       </p>
       <TableOfContents packages={props} versionLog={versionLog} />
       <h3 className="title is-5">Packages</h3>
       <a id="packages"></a>
       {props.map(p => (
-        <PackageDownload {...p} />
+        <PackageDownload key={p.type} {...p} />
       ))}
       <Changelog versionLog={versionLog} />
     </>

@@ -46,7 +46,7 @@ const DownloadArchiv = ({ data }) => (
               {release.packages
                 .map(p => createProps(release.tag, p, "1.5rem"))
                 .map(props => (
-                  <Icon to={`/download/${release.tag}/#${props.type}`}>
+                  <Icon key={props.type} to={`/download/${release.tag}/#${props.type}`}>
                     {props.icon}
                   </Icon>
                 ))}
