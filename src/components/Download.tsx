@@ -97,8 +97,12 @@ const PackageDownload: FC<PackageDownloadProps> = ({
 const createDocBaseUrl = (version: string) => {
   const parts = version.split(".");
   const major = parts[0];
-  const minor = parts[1];
-  return `/docs/${major}.${minor}.x/en`;
+  if (major === "1") {
+    return `/docs/1.x/en`;
+  } else {
+    const minor = parts[1];
+    return `/docs/${major}.${minor}.x/en`;
+  }
 };
 
 const createDefaultInstructionUrl = (version: string, type: string) => {
