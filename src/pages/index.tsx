@@ -20,8 +20,10 @@ import {
   Features,
   Cloudogu,
 } from "../components/features";
+import useLatestRelease from "../hooks/useLatestRelease";
 
 const IndexPage = () => {
+  const release = useLatestRelease();
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "images/scm-manager_logo_img.png" }) {
@@ -46,7 +48,7 @@ const IndexPage = () => {
                 The easiest way to share and manage your Git, Mercurial and
                 Subversion repositories
               </Subtitle>
-              <Link className="button is-primary is-large" to="/docs/2.0.x/en/installation/">
+              <Link className="button is-primary is-large" to={`${release.docs}installation`}>
                 Getting started
               </Link>
             </div>
