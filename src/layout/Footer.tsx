@@ -4,6 +4,10 @@ import { Link } from "gatsby";
 
 const DarkFooter = styled.footer`
   background-color: #111 !important;
+
+  a:hover {
+    color: #fff;
+  }
 `;
 
 const FooterText = styled.p`
