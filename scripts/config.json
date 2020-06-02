@@ -1,8 +1,0 @@
-{
-  "organization": "scm-manager",
-  "core": "scm-manager",
-  "logging": {
-    "level": "info",
-    "prettyPrint": true
-  }
-}

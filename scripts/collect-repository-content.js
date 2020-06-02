@@ -17,7 +17,11 @@ const logger = require("./logger");
  * @see https://stackoverflow.com/a/52269934
  */
 async function collectRepositoryContent(api, repository, versions, outPath) {
-  logger.info(`Collecting ${repository} ...`);
+  if (!versions.length) {
+    logger.info(`Skipping ${repository}: no versions found`)
+    return;
+  }
+  logger.info(`Collecting ${repository} (${versions.map(v => v.range).join(', ')}) ...`);
 
   const tmpClonePath = await mkdtemp(join(tmpdir(), `${repository}-`));
   const docsPath = join(outPath, "docs");
@@ -70,10 +74,12 @@ async function collectVersionContent(tmpDir, version, sha, outPath) {
     await ensureDir(versionPath);
     await emptyDir(versionPath);
 
+    logger.debug(`Move content from ${docsPath} to ${versionPath} ...`);
     await moveDirContents(versionPath, docsPath);
   } else {
     logger.debug(`No docs folder in version ${version}, skipping ...`)
   }
+  logger.debug(`Content collected for ${version} and moved to ${outPath}`);
 }
 
 /**
