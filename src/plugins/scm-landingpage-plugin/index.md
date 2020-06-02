@@ -1,0 +1,9 @@
+---
+name: scm-landingpage-plugin
+displayName: Landing Page
+description: Adds a landing page with tasks, events and data like favorite repositories
+category: workflow
+author: Cloudogu GmbH
+---
+
+To be done ...
