@@ -3,6 +3,7 @@ import Feature, { FeatureProps } from "./Feature";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TextColumn from "./TextColumn";
 import ImageColumn from "./ImageColumn";
+import { faUserShield } from "@fortawesome/free-solid-svg-icons";
 
 const Authorization: FC<FeatureProps> = props => (
   <Feature {...props}>
@@ -11,7 +12,7 @@ const Authorization: FC<FeatureProps> = props => (
       groups of users exactly the permissions they need.
     </TextColumn>
     <ImageColumn>
-      <FontAwesomeIcon icon="users-cog" size="4x" />
+      <FontAwesomeIcon icon={faUserShield} size="4x" />
     </ImageColumn>
   </Feature>
 );

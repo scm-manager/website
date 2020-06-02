@@ -3,6 +3,7 @@ import Feature, { FeatureProps } from "./Feature";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TextColumn from "./TextColumn";
 import ImageColumn from "./ImageColumn";
+import { faProjectDiagram } from "@fortawesome/free-solid-svg-icons";
 
 const NoDependencies: FC<FeatureProps> = props => (
   <Feature {...props}>
@@ -12,7 +13,7 @@ const NoDependencies: FC<FeatureProps> = props => (
       components.
     </TextColumn>
     <ImageColumn>
-      <FontAwesomeIcon icon="project-diagram" size="4x" />
+      <FontAwesomeIcon icon={faProjectDiagram} size="4x" />
     </ImageColumn>
   </Feature>
 );

@@ -3,6 +3,8 @@ import Feature, { FeatureProps } from "./Feature";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TextColumn from "./TextColumn";
 import ImageColumn from "./ImageColumn";
+import { faPuzzlePiece } from '@fortawesome/free-solid-svg-icons'
+
 
 const Extensible: FC<FeatureProps> = props => (
   <Feature {...props}>
@@ -10,7 +12,7 @@ const Extensible: FC<FeatureProps> = props => (
       SCM-Manager can be easily extended with its simple plugin api.
     </TextColumn>
     <ImageColumn>
-      <FontAwesomeIcon icon="puzzle-piece" size="4x" />
+      <FontAwesomeIcon icon={faPuzzlePiece} size="4x" />
     </ImageColumn>
   </Feature>
 );
