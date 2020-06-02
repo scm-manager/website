@@ -13,6 +13,7 @@ import IconGroup from "../IconGroup";
 import Feature, { FeatureProps } from "./Feature";
 import TextColumn from "./TextColumn";
 import ImageColumn from "./ImageColumn";
+import CloudoguLogo from "../CloudoguLogo";
 
 const EasyInstallation: FC<FeatureProps> = props => (
   <Feature {...props}>
@@ -29,6 +30,7 @@ const EasyInstallation: FC<FeatureProps> = props => (
         <Apple />
       </IconGroup>
       <IconGroup>
+        <CloudoguLogo />
         <Docker />
         <Kubernetes />
         <Helm />
