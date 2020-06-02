@@ -1,8 +1,0 @@
-plugin: "scm-dummy-plugin"
-tag: "1.0.0"
-date: "2020-04-14T12:56:03Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-dummy-plugin/1.0.0/scm-dummy-plugin-1.0.0.smp"
-checksum: "a6fbc07716646d8b61971e8705e5bb42f83daa896b2ed725cc926c2fe241801d"
-dependencies: []
-conditions:
-  minVersion: "2.0.0-rc7"
