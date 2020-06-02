@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
-
+import "./fontawesome";
 import "../styles/main.scss";
 
 function Header() {

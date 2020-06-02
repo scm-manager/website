@@ -151,7 +151,7 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true, // Print removed selectors and processed file names
-        ignore: ['src/styles/prism.scss']
+        ignore: ['src/styles/prism.scss', 'fontawesome-svg-core/styles.css']
         // develop: true, // Enable while using `gatsby develop`
         // tailwind: true, // Enable tailwindcss support
         // whitelist: ['whitelist'], // Don't remove this selector
