@@ -21,10 +21,10 @@ const Feature: FC<FeatureProps> = ({ children, textRight }) => {
 
   React.Children.forEach(children, child => {
     // @ts-ignore
-    if (child.type.displayName === "TextColumn") {
+    if (child.type === TextColumn || child.type.displayName === "TextColumn") {
       text = child;
     // @ts-ignore
-    } else if (child.type.displayName === "ImageColumn") {
+    } else if (child.type === ImageColumn || child.type.displayName === "ImageColumn") {
       image = child;
     }
   });
