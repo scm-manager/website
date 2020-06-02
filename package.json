@@ -1,7 +1,7 @@
 {
-  "name": "@scm-manager/plugin-center",
+  "name": "@scm-manager/website",
   "private": true,
-  "description": "SCM-Manager Plugin Center",
+  "description": "SCM-Manager website",
   "version": "0.1.0",
   "author": "Sebastian Sdorra <sebastian.sdorra@cloudogu.com>",
   "dependencies": {

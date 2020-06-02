@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: scmmanager/plugin-center
+  repository: scmmanager/website
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -23,14 +23,17 @@ ingress:
     kubernetes.io/ingress.class: traefik
     kubernetes.io/tls-acme: "true"
   hosts:
-    - host: plugin-center.scm-manager.org
+    - host: scm-manager.org
+      paths:
+        - /
+    - host: www.scm-manager.org
       paths:
         - /
 
   tls: 
-    - secretName: plugin-center-tls
+    - secretName: website-tls
       hosts:
-        - plugin-center.scm-manager.org
+        - website.scm-manager.org
 
 resources:
   limits:

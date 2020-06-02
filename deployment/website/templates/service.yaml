@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "plugin-center.fullname" . }}
+  name: {{ include "website.fullname" . }}
   labels:
-{{ include "plugin-center.labels" . | indent 4 }}
+{{ include "website.labels" . | indent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,5 +12,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app.kubernetes.io/name: {{ include "plugin-center.name" . }}
+    app.kubernetes.io/name: {{ include "website.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

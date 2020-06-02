@@ -34,7 +34,7 @@ pipeline {
         script {
           withCredentials([usernamePassword(credentialsId: 'cesmarvin-github', passwordVariable: 'GITHUB_API_TOKEN', usernameVariable: 'GITHUB_ACCOUNT')]) {
             docker.withRegistry('', 'hub.docker.com-cesmarvin') {
-              def image = docker.build("scmmanager/plugin-center:${version}", "--build-arg GITHUB_API_TOKEN=${GITHUB_API_TOKEN} .")
+              def image = docker.build("scmmanager/website:${version}", "--build-arg GITHUB_API_TOKEN=${GITHUB_API_TOKEN} .")
               image.push()
             }
           }
@@ -42,19 +42,36 @@ pipeline {
       }
     }
 
-    stage('Deployment') {
+    stage('Deployment Staging') {
       when {
-        branch 'master'
+        branch 'develop'
       }
       agent {
         docker {
-          image 'lachlanevenson/k8s-helm:v2.14.2'
+          image 'lachlanevenson/k8s-helm:v3.2.1'
           args  '--entrypoint=""'
         }
       }
       steps {
         withCredentials([file(credentialsId: 'helm-client-scm-manager', variable: 'KUBECONFIG')]) {
-          sh "helm upgrade --install --set image.tag=${version} plugin-center deployment/plugin-center"
+          sh "helm upgrade --install --values=deployment/staging.yml --set image.tag=${version} website deployment/website"
+        }
+      }
+    }
+
+    stage('Deployment Production') {
+      when {
+        branch 'master'
+      }
+      agent {
+        docker {
+          image 'lachlanevenson/k8s-helm:v3.2.1'
+          args  '--entrypoint=""'
+        }
+      }
+      steps {
+        withCredentials([file(credentialsId: 'helm-client-scm-manager', variable: 'KUBECONFIG')]) {
+          sh "helm upgrade --install --set image.tag=${version} website deployment/website"
         }
       }
     }
