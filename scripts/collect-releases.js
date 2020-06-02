@@ -1,7 +1,6 @@
 const { organization } = require("./config");
+const logger = require("./logger");
 const semver = require("semver");
-
-const semverRegex = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/g;
 
 /**
  * @param {Octokit} api
@@ -16,16 +15,13 @@ async function collectReleases(api, repository) {
     repo: repository,
   })) {
     for (const tag of tags.data) {
-      const regexResult = semverRegex.exec(tag.name);
-      if (regexResult) {
-        const [matched] = regexResult;
-        // Exclude tag versions below version 2.0.0
-        if (semver.major(matched) >= 2) {
-          releases.push({
-            version: matched,
-            sha: tag.commit.sha,
-          });
-        }
+      if (semver.valid(tag.name)) {
+        releases.push({
+          version: tag.name,
+          sha: tag.commit.sha,
+        });
+      } else {
+        logger.warn(`skipped non semver version ${tag.name} at ${repository}`);
       }
     }
   }
