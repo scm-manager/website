@@ -1,20 +1,10 @@
 tag: '2.0.0-rc8'
 date: '2020-05-08T18:23:51Z'
 packages:
-- type: debian
-- type: redhat
 - type: windows
   url: https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/2.0.0-rc8/scm-server-2.0.0-rc8-app.zip
   checksum: bcf2be722d981d699432e0e12fe443ae62d6860c80f0264676710bd52b6b2dc2
-- type: osx
 - type: unix
   url: https://packages.scm-manager.org/repository/releases/sonia/scm/scm-server/2.0.0-rc8/scm-server-2.0.0-rc8-app.tar.gz
   checksum: 800ed5a282062176c08866cfb58c5c9da37d2781d9041eead3560b4a4268f54a
 - type: docker
-- type: k8s
-- type: war
-  url: https://www.scm-manager.org/download-action/?download=/scm-webapp/1.60/scm-webapp-1.60.war
-  checksum: 800ed5a282062176c08866cfb58c5c9da37d2781d9041eead3560b4a4268f54a
-- type: cli
-  url: https://www.scm-manager.org/download-action/?download=/scm-webapp/1.60/scm-webapp-1.60.war
-  checksum: 800ed5a282062176c08866cfb58c5c9da37d2781d9041eead3560b4a4268f54a
