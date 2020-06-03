@@ -8,7 +8,7 @@ categories:
 ---
 Today we reached another great goal on our road to the 2.0.0 release.
 
-#### We release our new website 🎉🥳
+#### We released our new website 🎉🥳
 
 Our old website was a somewhat outdated wordpress blog.
 The blog was fine, but it does no longer match our needs.
