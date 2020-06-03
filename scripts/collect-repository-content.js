@@ -29,15 +29,11 @@ async function collectRepositoryContent(api, repository, versions, outPath) {
     logger.debug(`Cloning ${repository} into ${tmpClonePath} ...`);
 
     const cloneUrl = createCloneURL(repository);
-    await execAsync(`git`, [ `clone`, `--no-checkout`, cloneUrl, `.`], {
-      cwd: tmpClonePath
-    });
-    await execAsync(`git`, [`sparse-checkout`, `set`, `--cone`, `docs/`, `README.md`, `LICENSE.txt`, `CHANGELOG.md`], {
-      cwd: tmpClonePath
-    });
-    await execAsync(`git`, [`reset`, `--hard`, `HEAD`], {
-      cwd: tmpClonePath
-    });
+    const git = createGit(tmpClonePath);
+
+    await git(`clone`, `--no-checkout`, cloneUrl, `.`);
+    await git(`sparse-checkout`, `set`, `--cone`, `docs/`, `README.md`, `LICENSE.txt`, `CHANGELOG.md`);
+    await git(`reset`, `--hard`, `HEAD`);
 
     logger.debug(`Collecting root files for ${repository} from default branch ...`);
     await Promise.all([
@@ -56,34 +52,30 @@ async function collectRepositoryContent(api, repository, versions, outPath) {
   }
 }
 
-function execAsync(cmd, args, options) {
-  logger.trace(`calling '${cmd}'`);
-  return new Promise((resolve, reject) => {
-    const child = spawn(cmd, args, options);
-    
-    let debug = "";
-    let warn = "";
+function createGit(workingPath) {
+  return (...args) => {
+    logger.trace(`calling 'git'`);
+    return new Promise((resolve, reject) => {
+      const child = spawn("git", args, {cwd: workingPath});
+      
+      let stderr = "";
 
-    child.stdout.on('data', function (data) {
-      debug += data;
-    });
-    
-    child.stderr.on('data', function (data) {
-      warn += data;
-    });
+      child.stderr.on('data', data => {
+        stderr += data;
+      });
 
-    child.on('exit', function(rc) {
-      logger.debug(debug);
-      if (warn) {
-        logger.warn(warn);
-      }
-      if (rc === 0) {
-        resolve();
-      } else {
-        reject(new Error(`process ends with ${rc}`))
-      }
+      child.on('exit', rc => {
+        if (rc === 0) {
+          resolve();
+        } else {
+          if (stderr) {
+            logger.error(stderr);
+          }
+          reject(new Error(`process ends with ${rc}`))
+        }
+      })
     })
-  })
+  }
 };
 
 function createCloneURL(repository) {
@@ -97,9 +89,8 @@ function createCloneURL(repository) {
 
 async function collectVersionContent(tmpDir, version, sha, outPath) {
   logger.debug(`Checking out ${version} (${sha}) ...`)
-  await execAsync(`git`, [`checkout`, `-f`, sha], {
-    cwd: tmpDir
-  });
+  const git = createGit(tmpDir);
+  await git(`checkout`, `-f`, sha);
 
   const versionPath = join(outPath, version);
   const docsPath = join(tmpDir, 'docs');
