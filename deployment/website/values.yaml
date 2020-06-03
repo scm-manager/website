@@ -33,7 +33,8 @@ ingress:
   tls: 
     - secretName: website-tls
       hosts:
-        - website.scm-manager.org
+        - scm-manager.org
+        - www.scm-manager.org
 
 resources:
   limits:
