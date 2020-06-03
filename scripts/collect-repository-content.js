@@ -1,8 +1,7 @@
 'use strict';
 
 const { ensureDir, emptyDir, mkdtemp, remove, move, pathExists, readdir, stat } = require('fs-extra');
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
+const {spawn} = require('child_process');
 const { organization } = require('./config');
 const { join } = require('path');
 const { tmpdir } = require('os');
@@ -30,7 +29,13 @@ async function collectRepositoryContent(api, repository, versions, outPath) {
     logger.debug(`Cloning ${repository} into ${tmpClonePath} ...`);
 
     const cloneUrl = createCloneURL(repository);
-    await exec(`git clone --no-checkout ${cloneUrl} . && git sparse-checkout init && git sparse-checkout set docs/ README.md LICENSE.txt CHANGELOG.md`, {
+    await execAsync(`git`, [ `clone`, `--no-checkout`, cloneUrl, `.`], {
+      cwd: tmpClonePath
+    });
+    await execAsync(`git`, [`sparse-checkout`, `set`, `--cone`, `docs/`, `README.md`, `LICENSE.txt`, `CHANGELOG.md`], {
+      cwd: tmpClonePath
+    });
+    await execAsync(`git`, [`reset`, `--hard`, `HEAD`], {
       cwd: tmpClonePath
     });
 
@@ -51,6 +56,36 @@ async function collectRepositoryContent(api, repository, versions, outPath) {
   }
 }
 
+function execAsync(cmd, args, options) {
+  logger.trace(`calling '${cmd}'`);
+  return new Promise((resolve, reject) => {
+    const child = spawn(cmd, args, options);
+    
+    let debug = "";
+    let warn = "";
+
+    child.stdout.on('data', function (data) {
+      debug += data;
+    });
+    
+    child.stderr.on('data', function (data) {
+      warn += data;
+    });
+
+    child.on('exit', function(rc) {
+      logger.debug(debug);
+      if (warn) {
+        logger.warn(warn);
+      }
+      if (rc === 0) {
+        resolve();
+      } else {
+        reject(new Error(`process ends with ${rc}`))
+      }
+    })
+  })
+};
+
 function createCloneURL(repository) {
   let auth = "";
   const apiToken = process.env.GITHUB_API_TOKEN;
@@ -62,7 +97,7 @@ function createCloneURL(repository) {
 
 async function collectVersionContent(tmpDir, version, sha, outPath) {
   logger.debug(`Checking out ${version} (${sha}) ...`)
-  await exec(`git checkout -f ${sha}`, {
+  await execAsync(`git`, [`checkout`, `-f`, sha], {
     cwd: tmpDir
   });
 
