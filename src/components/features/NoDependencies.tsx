@@ -7,7 +7,7 @@ import { faProjectDiagram } from "@fortawesome/free-solid-svg-icons";
 
 const NoDependencies: FC<FeatureProps> = props => (
   <Feature {...props}>
-    <TextColumn title="No dependencies">
+    <TextColumn title="No Dependencies">
       No web servers, databases or caches are required. SCM-Manager is very
       lightweight and does not force you to install a ton of infrastructure
       components.

@@ -7,7 +7,7 @@ import { faFileCode } from "@fortawesome/free-solid-svg-icons";
 
 const SimpleConfiguration: FC<FeatureProps> = props => (
   <Feature {...props}>
-    <TextColumn title="Simple configuration">
+    <TextColumn title="Simple Configuration">
       SCM-Manager is completely configurable from its Web-Interface. There is
       no need to hack configuration files.
     </TextColumn>

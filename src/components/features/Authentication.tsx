@@ -8,8 +8,8 @@ import { faUsers } from "@fortawesome/free-solid-svg-icons";
 const Authentication: FC<FeatureProps> = props => (
   <Feature {...props}>
     <TextColumn title="Authentication">
-      SCM-Manager comes with an very flexible authentication mechanism. You can
-      configure the mechanism which are you need or use the embedded one.
+      SCM-Manager comes with a very flexible authentication mechanism. You can
+      configure the mechanism that fits your needs or use the embedded one.
     </TextColumn>
     <ImageColumn>
       <FontAwesomeIcon icon={faUsers} size="4x" />
