@@ -8,7 +8,7 @@ import MercurialIcon from "../MercurialIcon";
 
 const SourceCodeManagement: FC<FeatureProps> = props => (
   <Feature {...props}>
-    <TextColumn title="SouceCode Management">
+    <TextColumn title="SourceCode Management">
       SCM-Manager comes out of the box with support for Git, Mercurial and
       Subversion. All three types can be managed the same way over one
       interface.
