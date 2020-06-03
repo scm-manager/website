@@ -11,7 +11,7 @@ const RestApi: FC<FeatureProps> = props => (
       <a href="https://martinfowler.com/articles/richardsonMaturityModel.html">
         Level 3 RESTful WebService
       </a>{" "}
-      for every funktion of SCM-Manager. This makes it easy to integrate with
+      for every function of SCM-Manager. This makes it easy to integrate with
       your internal processes.
     </TextColumn>
     <ImageColumn>
