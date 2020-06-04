@@ -45,6 +45,8 @@ const DownloadArchiv = ({ data }) => (
             <Column className="has-text-centered">
               {release.packages
                 .map(p => createProps(release.tag, p, "1.5rem"))
+                .filter(p => !!p)
+                .sort((a, b) => a.type.localeCompare(b.type))
                 .map(props => (
                   <Icon key={props.type} to={`/download/${release.tag}/#${props.type}`}>
                     {props.icon}
