@@ -1,0 +1,8 @@
+plugin: "scm-gravatar-plugin"
+tag: "2.0.0"
+date: "2020-06-04T20:07:03Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-gravatar-plugin/2.0.0/scm-gravatar-plugin-2.0.0.smp"
+checksum: "0169f26e3b415befecc1ac4f9748f96bc467dcf64d83e067cfadc8f8b9fadc1c"
+dependencies: []
+conditions:
+  minVersion: "2.0.0"
