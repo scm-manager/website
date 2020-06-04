@@ -1,0 +1,10 @@
+plugin: "scm-jira-plugin"
+tag: "2.0.0"
+date: "2020-06-04T18:26:20Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-jira-plugin/2.0.0/scm-jira-plugin-2.0.0.smp"
+checksum: "cb9d43b9257ff9157bb147ee2a1120bbebc52d87923910f90b19e1d095836089"
+dependencies:
+- "scm-mail-plugin"
+- "scm-issuetracker-plugin"
+conditions:
+  minVersion: "2.0.0"
