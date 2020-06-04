@@ -1,0 +1,8 @@
+plugin: "scm-openapi-plugin"
+tag: "1.0.0"
+date: "2020-06-04T19:16:38Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-openapi-plugin/1.0.0/scm-openapi-plugin-1.0.0.smp"
+checksum: "b36a8ff9bf5851d00187af23950e99ef15e7ebc886948570364d9ee0706a5097"
+dependencies: []
+conditions:
+  minVersion: "2.0.0"
