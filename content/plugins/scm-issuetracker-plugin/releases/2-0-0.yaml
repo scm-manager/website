@@ -1,0 +1,8 @@
+plugin: "scm-issuetracker-plugin"
+tag: "2.0.0"
+date: "2020-06-04T17:36:58Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-issuetracker-plugin/2.0.0/scm-issuetracker-plugin-2.0.0.smp"
+checksum: "b72a0339c98b91e1a506e09d120d493e1fd6d2c83d8cb1840639125aa0206e55"
+dependencies: []
+conditions:
+  minVersion: "2.0.0"
