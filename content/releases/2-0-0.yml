@@ -6,6 +6,6 @@ packages:
 - {type: unix, checksum: 3246e4d7e4ebc5a3b18f702e156eca3915c657008207b0f08eec94b266f87c24,
   url: 'https://packages.scm-manager.org/releases/releases/sonia/scm/packaging/unix/2.0.0/unix-2.0.0-app.tar.gz'}
 - {type: debian}
-- {type: helm}
+- {type: k8s}
 - {type: redhat}
 - {type: docker}
