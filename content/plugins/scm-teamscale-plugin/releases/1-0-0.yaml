@@ -1,0 +1,9 @@
+plugin: "scm-teamscale-plugin"
+tag: "1.0.0"
+date: "2020-06-04T19:40:53Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-teamscale-plugin/1.0.0/scm-teamscale-plugin-1.0.0.smp"
+checksum: "2fd36e2695cba0abf1cca81f003a5d1fd533d37aa74b9373c4bb90acaff60163"
+dependencies:
+- "scm-ci-plugin"
+conditions:
+  minVersion: "2.0.0"
