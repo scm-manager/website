@@ -1,0 +1,8 @@
+plugin: "scm-pushlog-plugin"
+tag: "2.0.0"
+date: "2020-06-04T18:55:29Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-pushlog-plugin/2.0.0/scm-pushlog-plugin-2.0.0.smp"
+checksum: "f21a7ed9ed30e4582b8d8a068f6e1195f95a282abf670811c3148b798e0a64cd"
+dependencies: []
+conditions:
+  minVersion: "2.0.0"
