@@ -41,7 +41,7 @@ TODO screenshots
 
 ### Editor Plugin
 
-Ever wanted to make a small change in a repository? Like updating a README or uploading a new file? Now you can use the [editor plugin](https://www.scm-manager.org/plugins/scm-editor-plugin) to do so.
+Ever wanted to make a small change in a repository? Like updating a README (which by the way can be displayed by the [readme plugin](https://www.scm-manager.org/plugins/scm-readme-plugin)) or uploading a new file? Now you can use the [editor plugin](https://www.scm-manager.org/plugins/scm-editor-plugin) to do so.
 
 TODO screenshots
 
