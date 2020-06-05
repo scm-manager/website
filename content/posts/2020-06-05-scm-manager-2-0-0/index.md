@@ -19,7 +19,22 @@ TODO text Since 1.60
 
 The most obviously change is the new ui. We have recreated the whole UI from scratch. The 1.x UI was based on ExtJS, which worked great, but it does not look modern. With ExtJS it was possible to override any UI element from a plugin. This is great in terms of extensibility, but not really maintainable if you want to evolve the core. The new frontend stack is entirely based on React and Bulma and it has well-defined extension points, which makes the whole side easier to maintain. Enough words about the ui, here are some screenshots from the new ui.
 
-TODO screenshots
+<div class="columns blog-image-list">
+<div class="column">
+
+![Login](assets/login.png)
+![Repositories](assets/repositories.png)
+![Commits](assets/commits.png)
+
+</div>
+<div class="column">
+
+![Sources](assets/sources.png)
+![Markdown](assets/markdown.png)
+![Source tree](assets/tree.png)
+
+</div>
+</div>
 
 ## Plugins
 
@@ -29,13 +44,25 @@ We created a whole new package format for the plugins, which should fix all of t
 
 With the review plugin you can implement a branched based peer review process: Develop new features on a branch, create a pull request where you describe your changes, and let a peer developer inspect these changes. You can write comments for the whole pull request, for single files and even for changed lines. Finally, you can merge the branches inside SCM-Manager. With the help of the CI plugin you can enforce complex workflows to ensure, only working code will be released.
 
-TODO screenshots
+<div class="columns blog-image-list">
+<div class="column">
 
+![PR Overview](assets/review-overview.png)
+![PR Comments](assets/review-inline-comments.png)
+
+</div>
+<div class="column">
+
+![PR Details](assets/review-detail.png)
+![PR Conflicts](assets/review-conflicts.png)
+
+</div>
+</div>
 ### Editor Plugin
 
 Ever wanted to make a small change in a repository? Like updating a README or uploading a new file? Now you can use the editor plugin to do so.
 
-TODO screenshots
+![Editor Plugin](assets/editor-plugin.png)
 
 ### SSH Plugin
 
@@ -45,19 +72,20 @@ You have enough from constant entering your username and password? No problem us
 
 Sometimes it gets hard to keep track of important things. This is, where our new landingpage plugin comes into play: On a single page you can see your tasks, latest events and relevant data like your favorite repositories.
 
-TODO screenshots
+![Landingpage Plugin](assets/landingpage.png)
+
 
 ### OpenAPI Plugin
 
 We are somewhat proud of the new level 3 REST API, and we would like to enable you to use it. Instead of writing a big documentation we give you a plugin to explore all the possibilities.
 
-TODO screenshots
+![OpenAPI Plugin](assets/openapi.png)
 
 ## Permissions
 
 The permission model of SCM-Manager v1 was limited to the distinction between admins and users and roles you could assign for single repositories. With version 2 you can now assign fine grained permissions, both globally and repository specific. But this definitely is a topic for another document.
 
-TODO Screenshot
+![Permissions](assets/permissions.png)
 
 ## Repository URLS
 
