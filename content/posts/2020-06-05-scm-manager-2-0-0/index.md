@@ -5,6 +5,7 @@ author: SCM-Team
 categories:
   - scm-manager
   - release
+displayToc: true
 ---
 
 Good news, we made it. Before running out of numbers for our release candidates, we finally released version 2.0.0 of SCM-Manager. 
@@ -21,7 +22,7 @@ But now, allow us to proudly present to you, what we at [Cloudogu](https://cloud
 
 ## Frontend
 
-The most obvious change is the new user interface. We recreated the whole UI from scratch. The 1.x UI was based on ExtJS, which worked great, but by now its look is somewhat outdated. The good thing about ExtJS was, that it is possible to override any UI element from a plugin, which is great in terms of extensibility, but not really maintainable if you want to evolve the core. The new frontend stack is entirely based on [React](https://reactjs.org/) and [Bulma](https://bulma.io/) and it has well-defined extension points, which make the whole site easier to maintain.
+The most obvious change is the new user interface. We recreated the whole UI from scratch. The 1.x UI was based on [ExtJS](https://www.sencha.com/products/extjs/), which worked great, but by now its look is somewhat outdated. The good thing about [ExtJS](https://www.sencha.com/products/extjs/) was, that it is possible to override any UI element from a plugin, which is great in terms of extensibility, but not really maintainable if you want to evolve the core. The new frontend stack is entirely based on [React](https://reactjs.org/) and [Bulma](https://bulma.io/) and it has well-defined extension points, which make the whole site easier to maintain.
 
 But enough about the technical background, here are some screenshots of the new UI:
 
@@ -46,11 +47,11 @@ But enough about the technical background, here are some screenshots of the new 
 
 We created a whole new package format for the plugins, which should fix all the problems with v1 plugin installations. With the new format, only a single file has to be fetched, and the server can restart on its own.
 
-We migrated [25 well-known plugins](https://www.scm-manager.org/plugins/) that were available for v1 (like jenkins, redmine, jira, ldap, cas, branch-wp, and so on). Additionally we also created a few great new plugins for you that were not possible with v1.:
+We migrated [25 well-known plugins](/plugins/) that were available for v1 (like [jenkins](/plugins/scm-jenkins-plugin/), [redmine](/plugins/scm-redmine-plugin/), [jira](/plugins/scm-jira-plugin/), [ldap](/plugins/scm-ldap-plugin/), [cas](/plugins/scm-cas-plugin/), [branch-wp](/plugins/scm-branchwp-plugin/), and so on). Additionally we also created a few great new plugins for you that were not possible with v1.:
 
 ### Review Plugin
 
-With the [review plugin](https://www.scm-manager.org/plugins/scm-review-plugin/) you can implement a branch based peer review process: Develop new features on a branch, create a pull request where you describe your changes, and let a peer developer inspect these changes. You can write comments for the whole pull request, for single files and even for changed lines. Finally, you can merge the branches inside of SCM-Manager. With the help of the [CI plugin](https://www.scm-manager.org/plugins/scm-ci-plugin) you can enforce complex workflows, for example to ensure, that Jenkins builds have been run successfully and only working code will be incorporated.
+With the [review plugin](/plugins/scm-review-plugin/) you can implement a branch based peer review process: Develop new features on a branch, create a pull request where you describe your changes, and let a peer developer inspect these changes. You can write comments for the whole pull request, for single files and even for changed lines. Finally, you can merge the branches inside of SCM-Manager. With the help of the [CI plugin](/plugins/scm-ci-plugin) you can enforce complex workflows, for example to ensure, that Jenkins builds have been run successfully and only working code will be incorporated.
 
 <div class="columns blog-image-list">
 <div class="column">
@@ -69,24 +70,24 @@ With the [review plugin](https://www.scm-manager.org/plugins/scm-review-plugin/)
 
 ### Editor Plugin
 
-Have you ever wanted to make a small change in a repository? Like updating a README (which by the way can be displayed by the [readme plugin](https://www.scm-manager.org/plugins/scm-readme-plugin)) or uploading a new file? Now you can use the [editor plugin](https://www.scm-manager.org/plugins/scm-editor-plugin) to do so.
+Have you ever wanted to make a small change in a repository? Like updating a README (which by the way can be displayed by the [readme plugin](/plugins/scm-readme-plugin)) or uploading a new file? Now you can use the [editor plugin](/plugins/scm-editor-plugin) to do so.
 
 ![Editor Plugin](assets/editor-plugin.png)
 
 ### SSH Plugin
 
-You are done with constantly entering your username and password? No problem, use the [ssh plugin](https://www.scm-manager.org/plugins/scm-ssh-plugin) with an ssh key.
+You are done with constantly entering your username and password? No problem, use the [ssh plugin](/plugins/scm-ssh-plugin) with an ssh key.
 
 ### Landingpage Plugin (MySCM)
 
-Sometimes it gets hard to keep track of important things. This is, where our new [landingpage plugin](https://www.scm-manager.org/plugins/scm-landingpage-plugin) comes into play: On a single page you can see your tasks, the latest events and relevant data like your favorite repositories.
+Sometimes it gets hard to keep track of important things. This is, where our new [landingpage plugin](/plugins/scm-landingpage-plugin) comes into play: On a single page you can see your tasks, the latest events and relevant data like your favorite repositories.
 
 ![Landingpage Plugin](assets/landingpage.png)
 
 
 ### OpenAPI Plugin
 
-We are proud of the new [level 3 REST API](https://martinfowler.com/articles/richardsonMaturityModel.html), and we would like to enable you to use it. Instead of writing a big documentation we give you an [open API plugin](https://www.scm-manager.org/plugins/scm-openapi-plugin) to explore all the possibilities interactively.
+We are proud of the new [level 3 REST API](https://martinfowler.com/articles/richardsonMaturityModel.html), and we would like to enable you to use it. Instead of writing a big documentation we give you an [open API plugin](/plugins/scm-openapi-plugin) to explore all the possibilities interactively.
 
 ![OpenAPI Plugin](assets/openapi.png)
 
@@ -106,9 +107,9 @@ This change fixes the routing problem and removes the technical ids from the url
 
 You may have noticed a little detail in our new version number: We moved from 1.60 to 2.0.0, that is, from now on we use [semantic versioning](https://semver.org/).
 
-## Getting started
+# Getting started
 
-Want to get it right now? Head over to our new download page. You have the choice:
+Want to get it right now? Head over to our new [download page](/download/2.0.0/). You have the choice:
 
 * Docker
 * Kubernetes
