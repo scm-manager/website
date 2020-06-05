@@ -154,7 +154,7 @@ module.exports = {
         ignore: ['src/styles/prism.scss', 'fontawesome-svg-core/styles.css'],
         // develop: true, // Enable while using `gatsby develop`
         // tailwind: true, // Enable tailwindcss support
-        whitelist: ['img'], // Don't remove this selector
+        whitelist: ['img', 'blog-image-list', 'content', 'gatsby-resp-image-wrapper'], // Don't remove this selector
         // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
         // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
       }
