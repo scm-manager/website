@@ -5,6 +5,7 @@ author: SCM-Team
 categories:
   - scm-manager
   - release
+displayToc: true
 ---
 
 Good news, we made it. Before running out of numbers for our release candidates, we finally released version 2.0.0 of SCM-Manager. 
@@ -106,9 +107,9 @@ This change fixes the routing problem and removes the technical ids from the url
 
 You may have noticed a little detail in our new version number: We moved from 1.60 to 2.0.0, that is, from now on we use [semantic versioning](https://semver.org/).
 
-## Getting started
+# Getting started
 
-Want to get it right now? Head over to our new download page. You have the choice:
+Want to get it right now? Head over to our new [download page](/download/2.0.0/). You have the choice:
 
 * Docker
 * Kubernetes
