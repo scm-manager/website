@@ -22,7 +22,7 @@ But now, allow us to proudly present to you, what we at [Cloudogu](https://cloud
 
 ## Frontend
 
-The most obvious change is the new user interface. We recreated the whole UI from scratch. The 1.x UI was based on ExtJS, which worked great, but its look is somewhat outdated. With ExtJS it was possible to override any UI element from a plugin. This is great in terms of extensibility, but not really maintainable if you want to evolve the core. The new frontend stack is entirely based on [React](https://reactjs.org/) and [Bulma](https://bulma.io/) and it has well-defined extension points, which makes the whole site easier to maintain.
+The most obvious change is the new user interface. We recreated the whole UI from scratch. The 1.x UI was based on [ExtJS](https://www.sencha.com/products/extjs/), which worked great, but its look is somewhat outdated. With [ExtJS](https://www.sencha.com/products/extjs/) it was possible to override any UI element from a plugin. This is great in terms of extensibility, but not really maintainable if you want to evolve the core. The new frontend stack is entirely based on [React](https://reactjs.org/) and [Bulma](https://bulma.io/) and it has well-defined extension points, which makes the whole site easier to maintain.
 
 Enough about the technical background, here are some screenshots of the new UI:
 
