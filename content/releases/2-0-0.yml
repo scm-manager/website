@@ -9,3 +9,4 @@ packages:
 - {type: k8s}
 - {type: redhat}
 - {type: docker}
+- {type: osx}

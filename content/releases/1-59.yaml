@@ -19,3 +19,4 @@ packages:
     url: >-
       https://packages.scm-manager.org/repository/releases/sonia/scm/clients/scm-cli-client/1.59/scm-cli-client-1.59-jar-with-dependencies.jar
     checksum: ac09437ae6cf20d07224895b30b23369e142055b9d1713835d8c0e3095bf68d2
+  - type: osx
