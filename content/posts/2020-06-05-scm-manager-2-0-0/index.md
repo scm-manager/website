@@ -117,6 +117,7 @@ Want to get it right now? Head over to our new [download page](/download/2.0.0/)
 * Red Hat/CentOS/Fedora
 * Generic Linux
 * Windows
+* Mac OS X
 
 There is no excuse to not getting started today.
 
