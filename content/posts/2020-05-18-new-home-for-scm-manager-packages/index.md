@@ -36,12 +36,16 @@ enabled=1
 gpgcheck=0
 ```
 
+For more detailed instructions have a look at the [SCM-Manager documentation](/docs/1.x/en/installation/redhat/).
+
 ## Apt/DEB (for SCM-Manager v1 only):
 
 ```bash
 deb https://packages.scm-manager.org/repository/apt-v1-releases/ stable main
 ```
 
-For more detailed instructions have a look at the [SCM-Manager documentation](/docs/1.60.x/en/RPM%20and%20DEB%20packages/).
+For more detailed instructions have a look at the [SCM-Manager documentation](/docs/1.x/en/installation/debian/).
+
+## Further Questions
 
 If you have any questions or issues with the new repositories feel free to ask us on the [mailing list](https://groups.google.com/forum/#!forum/scmmanager).

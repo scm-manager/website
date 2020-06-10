@@ -10,7 +10,7 @@ categories:
 ---
 Over the last couple of years it became clear that SCM-Manager 1 does not have the capabilities to fulfill the requirements of a modern SourceCodeManagement Tool. Great feature requests had to be rejected, because they simply could not be implemented with SCM-Manager 1. That is why the development of SCM-Manager 2 started. Now, thanks to the tremendous effort of [Cloudogu](https://cloudogu.com/en/blog/scm-manager-collaboration), it is almost done and ready to use. This is what it looks like.
 
-[![Repository overview of SCM-Manager 2](assets/scm-manager-2-overview.png)](assets/scm-manager-2-overview.png "Repository overview of SCM-Manager 2")
+![Repository overview of SCM-Manager 2](assets/scm-manager-2-overview.png)
 
 ## Major changes at a glance
 
