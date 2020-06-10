@@ -2,8 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import PluginLayout from "../layout/PluginLayout";
 
-const PluginInstallation = ({ data, path }) => (
-  <PluginLayout plugin={data.plugin} path={path}>
+const PluginInstallation = ({ data }) => (
+  <PluginLayout plugin={data.plugin}>
     <div className="notification is-info">There is no documentation available</div>
   </PluginLayout>
 );

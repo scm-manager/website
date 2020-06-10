@@ -2,8 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import PluginLayout from "../layout/PluginLayout";
 
-const PluginInstallation = ({ data, path }) => (
-  <PluginLayout plugin={data.plugin} path={path}>
+const PluginInstallation = ({ data }) => (
+  <PluginLayout plugin={data.plugin}>
     <div className="content">
       <p>
         To install the <q>{data.plugin.displayName}</q> plugin on your
