@@ -14,5 +14,4 @@ New version of the [scm-gravatar-plugin](https://github.com/scm-manager/scm-gra
 - add big avatar to commit page
 
 **Screenshot**
-[![scm-gravatar-plugin 1.4](assets/Screen-Shot-2012-08-26-at-14.25.38.png)](assets/Screen-Shot-2012-08-26-at-14.25.38.png "scm-gravatar-plugin 1.4")
-
+![scm-gravatar-plugin 1.4](assets/Screen-Shot-2012-08-26-at-14.25.38.png)

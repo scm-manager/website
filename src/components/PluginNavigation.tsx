@@ -6,25 +6,16 @@ import MenuEntry from "./MenuEntry";
 import ExternalLink from "./ExternalLink";
 
 type Props = {
-  path: string;
   name: string;
 };
 
-/* TODO: replace helper function with a more sensible approach */
-const pluginPath = path => {
-  if (path.split("/").length > 3) {
-    return path.substr(0, path.lastIndexOf("/"));
-  }
-  return path;
-};
-
-const PluginNavigation: FC<Props> = ({ path, name }) => {
+const PluginNavigation: FC<Props> = ({ name }) => {
   return (
     <Menu>
       <MenuSection title="Getting started">
         <MenuEntry>
           <Link
-            to={`${pluginPath(path)}/`}
+            to={`/plugins/${name}/`}
             activeClassName="is-active"
             title="Readme"
           >
@@ -33,7 +24,7 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
         </MenuEntry>
         <MenuEntry>
           <Link
-            to={`${pluginPath(path)}/releases/`}
+            to={`/plugins/${name}/releases/`}
             activeClassName="is-active"
             title="Releases"
           >
@@ -42,7 +33,7 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
         </MenuEntry>
         <MenuEntry>
           <Link
-            to={`${pluginPath(path)}/license/`}
+            to={`/plugins/${name}/license/`}
             activeClassName="is-active"
             title="License"
           >
@@ -51,7 +42,7 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
         </MenuEntry>
         <MenuEntry>
           <Link
-            to={`${pluginPath(path)}/install/`}
+            to={`/plugins/${name}/install/`}
             activeClassName="is-active"
             title="Installation"
           >
@@ -60,7 +51,7 @@ const PluginNavigation: FC<Props> = ({ path, name }) => {
         </MenuEntry>
         <MenuEntry>
           <Link
-            to={`${pluginPath(path)}/docs`}
+            to={`/plugins/${name}/docs`}
             activeClassName="is-active"
             title="Documentation"
           >

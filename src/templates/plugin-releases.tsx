@@ -118,8 +118,8 @@ const Releases = ({ releases, changelog }) => {
   );
 };
 
-const PluginReleases = ({ data, path }) => (
-  <PluginLayout plugin={data.plugin} path={path}>
+const PluginReleases = ({ data }) => (
+  <PluginLayout plugin={data.plugin}>
     <Releases releases={data.releases.nodes} changelog={data.changelog} />
   </PluginLayout>
 );

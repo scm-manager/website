@@ -26,7 +26,7 @@ The most obvious change is the new user interface. We recreated the whole UI fro
 
 But enough about the technical background, here are some screenshots of the new UI:
 
-<div class="columns blog-image-list">
+<div class="columns image-list">
 <div class="column">
 
 ![Login](assets/login.png)
@@ -53,7 +53,7 @@ We migrated [25 well-known plugins](/plugins/) that were available for v1 (like 
 
 With the [review plugin](/plugins/scm-review-plugin/) you can implement a branch based peer review process: Develop new features on a branch, create a pull request where you describe your changes, and let a peer developer inspect these changes. You can write comments for the whole pull request, for single files and even for changed lines. Finally, you can merge the branches inside of SCM-Manager. With the help of the [CI plugin](/plugins/scm-ci-plugin) you can enforce complex workflows, for example to ensure, that Jenkins builds have been run successfully and only working code will be incorporated.
 
-<div class="columns blog-image-list">
+<div class="columns image-list">
 <div class="column">
 
 ![PR Overview](assets/review-overview.png)

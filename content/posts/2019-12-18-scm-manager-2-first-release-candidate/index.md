@@ -37,7 +37,7 @@ First of all: Before you try migrating to SCM-Manager 2 we advice you to backup 
 
 If you already want to migrate from SCM-Manager 1 to the new version, you can do that pretty easily. All you have to do is to upgrade your SCM-Manager to at least version 1.60. Once you have done that, you have to start SCM-Manager 2 with the same home folder. When you access SCM-Manager 2, there will be a wizard that will help you to migrate your repositories to the new structure of SCM-Manager. After that, it will perform the migration fully automatically.
 
-[![](assets/screencapture-localhost-8080-scm-2019-12-05-15_06_29.png)](assets/screencapture-localhost-8080-scm-2019-12-05-15_06_29.png)
+![Migration Wizard](assets/screencapture-localhost-8080-scm-2019-12-05-15_06_29.png)
 
 For more information about the migration have a look [here](https://bitbucket.org/sdorra/scm-manager/wiki/v2/Migration-Wizard).
 
