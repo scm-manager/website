@@ -30,7 +30,7 @@ We improved the changeset details view. As you can see in the screenshot, all co
 
 ### End User Documentation
 
-TODO For plugin and core
+As a start we managed to create a bunch of user oriented documentation for the core of SCM-Manager (e.g. for [administration](/docs/2.1.x/en/user/admin/settings/)) as well as for many plugins (e.g. for the [review plugin](/plugins/scm-review-plugin/docs/2.1.x/en/overview/)).
 
 ## Lots of fixes
 All of our work would be meaningless without users, and that is without you. We are grateful about the amount of feedback we receive. An important part of the feedback are error reports. In this release we were able to fix most of your reported issues. You are a great community. Please keep up with this.
