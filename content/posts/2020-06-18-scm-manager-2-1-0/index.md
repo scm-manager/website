@@ -26,7 +26,9 @@ With the new annotate feature you now can see for each line of a file, who chang
 
 ### Contributors
 
-We improved the changeset details view. As you can see in the screenshot, all contributors of the changeset are shown grouped by their role. By now the contributors are getting detected from git trailers, git committer and may be expanded by plugins, e.g. [Pushlog Plugin](/plugins/scm-pushlog-plugin). 
+We improved the changeset details view. As you can see in the screenshot, all contributors of the changeset are shown grouped by their role. By now the contributors are getting detected from git trailers, git committer and may be expanded by plugins, e.g. [Pushlog Plugin](/plugins/scm-pushlog-plugin).
+
+![contributors](assets/contributors.png)
 
 ### End User Documentation
 
