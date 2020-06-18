@@ -16,7 +16,7 @@ With the release of 2.0.0 we did not stop. We just took a deep breath and contin
 ### Expandable Diff
 It is now possible to expand the gaps between the so-called “hunks” in file diffs. So whenever you wondered where this closing bracket came from or how a chapter ends, you now don’t have to navigate to the original file.
 
-![expandable diff](assets/expandable_diff.png)
+![expandable diff](assets/expandable_diff.gif)
 
 ### Annotate / Blame
 
