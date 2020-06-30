@@ -36,7 +36,7 @@ yarn run develop
 
 ## Need help?
 
-Looking for more guidance? Full documentation lives [in the SCM-Manager repository](https://scm-manager.org/docs/). Do you have further ideas or need support?
+Looking for more guidance? Full documentation lives on our [homepage](https://www.scm-manager.org/docs/) or the dedicated pages for our [plugins](https://www.scm-manager.org/plugins/). Do you have further ideas or need support?
 
 - **Community Support** - Contact the SCM-Manager support team for questions about SCM-Manager, to report bugs or to request features through the official channels. [Find more about this here](https://www.scm-manager.org/support/).
 
