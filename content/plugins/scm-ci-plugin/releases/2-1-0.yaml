@@ -1,0 +1,8 @@
+plugin: "scm-ci-plugin"
+tag: "2.1.0"
+date: "2020-07-03T11:28:34Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-ci-plugin/2.1.0/scm-ci-plugin-2.1.0.smp"
+checksum: "735c0e555a2c485ec5456c5cb7c1c60c8b1d659087d4af62fb6341d45f602f82"
+dependencies: []
+conditions:
+  minVersion: "2.0.0"
