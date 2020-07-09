@@ -101,9 +101,7 @@ module.exports = {
               linkImagesToOriginal: false,
             },
           },
-          // gatsby-remark-images-medium-zoom seems to be broken on firefox
-          // TODO check
-          //`gatsby-remark-images-medium-zoom`,
+          `gatsby-remark-images-medium-zoom`,
           {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
