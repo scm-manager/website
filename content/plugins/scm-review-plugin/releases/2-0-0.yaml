@@ -5,5 +5,8 @@ url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/s
 checksum: "c0afab95a166fbdcf6304728803f303699a4d5f207214879103a10d92b605d7c"
 dependencies:
 - "scm-mail-plugin"
+optionalDependencies:
+- "scm-editor-plugin"
+- "scm-landingpage-plugin"
 conditions:
   minVersion: "2.0.0"

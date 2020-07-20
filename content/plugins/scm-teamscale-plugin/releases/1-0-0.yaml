@@ -5,5 +5,7 @@ url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/s
 checksum: "2fd36e2695cba0abf1cca81f003a5d1fd533d37aa74b9373c4bb90acaff60163"
 dependencies:
 - "scm-ci-plugin"
+optionalDependencies:
+- "scm-review-plugin"
 conditions:
   minVersion: "2.0.0"

@@ -5,5 +5,8 @@ url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plug
 checksum: "e910ca59f9a85809c453de6de6a3ddde18b2866c108db25f54cd15d0206f7381"
 dependencies:
 - "scm-mail-plugin"
+optionalDependencies:
+- "scm-editor-plugin"
+- "scm-landingpage-plugin"
 conditions:
   minVersion: "2.2.0"
