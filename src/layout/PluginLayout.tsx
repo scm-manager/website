@@ -8,7 +8,10 @@ import { graphql } from "gatsby";
 
 const PluginLayout = ({ plugin, children, path }) => (
   <PageContainer>
-    <SEO title={"Plugin " + plugin.displayName}/>
+    <SEO
+      title={"Plugin " + plugin.displayName}
+      description={plugin.description}
+    />
     <div className="columns">
       <div className="column is-three-quarters is-plugin">
         <Title>{plugin.displayName}</Title>

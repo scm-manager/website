@@ -53,6 +53,7 @@ module.exports = {
     title: `SCM-Manager`,
     description: `The easiest way to share and manage your Git, Mercurial and Subversion repositories.`,
     author: `@ssdorra`,
+    keywords: ['scm', 'git', 'svn', 'mercurial'],
     siteUrl: `https://scm-manager.org`,
   },
   plugins: [

@@ -12,6 +12,7 @@ import {
   PATH_PART_INDEX_PLUGIN_LANGUAGE,
   PATH_PART_INDEX_PLUGIN_VERSION,
 } from "../components/NavigationSettings";
+import SEO from "../components/SEO";
 
 const renderToc = page => {
   if (page.frontmatter.displayToc) {
@@ -40,6 +41,10 @@ const Navigation = ({ plugin, version, language }) => {
 const PluginDocs = ({ data, path, pageContext }) => {
   return (
     <PageContainer>
+      <SEO
+        title={data.markdownRemark.frontmatter.title}
+        description={data.markdownRemark.frontmatter.description || data.plugin.description}
+      />
       <div className="columns">
         <div className="column is-three-quarters">
           <Title>{data.markdownRemark.frontmatter.title}</Title>

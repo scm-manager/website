@@ -1,9 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
 import PluginLayout from "../layout/PluginLayout";
+import SEO from "../components/SEO";
 
 const PluginInstallation = ({ data, path }) => (
   <PluginLayout plugin={data.plugin} path={path}>
+    <SEO
+      title={"Plugin " + data.plugin.displayName}
+    />
     <div className="content">
       <p>
         To install the <q>{data.plugin.displayName}</q> plugin on your

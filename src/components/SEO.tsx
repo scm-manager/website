@@ -7,16 +7,24 @@
 
 import React, { FunctionComponent } from "react";
 import Helmet from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
+import { truncate } from 'lodash';
 
 type Props = {
   title: string;
   description?: string;
   lang?: string;
   meta?: HTMLMetaElement[];
+  image?: {
+    src: string;
+    height: number;
+    width: number;
+  },
+  pathname?: string;
+  keywords?: string[];
 };
 
-const SEO: FunctionComponent<Props> = ({ description, lang, meta, title }) => {
+const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaImage, title, pathname, keywords }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -24,14 +32,23 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, title }) => {
           siteMetadata {
             title
             description
+            keywords
             author
+            siteUrl
           }
         }
       }
-    `
+    `,
   );
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = truncate(description || site.siteMetadata.description, {
+    length: 160
+  });
+  const image =
+    metaImage && metaImage.src
+      ? `${site.siteMetadata.siteUrl}${metaImage.src}`
+      : null;
+  const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
 
   return (
     <Helmet
@@ -40,10 +57,24 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, title }) => {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
+      link={
+        canonical
+          ? [
+            {
+              rel: "canonical",
+              href: canonical,
+            },
+          ]
+          : []
+      }
       meta={[
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `keywords`,
+          content: [...site.siteMetadata.keywords, ...(keywords || [])].join(","),
         },
         {
           property: `og:title`,
@@ -73,7 +104,35 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]
+        .concat(
+          metaImage
+            ? [
+              {
+                property: "og:image",
+                content: image,
+              },
+              {
+                property: "og:image:width",
+                content: metaImage.width,
+              },
+              {
+                property: "og:image:height",
+                content: metaImage.height,
+              },
+              {
+                name: "twitter:card",
+                content: "summary_large_image",
+              },
+            ]
+            : [
+              {
+                name: "twitter:card",
+                content: "summary",
+              },
+            ],
+        )
+        .concat(meta)}
     />
   );
 };
