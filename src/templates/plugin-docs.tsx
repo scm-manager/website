@@ -43,7 +43,7 @@ const PluginDocs = ({ data, path, pageContext }) => {
     <PageContainer>
       <SEO
         title={data.markdownRemark.frontmatter.title}
-        description={data.markdownRemark.frontmatter.description || data.plugin.description}
+        description={data.markdownRemark.frontmatter.description || data.markdownRemark.description}
       />
       <div className="columns">
         <div className="column is-three-quarters">
@@ -109,10 +109,12 @@ export const query = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      description: excerpt(pruneLength: 160)
       tableOfContents
       frontmatter {
         title
         subtitle
+        description
         displayToc
       }
     }

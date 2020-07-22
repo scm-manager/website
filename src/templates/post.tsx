@@ -10,7 +10,10 @@ import HtmlContent from "../layout/HtmlContent";
 const Post = ({ data: { post } }) => {
   return (
     <PageContainer>
-      <SEO title={post.frontmatter.title} />
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.description}
+      />
       <div className="columns">
         <div className="column is-three-quarters">
           <Title>{post.frontmatter.title}</Title>
@@ -44,11 +47,13 @@ export const query = graphql`
   query($slug: String!) {
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      description: excerpt(pruneLength: 160)
       frontmatter {
         title
         date(formatString: "YYYY-MM-DD")
         author
         categories
+        description
       }
     }
   }
