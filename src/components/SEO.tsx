@@ -8,7 +8,7 @@
 import React, { FunctionComponent } from "react";
 import Helmet from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
-import { truncate } from 'lodash';
+import { truncate } from "lodash";
 
 type Props = {
   title: string;
@@ -17,8 +17,8 @@ type Props = {
   meta?: HTMLMetaElement[];
   image?: {
     src: string;
-    height: number;
-    width: number;
+    height: string;
+    width: string;
   },
   pathname?: string;
   keywords?: string[];
@@ -35,6 +35,15 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
             keywords
             author
             siteUrl
+            image: featuredImage {
+              childImageSharp {
+                resize(width: 1200) {
+                  src
+                  height
+                  width
+                }
+              }
+            }
           }
         }
       }
@@ -42,7 +51,7 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
   );
 
   const metaDescription = truncate(description || site.siteMetadata.description, {
-    length: 160
+    length: 160,
   });
   const image =
     metaImage && metaImage.src

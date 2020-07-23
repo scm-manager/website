@@ -44,6 +44,7 @@ const PluginDocs = ({ data, path, pageContext }) => {
       <SEO
         title={data.markdownRemark.frontmatter.title}
         description={data.markdownRemark.frontmatter.description || data.markdownRemark.description}
+        keywords={data.markdownRemark.frontmatter.keywords}
       />
       <div className="columns">
         <div className="column is-three-quarters">
@@ -115,6 +116,7 @@ export const query = graphql`
         title
         subtitle
         description
+        keywords
         displayToc
       }
     }

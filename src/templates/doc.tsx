@@ -26,6 +26,7 @@ const Doc: FC<DocPageProps> = ({ path, data }) => (
     <SEO
       title={data.markdownRemark.frontmatter.title}
       description={data.markdownRemark.frontmatter.description || data.markdownRemark.description}
+      keywords={data.markdownRemark.frontmatter.keywords}
     />
     <div className="columns">
       <div className="column is-three-quarters">
@@ -73,6 +74,7 @@ export const query = graphql`
         subtitle
         displayToc
         description
+        keywords
       }
     }
   }

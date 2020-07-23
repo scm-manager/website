@@ -468,6 +468,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type MarkdownRemarkFrontmatter implements Node @infer {
       title: String!
       description: String
+      featuredImage: String 
     }
   `;
 

@@ -8,11 +8,16 @@ import BlogSideNavigation from "../components/BlogSideNavigation";
 import HtmlContent from "../layout/HtmlContent";
 
 const Post = ({ data: { post } }) => {
+  const image = post.frontmatter.image
+    ? post.frontmatter.image.childImageSharp.resize
+    : null
   return (
     <PageContainer>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.description}
+        image={image}
+        keywords={post.frontmatter.keywords}
       />
       <div className="columns">
         <div className="column is-three-quarters">
@@ -54,6 +59,16 @@ export const query = graphql`
         author
         categories
         description
+        keywords
+        image: featuredImage {
+          childImageSharp {
+            resize(width: 1200) {
+              src
+              height
+              width
+            }
+          }
+        }
       }
     }
   }
