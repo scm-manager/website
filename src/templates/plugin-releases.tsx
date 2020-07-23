@@ -30,7 +30,7 @@ const Conditions = ({ conditions }) => {
 };
 
 const Changelog = ({ changelog, tag }) => {
-  if (!changelog) {
+  if (!changelog || !changelog.versions) {
     return null;
   }
   const version = changelog.versions.find(v => tag === v.tag);
