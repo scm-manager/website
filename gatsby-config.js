@@ -55,7 +55,6 @@ module.exports = {
     author: `@ssdorra`,
     keywords: ['scm', 'git', 'svn', 'mercurial'],
     siteUrl: `https://scm-manager.org`,
-    defaultMetaImage: `/static/266fd3c7dde300b3e9fa9b7b95f0eb4a/10c9b/scm-manager_logo.png`
   },
   plugins: [
     `gatsby-transformer-plaintext`,

@@ -26,7 +26,7 @@ const IndexPage = () => {
   const release = useLatestRelease();
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "images/scm-manager_logo_img.png" }) {
+      file(relativePath: { eq: "images/scm-manager_logo.png" }) {
         childImageSharp {
           fluid(maxWidth: 256) {
             ...GatsbyImageSharpFluid

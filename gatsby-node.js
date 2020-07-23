@@ -464,12 +464,6 @@ exports.createSchemaCustomization = ({ actions }) => {
     type NavigationYamlFields @infer {
       plugin: String
     }
-    
-    type MarkdownRemarkFrontmatter implements Node @infer {
-      title: String!
-      description: String
-      featuredImage: String 
-    }
   `;
 
   createTypes(typeDefs);

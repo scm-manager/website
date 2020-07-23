@@ -25,7 +25,7 @@ type Props = {
 };
 
 const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaImage, title, pathname, keywords }) => {
-  const { site } = useStaticQuery(
+  const { site, defaultImage } = useStaticQuery(
     graphql`
       query {
         site {
@@ -35,14 +35,14 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
             keywords
             author
             siteUrl
-            image: featuredImage {
-              childImageSharp {
-                resize(width: 1200) {
-                  src
-                  height
-                  width
-                }
-              }
+          }
+        }
+        defaultImage: file(relativePath: {eq: "images/scm-manager_logo.png"}) {
+          childImageSharp {
+            original {
+              src
+              width
+              height
             }
           }
         }
@@ -53,11 +53,10 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
   const metaDescription = truncate(description || site.siteMetadata.description, {
     length: 160,
   });
-  const image =
-    metaImage && metaImage.src
-      ? `${site.siteMetadata.siteUrl}${metaImage.src}`
-      : null;
+  const image = metaImage || defaultImage?.childImageSharp?.original;
   const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
+
+  console.log(JSON.stringify(metaImage, null, 4));
 
   return (
     <Helmet
@@ -115,19 +114,19 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
         },
       ]
         .concat(
-          metaImage
+          image
             ? [
               {
                 property: "og:image",
-                content: image,
+                content: `${site.siteMetadata.siteUrl}${image.src}`,
               },
               {
                 property: "og:image:width",
-                content: metaImage.width,
+                content: image.width,
               },
               {
                 property: "og:image:height",
-                content: metaImage.height,
+                content: image.height,
               },
               {
                 name: "twitter:card",

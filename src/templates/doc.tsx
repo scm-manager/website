@@ -75,6 +75,15 @@ export const query = graphql`
         displayToc
         description
         keywords
+        image: featuredImage {
+          childImageSharp {
+            resize(width: 1200) {
+              src
+              height
+              width
+            }
+          }
+        }
       }
     }
   }
