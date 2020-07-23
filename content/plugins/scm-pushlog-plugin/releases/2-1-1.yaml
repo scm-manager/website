@@ -1,0 +1,8 @@
+plugin: "scm-pushlog-plugin"
+tag: "2.1.1"
+date: "2020-07-01T08:53:36Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-pushlog-plugin/2.1.1/scm-pushlog-plugin-2.1.1.smp"
+checksum: "ccedc7ea4f05da3a3e4cd09066cf7134a499cae4427c52da6037fbee2afba30b"
+dependencies: []
+conditions:
+  minVersion: "2.1.0"

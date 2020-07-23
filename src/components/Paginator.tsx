@@ -43,16 +43,20 @@ const Paginator: FC<Props> = ({ slugBase, numPages, currentPage }) => {
 
     const props: any = {};
 
+    let to = slugBase;
+
     let classes = className;
     if (currentPage + 1 > numPages) {
       nextPage = currentPage;
       classes += " is-disabled";
       props.onClick = (e) => e.preventDefault();
+    } else {
+      to += nextPage + "/";
     }
 
 
     return (
-      <Link {...props} className={classes} to={slugBase + nextPage + "/"}>
+      <Link {...props} className={classes} to={to}>
         {label ? label : nextPage.toString()}
       </Link>
     );

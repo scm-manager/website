@@ -1,0 +1,7 @@
+plugin: scm-webhook-plugin
+tag: 2.0.0
+date: '2020-06-04T22:51:57Z'
+url: https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-webhook-plugin/2.0.0/scm-webhook-plugin-2.0.0.smp
+checksum: 409a340b2d7d96e5c8a548b3239baa577e507724f2e6b1375364b0f79533b4be
+conditions:
+  minVersion: 2.0.0

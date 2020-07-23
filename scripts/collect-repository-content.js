@@ -1,8 +1,7 @@
 'use strict';
 
 const { ensureDir, emptyDir, mkdtemp, remove, move, pathExists, readdir, stat } = require('fs-extra');
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
+const {spawn} = require('child_process');
 const { organization } = require('./config');
 const { join } = require('path');
 const { tmpdir } = require('os');
@@ -30,9 +29,11 @@ async function collectRepositoryContent(api, repository, versions, outPath) {
     logger.debug(`Cloning ${repository} into ${tmpClonePath} ...`);
 
     const cloneUrl = createCloneURL(repository);
-    await exec(`git clone --no-checkout ${cloneUrl} . && git sparse-checkout init && git sparse-checkout set docs/ README.md LICENSE.txt CHANGELOG.md`, {
-      cwd: tmpClonePath
-    });
+    const git = createGit(tmpClonePath);
+
+    await git(`clone`, `--no-checkout`, cloneUrl, `.`);
+    await git(`sparse-checkout`, `set`, `--cone`, `docs/`, `README.md`, `LICENSE.txt`, `CHANGELOG.md`);
+    await git(`reset`, `--hard`, `HEAD`);
 
     logger.debug(`Collecting root files for ${repository} from default branch ...`);
     await Promise.all([
@@ -51,6 +52,32 @@ async function collectRepositoryContent(api, repository, versions, outPath) {
   }
 }
 
+function createGit(workingPath) {
+  return (...args) => {
+    logger.trace(`calling 'git'`);
+    return new Promise((resolve, reject) => {
+      const child = spawn("git", args, {cwd: workingPath});
+      
+      let stderr = "";
+
+      child.stderr.on('data', data => {
+        stderr += data;
+      });
+
+      child.on('exit', rc => {
+        if (rc === 0) {
+          resolve();
+        } else {
+          if (stderr) {
+            logger.error(stderr);
+          }
+          reject(new Error(`process ends with ${rc}`))
+        }
+      })
+    })
+  }
+};
+
 function createCloneURL(repository) {
   let auth = "";
   const apiToken = process.env.GITHUB_API_TOKEN;
@@ -62,9 +89,8 @@ function createCloneURL(repository) {
 
 async function collectVersionContent(tmpDir, version, sha, outPath) {
   logger.debug(`Checking out ${version} (${sha}) ...`)
-  await exec(`git checkout -f ${sha}`, {
-    cwd: tmpDir
-  });
+  const git = createGit(tmpDir);
+  await git(`checkout`, `-f`, sha);
 
   const versionPath = join(outPath, version);
   const docsPath = join(tmpDir, 'docs');

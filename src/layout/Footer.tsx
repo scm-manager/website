@@ -24,7 +24,7 @@ const Footer = () => {
           </div>
           <div className="column is-4 has-text-right">
             <FooterText>
-              © {new Date().getFullYear()} Plugin Backend of{" "}
+              © {new Date().getFullYear()} Home of{" "}
               <a href="https://scm-manager.org">SCM-Manager</a>
             </FooterText>
             <FooterText>

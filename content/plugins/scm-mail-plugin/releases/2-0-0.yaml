@@ -1,0 +1,8 @@
+plugin: "scm-mail-plugin"
+tag: "2.0.0"
+date: "2020-06-04T18:12:11Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-mail-plugin/2.0.0/scm-mail-plugin-2.0.0.smp"
+checksum: "a3d641b60c9a590a8d9f18920a6b58f5e2ab94a93d68a2ead9ef5e8c6885619c"
+dependencies: []
+conditions:
+  minVersion: "2.0.0"

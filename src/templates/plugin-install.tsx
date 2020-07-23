@@ -3,8 +3,8 @@ import { graphql } from "gatsby";
 import PluginLayout from "../layout/PluginLayout";
 import SEO from "../components/SEO";
 
-const PluginInstallation = ({ data, path }) => (
-  <PluginLayout plugin={data.plugin} path={path}>
+const PluginInstallation = ({ data }) => (
+  <PluginLayout plugin={data.plugin}>
     <SEO
       title={"Plugin " + data.plugin.displayName}
     />

@@ -2,8 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import PluginLayout from "../layout/PluginLayout";
 
-const PluginLicense = ({ data, path }) => (
-  <PluginLayout plugin={data.plugin} path={path}>
+const PluginLicense = ({ data }) => (
+  <PluginLayout plugin={data.plugin}>
     <License data={data} />
   </PluginLayout>
 );

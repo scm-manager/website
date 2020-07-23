@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Menu from "./Menu";
 import MenuSection from "./MenuSection";
 import MenuEntry from "./MenuEntry";
+import { faRss } from "@fortawesome/free-solid-svg-icons";
 
 const Count = styled.span`
   width: 2rem;
@@ -47,7 +48,7 @@ const BlogSideNavigation: FC = () => {
         <MenuSection title="Special">
           <MenuEntry>
             <a href="/rss.xml" target="_blank">
-              <MenuEntryIcon icon="rss" /> RSS
+              <MenuEntryIcon icon={faRss} /> RSS
             </a>
           </MenuEntry>
         </MenuSection>

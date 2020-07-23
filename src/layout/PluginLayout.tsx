@@ -6,7 +6,7 @@ import Subtitle from "../components/Subtitle";
 import PluginNavigation from "../components/PluginNavigation";
 import { graphql } from "gatsby";
 
-const PluginLayout = ({ plugin, children, path }) => (
+const PluginLayout = ({ plugin, children }) => (
   <PageContainer>
     <SEO
       title={"Plugin " + plugin.displayName}
@@ -19,7 +19,7 @@ const PluginLayout = ({ plugin, children, path }) => (
         {children}
       </div>
       <div className="column is-one-quarter">
-        <PluginNavigation path={path} name={plugin.name}/>
+        <PluginNavigation name={plugin.name}/>
       </div>
     </div>
   </PageContainer>

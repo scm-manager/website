@@ -1,0 +1,8 @@
+plugin: "scm-groupmanager-plugin"
+tag: "2.0.0"
+date: "2020-06-04T17:29:39Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-groupmanager-plugin/2.0.0/scm-groupmanager-plugin-2.0.0.smp"
+checksum: "e1926a3d44b5730dc638ec2885845bf457c0aa7f933430d0496d97d83a0aa253"
+dependencies: []
+conditions:
+  minVersion: "2.0.0"

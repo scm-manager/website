@@ -1,5 +1,5 @@
 name: scm-teamscale-plugin
 displayName: Teamscale
 description: Integrates Teamscale into SCM-Manager
-category: workflow
+category: continuous-integration
 author: Cloudogu GmbH

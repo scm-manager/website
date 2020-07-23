@@ -11,6 +11,14 @@ async function main() {
   const dir = join(__dirname, "..", "content", "posts");
   const resultMap = {
     "/feed/": "rss.xml",
+    "/download-action/": "download/",
+    "/news/": "blog/",
+    "~^/news/page/([0-9]+).*$": "blog/$1/",
+    "~^/category/scm-manager-2/page/([0-9]+)/?$": "blog/categories/scm-manager/$1/",
+    "~^/category/scm-manager-2/?$": "blog/categories/scm-manager/",
+    "~^/category/(.*)/page/([0-9]+)/?$": "blog/categories/$1/$2/",
+    "~^/category/(.*)$": "blog/categories/$1",
+    "~^/author/(.*)$": "blog/"
   };
   await forEachFileInDirectoryRecursive(dir, path => read(dir, path, resultMap));
   const resultMapString = Object.entries(resultMap).reduce((result, [slug, redirectUrl], idx) => {

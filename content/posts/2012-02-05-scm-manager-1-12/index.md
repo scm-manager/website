@@ -15,6 +15,6 @@ Version 1.12 of SCM-Manager is now available for download.
 **Getting started**: [https://bitbucket.org/sdorra/scm-manager/wiki/getting-started](https://bitbucket.org/sdorra/scm-manager/wiki/getting-started "Getting started")
 
 **Screenshots:**
-[![repository overview](assets/screen-repository-overview.jpg)](assets/screen-repository-overview.jpg "repository overview")
-[![changeset view](assets/screen-commit.jpg)](assets/screen-commit.jpg "changeset view")
+![repository overview](assets/screen-repository-overview.jpg)
+![changeset view](assets/screen-commit.jpg)
 

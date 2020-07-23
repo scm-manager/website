@@ -7,13 +7,18 @@ import Subtitle from "../components/Subtitle";
 import Icon from "../components/Icon";
 import Plugin from "../components/Plugin";
 import SEO from "../components/SEO";
+import styled from "styled-components";
+
+const PluginList = styled.div`
+  padding-top: 1.5rem;
+`;
 
 const Category = ({ data }) => {
   const category = data.category;
   if (!category) {
     return null;
   }
-  
+
   return (
     <Page>
       <SEO title={"Category " + category.displayName} />
@@ -23,13 +28,11 @@ const Category = ({ data }) => {
           {category.displayName}
         </Title>
         <Subtitle>{category.description}</Subtitle>
-      </div>
-      <div className="container section is-category">
-        <div className="content">
+        <PluginList className="content">
           {data.plugins.nodes.map(node => (
             <Plugin key={node.name} plugin={node} />
           ))}
-        </div>
+        </PluginList>
       </div>
     </Page>
   );

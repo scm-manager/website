@@ -131,3 +131,15 @@ a.navbar-item.is-active:after,
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+.content {
+  .gatsby-resp-image-wrapper {
+    box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02) !important;
+  }
+}
+
+.image-list {
+  .gatsby-resp-image-wrapper + .gatsby-resp-image-wrapper {
+    margin-top: 1rem;
+  }
+}

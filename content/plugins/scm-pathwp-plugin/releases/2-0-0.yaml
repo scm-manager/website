@@ -1,0 +1,10 @@
+plugin: "scm-pathwp-plugin"
+tag: "2.0.0"
+date: "2020-06-04T18:40:22Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-pathwp-plugin/2.0.0/scm-pathwp-plugin-2.0.0.smp"
+checksum: "8669ce6468d2ecf70967ce4c269bc3b44a401891cbe022b3b7080eca6ac242bc"
+dependencies: []
+optionalDependencies:
+- "scm-editor-plugin"
+conditions:
+  minVersion: "2.0.0"

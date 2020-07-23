@@ -1,0 +1,8 @@
+plugin: "scm-tagprotection-plugin"
+tag: "2.0.0"
+date: "2020-06-04T19:39:16Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-tagprotection-plugin/2.0.0/scm-tagprotection-plugin-2.0.0.smp"
+checksum: "8feb2003b0c63a96678b6c49b5af48ed0a8395cd917c6bf560407c9e2752fe99"
+dependencies: []
+conditions:
+  minVersion: "2.0.0"

@@ -84,5 +84,8 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "resolutions": {
+    "medium-zoom": "https://registry.npmjs.org/@scm-manager/medium-zoom/-/medium-zoom-1.0.5.tgz"
   }
 }

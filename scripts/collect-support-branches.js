@@ -1,6 +1,7 @@
 const { organization } = require("./config");
 
-const supportBranchRegex = /^support\/([1-9]+\.[1-9]+[0-9]*\.x)$/g;
+const supportBranchRegex = /^support\/(.*)$/;
+
 
 /**
  * @param {Octokit} api
