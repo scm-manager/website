@@ -54,7 +54,7 @@ module.exports = {
     description: `The easiest way to share and manage your Git, Mercurial and Subversion repositories.`,
     author: `@ssdorra`,
     keywords: ['scm', 'git', 'svn', 'mercurial'],
-    siteUrl: `https://scm-manager.org`,
+    siteUrl: process.env.SITE_URL || `https://scm-manager.org`,
   },
   plugins: [
     `gatsby-transformer-plaintext`,

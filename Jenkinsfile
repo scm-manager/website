@@ -35,7 +35,8 @@ pipeline {
         script {
           withCredentials([usernamePassword(credentialsId: 'cesmarvin-github', passwordVariable: 'GITHUB_API_TOKEN', usernameVariable: 'GITHUB_ACCOUNT')]) {
             docker.withRegistry('', 'hub.docker.com-cesmarvin') {
-              def image = docker.build("scmmanager/website:${version}", "--build-arg GITHUB_API_TOKEN=${GITHUB_API_TOKEN} .")
+              def siteUrl = env.BRANCH.equals('staging') ? 'https://staging-website.scm-manager.org' : 'https://scm-manager.org'
+              def image = docker.build("scmmanager/website:${version}", "--build-arg GITHUB_API_TOKEN=${GITHUB_API_TOKEN} --build-arg SITE_URL=${siteUrl} .")
               image.push()
             }
           }
