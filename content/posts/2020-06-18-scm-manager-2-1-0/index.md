@@ -5,6 +5,14 @@ author: SCM-Team
 categories:
   - scm-manager
   - release
+featuredImage: assets/annotate.png
+keywords:
+- release
+- exandable
+- diff
+- annotate
+- contributors
+- documentation
 displayToc: true
 description: With the release of 2.0.0 we did not stop. We just took a deep breath and continued doing what we love most. So here it is, version 2.1.0 of SCM-Manager, bringing to you some really nice new features.
 ---

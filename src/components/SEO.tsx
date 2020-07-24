@@ -9,6 +9,7 @@ import React, { FunctionComponent } from "react";
 import Helmet from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 import { truncate } from "lodash";
+import Page from "../layout/Page";
 
 type Props = {
   title: string;
