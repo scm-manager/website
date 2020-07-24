@@ -45,7 +45,7 @@ pipeline {
 
     stage('Deployment Staging') {
       when {
-        branch 'develop'
+        branch 'staging'
       }
       agent {
         docker {
