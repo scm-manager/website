@@ -57,8 +57,6 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
   const image = metaImage || defaultImage?.childImageSharp?.original;
   const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
 
-  console.log(JSON.stringify(metaImage, null, 4));
-
   return (
     <Helmet
       htmlAttributes={{
