@@ -9,7 +9,6 @@ import React, { FunctionComponent } from "react";
 import Helmet from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 import { truncate } from "lodash";
-import Page from "../layout/Page";
 
 type Props = {
   title: string;
@@ -96,10 +95,6 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
           content: `website`,
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
           name: `twitter:creator`,
           content: site.siteMetadata.author,
         },
@@ -126,6 +121,10 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
               {
                 property: "og:image:height",
                 content: image.height,
+              },
+              {
+                property: "twitter:image",
+                content: `${site.siteMetadata.siteUrl}${image.src}`,
               },
               {
                 name: "twitter:card",
