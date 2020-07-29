@@ -9,9 +9,17 @@ import HtmlContent from "../layout/HtmlContent";
 import TableOfContents from "../layout/TableOfContents";
 
 const Post = ({ data: { post } }) => {
+  const image = post.frontmatter.image
+    ? post.frontmatter.image.childImageSharp.resize
+    : null
   return (
     <PageContainer>
-      <SEO title={post.frontmatter.title} />
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.description}
+        image={image}
+        keywords={post.frontmatter.keywords}
+      />
       <div className="columns">
         <div className="column is-three-quarters">
           <Title>{post.frontmatter.title}</Title>
@@ -47,11 +55,24 @@ export const query = graphql`
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       tableOfContents(absolute: false)
+      description: excerpt(pruneLength: 160)
       frontmatter {
         title
         date(formatString: "YYYY-MM-DD")
         author
         categories
+        displayToc
+        description
+        keywords
+        image: featuredImage {
+          childImageSharp {
+            resize(width: 1200) {
+              src
+              height
+              width
+            }
+          }
+        }
         displayToc
       }
     }

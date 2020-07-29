@@ -52,8 +52,9 @@ module.exports = {
   siteMetadata: {
     title: `SCM-Manager`,
     description: `The easiest way to share and manage your Git, Mercurial and Subversion repositories.`,
-    author: `@ssdorra`,
-    siteUrl: `https://scm-manager.org`,
+    author: `@cloudogu`,
+    keywords: ['scm', 'git', 'svn', 'mercurial'],
+    siteUrl: process.env.SITE_URL || `https://scm-manager.org`,
   },
   plugins: [
     `gatsby-transformer-plaintext`,

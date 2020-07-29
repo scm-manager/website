@@ -7,31 +7,54 @@
 
 import React, { FunctionComponent } from "react";
 import Helmet from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
+import { truncate } from "lodash";
 
 type Props = {
   title: string;
   description?: string;
   lang?: string;
   meta?: HTMLMetaElement[];
+  image?: {
+    src: string;
+    height: string;
+    width: string;
+  },
+  pathname?: string;
+  keywords?: string[];
 };
 
-const SEO: FunctionComponent<Props> = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
+const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaImage, title, pathname, keywords }) => {
+  const { site, defaultImage } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             title
             description
+            keywords
             author
+            siteUrl
+          }
+        }
+        defaultImage: file(relativePath: {eq: "images/scm-manager_logo.png"}) {
+          childImageSharp {
+            original {
+              src
+              width
+              height
+            }
           }
         }
       }
-    `
+    `,
   );
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = truncate(description || site.siteMetadata.description, {
+    length: 160,
+  });
+  const image = metaImage || defaultImage?.childImageSharp?.original;
+  const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
 
   return (
     <Helmet
@@ -40,10 +63,24 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, title }) => {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
+      link={
+        canonical
+          ? [
+            {
+              rel: "canonical",
+              href: canonical,
+            },
+          ]
+          : []
+      }
       meta={[
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `keywords`,
+          content: [...site.siteMetadata.keywords, ...(keywords || [])].join(","),
         },
         {
           property: `og:title`,
@@ -58,10 +95,6 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, title }) => {
           content: `website`,
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
           name: `twitter:creator`,
           content: site.siteMetadata.author,
         },
@@ -73,7 +106,39 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]
+        .concat(
+          image
+            ? [
+              {
+                property: "og:image",
+                content: `${site.siteMetadata.siteUrl}${image.src}`,
+              },
+              {
+                property: "og:image:width",
+                content: image.width,
+              },
+              {
+                property: "og:image:height",
+                content: image.height,
+              },
+              {
+                property: "twitter:image",
+                content: `${site.siteMetadata.siteUrl}${image.src}`,
+              },
+              {
+                name: "twitter:card",
+                content: "summary_large_image",
+              },
+            ]
+            : [
+              {
+                name: "twitter:card",
+                content: "summary",
+              },
+            ],
+        )
+        .concat(meta)}
     />
   );
 };
