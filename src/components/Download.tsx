@@ -266,7 +266,7 @@ type DownloadProps = {
 
 const Download: FC<DownloadProps> = ({ release, changelog }) => {
   const props = release.packages
-    .map(pkg => createProps(release.tag, pkg, "3rem", "top"))
+    .map(pkg => createProps(release.tag, pkg, "3em", "top"))
     .filter(p => !!p)
     .sort((a, b) => a.type.localeCompare(b.type));
 
