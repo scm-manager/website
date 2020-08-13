@@ -1,0 +1,9 @@
+plugin: "scm-webhook-plugin"
+tag: "2.1.1"
+date: "2020-08-13T08:43:16Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-webhook-plugin/2.1.1/scm-webhook-plugin-2.1.1.smp"
+checksum: "5c1578fafc218718c060a0e13bd7733562d1bdefe5e76bac3c4c7313cc429d51"
+dependencies:
+- "scm-el-plugin"
+conditions:
+  minVersion: "2.0.0"
