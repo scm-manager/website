@@ -1,0 +1,11 @@
+tag: 2.4.0
+date: '2020-08-14T08:51:01Z'
+packages:
+- {type: k8s}
+- {type: redhat}
+- {type: debian}
+- {type: windows, checksum: 8b44408948ff81c68a6b85eb5cf57f34baef6213a954dcd11838c3679116580c,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.4.0/windows-2.4.0-app.zip'}
+- {type: docker}
+- {type: unix, checksum: f02fa312b0c44866c4d34d550176cf898d3559ee58492c53264db111ac47f185,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.4.0/unix-2.4.0-app.tar.gz'}
