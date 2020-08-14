@@ -9,3 +9,4 @@ packages:
 - {type: docker}
 - {type: unix, checksum: f02fa312b0c44866c4d34d550176cf898d3559ee58492c53264db111ac47f185,
   url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.4.0/unix-2.4.0-app.tar.gz'}
+- {type: osx}
