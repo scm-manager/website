@@ -14,7 +14,7 @@ const rssMetadataQuery = `
 }
 `;
 
-const rssEntryQuery = `
+const rssBlogQuery = `
 {
   allMarkdownRemark(
     filter: { fields: { slug: { glob: "/posts/**" } } },
@@ -35,7 +35,34 @@ const rssEntryQuery = `
 }
 `;
 
-const rssEntrySerializer = ({ query: { site, allMarkdownRemark } }) => {
+const rssReleaseQuery = `
+{
+  releases: allReleasesYaml(
+    filter: { plugin: { eq: null } }
+    sort: { fields: [date], order: DESC }
+  ) {
+    nodes {
+      tag
+      date
+      packages {
+        type
+      }
+    }
+  }
+  changelogs: file(relativePath: { eq: "CHANGELOG.md" }) {
+    childChangelog {
+      versions {
+        tag
+        changes {
+          html
+        }
+      }
+    }
+  }
+}
+`;
+
+const rssBlogSerializer = ({ query: { site, allMarkdownRemark } }) => {
   return allMarkdownRemark.edges.map(edge => {
     return Object.assign({}, edge.node.frontmatter, {
       description: edge.node.excerpt,
@@ -47,6 +74,25 @@ const rssEntrySerializer = ({ query: { site, allMarkdownRemark } }) => {
   })
 };
 
+const rssReleaseSerializer = ({ query: { site, releases, changelogs } }) => {
+  return releases.nodes.map(release => {
+
+    let description;
+    const changelog = changelogs.childChangelog.versions.find(version => version.tag === release.tag);
+    if (changelog) {
+      description = changelog.changes.html;
+    }
+
+    const url = `${site.siteMetadata.siteUrl}/download/${release.tag}`;
+
+    return {
+      title: release.tag,
+      description,
+      date: release.date,
+      url,
+      guid: url}
+    });
+}
 
 module.exports = {
   siteMetadata: {
@@ -140,11 +186,17 @@ module.exports = {
         query: rssMetadataQuery,
         feeds: [
           {
-            serialize: rssEntrySerializer,
-            query: rssEntryQuery,
+            title: "SCM-Manager Blog Feed",
+            query: rssBlogQuery,
+            serialize: rssBlogSerializer,
             output: "/rss.xml",
-            title: "SCM-Manager RSS Feed",
           },
+          {
+            title: "SCM-Manager Release Feed",
+            query: rssReleaseQuery,
+            serialize: rssReleaseSerializer,
+            output: "/download/rss.xml",
+          }
         ],
       },
     },
