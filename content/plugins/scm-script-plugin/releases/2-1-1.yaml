@@ -1,0 +1,9 @@
+plugin: "scm-script-plugin"
+tag: "2.1.1"
+date: "2020-08-24T08:37:06Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-script-plugin/2.1.1/scm-script-plugin-2.1.1.smp"
+checksum: "ff20deb1e32b5ab22082d3b813b54c6259d981845c8b695d425db1432fafd361"
+dependencies:
+- "scm-el-plugin"
+conditions:
+  minVersion: "2.0.0"
