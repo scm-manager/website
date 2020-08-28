@@ -5,6 +5,7 @@ import Subtitle from "../components/Subtitle";
 import PageContainer from "../layout/PageContainer";
 import { graphql } from "gatsby";
 import Download from "../components/Download";
+import ReleaseFeedNote from "../components/ReleaseFeedNote";
 
 const DownloadPage = ({ data }) => {
   return (
@@ -14,6 +15,7 @@ const DownloadPage = ({ data }) => {
       <Subtitle>
         Download the latest and greatest version of SCM-Manager
       </Subtitle>
+      <ReleaseFeedNote />
       <Download
         release={data.releases.nodes[0]}
         changelog={data.changelog.childChangelog}
