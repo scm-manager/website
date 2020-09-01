@@ -6,6 +6,7 @@ import Subtitle from "../../components/Subtitle";
 import { graphql, Link } from "gatsby";
 import { createProps } from "../../components/Download";
 import styled from "styled-components";
+import ReleaseFeedNote from "../../components/ReleaseFeedNote";
 
 const TagColumn = styled.th`
   vertical-align: middle !important;
@@ -36,6 +37,7 @@ const DownloadArchiv = ({ data }) => (
     <SEO title="Download" />
     <Title>Download archive</Title>
     <Subtitle>Download the SCM-Manager version you are looking for</Subtitle>
+    <ReleaseFeedNote />
     <table className="table is-striped is-fullwidth">
       <tbody>
         {data.releases.nodes.map(release => (
