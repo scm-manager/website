@@ -19,6 +19,13 @@ node('docker') {
       version = "${new Date().format('yyyyMMddHHmm')}-${commitHashShort}".trim()
     }
 
+    stage('Apply Cache') {
+      sh 'rm -rf public .cache website.tar.gz || true'
+      googleStorageDownload bucketUri: 'gs://scm-manager/cache/website.tar.gz', credentialsId: 'ces-demo-instances', localDirectory: '.'
+      sh 'tar xfz cache/website.tar.gz'
+      sh 'rm -rf cache'
+    }
+
     stage('Dependencies') { 
       withNode {
         sh "yarn install"
@@ -37,7 +44,7 @@ node('docker') {
       def siteUrl = env.BRANCH_NAME == 'staging' ? 'https://staging-website.scm-manager.org' : 'https://scm-manager.org'
       withNode {
         withEnv(["SITE_URL=${siteUrl}"]) {
-          sh "yarn build"
+          sh "yarn run gatsby build"
         }
       }
     }
@@ -71,7 +78,7 @@ node('docker') {
 
     }
 
-    // TODO only on master branch
+    // TODO we should only update the cache on master builds
     stage('Update Cache') {
       sh "tar cfz website.tar.gz public .cache"
       googleStorageUpload bucket: 'gs://scm-manager/cache', credentialsId: 'ces-operations-internal', pattern: 'website.tar.gz'
