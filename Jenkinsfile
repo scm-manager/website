@@ -1,91 +1,104 @@
-#!/usr/bin/env groovy
-def version = 'UNKNOWN'
+#!groovy
+node('docker') {
 
-pipeline {
+  def version = 'UNKNOWN'
 
- options {
-   buildDiscarder(logRotator(numToKeepStr: '10'))
-   disableConcurrentBuilds()
- }
+  properties([
+    // Keep only the last 10 build to preserve space
+    buildDiscarder(logRotator(numToKeepStr: '10')),
+    disableConcurrentBuilds()
+  ])
 
-  agent {
-    node {
-      label 'docker'
+  timeout(activity: true, time: 30, unit: 'MINUTES') {
+
+    stage('Checkout') {
+      checkout scm
+
+      // TODO staging and prod use the same image and version scheme?
+      def commitHashShort = sh(returnStdout: true, script: 'git rev-parse --short HEAD')
+      version = "${new Date().format('yyyyMMddHHmm')}-${commitHashShort}".trim()
     }
-  }
 
-  stages {
+    stage('Apply Cache') {
+      sh 'rm -rf public .cache website.tar.gz || true'
+      googleStorageDownload bucketUri: 'gs://scm-manager/cache/website.tar.gz', credentialsId: 'ces-demo-instances', localDirectory: '.'
+      sh 'tar xfz cache/website.tar.gz'
+      sh 'rm -rf cache'
+    }
 
-    stage('Environment') {
-      steps {
-        script {
-          def commitHashShort = sh(returnStdout: true, script: 'git rev-parse --short HEAD')
-          version = "${new Date().format('yyyyMMddHHmm')}-${commitHashShort}".trim()
-        }
+    stage('Dependencies') { 
+      withNode {
+        sh "yarn install"
       }
     }
 
-    stage('Docker') {
-      agent {
-        node {
-          label 'docker'
-        }
-      }
-      steps {
-        script {
-          withCredentials([usernamePassword(credentialsId: 'cesmarvin-github', passwordVariable: 'GITHUB_API_TOKEN', usernameVariable: 'GITHUB_ACCOUNT')]) {
-            docker.withRegistry('', 'hub.docker.com-cesmarvin') {
-              def siteUrl = env.BRANCH_NAME == 'staging' ? 'https://staging-website.scm-manager.org' : 'https://scm-manager.org'
-              def image = docker.build("scmmanager/website:${version}", "--build-arg GITHUB_API_TOKEN=${GITHUB_API_TOKEN} --build-arg SITE_URL=${siteUrl} .")
-              image.push()
-            }
-          }
+    stage('Collect Content') {      
+      withNode {
+        withCredentials([usernamePassword(credentialsId: 'cesmarvin-github', passwordVariable: 'GITHUB_API_TOKEN', usernameVariable: 'GITHUB_ACCOUNT')]) {
+          sh "yarn run collect-content"
         }
       }
     }
 
-    stage('Deployment Staging') {
-      when {
-        branch 'staging'
-      }
-      agent {
-        docker {
-          image 'lachlanevenson/k8s-helm:v3.2.1'
-          args  '--entrypoint=""'
+    stage('Build') {
+      def siteUrl = env.BRANCH_NAME == 'staging' ? 'https://staging-website.scm-manager.org' : 'https://scm-manager.org'
+      withNode {
+        withEnv(["SITE_URL=${siteUrl}"]) {
+          sh "yarn run build"
         }
       }
-      steps {
-        withCredentials([file(credentialsId: 'helm-client-scm-manager', variable: 'KUBECONFIG')]) {
+    }
+
+    stage('Image') {
+      def image = docker.build "scmmanager/website:${version}"
+      docker.withRegistry('', 'hub.docker.com-cesmarvin') {
+        image.push()
+      }
+    }
+
+    if (env.BRANCH_NAME == 'staging') {
+
+      stage('Staging Deployment') {
+        withHelm {
           sh "helm upgrade --install --values=deployment/staging.yml --set image.tag=${version} staging-website deployment/website"
         }
       }
-    }
 
-    stage('Deployment Production') {
-      when {
-        branch 'master'
-      }
-      agent {
-        docker {
-          image 'lachlanevenson/k8s-helm:v3.2.1'
-          args  '--entrypoint=""'
-        }
-      }
-      steps {
-        withCredentials([file(credentialsId: 'helm-client-scm-manager', variable: 'KUBECONFIG')]) {
+    } else if (env.BRANCH_NAME == 'master') {
+
+      stage('Deployment') {
+        withHelm {
           sh "helm upgrade --install --set image.tag=${version} website deployment/website"
         }
       }
-    }
 
-    stage('Trigger API Build') {
-      when {
-        branch 'master'
-      }
-      steps {
+      stage('Trigger API Build') {
         build job: 'scm-manager-github/plugin-center-api/master', wait: false
       }
+
+      stage('Update Cache') {
+        sh "tar cfz website.tar.gz public .cache"
+        googleStorageUpload bucket: 'gs://scm-manager/cache', credentialsId: 'ces-operations-internal', pattern: 'website.tar.gz'
+      }
+
     }
-    
+
+  }
+
+}
+
+void withNode(Closure closure) {
+  docker.image('scmmanager/node-build:12.16.3').inside {
+    withEnv(["HOME=${env.WORKSPACE}"]) {
+      closure.call()
+    }
+  }
+}
+
+void withHelm(Closure closure) {
+  docker.image('lachlanevenson/k8s-helm:v3.2.1', '--entrypoint=""').inside {
+    withCredentials([file(credentialsId: 'helm-client-scm-manager', variable: 'KUBECONFIG')]) {
+      closure.call()
+    }
   }
 }
