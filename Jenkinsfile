@@ -79,20 +79,20 @@ node('docker') {
 
   }
 
-  void withNode(Closure closure) {
-    docker.image('scmmanager/node-build:12.16.3').inside {
-      withEnv(["HOME=${env.WORKSPACE}"]) {
-        closure.call()
-      }
+}
+
+void withNode(Closure closure) {
+  docker.image('scmmanager/node-build:12.16.3').inside {
+    withEnv(["HOME=${env.WORKSPACE}"]) {
+      closure.call()
     }
   }
+}
 
-  void withHelm(Closure closure) {
-    docker.image('lachlanevenson/k8s-helm:v3.2.1', '--entrypoint=""').inside {
-      withCredentials([file(credentialsId: 'helm-client-scm-manager', variable: 'KUBECONFIG')]) {
-        closure.call()
-      }
+void withHelm(Closure closure) {
+  docker.image('lachlanevenson/k8s-helm:v3.2.1', '--entrypoint=""').inside {
+    withCredentials([file(credentialsId: 'helm-client-scm-manager', variable: 'KUBECONFIG')]) {
+      closure.call()
     }
   }
-
 }
