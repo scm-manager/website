@@ -71,6 +71,12 @@ node('docker') {
 
     }
 
+    // TODO only on master branch
+    stage('Update Cache') {
+      sh "tar cfz website.tar.gz public .cache"
+      googleStorageUpload bucket: 'gs://scm-manager/cache', credentialsId: 'ces-operations-internal', pattern: 'website.tar.gz'
+    }
+
   }
 
   void withNode(Closure closure) {
