@@ -24,7 +24,7 @@ node('docker') {
     stage('Build') {
       withCredentials([usernamePassword(credentialsId: 'cesmarvin-github', passwordVariable: 'GITHUB_API_TOKEN', usernameVariable: 'GITHUB_ACCOUNT')]) {
         def siteUrl = env.BRANCH_NAME == 'staging' ? 'https://staging-website.scm-manager.org' : 'https://scm-manager.org'
-        withEnv(["SITE_URL=${siteUrl}"]) {
+        withEnv(["SITE_URL=${siteUrl}", "HOME=${env.WORKSPACE}"]) {
           docker.image('scmmanager/node-build:12.16.3').inside {
             sh "yarn install"
             sh "yarn build"
