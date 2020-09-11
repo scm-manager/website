@@ -96,7 +96,7 @@ void withNode(Closure closure) {
 }
 
 void withHelm(Closure closure) {
-  docker.image('lachlanevenson/k8s-helm:v3.2.1', '--entrypoint=""').inside {
+  docker.image('lachlanevenson/k8s-helm:v3.2.1').inside('--entrypoint=""') {
     withCredentials([file(credentialsId: 'helm-client-scm-manager', variable: 'KUBECONFIG')]) {
       closure.call()
     }
