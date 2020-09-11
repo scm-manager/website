@@ -13,22 +13,31 @@ node('docker') {
 
     stage('Checkout') {
       checkout scm
-    }
 
-    stage('Environment') {
       // TODO staging and prod use the same image and version scheme?
       def commitHashShort = sh(returnStdout: true, script: 'git rev-parse --short HEAD')
       version = "${new Date().format('yyyyMMddHHmm')}-${commitHashShort}".trim()
     }
 
+    stage('Dependencies') { 
+      withNode {
+        sh "yarn install"
+      }
+    }
+
+    stage('Collect Content') {      
+      withNode {
+        withCredentials([usernamePassword(credentialsId: 'cesmarvin-github', passwordVariable: 'GITHUB_API_TOKEN', usernameVariable: 'GITHUB_ACCOUNT')]) {
+          sh "yarn run collect-content"
+        }
+      }
+    }
+
     stage('Build') {
-      withCredentials([usernamePassword(credentialsId: 'cesmarvin-github', passwordVariable: 'GITHUB_API_TOKEN', usernameVariable: 'GITHUB_ACCOUNT')]) {
-        def siteUrl = env.BRANCH_NAME == 'staging' ? 'https://staging-website.scm-manager.org' : 'https://scm-manager.org'
-        withEnv(["SITE_URL=${siteUrl}", "HOME=${env.WORKSPACE}"]) {
-          docker.image('scmmanager/node-build:12.16.3').inside {
-            sh "yarn install"
-            sh "yarn build"
-          }
+      def siteUrl = env.BRANCH_NAME == 'staging' ? 'https://staging-website.scm-manager.org' : 'https://scm-manager.org'
+      withNode {
+        withEnv(["SITE_URL=${siteUrl}"]) {
+          sh "yarn build"
         }
       }
     }
@@ -43,20 +52,16 @@ node('docker') {
     if (env.BRANCH_NAME == 'staging') {
 
       stage('Staging Deployment') {
-        docker.image('lachlanevenson/k8s-helm:v3.2.1', '--entrypoint=""').inside {
-          withCredentials([file(credentialsId: 'helm-client-scm-manager', variable: 'KUBECONFIG')]) {
-            sh "helm upgrade --install --values=deployment/staging.yml --set image.tag=${version} staging-website deployment/website"
-          }
+        withHelm {
+          sh "helm upgrade --install --values=deployment/staging.yml --set image.tag=${version} staging-website deployment/website"
         }
       }
 
     } else if (env.BRANCH_NAME == 'master') {
 
       stage('Deployment') {
-        docker.image('lachlanevenson/k8s-helm:v3.2.1', '--entrypoint=""').inside {
-          withCredentials([file(credentialsId: 'helm-client-scm-manager', variable: 'KUBECONFIG')]) {
-            sh "helm upgrade --install --set image.tag=${version} website deployment/website"
-          }
+        withHelm {
+          sh "helm upgrade --install --set image.tag=${version} website deployment/website"
         }
       }
 
@@ -67,4 +72,21 @@ node('docker') {
     }
 
   }
+
+  void withNode(Closure closure) {
+    docker.image('scmmanager/node-build:12.16.3').inside {
+      withEnv(["HOME=${env.WORKSPACE}"]) {
+        closure.call()
+      }
+    }
+  }
+
+  void withHelm(Closure closure) {
+    docker.image('lachlanevenson/k8s-helm:v3.2.1', '--entrypoint=""').inside {
+      withCredentials([file(credentialsId: 'helm-client-scm-manager', variable: 'KUBECONFIG')]) {
+        closure.call()
+      }
+    }
+  }
+
 }
