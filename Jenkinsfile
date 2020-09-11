@@ -76,12 +76,11 @@ node('docker') {
         build job: 'scm-manager-github/plugin-center-api/master', wait: false
       }
 
-    }
+      stage('Update Cache') {
+        sh "tar cfz website.tar.gz public .cache"
+        googleStorageUpload bucket: 'gs://scm-manager/cache', credentialsId: 'ces-operations-internal', pattern: 'website.tar.gz'
+      }
 
-    // TODO we should only update the cache on master builds
-    stage('Update Cache') {
-      sh "tar cfz website.tar.gz public .cache"
-      googleStorageUpload bucket: 'gs://scm-manager/cache', credentialsId: 'ces-operations-internal', pattern: 'website.tar.gz'
     }
 
   }
