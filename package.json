@@ -36,6 +36,7 @@
     "gatsby-transformer-yaml": "^2.2.3",
     "lodash": "^4.17.15",
     "lodash.kebabcase": "^4.1.1",
+    "medium-zoom": "https://registry.npmjs.org/@scm-manager/medium-zoom/-/medium-zoom-1.0.5.tgz",
     "prism-react-renderer": "^1.0.2",
     "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
