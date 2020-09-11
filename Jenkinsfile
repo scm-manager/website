@@ -44,7 +44,7 @@ node('docker') {
       def siteUrl = env.BRANCH_NAME == 'staging' ? 'https://staging-website.scm-manager.org' : 'https://scm-manager.org'
       withNode {
         withEnv(["SITE_URL=${siteUrl}"]) {
-          sh "yarn run gatsby build"
+          sh "yarn run build"
         }
       }
     }
