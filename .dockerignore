@@ -1,2 +1,6 @@
-node_modules
-.cache
+# ignore everything
+**
+
+# allow required directories
+!deployment/docker
+!public
