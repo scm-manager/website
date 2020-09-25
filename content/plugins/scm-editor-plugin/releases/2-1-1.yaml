@@ -1,0 +1,8 @@
+plugin: "scm-editor-plugin"
+tag: "2.1.1"
+date: "2020-09-15T13:11:26Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-editor-plugin/2.1.1/scm-editor-plugin-2.1.1.smp"
+checksum: "50f8a0f03c5ea78e8e0566b9d2f865b76443f1b2493259acffd6fc234e3139eb"
+dependencies: []
+conditions:
+  minVersion: "2.0.0"
