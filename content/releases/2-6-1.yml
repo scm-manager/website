@@ -1,0 +1,11 @@
+tag: 2.6.1
+date: '2020-09-30T08:14:47Z'
+packages:
+- {type: k8s}
+- {type: redhat}
+- {type: debian}
+- {type: windows, checksum: 9b619e06b01079974ac31048f78a163ccd9f3df9af9bd7982cdbad10f605c1f7,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.6.1/windows-2.6.1-app.zip'}
+- {type: docker}
+- {type: unix, checksum: 9be01facf640cfd50677b8320613273ce136bec4f5e8b4f6ab2c2ce261cfb0a2,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.6.1/unix-2.6.1-app.tar.gz'}
