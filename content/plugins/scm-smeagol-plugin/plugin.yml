@@ -1,0 +1,5 @@
+name: scm-smeagol-plugin
+displayName: Smeagol
+description: Integrates Smeagol wiki with SCM-Manager
+category: documentation
+author: Johannes Schnatterer
