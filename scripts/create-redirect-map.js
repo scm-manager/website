@@ -7,6 +7,8 @@ const OUT_FILE = join(__dirname, "..", "deployment", "docker", "redirects.conf")
 const SLUG_REGEX = /slug: (.+)/;
 const FILE_NAME_WITHOUT_EXTENSION_REGEX = /^(.+)\.md$/;
 
+const EXCLUDES = ['/plugins/scm-archive-plugin/'];
+
 async function main() {
   const dir = join(__dirname, "..", "content", "posts");
   const resultMap = {
@@ -56,7 +58,11 @@ async function read(root, path, result) {
   const regexResult = SLUG_REGEX.exec(fileContent);
   if (regexResult) {
     const [_, slug] = regexResult;
-    result[slug] = newUrl;
+    if (!EXCLUDES.includes(slug)) {
+      result[slug] = newUrl;
+    } else {
+      console.warn(`skip slug ${slug}, because it is in the exclude list`);
+    }
   } else {
     console.warn(`Incorrect slug for: ${filePath}`);
   }
