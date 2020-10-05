@@ -1,0 +1,8 @@
+plugin: "scm-archive-plugin"
+tag: "2.0.0"
+date: "2020-10-05T13:56:46Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-archive-plugin/2.0.0/scm-archive-plugin-2.0.0.smp"
+checksum: "8c2921adfd994d06b07caac69fc09b56db82ce509202fe89a3b8ed547a08f469"
+dependencies: []
+conditions:
+  minVersion: "2.0.0"
