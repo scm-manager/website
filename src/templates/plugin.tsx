@@ -23,7 +23,7 @@ export const query = graphql`
       ...PluginLayout
     }
     readme: markdownRemark(
-      fields: { plugin: { eq: $name }, slug: { glob: "**/README" } }
+      fields: { plugin: { eq: $name }, slug: { regex: "/^.*\/README\/?$/" } }
     ) {
       html
     }
