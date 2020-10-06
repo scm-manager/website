@@ -10087,9 +10087,10 @@ media-typer@0.3.0:
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
 
-medium-zoom@^1.0.4, "medium-zoom@https://registry.npmjs.org/@scm-manager/medium-zoom/-/medium-zoom-1.0.5.tgz":
-  version "1.0.5"
-  resolved "https://registry.npmjs.org/@scm-manager/medium-zoom/-/medium-zoom-1.0.5.tgz#fef7b4da6ff71a1485131c527101d81ea1364dcd"
+medium-zoom@^1.0.4, medium-zoom@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/medium-zoom/-/medium-zoom-1.0.6.tgz#9247f21ca9313d8bbe9420aca153a410df08d027"
+  integrity sha512-UdiUWfvz9fZMg1pzf4dcuqA0W079o0mpqbTnOz5ip4VGYX96QjmbM+OgOU/0uOzAytxC0Ny4z+VcYQnhdifimg==
 
 memoize-one@^5.0.0:
   version "5.1.1"
