@@ -1,0 +1,8 @@
+plugin: "scm-ldap-plugin"
+tag: "2.0.1"
+date: "2020-10-07T10:40:34Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-ldap-plugin/2.0.1/scm-ldap-plugin-2.0.1.smp"
+checksum: "b7f45a7c43a5d20315ced219243c80711e2e286e576f6dfe0f8831a3585c4ac5"
+dependencies: []
+conditions:
+  minVersion: "2.0.0"
