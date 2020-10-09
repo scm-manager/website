@@ -1,0 +1,5 @@
+name: scm-commit-message-checker-plugin
+displayName: Commit Message Checker
+description: Validates commit message on each commit for pattern or format
+category: workflow
+author: Cloudogu GmbH
