@@ -1,4 +1,5 @@
 import { useStaticQuery, graphql } from "gatsby";
+import compareVersions from "semver/functions/compare";
 
 const useLatestRelease = () => {
   const data = useStaticQuery(graphql`
@@ -13,7 +14,7 @@ const useLatestRelease = () => {
       releases: allReleasesYaml(
         filter: { plugin: { eq: null } }
         sort: { fields: [date], order: DESC }
-        limit: 1
+        limit: 10
       ) {
         nodes {
           tag
@@ -22,7 +23,19 @@ const useLatestRelease = () => {
     }
   `);
 
-  const tag = data.releases.nodes[0].tag;
+  const tag = data.releases.nodes.map(node => node.tag)
+    // remove rc releases
+    .filter(tag => !tag.includes("-"))
+    .map(tag => {
+      // fix 1.x non semver tags
+      if (tag.split(".").length === 2) {
+        return `${tag}.0`;
+      }
+      return tag;
+    })
+    .sort(compareVersions)
+    .reverse()[0];
+
   const tagParts = tag.split(".");
   const defaultLanguage = data.languages.childrenLanguagesYaml[0].value;
 
