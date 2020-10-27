@@ -1,0 +1,11 @@
+tag: 2.8.0
+date: '2020-10-27T08:34:13Z'
+packages:
+- {type: k8s}
+- {type: redhat}
+- {type: debian}
+- {type: windows, checksum: 69a74568fb1cb0dea1e4937b582dbe9e38b6992a3a68b56ff4c43822f0a1b8bd,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.8.0/windows-2.8.0-app.zip'}
+- {type: docker}
+- {type: unix, checksum: 109762b5869ba1449602d0640f3fff0495b1b0d8d24bc3ccf428a9704f763f7a,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.8.0/unix-2.8.0-app.tar.gz'}
