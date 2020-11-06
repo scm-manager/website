@@ -1,0 +1,11 @@
+tag: 2.9.0
+date: '2020-11-06T08:39:08Z'
+packages:
+- {type: k8s}
+- {type: redhat}
+- {type: debian}
+- {type: docker}
+- {type: unix, checksum: 25910fde63401e1505e9427224ffe8ba81b4fe92955c05b96dc485fa139d1174,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.9.0/unix-2.9.0-app.tar.gz'}
+- {type: windows, checksum: c6f5f7c9b5e0beff804bb7ba9142fe3be311288bd08dc55faa7f63a9554fc123,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.9.0/windows-2.9.0-app.zip'}
