@@ -64,11 +64,12 @@ const rssReleaseQuery = `
 
 const rssBlogSerializer = ({ query: { site, allMarkdownRemark } }) => {
   return allMarkdownRemark.edges.map(edge => {
+    const url = `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`;
     return Object.assign({}, edge.node.frontmatter, {
       description: edge.node.excerpt,
       date: edge.node.frontmatter.date,
-      url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-      guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+      url,
+      guid: url,
       custom_elements: [{ "content:encoded": edge.node.html }],
     })
   })
@@ -172,7 +173,7 @@ module.exports = {
 
             // plugin
             // plugins/scm-webhook-plugin/plugin.yml
-            return _.upperFirst(_.camelCase(`${node.name} Yaml`))          
+            return _.upperFirst(_.camelCase(`${node.name} Yaml`))
           } else {
             // plugins/scm-branchwp-plugin/releases/2-0-0-rc4.yaml
             return _.upperFirst(_.camelCase(`${path.basename(node.dir)} Yaml`))
@@ -200,7 +201,7 @@ module.exports = {
         ],
       },
     },
-    { 
+    {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true, // Print removed selectors and processed file names
