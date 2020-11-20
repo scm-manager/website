@@ -1,0 +1,12 @@
+plugin: "scm-review-plugin"
+tag: "2.5.0"
+date: "2020-11-20T10:15:32Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-review-plugin/2.5.0/scm-review-plugin-2.5.0.smp"
+checksum: "eff96a95e40546636cb96d44f24f5beb9f879dfeb3b75fb38a661a7645351ed8"
+dependencies:
+- "scm-mail-plugin"
+optionalDependencies:
+- "scm-landingpage-plugin"
+- "scm-editor-plugin"
+conditions:
+  minVersion: "2.8.0"
