@@ -1,6 +1,6 @@
 ---
 title: SCM-Manager 2.10.0
-date: 2020-11-20T16:00:00+0000
+date: 2020-11-20T15:00:00+0000
 author: SCM-Team
 categories:
   - scm-manager
@@ -32,8 +32,8 @@ You can finally delete your branches via the UI. Keep in mind that deleted branc
 
 ## Pull Request Validation
 Using the [SCM-Review-Plugin](https://www.scm-manager.org/plugins/scm-review-plugin/) the SCM-Manager supports working with pull requests.
-We improved the validation and performance for creation of new pull requests. 
-Now you will be immediately informed if your selected options for your new pull request are invalid.
+We improved the validation and performance for the creation of new pull requests. 
+Now you will be immediately informed if your selected branches for your new pull request are invalid.
 
 ![Pull Request Validation](assets/pull_request_validation.png)
 
@@ -42,15 +42,15 @@ Now you will be immediately informed if your selected options for your new pull 
 With the [SCM-OpenAPI-Plugin](https://www.scm-manager.org/plugins/scm-openapi-plugin) 
 the SCM-Manager provides an easy-to-use REST API documentation integrated with Swagger.
 Unfortunately this automatic generated documentation wasn't as understandable as we expected. 
-So we improved the endpoint descriptions and added some examples for the usage. 
+So we improved the endpoint descriptions and added some examples for the usage of our core API. 
 
 ![OpenAPI Documentation](assets/openapi_documentation.png)
 
 ## Improved Error Messages
 
-Working with SCM-Manager you can limit access to repositories and enforce workflows using various plugins. If you do so, it is likely you may encounter some errors. 
-For example when your commits were rejected because they do not fulfill the requirements which were defined using the [SCM-Commit-Message-Checker-Plugin](https://www.scm-manager.org/plugins/scm-commit-message-checker-plugin/).
-In this case we want to show you the exact reason why this error is shown.
+Working with SCM-Manager you can limit access to repositories and enforce workflows using various plugins. If you do so, it is likely you may encounter some errors, 
+for example when your commits were rejected because they do not fulfill the requirements which were defined using the [SCM-Commit-Message-Checker-Plugin](https://www.scm-manager.org/plugins/scm-commit-message-checker-plugin/).
+In these cases we want to show you the exact reason why a error occured.
 
 ![Error Message](assets/error_message.png)
 
