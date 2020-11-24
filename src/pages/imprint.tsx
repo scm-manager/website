@@ -16,54 +16,84 @@ const ImprintPage = () => (
           <br />
           38100 Braunschweig
           <br />
-        </p>
-        <a href="mailto:&#105;&#110;&#102;&#111;&#64;&#115;&#99;&#109;&#45;&#109;&#97;&#110;&#97;&#103;&#101;&#114;&#46;&#111;&#114;&#103;">
-          &#105;&#110;&#102;&#111;&#64;&#115;&#99;&#109;&#45;&#109;&#97;&#110;&#97;&#103;&#101;&#114;&#46;&#111;&#114;&#103;
-        </a>
-        <p>&nbsp;</p>
-        <h3>
-          <strong>Limitation of liability for internal content</strong>
-        </h3>
-        <p>
-          The content of our website has been compiled with meticulous care and
-          to the best of our knowledge. However, we cannot assume any liability
-          for the up-to-dateness, completeness or accuracy of any of the pages.
-        </p>
-        <p>
-          Pursuant to section 7, para. 1 of the TMG (Telemediengesetz – Tele
-          Media Act by German law), we as service providers are liable for our
-          own content on these pages in accordance with general laws. However,
-          pursuant to sections 8 to 10 of the TMG, we as service providers are
-          not under obligation to monitor external information provided or
-          stored on our website. Once we have become aware of a specific
-          infringement of the law, we will immediately remove the content in
-          question. Any liability concerning this matter can only be assumed
-          from the point in time at which the infringement becomes known to us.
+          Germany
         </p>
         <p>&nbsp;</p>
         <h3>
-          <strong>Limitation of liability for external links</strong>
+          <strong>Represented by</strong>
         </h3>
         <p>
-          Our website contains links to the websites of third parties (“external
-          links”). As the content of these websites is not under our control, we
-          cannot assume any liability for such external content. In all cases,
-          the provider of information of the linked websites is liable for the
-          content and accuracy of the information provided. At the point in time
-          when the links were placed, no infringements of the law were
-          recognisable to us. As soon as an infringement of the law becomes
-          known to us, we will immediately remove the link in question.
+          Cloudogu GmbH, represented by the Managing Director Thomas Grosser
+        </p>
+        <p>&nbsp;</p>
+        <h3>
+          <strong>Contact:</strong>
+        </h3>
+        <p>
+          Phone: <a href="tel:+4953161808880">+49 (531) 61808880</a>
+          <br />
+          Fax: <a href="tel:+495312352819">+49 (531) 2352819</a>
+          <br />
+          Email: <a href="mailto:&#105;&#110;&#102;&#111;&#64;&#115;&#99;&#109;&#45;&#109;&#97;&#110;&#97;&#103;&#101;&#114;&#46;&#111;&#114;&#103;">
+            &#105;&#110;&#102;&#111;&#64;&#115;&#99;&#109;&#45;&#109;&#97;&#110;&#97;&#103;&#101;&#114;&#46;&#111;&#114;&#103;
+          </a>
+        </p>
+        <p>&nbsp;</p>
+        <h3>
+          <strong>Register entry</strong>
+        </h3>
+        <p>
+          Entry in the commercial register.
+          <br />
+          Register court: Local Court (Amtsgericht) Braunschweig
+          <br />
+          Register number: HRB 204974
+        </p>
+        <p>&nbsp;</p>
+        <h3>
+          <strong>Value-added tax</strong>
+        </h3>
+        <p>
+          Value-added tax identification number pursuant to §27(a) German VAT Act (UmstG):
+          <br />
+          DE297628722
+        </p>
+        <p>&nbsp;</p>
+        <h3>
+          <strong>Dispute resolution</strong>
+        </h3>
+        <p>
+          We are not prepared or obligated to participate in a dispute resolution proceeding before a consumer arbitration board.
+        </p>
+        <p>&nbsp;</p>
+        <h3>
+          <strong>Liability for content</strong>
+        </h3>
+        <p>
+          As a service provider, pursuant to § 7 para. 1 TMG we are responsible for our own content on these web pages according to general laws. However, according to §§ 8 through 10 TMG, we are not obligated to monitor transferred or stored external information or to search for circumstances that indicate illegal activity.
+        </p>
+        <p>
+          Obligations to remove or block the use of information according to general laws remain unaffected by this. Liability in this respect however is only possible from the point in time at which we become aware of a specific infringement of the law. Upon becoming aware of such legal infringements, we will immediately remove this content.
+        </p>
+        <p>&nbsp;</p>
+        <h3>
+          <strong>Liability for links</strong>
+        </h3>
+        <p>
+          Our website contains links to external websites of third parties, over whose content we have no influence. Therefore, we cannot assume any liability for this external content. The respective provider or operator of the pages is always responsible for the contents of the linked pages. The linked pages were checked for possible legal infringements at the time of linking. Illegal content was not recognizable at the time of linking.
+        </p>
+        <p>
+          However, permanent monitoring of the content of the linked pages is unreasonable without concrete evidence of a violation of the law. Upon becoming aware of such legal infringements, we will immediately remove this content.
         </p>
         <p>&nbsp;</p>
         <h3>
           <strong>Copyright</strong>
         </h3>
         <p>
-          The content and works published on this website are governed by the
-          copyright laws of Germany. Any duplication, processing, distribution
-          or any form of utilisation beyond the scope of copyright law shall
-          require the prior written consent of the author or authors in
-          question.
+          The contents and works created by the site operators on these pages are subject to German copyright law. Duplication, editing, distribution, and any kind of use outside the limits of copyright law require the written consent of the respective author or creator.
+        </p>
+        <p>
+          The copyrights of third parties are respected for any content on the site that was not created by the operator. In particular, the content of third parties is marked as such. Should you nevertheless become aware of a copyright infringement, please inform us accordingly. Upon becoming aware of such legal infringements, we will immediately remove this content.
         </p>
         <p>&nbsp;</p>
         <h2><strong>Data protection</strong></h2>
