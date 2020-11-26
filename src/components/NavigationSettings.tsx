@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { navigate } from "gatsby";
 import Setting from "./Setting";
 import LanguageSetting from "./LanguageSetting";
+import versionRangeComparator from "../lib/versionRangeComparator";
 
 export const PATH_PART_INDEX_DOCS_VERSION = 2;
 export const PATH_PART_INDEX_DOCS_LANGUAGE = 3;
@@ -58,7 +59,7 @@ const NavigationSettings: FC<Props> = ({ path, versionPathIndex, languagePathInd
         value={findVersion(path, versionPathIndex)}
         options={versions.group
           .map(g => g.fieldValue)
-          .sort()
+          .sort(versionRangeComparator)
           .reverse()}
         onChange={version => changeVersion(path, version, versionPathIndex)}
       />
