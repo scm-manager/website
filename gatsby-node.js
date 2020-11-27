@@ -11,6 +11,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 
 const compareVersions = require("semver/functions/compare");
 const minVersion = require("semver/ranges/min-version");
+const { default: versionRangeComparator } = require("./src/lib/versionRangeComparator");
 
 // resolve src for mdx
 // https://github.com/ChristopherBiscardi/gatsby-mdx/issues/176#issuecomment-429569578
@@ -426,14 +427,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
     const lastRelease = result.data.releases.nodes.map(node => node.tag)
       // remove rc releases
       .filter(tag => !tag.includes("-"))
-      .map(tag => {
-        // fix 1.x non semver tags
-        if (tag.split(".").length === 2) {
-          return `${tag}.0`;
-        }
-        return tag;
-      })
-      .sort(compareVersions)
+      .sort(versionRangeComparator)
       .reverse()[0];
 
     createRedirect({
