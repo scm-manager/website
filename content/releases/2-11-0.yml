@@ -1,0 +1,11 @@
+tag: 2.11.0
+date: '2020-12-04T08:09:23Z'
+packages:
+- {type: k8s}
+- {type: redhat}
+- {type: debian}
+- {type: docker}
+- {type: unix, checksum: 1e8cf8cd56b4560b5784508b805b26356e016030c7104408c0b05d7ebfa612fe,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.11.0/unix-2.11.0-app.tar.gz'}
+- {type: windows, checksum: 70dbefad73c8be06fed8153bcae7f40b68d9768589e786b0a3f774150a0a7c58,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.11.0/windows-2.11.0-app.zip'}
