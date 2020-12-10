@@ -1,9 +1,0 @@
-plugin: "scm-dummy-plugin"
-tag: "3.0.7"
-date: "2020-12-10T15:37:31Z"
-url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-dummy-plugin/3.0.7/scm-dummy-plugin-3.0.7.smp"
-checksum: "edd63b65b37c38173a04193e60f0aa213d165bf6fc0c89c9781cb729dc97fcb7"
-dependencies: []
-optionalDependencies: []
-conditions:
-  minVersion: "2.9.0"
