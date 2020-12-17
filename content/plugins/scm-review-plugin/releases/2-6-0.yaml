@@ -1,0 +1,12 @@
+plugin: "scm-review-plugin"
+tag: "2.6.0"
+date: "2020-12-17T09:07:42Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-review-plugin/2.6.0/scm-review-plugin-2.6.0.smp"
+checksum: "cc00c15cc0d6fee2c45131cbf985ae008d5bbcd72e9ad3f2fe2364647decbdf8"
+dependencies:
+- "scm-mail-plugin"
+optionalDependencies:
+- "scm-landingpage-plugin"
+- "scm-editor-plugin"
+conditions:
+  minVersion: "2.8.0"
