@@ -18,10 +18,11 @@ keywords:
 
 Dear SCM-Manager community,
 
-two weeks have passed, and again we have another SCM-Manager release: 2.12.0. We have three gifts for you, and one for us:
+two weeks have passed, and again we have another SCM-Manager release: 2.12.0. We have four gifts for you, and one for us:
 Those of you using Mercurial can expect a much more simple setup, SVN users can now import SVN dumps, and all of you
-together can use a feature known from 1.x again: the archived repository. And of course we fixed some bugs, for example
-an error when you wanted to take a look at files with non-ascii characters in their names.
+together can use a feature known from 1.x again: the archived repository. Last but not least you now can create links
+for specific code lines in the source view. And of course we fixed some bugs, for example an error when you wanted to
+take a look at files with non-ascii characters in their names.
 
 ## Mercurial
 
@@ -44,6 +45,15 @@ You may have known this feature from version 1.x, now it's available in 2.x agai
 Such repositories cannot be modified any longer.
 
 ![Archive Setting](assets/archive_setting.png)
+
+## Permanent Links for Lines
+
+Sometimes you want to point to a concrete line number in a source file, for example to send it to a colleague in a chat.
+Now you can simply create a URL for a line. Simply click on the link icon that you will see when you hoover over a line
+number. The generated URL will contain the line number and the current revision, so that the link will still work after
+the source has been changed.
+
+![Line Link](assets/line_link.png)
 
 ## Gradle
 
