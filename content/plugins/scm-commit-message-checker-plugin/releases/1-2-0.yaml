@@ -1,0 +1,8 @@
+plugin: "scm-commit-message-checker-plugin"
+tag: "1.2.0"
+date: "2020-12-17T09:26:53Z"
+url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-commit-message-checker-plugin/1.2.0/scm-commit-message-checker-plugin-1.2.0.smp"
+checksum: "d71751493aa8c7b61fd63f47a23db211c9544a61ce0c6228865e5662a646cf54"
+dependencies: []
+conditions:
+  minVersion: "2.0.0"
