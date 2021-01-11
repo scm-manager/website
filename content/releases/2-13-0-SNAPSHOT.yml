@@ -1,0 +1,11 @@
+tag: 2.13.0-SNAPSHOT
+date: '2021-01-11T13:37:17Z'
+packages:
+- {type: unix, checksum: 7e7d98e6bf60e83d6c308a4ac3a206db72b31f3ac3ce97d40df28017b97ec13b,
+  url: 'https://packages.scm-manager.org/repository/snapshots/sonia/scm/packaging/unix/2.13.0-SNAPSHOT/unix-2.13.0-SNAPSHOT-app.tar.gz'}
+- {type: windows, checksum: 3c5f6acf43c11dc087b90813875a295a04c8e304ff88aa85ca327f9caf7a8156,
+  url: 'https://packages.scm-manager.org/repository/snapshots/sonia/scm/packaging/windows/2.13.0-SNAPSHOT/windows-2.13.0-SNAPSHOT-app.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
