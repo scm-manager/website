@@ -34,18 +34,6 @@
   displayName: Library
   description: Helper plugins to create awesome functionalities
   icon: envelope
-- name: mercurial
-  displayName: Mercurial
-  description: Special plugins for the revision-control system Mercurial
-  icon: code-branch
-- name: miscellaneous
-  displayName: Miscellaneous
-  description: Plugins which cover none of the above categories
-  icon: box-open
-- name: subversion
-  displayName: Subversion
-  description: Special plugins for the revision-control system Subversion
-  icon: code-branch
 - name: workflow
   displayName: Workflow
   description: This bunch of plugins helps improve your workflow

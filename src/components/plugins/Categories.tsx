@@ -60,7 +60,7 @@ const Categories = () => {
     <section className="section">
       <div className="container categories">
         <Title>
-          <a id="categories"></a>Categories
+          <a id="categories" />Categories
         </Title>
         <Subtitle>SCM-Manager v2 Plugin categories</Subtitle>
         {renderRows(rows)}
