@@ -20,7 +20,7 @@ const Category = ({ data }) => {
   }
 
   let plugins = data.plugins;
-  if (category.displayName === "All Plugins") {
+  if (category.name === "all") {
     plugins = data.allPlugins;
   }
 
@@ -47,10 +47,13 @@ export const query = graphql`
   query($name: String!) {
     category: categoriesYaml(name: { eq: $name }) {
       icon
+      name
       displayName
       description
     }
-    allPlugins: allPluginYaml {
+    allPlugins: allPluginYaml(
+     sort: { fields: displayName }
+    ) {
       nodes {
         name
         author

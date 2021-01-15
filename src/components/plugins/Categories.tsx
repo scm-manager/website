@@ -10,8 +10,12 @@ const createRows = (categories: Category[]) => {
     return [];
   }
   const sorted = categories.sort((left, right) => {
-    if(left.displayName === "All Plugins") return -1;
-    if(right.displayName === "All Plugins") return 1;
+    if (left.name === "all"){
+      return -1;
+    }
+    if (right.name === "all"){
+      return 1;
+    }
 
     return left.displayName.localeCompare(right.displayName);
   });
