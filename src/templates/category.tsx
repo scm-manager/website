@@ -19,6 +19,11 @@ const Category = ({ data }) => {
     return null;
   }
 
+  let plugins = data.plugins;
+  if (category.displayName === "All Plugins") {
+    plugins = data.allPlugins;
+  }
+
   return (
     <Page>
       <SEO title={"Category " + category.displayName} />
@@ -29,7 +34,7 @@ const Category = ({ data }) => {
         </Title>
         <Subtitle>{category.description}</Subtitle>
         <PluginList className="content">
-          {data.plugins.nodes.map(node => (
+          {plugins.nodes.map(node => (
             <Plugin key={node.name} plugin={node} />
           ))}
         </PluginList>
@@ -44,6 +49,14 @@ export const query = graphql`
       icon
       displayName
       description
+    }
+    allPlugins: allPluginYaml {
+      nodes {
+        name
+        author
+        displayName
+        description
+      }
     }
     plugins: allPluginYaml(
       filter: { category: { name: { eq: $name } } }

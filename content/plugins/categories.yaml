@@ -1,3 +1,7 @@
+- name: all
+  displayName: All Plugins
+  description: Shows all plugins regardless of their category
+  icon: puzzle-piece
 - name: administration
   displayName: Administration
   description: Plugins which makes the life of an SCM-Manager Administrator easier
