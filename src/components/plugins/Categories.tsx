@@ -10,6 +10,13 @@ const createRows = (categories: Category[]) => {
     return [];
   }
   const sorted = categories.sort((left, right) => {
+    if (left.name === "all"){
+      return -1;
+    }
+    if (right.name === "all"){
+      return 1;
+    }
+
     return left.displayName.localeCompare(right.displayName);
   });
 
