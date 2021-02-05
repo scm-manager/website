@@ -9,6 +9,7 @@ import PageContainer from "../layout/PageContainer";
 import HtmlContent from "../layout/HtmlContent";
 import TableOfContents from "../layout/TableOfContents";
 import { PATH_PART_INDEX_DOCS_LANGUAGE, PATH_PART_INDEX_DOCS_VERSION } from "../components/NavigationSettings";
+import NoIndexMeta from "../components/NoIndexMeta";
 
 const renderToc = page => {
   if (page.frontmatter.displayToc) {
@@ -28,6 +29,7 @@ const Doc: FC<DocPageProps> = ({ path, data }) => (
       description={data.markdownRemark.frontmatter.description || data.markdownRemark.description}
       keywords={data.markdownRemark.frontmatter.keywords}
     />
+    <NoIndexMeta/>
     <div className="columns">
       <div className="column is-three-quarters">
         <Title>{data.markdownRemark.frontmatter.title}</Title>

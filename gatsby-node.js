@@ -316,6 +316,9 @@ exports.createPages = ({ graphql, actions, reporter }) => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       if (node.fields.slug.startsWith("/docs")) {
         createPage(createDocPage(node));
+        if (latestVersion === node.fields.version) {
+          createPage()//TODO no new page, re-direct instead or just disallow noindex at latest
+        }
       } else if (node.fields.slug.startsWith("/posts")) {
         createPage(createPost(node));
       } else if (node.fields.slug.startsWith("/plugins")) {
