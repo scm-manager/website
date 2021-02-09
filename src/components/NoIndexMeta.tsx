@@ -6,18 +6,28 @@
 
 import React, { FunctionComponent } from "react";
 import Helmet from "react-helmet";
+import {graphql, useStaticQuery} from "gatsby";
 
 type Props = {
 
 }
 
 const NoIndexMeta: FunctionComponent<Props> = () => {
+  const data = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          siteUrl
+        }
+      }
+    }
+  `)
   return (
     <Helmet
-      meta={[
+      link={[
         {
-          name: `robots`,
-          content: `noindex`,
+          rel: `canonical`,
+          href: `${data.site.siteMetadata.siteUrl}/docs/latest/`
         }
         ]}
         />
@@ -25,3 +35,4 @@ const NoIndexMeta: FunctionComponent<Props> = () => {
 };
 
 export default NoIndexMeta;
+

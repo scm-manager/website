@@ -180,7 +180,7 @@ const createPluginLicensePage = node => {
   };
 };
 
-const createDocPage = node => {
+const createDocPage = (node, path, isLatest) => {
   const slugParts = node.fields.slug.split("/");
   // array start with an empty string
   slugParts.shift();
@@ -189,16 +189,28 @@ const createDocPage = node => {
   const version = slugParts.shift();
   const language = slugParts.shift();
   return {
-    path: node.fields.slug,
+    path: path ? path : node.fields.slug,
     component: path.resolve(`./src/templates/doc.tsx`),
     context: {
       slug: node.fields.slug,
       version,
       language,
       relativePath: "/" + slugParts.join("/"),
+      isLatest,
     },
   };
 };
+
+const createLatestDocPage = node => {
+  const slugParts = node.fields.slug.split("/");
+  // array start with an empty string
+  slugParts.shift();
+  // followed by docs
+  slugParts.shift();
+  // followed by version
+  slugParts.shift();
+  return createDocPage(node,["", "docs", "latest", ...slugParts].join("/"), true);
+}
 
 const createPost = node => {
   return {
@@ -308,7 +320,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
 
     createRedirect({
       fromPath: "/docs/",
-      toPath: `/docs/${latestVersion}/${defaultLanguage}/`,
+      toPath: `/docs/latest/${defaultLanguage}/`,
       isPermanent: true,
       redirectInBrowser: true,
     });
@@ -317,7 +329,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       if (node.fields.slug.startsWith("/docs")) {
         createPage(createDocPage(node));
         if (latestVersion === node.fields.version) {
-          createPage()//TODO no new page, re-direct instead or just disallow noindex at latest
+          createPage(createLatestDocPage(node));
         }
       } else if (node.fields.slug.startsWith("/posts")) {
         createPage(createPost(node));

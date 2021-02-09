@@ -22,14 +22,14 @@ type DocPageProps = PageProps & {
   data: any;
 };
 
-const Doc: FC<DocPageProps> = ({ path, data }) => (
+const Doc: FC<DocPageProps> = ({ path, data, pageContext }) => (
   <PageContainer>
     <SEO
       title={data.markdownRemark.frontmatter.title}
       description={data.markdownRemark.frontmatter.description || data.markdownRemark.description}
       keywords={data.markdownRemark.frontmatter.keywords}
     />
-    <NoIndexMeta/>
+    {pageContext.isLatest ? null: <NoIndexMeta/>}
     <div className="columns">
       <div className="column is-three-quarters">
         <Title>{data.markdownRemark.frontmatter.title}</Title>
