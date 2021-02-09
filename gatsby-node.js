@@ -180,7 +180,7 @@ const createPluginLicensePage = node => {
   };
 };
 
-const createDocPage = (node, path, isLatest) => {
+const createDocPage = (node, path, isLatest = false) => {
   const slugParts = node.fields.slug.split("/");
   // array start with an empty string
   slugParts.shift();

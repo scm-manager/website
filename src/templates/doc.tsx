@@ -9,7 +9,7 @@ import PageContainer from "../layout/PageContainer";
 import HtmlContent from "../layout/HtmlContent";
 import TableOfContents from "../layout/TableOfContents";
 import { PATH_PART_INDEX_DOCS_LANGUAGE, PATH_PART_INDEX_DOCS_VERSION } from "../components/NavigationSettings";
-import NoIndexMeta from "../components/NoIndexMeta";
+import CanonicalLink from "../components/CanonicalLink";
 
 const renderToc = page => {
   if (page.frontmatter.displayToc) {
@@ -29,7 +29,7 @@ const Doc: FC<DocPageProps> = ({ path, data, pageContext }) => (
       description={data.markdownRemark.frontmatter.description || data.markdownRemark.description}
       keywords={data.markdownRemark.frontmatter.keywords}
     />
-    {pageContext.isLatest ? null: <NoIndexMeta/>}
+    {!pageContext.isLatest ? <CanonicalLink path={"docs/latest/"} /> : null}
     <div className="columns">
       <div className="column is-three-quarters">
         <Title>{data.markdownRemark.frontmatter.title}</Title>

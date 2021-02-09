@@ -36,12 +36,11 @@ const useLatestRelease = () => {
     .sort(compareVersions)
     .reverse()[0];
 
-  const tagParts = tag.split(".");
   const defaultLanguage = data.languages.childrenLanguagesYaml[0].value;
 
   return {
     tag,
-    docs: `/docs/${tagParts[0]}.${tagParts[1]}.x/${defaultLanguage}/`,
+    docs: `/docs/latest/${defaultLanguage}/`,
   };
 };
 
