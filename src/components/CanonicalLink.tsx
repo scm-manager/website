@@ -6,7 +6,7 @@ type Props = {
   path: string;
 }
 
-const CanonicalLink: FunctionComponent<Props> = (path) => {
+const CanonicalLink: FunctionComponent<Props> = ({path}) => {
   const data = useStaticQuery(graphql`
     {
       site {

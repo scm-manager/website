@@ -22,6 +22,14 @@ type DocPageProps = PageProps & {
   data: any;
 };
 
+const canonicalPath = (path) => {
+  let pathParts = path.split("/");
+  pathParts.shift();
+  pathParts.shift();
+  pathParts.shift();
+  return pathParts.join("/");
+}
+
 const Doc: FC<DocPageProps> = ({ path, data, pageContext }) => (
   <PageContainer>
     <SEO
@@ -29,7 +37,7 @@ const Doc: FC<DocPageProps> = ({ path, data, pageContext }) => (
       description={data.markdownRemark.frontmatter.description || data.markdownRemark.description}
       keywords={data.markdownRemark.frontmatter.keywords}
     />
-    {!pageContext.isLatest ? <CanonicalLink path={"docs/latest/"} /> : null}
+    {!pageContext.isLatest ? <CanonicalLink path={`docs/latest/${canonicalPath(path)}`} /> : null}
     <div className="columns">
       <div className="column is-three-quarters">
         <Title>{data.markdownRemark.frontmatter.title}</Title>

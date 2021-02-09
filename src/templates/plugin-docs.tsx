@@ -13,6 +13,7 @@ import {
   PATH_PART_INDEX_PLUGIN_VERSION,
 } from "../components/NavigationSettings";
 import SEO from "../components/SEO";
+import CanonicalLink from "../components/CanonicalLink";
 
 const renderToc = page => {
   if (page.frontmatter.displayToc) {
@@ -20,6 +21,16 @@ const renderToc = page => {
   }
   return null;
 };
+
+const canonicalPath = (path) => {
+  let pathParts = path.split("/");
+  pathParts.shift();
+  pathParts.shift();
+  pathParts.shift();
+  pathParts.shift();
+  pathParts.shift();
+  return pathParts.join("/");
+}
 
 const Navigation = ({ plugin, version, language }) => {
   return (
@@ -46,6 +57,7 @@ const PluginDocs = ({ data, path, pageContext }) => {
         description={data.markdownRemark.frontmatter.description || data.markdownRemark.description}
         keywords={data.markdownRemark.frontmatter.keywords}
       />
+      {!pageContext.isLatest ? <CanonicalLink path={`plugins/${data.plugin.name}/docs/latest/${canonicalPath(path)}`} /> : null}
       <div className="columns">
         <div className="column is-three-quarters">
           <Title>{data.markdownRemark.frontmatter.title}</Title>
@@ -74,6 +86,7 @@ const PluginDocs = ({ data, path, pageContext }) => {
     </PageContainer>
   );
 };
+
 
 export const query = graphql`
   query($name: String!, $version: String!, $language: String!, $slug: String!) {
