@@ -20,6 +20,9 @@ const renderToc = page => {
 
 type DocPageProps = PageProps & {
   data: any;
+  pageContext?: {
+    isLatest?: boolean;
+  }
 };
 
 const canonicalPath = (path) => {
