@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { useStaticQuery, graphql } from "gatsby"
 import { navigate } from "gatsby";
 import Setting from "./Setting";
 import LanguageSetting from "./LanguageSetting";
@@ -10,9 +11,23 @@ export const PATH_PART_INDEX_DOCS_LANGUAGE = 3;
 export const PATH_PART_INDEX_PLUGIN_VERSION = 4;
 export const PATH_PART_INDEX_PLUGIN_LANGUAGE = 5;
 
+const resolveLanguage = () => {
+  // const {paths} = useStaticQuery(query);
+  // console.log(paths);
+  return true;
+  //return(JSON.stringify(data, null, 4));
+};
 
 const changeVersion = (path: string, version: string, index = PATH_PART_INDEX_DOCS_VERSION) => {
-  navigate(replacePathPartAndCutOff(path, index, version, "en"));
+  const lang = findLanguage(path, PATH_PART_INDEX_DOCS_LANGUAGE);
+  const newPath = replacePathPartAndCutOff(path, index, version, lang);
+  //console.log(resolveLanguage);
+  if (resolveLanguage()) {
+    navigate(newPath);
+  }
+  else {
+    navigate(replacePathPartAndCutOff(path, index, version, "en"));
+  }
 };
 
 const changeLanguage = (path: string, lang: string, index = PATH_PART_INDEX_DOCS_LANGUAGE) => {
@@ -51,6 +66,8 @@ type Props = {
 };
 
 const NavigationSettings: FC<Props> = ({ path, versionPathIndex, languagePathIndex, versions, languages }) => {
+  const {paths} = useStaticQuery(query);
+  console.log(paths);
   return (
     <>
       <p className="menu-label">Settings</p>
@@ -73,5 +90,17 @@ const NavigationSettings: FC<Props> = ({ path, versionPathIndex, languagePathInd
     </>
   );
 };
+
+const query = graphql`
+  query {
+    paths: allSitePage(filter: {path: {glob: "/docs/**"}}) {
+      nodes {
+        context {
+          slug
+        }
+      }
+    }
+  }
+`;
 
 export default NavigationSettings;
