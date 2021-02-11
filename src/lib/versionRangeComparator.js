@@ -14,7 +14,7 @@ const createSemVer = version => {
 };
 
 const versionRangeComparator = (a, b) => {
-  return compare(createSemVer(a), createSemVer(b));
+  return compare(createSemVer(a), createSemVer(b)) * -1;
 };
 
 module.exports = versionRangeComparator;

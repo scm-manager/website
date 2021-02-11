@@ -59,8 +59,7 @@ const NavigationSettings: FC<Props> = ({ path, versionPathIndex, languagePathInd
         value={findVersion(path, versionPathIndex)}
         options={versions.group
           .map(g => g.fieldValue)
-          .sort(versionRangeComparator)
-          .reverse()}
+          .sort(versionRangeComparator)}
         onChange={version => changeVersion(path, version, versionPathIndex)}
       />
       <LanguageSetting
