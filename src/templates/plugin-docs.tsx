@@ -1,5 +1,5 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
+import React, { FC } from "react";
+import { graphql, Link, PageProps } from "gatsby";
 import Title from "../components/Title";
 import Subtitle from "../components/Subtitle";
 import HtmlContent from "../layout/HtmlContent";
@@ -19,16 +19,6 @@ const renderToc = page => {
   return null;
 };
 
-const canonicalPath = (path) => {
-  let pathParts = path.split("/");
-  pathParts.shift();
-  pathParts.shift();
-  pathParts.shift();
-  pathParts.shift();
-  pathParts.shift();
-  return pathParts.join("/");
-};
-
 const Navigation = ({ plugin, version, language }) => {
   return (
     <MenuSection title="Navigation">
@@ -46,7 +36,13 @@ const Navigation = ({ plugin, version, language }) => {
   );
 };
 
-const PluginDocs = ({ data, path, pageContext }) => {
+type PageContext = {
+  canonicalPath?: string;
+  version: string;
+  language: string;
+};
+
+const PluginDocs: FC<PageProps<any, PageContext>> = ({ data, path, pageContext }) => {
   return (
     <PageContainer>
       <SEO
@@ -54,8 +50,7 @@ const PluginDocs = ({ data, path, pageContext }) => {
         description={data.markdownRemark.frontmatter.description || data.markdownRemark.description}
         keywords={data.markdownRemark.frontmatter.keywords}
       />
-      {!pageContext.isLatest ?
-        <CanonicalLink path={`plugins/${data.plugin.name}/docs/latest/${canonicalPath(path)}`}/> : null}
+      <CanonicalLink path={pageContext.canonicalPath}/>
       <div className="columns">
         <div className="column is-three-quarters">
           <Title>{data.markdownRemark.frontmatter.title}</Title>

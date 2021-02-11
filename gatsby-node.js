@@ -11,7 +11,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 
 const compareVersions = require("semver/functions/compare");
 const minVersion = require("semver/ranges/min-version");
-const { default: versionRangeComparator } = require("./src/lib/versionRangeComparator");
+const versionRangeComparator = require("./src/lib/versionRangeComparator");
 
 // resolve src for mdx
 // https://github.com/ChristopherBiscardi/gatsby-mdx/issues/176#issuecomment-429569578
@@ -158,15 +158,24 @@ const createPluginReleasesPage = node => {
 const createPluginDocPage = (node, pluginDocPath, isLatest = false) => {
   const slugParts = node.fields.slug.split("/").filter(p => p.length > 0);
   // e.g.: /plugins/scm-review-plugin/docs/2.0.x/en/tasks
+  const name = slugParts[1];
+  const version = slugParts[3];
+  const language = slugParts[4];
+  
+  let canonicalPath;
+  if (!isLatest) {
+    canonicalPath = `/plugins/${name}/docs/latest/${language}/`;
+  }
+
   return {
     path: pluginDocPath ? pluginDocPath : node.fields.slug,
     component: path.resolve(`./src/templates/plugin-docs.tsx`),
     context: {
-      name: slugParts[1],
+      name,
       slug: node.fields.slug,
-      version: slugParts[3],
-      language: slugParts[4],
-      isLatest,
+      version,
+      language,
+      canonicalPath,
     },
   };
 };
@@ -189,6 +198,12 @@ const createDocPage = (node, docPath, isLatest = false) => {
   slugParts.shift();
   const version = slugParts.shift();
   const language = slugParts.shift();
+
+  let canonicalPath;
+  if (!isLatest) {
+    canonicalPath = `/docs/latest/${language}/`;
+  }
+
   return {
     path: docPath ? docPath : node.fields.slug,
     component: path.resolve(`./src/templates/doc.tsx`),
@@ -197,7 +212,7 @@ const createDocPage = (node, docPath, isLatest = false) => {
       version,
       language,
       relativePath: "/" + slugParts.join("/"),
-      isLatest,
+      canonicalPath,
     },
   };
 };
@@ -342,12 +357,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       result.data.languages.childrenLanguagesYaml[0].value;
     const latestVersion = result.data.versions.group
       .map(g => g.fieldValue)
-      .sort((a, b) => {
-        return (
-          compareVersions(minVersion(a), minVersion(b)) *
-          -1
-        );
-      })[0];
+      .sort(versionRangeComparator)[0];
 
     const latestPluginVersion = result.data.pluginVersions.group
       .map((plugin) => {
@@ -355,15 +365,8 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         let latestVersion = null;
         if (versions.length > 0) {
           latestVersion = versions
-            .map(g => {
-              return g.version;
-            })
-            .sort((a, b) => {
-              return (
-                compareVersions(minVersion(a), minVersion(b)) *
-                -1
-              );
-            })[0];
+            .map(g => g.version)
+            .sort(versionRangeComparator)[0];
         }
         return {
           name: plugin.fieldValue,
@@ -498,8 +501,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
     const lastRelease = result.data.releases.nodes.map(node => node.tag)
       // remove rc releases
       .filter(tag => !tag.includes("-"))
-      .sort(versionRangeComparator)
-      .reverse()[0];
+      .sort(versionRangeComparator)[0];
 
     createRedirect({
       fromPath: `/download/`,

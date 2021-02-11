@@ -18,29 +18,20 @@ const renderToc = page => {
   return null;
 };
 
-type DocPageProps = PageProps & {
-  data: any;
-  pageContext?: {
-    isLatest?: boolean;
-  }
+type PageContext = {
+  canonicalPath?: string;
+  version: string;
+  language: string;
 };
 
-const canonicalPath = (path) => {
-  let pathParts = path.split("/");
-  pathParts.shift();
-  pathParts.shift();
-  pathParts.shift();
-  return pathParts.join("/");
-}
-
-const Doc: FC<DocPageProps> = ({ path, data, pageContext }) => (
+const Doc: FC<PageProps<any,PageContext>> = ({ path, data, pageContext }) => (
   <PageContainer>
     <SEO
       title={data.markdownRemark.frontmatter.title}
       description={data.markdownRemark.frontmatter.description || data.markdownRemark.description}
       keywords={data.markdownRemark.frontmatter.keywords}
     />
-    {!pageContext.isLatest ? <CanonicalLink path={`docs/latest/${canonicalPath(path)}`} /> : null}
+    <CanonicalLink path={pageContext.canonicalPath} />
     <div className="columns">
       <div className="column is-three-quarters">
         <Title>{data.markdownRemark.frontmatter.title}</Title>

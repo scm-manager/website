@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FC } from "react";
 import Helmet from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 
@@ -6,7 +6,7 @@ type Props = {
   path: string;
 }
 
-const CanonicalLink: FunctionComponent<Props> = ({path}) => {
+const CanonicalLink: FC<Props> = ({path}) => {
   const data = useStaticQuery(graphql`
     {
       site {
@@ -16,12 +16,27 @@ const CanonicalLink: FunctionComponent<Props> = ({path}) => {
       }
     }
   `);
+
+  if (!path) {
+    return null;
+  }
+
+  let href = data.site.siteMetadata.siteUrl
+  if (!href.endsWith("/")) {
+    href += "/";
+  }
+  if (path.startsWith("/")) {
+    href += path.substring(1);
+  } else {
+    href += path;
+  }
+
   return (
     <Helmet
       link={[
         {
           rel: `canonical`,
-          href: `${data.site.siteMetadata.siteUrl}/${path}`,
+          href,
         },
       ]}
     />
