@@ -561,9 +561,24 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage, deletePage } = actions;
   // Check if the page is a localized 404
+  // const localPath = ["blog", "docs"];
+  // for (const e in localPath) {
+  //   if (page.path === "/"+e+"/404/") {
+  //     const oldPage = { ...page };
+  //     page.matchPath = `/`e`/*`;
+  //     deletePage(oldPage);
+  //     createPage(page);
+  //   }
+  // }
   if (page.path === "/blog/404/") {
     const oldPage = { ...page };
     page.matchPath = `/blog/*`;
+    deletePage(oldPage);
+    createPage(page);
+  }
+  if (page.path === "/docs/404/") {
+    const oldPage = { ...page };
+    page.matchPath = `/docs/*`;
     deletePage(oldPage);
     createPage(page);
   }
