@@ -19,9 +19,10 @@ const renderToc = page => {
 };
 
 type PageContext = {
-  canonicalPath?: string;
+  slug: string;
   version: string;
   language: string;
+  canonicalPath?: string;
 };
 
 const Doc: FC<PageProps<any,PageContext>> = ({ path, data, pageContext }) => (
@@ -40,7 +41,7 @@ const Doc: FC<PageProps<any,PageContext>> = ({ path, data, pageContext }) => (
         <HtmlContent content={data.markdownRemark.html} />
       </div>
       <div className="column is-one-quarter">
-        <DocNavigation versions={data.versions} languages={data.languages} path={path} navigation={data.navigation} versionPathIndex={PATH_PART_INDEX_DOCS_VERSION} languagePathIndex={PATH_PART_INDEX_DOCS_LANGUAGE} />
+        <DocNavigation versions={data.versions} languages={data.languages} path={pageContext.slug} navigation={data.navigation} versionPathIndex={PATH_PART_INDEX_DOCS_VERSION} languagePathIndex={PATH_PART_INDEX_DOCS_LANGUAGE} />
       </div>
     </div>
   </PageContainer>
