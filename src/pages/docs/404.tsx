@@ -1,12 +1,9 @@
 import React, { FC } from "react";
-// import { graphql, PageProps } from "gatsby";
 
 import SEO from "../../components/SEO";
 import Title from "../../components/Title";
 import Subtitle from "../../components/Subtitle";
-// import DocNavigation from "../../components/DocNavigation";
 import PageContainer from "../../layout/PageContainer";
-
 
 
 const NotFoundPage = () => (
@@ -20,12 +17,11 @@ const NotFoundPage = () => (
        </Subtitle>
        <div>
          <p>
-           Did you try to access documentation that ist not yet translated? You can help! Head over to <a href="">Seite</a> and help make the SCM-Manager a better documented tool!
+           Did you try to access documentation that ist not yet translated? You can help! Head over to <a href="https://github.com/scm-manager/scm-manager/tree/develop/docs">the docs-pages on github</a> and help make the SCM-Manager a better documented tool!
           </p>
         </div>
       </div>
       <div className="column is-one-quarter">
-        {/*<DocNavigation versions={data.versions} languages={"en"} path={path} navigation={data.navigation} versionPathIndex={PATH_PART_INDEX_DOCS_VERSION} languagePathIndex={PATH_PART_INDEX_DOCS_LANGUAGE} />*/}
       </div>
     </div>
   </PageContainer>
