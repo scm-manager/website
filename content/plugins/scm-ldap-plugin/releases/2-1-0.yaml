@@ -1,0 +1,8 @@
+---
+plugin: "scm-ldap-plugin"
+tag: "2.1.0"
+date: "2021-02-15T09:18:14Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-ldap-plugin/2.1.0/scm-ldap-plugin-2.1.0.smp"
+checksum: "ec4f97aaaf496bd9a552b759c1d3e6cb8d44fc7cb0e93dd4ec92a3ddf26b90ed"
+conditions:
+  minVersion: "2.0.0"

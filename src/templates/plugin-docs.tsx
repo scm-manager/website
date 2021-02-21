@@ -1,5 +1,5 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
+import React, { FC } from "react";
+import { graphql, Link, PageProps } from "gatsby";
 import Title from "../components/Title";
 import Subtitle from "../components/Subtitle";
 import HtmlContent from "../layout/HtmlContent";
@@ -8,11 +8,9 @@ import TableOfContents from "../layout/TableOfContents";
 import DocNavigation from "../components/DocNavigation";
 import MenuSection from "../components/MenuSection";
 import MenuEntry from "../components/MenuEntry";
-import {
-  PATH_PART_INDEX_PLUGIN_LANGUAGE,
-  PATH_PART_INDEX_PLUGIN_VERSION,
-} from "../components/NavigationSettings";
+import { PATH_PART_INDEX_PLUGIN_LANGUAGE, PATH_PART_INDEX_PLUGIN_VERSION } from "../components/NavigationSettings";
 import SEO from "../components/SEO";
+import CanonicalLink from "../components/CanonicalLink";
 
 const renderToc = page => {
   if (page.frontmatter.displayToc) {
@@ -38,7 +36,13 @@ const Navigation = ({ plugin, version, language }) => {
   );
 };
 
-const PluginDocs = ({ data, path, pageContext }) => {
+type PageContext = {
+  canonicalPath?: string;
+  version: string;
+  language: string;
+};
+
+const PluginDocs: FC<PageProps<any, PageContext>> = ({ data, path, pageContext }) => {
   return (
     <PageContainer>
       <SEO
@@ -46,6 +50,7 @@ const PluginDocs = ({ data, path, pageContext }) => {
         description={data.markdownRemark.frontmatter.description || data.markdownRemark.description}
         keywords={data.markdownRemark.frontmatter.keywords}
       />
+      <CanonicalLink path={pageContext.canonicalPath}/>
       <div className="columns">
         <div className="column is-three-quarters">
           <Title>{data.markdownRemark.frontmatter.title}</Title>
@@ -74,6 +79,7 @@ const PluginDocs = ({ data, path, pageContext }) => {
     </PageContainer>
   );
 };
+
 
 export const query = graphql`
   query($name: String!, $version: String!, $language: String!, $slug: String!) {

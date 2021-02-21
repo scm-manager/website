@@ -9,6 +9,7 @@ import PageContainer from "../layout/PageContainer";
 import HtmlContent from "../layout/HtmlContent";
 import TableOfContents from "../layout/TableOfContents";
 import { PATH_PART_INDEX_DOCS_LANGUAGE, PATH_PART_INDEX_DOCS_VERSION } from "../components/NavigationSettings";
+import CanonicalLink from "../components/CanonicalLink";
 
 const renderToc = page => {
   if (page.frontmatter.displayToc) {
@@ -17,17 +18,20 @@ const renderToc = page => {
   return null;
 };
 
-type DocPageProps = PageProps & {
-  data: any;
+type PageContext = {
+  canonicalPath?: string;
+  version: string;
+  language: string;
 };
 
-const Doc: FC<DocPageProps> = ({ path, data }) => (
+const Doc: FC<PageProps<any,PageContext>> = ({ path, data, pageContext }) => (
   <PageContainer>
     <SEO
       title={data.markdownRemark.frontmatter.title}
       description={data.markdownRemark.frontmatter.description || data.markdownRemark.description}
       keywords={data.markdownRemark.frontmatter.keywords}
     />
+    <CanonicalLink path={pageContext.canonicalPath} />
     <div className="columns">
       <div className="column is-three-quarters">
         <Title>{data.markdownRemark.frontmatter.title}</Title>
