@@ -21,7 +21,7 @@ type DocPageProps = PageProps & {
   data: any;
 };
 
-const Doc: FC<DocPageProps> = ({ path, data, pageContext }) => (
+const Doc: FC<DocPageProps> = ({ path, data }) => (
   <PageContainer>
     <SEO
       title={data.markdownRemark.frontmatter.title}
@@ -36,7 +36,7 @@ const Doc: FC<DocPageProps> = ({ path, data, pageContext }) => (
         <HtmlContent content={data.markdownRemark.html} />
       </div>
       <div className="column is-one-quarter">
-        <DocNavigation versions={data.versions} languages={data.languages} path={pageContext.slug} navigation={data.navigation} versionPathIndex={PATH_PART_INDEX_DOCS_VERSION} languagePathIndex={PATH_PART_INDEX_DOCS_LANGUAGE} />
+        <DocNavigation versions={data.versions} languages={data.languages} path={path} navigation={data.navigation} versionPathIndex={PATH_PART_INDEX_DOCS_VERSION} languagePathIndex={PATH_PART_INDEX_DOCS_LANGUAGE} />
       </div>
     </div>
   </PageContainer>

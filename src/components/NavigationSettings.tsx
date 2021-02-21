@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { useStaticQuery, graphql } from "gatsby"
 import { navigate } from "gatsby";
 import Setting from "./Setting";
 import LanguageSetting from "./LanguageSetting";
