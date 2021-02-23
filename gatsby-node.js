@@ -161,7 +161,7 @@ const createPluginDocPage = (node, pluginDocPath, isLatest = false) => {
   const name = slugParts[1];
   const version = slugParts[3];
   const language = slugParts[4];
-  
+
   let canonicalPath;
   if (!isLatest) {
     canonicalPath = `/plugins/${name}/docs/latest/${language}/`;
@@ -637,6 +637,12 @@ exports.onCreatePage = async ({ page, actions }) => {
   if (page.path === "/blog/404/") {
     const oldPage = { ...page };
     page.matchPath = `/blog/*`;
+    deletePage(oldPage);
+    createPage(page);
+  }
+  if (page.path === "/docs/404/") {
+    const oldPage = { ...page };
+    page.matchPath = `/docs/*`;
     deletePage(oldPage);
     createPage(page);
   }

@@ -12,7 +12,9 @@ export const PATH_PART_INDEX_PLUGIN_LANGUAGE = 5;
 
 
 const changeVersion = (path: string, version: string, index = PATH_PART_INDEX_DOCS_VERSION) => {
-  navigate(replacePathPartAndCutOff(path, index, version, "en"));
+  const lang = findLanguage(path, PATH_PART_INDEX_DOCS_LANGUAGE);
+  const newPath = replacePathPartAndCutOff(path, index, version, lang);
+     navigate(newPath);
 };
 
 const changeLanguage = (path: string, lang: string, index = PATH_PART_INDEX_DOCS_LANGUAGE) => {
