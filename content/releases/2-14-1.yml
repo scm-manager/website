@@ -1,0 +1,11 @@
+tag: 2.14.1
+date: '2021-03-03T15:16:16Z'
+packages:
+- {type: unix, checksum: e9b45743e4f32af4c9442f291e6d8923910e9975a8be16932d0cb12b12b6fa0c,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.14.1/unix-2.14.1.tar.gz'}
+- {type: windows, checksum: 21a135d7eac77c5dd538c867b030688acd4c7c69688ff5c4b85b6e239f1e4fda,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.14.1/windows-2.14.1.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
