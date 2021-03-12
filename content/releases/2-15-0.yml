@@ -1,0 +1,11 @@
+tag: 2.15.0
+date: '2021-03-12T13:42:20Z'
+packages:
+- {type: unix, checksum: ca546b68d02de3d6eaaeb403d7cd5b4e45c967aeae0558038213f59fe5921ad6,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.15.0/unix-2.15.0.tar.gz'}
+- {type: windows, checksum: e8aa507a6656b7c6948965299240ce34e9f99e5289fe95fe961d6e2ee4002030,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.15.0/windows-2.15.0.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
