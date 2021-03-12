@@ -1,5 +1,5 @@
 name: scm-metrics-prometheus-plugin
 displayName: Prometheus Metrics
-description: Provides metrics to prometheus
+description: Provides metrics to Prometheus
 category: administration
 author: Cloudogu GmbH
