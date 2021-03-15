@@ -14,14 +14,15 @@ keywords:
 
 Hey SCM-Manager community,
 
-you may now search for filenames inside your SCM-Manager repositories and collect metrics for your SCM-Manager server. 
+with the new release it is now possible to search for filenames inside your SCM-Manager repositories, and with metrics
+you can gain insights into your SCM-Manager server. 
 Checkout the newest release to find about everything that changed.
 
 ## Search for files inside repositories
 
 Finally, it is possible to search for files and directories within repositories.
 To search for a file, you can click the search icon next to the file path in the source view of the repository.
-On the file search page, you can enter the text you are looking for.
+On the file search page, you can enter parts of the name or the directory you are looking for.
 The search is based on the file path only and hits in the file name are ranked higher than hits in the path.
 
 Tell us how you feel about the search function!
@@ -31,8 +32,8 @@ Tell us how you feel about the search function!
 ## Partial diff
 Another issue that noticeably affected performance was loading changesets with a lot of added/changed/deleted files.
 
-We solved this matter by load the changes as chunks.
-You will see about 30 changed files directly and can load more by clicking on the button at the bottom.
+We solved this matter by loading the changes in chunks.
+You will see 25 changed files directly and can load more by clicking on the button at the bottom.
 
 ![more_diffs](./assets/more_diffs.png)
 
