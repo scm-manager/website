@@ -1,6 +1,6 @@
 ---
 title: SCM-Manager 2.15.0
-date: 2021-03-012T15:00:00+0000
+date: 2021-03-12T15:00:00+0000
 author: SCM-Team
 categories:
   - scm-manager
