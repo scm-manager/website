@@ -1,0 +1,11 @@
+tag: 2.16.0
+date: '2021-03-26T10:14:43Z'
+packages:
+- {type: unix, checksum: 24acf0f948a78a7f26c4559b80fa2a957450c0c2d16d31f3054d7dc6716e205c,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.16.0/unix-2.16.0.tar.gz'}
+- {type: windows, checksum: cd82d150760a664744dc412a7ae83a621fbf8aa325f0ca14372f2dedd0c87681,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.16.0/windows-2.16.0.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
