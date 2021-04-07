@@ -321,7 +321,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         }
       }
 
-      versions: allMarkdownRemark {
+      versions: allMarkdownRemark(filter: { fields:{ plugin: { eq: null } } }) {
         group(field: fields___version) {
           fieldValue
         }
