@@ -2,12 +2,17 @@ import React, { FC } from "react";
 import { Link, navigate } from "gatsby";
 import { Category } from "../../types/category";
 import Icon from "../Icon";
+import styled from "styled-components";
 
 type Props = {
-  category: Category
+  category: Category;
 };
 
-const CategoryCard: FC<Props> = ({ category}) => {
+const CategoryIcon = styled(Icon)`
+  padding-right: 1.25rem;
+`;
+
+const CategoryCard: FC<Props> = ({ category }) => {
   const to = "/plugins/categories/" + category.name + "/";
   return (
     <div className="column is-4">
@@ -15,11 +20,7 @@ const CategoryCard: FC<Props> = ({ category}) => {
         <div className="card-content">
           <Link to={to}>
             <h3 className="card-header-title has-text-link">
-              <Icon
-                icon={category.icon}
-                size="2x"
-                className="icon spacing-right"
-              />
+              <CategoryIcon icon={category.icon} size="2x" />
               {category.displayName}
             </h3>
           </Link>
