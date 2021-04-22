@@ -84,11 +84,12 @@ const renderSocialSharingCards = async (cards) => {
 
   const browser = await puppeteer.launch({
     headless: true,
-    defaultViewport: cardSize
+    defaultViewport: cardSize,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
 
   for (let i=0; i<cardsToCreate.length; i++) {
-    console.log(`create social sharing card ${i}/${cardsToCreate.length}`)
+    console.log(`create social sharing card ${i + 1}/${cardsToCreate.length}`)
     await createSharingCard(browser, cardsToCreate[i]);
   }
 

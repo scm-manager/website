@@ -13,7 +13,6 @@ const compareVersions = require("semver/functions/compare");
 const minVersion = require("semver/ranges/min-version");
 const versionRangeComparator = require("./src/lib/versionRangeComparator");
 const { createSocialSharingCard, renderSocialSharingCards} = require("./src/lib/socialSharingCards");
-const { render } = require("react-dom");
 
 // resolve src for mdx
 // https://github.com/ChristopherBiscardi/gatsby-mdx/issues/176#issuecomment-429569578
@@ -540,7 +539,8 @@ exports.createPages = ({ graphql, actions, reporter }) => {
     const socialSharingCards = [];
     posts.forEach(({node: post}) => {
       let socialSharingCard;
-      if (!post.frontmatter.featuredImage) {
+
+      if (!post.frontmatter.featuredImage && isSocialSharingCardGenerationEnabled()) {
         const card = createSocialSharingCard(post);
         socialSharingCards.push(card);
         socialSharingCard = {
@@ -549,11 +549,17 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           src: "/" + card.path
         }
       }
+
       createPage(createPost(post, socialSharingCard));
     });
 
     return renderSocialSharingCards(socialSharingCards);
   });
+};
+
+
+const isSocialSharingCardGenerationEnabled = () => {
+  return process.env.NODE_ENV === 'production' || process.env.GENERATE_SOCIAL_SHARING_CARDS === 'true'
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
