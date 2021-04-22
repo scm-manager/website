@@ -96,7 +96,7 @@ node('docker') {
 }
 
 void withNode(Closure closure) {
-  docker.image('scmmanager/node-build:12.16.3').inside {
+  docker.image('scmmanager/node-build:14.16.1').inside {
     withEnv(["HOME=${env.WORKSPACE}"]) {
       closure.call()
     }
