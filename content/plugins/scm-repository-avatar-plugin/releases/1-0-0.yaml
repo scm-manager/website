@@ -1,0 +1,8 @@
+---
+plugin: "scm-repository-avatar-plugin"
+tag: "1.0.0"
+date: "2021-04-22T09:37:43Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-repository-avatar-plugin/1.0.0/scm-repository-avatar-plugin-1.0.0.smp"
+checksum: "c773020d972166a759d324fccb2de6fe0fdf604c6977376b873e5debde527783"
+conditions:
+  minVersion: "2.17.0"
