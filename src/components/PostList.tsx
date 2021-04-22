@@ -20,8 +20,8 @@ const PostList: FC<Props> = ({ posts }) => (
         </h2>
         <p className="has-text-grey	">
           Posted on {post.frontmatter.date} by{" "}
-          <Link to={`/blog/authors/${post.frontmatter.author}`}>
-            {post.frontmatter.author}
+          <Link to={`/blog/authors/${post.frontmatter.author.id}`}>
+            {post.frontmatter.author.id}
           </Link>
         </p>
         <SmallMaringHR />
@@ -50,7 +50,9 @@ export const postListFragment = graphql`
     frontmatter {
       title
       date(formatString: "YYYY-MM-DD")
-      author
+      author {
+        id
+      }
       categories
     }
     excerpt(pruneLength: 280, format: HTML)

@@ -28,7 +28,7 @@ const PostsAuthor = ({ pageContext, data }) => {
 export const query = graphql`
   query($author: String!, $skip: Int!, $limit: Int!) {
     posts: allMarkdownRemark(
-      filter: { frontmatter: { author: { eq: $author } } }
+      filter: { frontmatter: { author: { id: { eq: $author } } } }
       sort: { fields: [frontmatter___date, frontmatter___title], order: DESC }
       limit: $limit
       skip: $skip

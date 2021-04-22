@@ -12,6 +12,8 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 const compareVersions = require("semver/functions/compare");
 const minVersion = require("semver/ranges/min-version");
 const versionRangeComparator = require("./src/lib/versionRangeComparator");
+const { createSocialSharingCard, renderSocialSharingCards} = require("./src/lib/socialSharingCards");
+const { render } = require("react-dom");
 
 // resolve src for mdx
 // https://github.com/ChristopherBiscardi/gatsby-mdx/issues/176#issuecomment-429569578
@@ -23,7 +25,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = async ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` });
@@ -243,12 +245,13 @@ const createLatestPluginDocPage = node => {
   return createPluginDocPage(node, ["", "plugins", name, "docs", "latest", ...slugParts].join("/"), true);
 };
 
-const createPost = node => {
+const createPost = (node, socialSharingCard) => {
   return {
     path: `/blog${node.fields.slug}`,
     component: path.resolve(`./src/templates/post.tsx`),
     context: {
       slug: node.fields.slug,
+      socialSharingCard
     },
   };
 };
@@ -295,7 +298,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       authors: allMarkdownRemark(
         filter: { fields: { slug: { glob: "/posts/**" } } }
       ) {
-        group(field: frontmatter___author) {
+        group(field: frontmatter___author___id) {
           fieldValue
           totalCount
         }
@@ -309,6 +312,22 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           node {
             fields {
               slug
+            }
+            frontmatter {
+              title
+              categories
+              date(formatString: "YYYY-MM-DD HH:mm")
+              author {
+                id
+                avatar
+              }
+              featuredImage {
+                relativePath
+              }
+            }
+            timeToRead
+            wordCount {
+              words
             }
           }
         }
@@ -387,8 +406,6 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         if (latestVersion === node.fields.slug.split("/")[2]) {
           createPage(createLatestDocPage(node));
         }
-      } else if (node.fields.slug.startsWith("/posts")) {
-        createPage(createPost(node));
       } else if (node.fields.slug.startsWith("/plugins")) {
         const slugParts = node.fields.slug.split("/");
         if (slugParts[3] === "docs") {
@@ -519,6 +536,23 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         },
       });
     });
+
+    const socialSharingCards = [];
+    posts.forEach(({node: post}) => {
+      let socialSharingCard;
+      if (!post.frontmatter.featuredImage) {
+        const card = createSocialSharingCard(post);
+        socialSharingCards.push(card);
+        socialSharingCard = {
+          width: card.width,
+          height: card.height,
+          src: "/" + card.path
+        }
+      }
+      createPage(createPost(post, socialSharingCard));
+    });
+
+    return renderSocialSharingCards(socialSharingCards);
   });
 };
 

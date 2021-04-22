@@ -25,9 +25,9 @@ const query = graphql`
     }
     authors: allMarkdownRemark(
       filter: { fields: { slug: { glob: "/posts/**" } } }
-      sort: { fields: [frontmatter___author] }
+      sort: { fields: [frontmatter___author___id] }
     ) {
-      group(field: frontmatter___author) {
+      group(field: frontmatter___author___id) {
         fieldValue
         totalCount
       }

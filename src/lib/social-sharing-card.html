@@ -1,0 +1,142 @@
+<html>
+  <head>
+    <style type="text/css">
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+      .body,
+      html {
+        width: 800px;
+        height: 410px;
+      }
+
+      svg {
+        width: 800px;
+        height: 400px;
+      }
+
+      .title-container {
+        height: 100%;
+        width: 100%;
+        position: relative;
+      }
+
+      .title {
+        font-size: 48px;
+        font-family: Montserrat;
+        font-weight: 700;
+        text-overflow: ellipsis;
+        margin: 0;
+        color: #525252;
+        position: absolute;
+        bottom: 0;
+      }
+
+      text {
+        font-family: Montserrat;
+        fill: #525252;
+        font-size: 24px;
+        font-weight: 400;
+      }
+
+      .smaller text {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="800" height="400" viewport="0 0 800 400">
+      <defs>
+        <linearGradient
+          id="border-gradient"
+          x1="0%"
+          y1="50%"
+          x2="100%"
+          y2="50%"
+        >
+          <stop offset="0%" style="stop-color: #a6ddf3" />
+          <stop offset="100%" style="stop-color: #40b2e3" />
+        </linearGradient>
+        <radialGradient
+          id="gradient"
+          gradientUnits="userSpaceOnUse"
+          cx="150"
+          cy="220"
+          r="200"
+        >
+          <stop offset="0%" stop-color="#fff" />
+          <stop offset="100%" stop-color="#eee" />
+        </radialGradient>
+        <pattern
+          id="dots"
+          x="0"
+          y="0"
+          width="10"
+          height="10"
+          patternUnits="userSpaceOnUse"
+        >
+          <circle fill="#fff" cx="5" cy="5" r="2" />
+        </pattern>
+        <mask id="mask">
+          <rect width="100%" height="100%" fill="url(#dots)" />
+        </mask>
+        <clipPath id="circle-clip">
+          <circle r="21" cx="21" cy="21" />
+        </clipPath>
+      </defs>
+      <rect
+        id="background"
+        width="100%"
+        height="100%"
+        fill="url(#gradient)"
+        mask="url(#mask)"
+      />
+      <rect
+        id="border"
+        width="100%"
+        height="100%"
+        fill="none"
+        stroke="url(#border-gradient)"
+        stroke-width="25"
+      />
+      <image
+        id="logo"
+        href="https://raw.githubusercontent.com/scm-manager/scm-manager/develop/docs/en/logo/scm-manager_logo_img.png"
+        y="50"
+        height="300"
+      />
+      <foreignObject x="300" y="30" width="475" height="170">
+        <div class="title-container">
+          <p class="title" xmlns="http://www.w3.org/1999/xhtml">
+            {title}
+          </p>
+        </div>
+      </foreignObject>
+
+      <text x="300" y="230" width="470" class="tags">
+        {categories}
+      </text>
+
+      <g class="smaller">
+        <text x="300" y="270">{date} - {wordCount} words - {timeToRead}min read</text>
+      </g>
+
+      <g transform="translate(300,300)">
+        <image
+          href="{avatar}"
+          height="42"
+          width="42"
+          clip-path="url(#circle-clip)"
+        />
+        <circle
+          cx="21"
+          cy="21"
+          r="23"
+          stroke="#aaa"
+          stroke-width="2"
+          fill="none"
+        />
+        <text x="60" y="30" class="footer-text">{author}</text>
+      </g>
+    </svg>
+  </body>
+</html>

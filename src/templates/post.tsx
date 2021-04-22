@@ -8,10 +8,10 @@ import BlogSideNavigation from "../components/BlogSideNavigation";
 import HtmlContent from "../layout/HtmlContent";
 import TableOfContents from "../layout/TableOfContents";
 
-const Post = ({ data: { post } }) => {
+const Post = ({ data: { post }, pageContext: { socialSharingCard } }) => {
   const image = post.frontmatter.image
     ? post.frontmatter.image.childImageSharp.resize
-    : null
+    : socialSharingCard;
   return (
     <PageContainer>
       <SEO
@@ -23,10 +23,10 @@ const Post = ({ data: { post } }) => {
       <div className="columns">
         <div className="column is-three-quarters">
           <Title>{post.frontmatter.title}</Title>
-          <p className="has-text-grey	">
+          <p className="has-text-grey">
             Posted on {post.frontmatter.date} by{" "}
-            <Link to={`/blog/authors/${post.frontmatter.author}`}>
-              {post.frontmatter.author}
+            <Link to={`/blog/authors/${post.frontmatter.author.id}`}>
+              {post.frontmatter.author.id}
             </Link>
           </p>
           <hr />
@@ -59,7 +59,9 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "YYYY-MM-DD")
-        author
+        author {
+          id
+        }
         categories
         displayToc
         description

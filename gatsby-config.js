@@ -225,5 +225,8 @@ module.exports = {
         disableCookies: true
       }
     }
-  ]
+  ],
+  mapping: {
+    "MarkdownRemark.frontmatter.author": `AuthorYaml`,
+  }
 };
