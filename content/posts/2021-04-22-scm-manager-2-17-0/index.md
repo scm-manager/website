@@ -24,7 +24,7 @@ your imagination run free: With the new
 [avatar plugin](https://www.scm-manager.org/plugins/scm-repository-avatar-plugin/)
 you can set avatars for each repository. Either use the default avatar build from
 the first letters of the namespace and name, choose from a collection of different
-icons, or import your own image (jpeg, png, git or svg, even animated).
+icons, or import your own image (jpeg, png, gif or svg, even animated).
 
 ![SCM-Manager repository overview with custom avatars](./assets/avatars.png)
 
