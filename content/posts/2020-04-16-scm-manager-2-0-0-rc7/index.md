@@ -1,7 +1,7 @@
 ---
 title: SCM-Manager 2.0.0-rc7
 date: 2020-04-16T09:07:58+00:00
-author: Rene Pfeuffer
+author: René Pfeuffer
 slug: /release/scm-manager-2-0-0-rc7/
 categories:
   - release

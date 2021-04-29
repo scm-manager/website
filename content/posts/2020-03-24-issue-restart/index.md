@@ -1,7 +1,7 @@
 ---
 title: Issue restart
 date: 2020-03-24T16:58:05+00:00
-author: Rene Pfeuffer
+author: René Pfeuffer
 slug: /scm-manager-2/issue-restart/
 categories:
   - scm-manager
