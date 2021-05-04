@@ -131,7 +131,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        implementation: require('sass')
+      }
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

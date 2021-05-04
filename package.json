@@ -59,11 +59,11 @@
     "gatsby-plugin-matomo": "^0.9.0",
     "gatsby-plugin-sass": "^4.3.0",
     "js-yaml": "^3.14.0",
-    "node-sass": "^5.0.0",
     "pino": "^6.2.1",
     "pino-pretty": "^4.0.0",
     "prettier": "^1.18.2",
     "puppeteer": "^8.0.0",
+    "sass": "^1.32.12",
     "semver": "^7.3.2"
   },
   "keywords": [
