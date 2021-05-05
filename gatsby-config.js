@@ -138,6 +138,13 @@ module.exports = {
         plugins: [
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-external-links`,
+          {
+            resolve: `gatsby-remark-plantuml-lite`,
+            options: {
+              imageType: `svg`,
+              codeBlockLang: `uml`
+            }
+          },
           `gatsby-remark-prismjs`,
           {
             resolve: `gatsby-remark-images`,
