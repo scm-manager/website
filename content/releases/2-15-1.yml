@@ -1,6 +1,7 @@
 tag: 2.15.1
 date: '2021-03-17T09:18:19Z'
 packages:
+- {type: ces}
 - {type: unix, checksum: ba5f491ca9af9c6622a630777dfe7a2f28fca9f5a66f3ef733ee5dbc8688f92f,
   url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.15.1/unix-2.15.1.tar.gz'}
 - {type: windows, checksum: 35e48cb97e51c8d02c26c101f09cc85eba824949b52d9a2cb83096e8ac2085b3,

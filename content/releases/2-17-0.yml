@@ -1,6 +1,7 @@
 tag: 2.17.0
 date: '2021-04-22T09:18:52Z'
 packages:
+- {type: ces}
 - {type: unix, checksum: 208d745081d9c7de4a3332dfa9aad1ea1ce4cd5d8de3f8ec7a5957f2b0ca418d,
   url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.17.0/unix-2.17.0.tar.gz'}
 - {type: windows, checksum: 5abe1624a3754a12fd0863ecd1f385b19d90c337df0fa8dc1abb86434bb3088e,

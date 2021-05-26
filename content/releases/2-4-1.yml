@@ -1,6 +1,7 @@
 tag: 2.4.1
 date: '2020-09-01T14:25:42Z'
 packages:
+- {type: ces}
 - {type: k8s}
 - {type: redhat}
 - {type: debian}

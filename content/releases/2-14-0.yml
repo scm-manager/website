@@ -1,6 +1,7 @@
 tag: 2.14.0
 date: '2021-03-01T13:01:02Z'
 packages:
+- {type: ces}
 - {type: unix, checksum: f2631c8e90c4eeaea5c0ce366a4bb7f1e9899094de24db377ecd954b386b4846,
   url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.14.0/unix-2.14.0.tar.gz'}
 - {type: windows, checksum: 29986019e7d07d0be75871dffb04264477d3391730cd60cd17a0ac78b2762c0f,
