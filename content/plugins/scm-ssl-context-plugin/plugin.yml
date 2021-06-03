@@ -1,0 +1,5 @@
+name: scm-ssl-context-plugin
+displayName: SSL Context
+description: Administration for SSL Context
+category: administration
+author: Cloudogu GmbH
