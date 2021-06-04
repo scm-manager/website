@@ -1,0 +1,5 @@
+name: scm-repository-mirror-plugin
+displayName: Repository Mirror Plugin
+description: Mirror external repositories into SCM-Manager
+category: workflow
+author: Cloudogu GmbH
