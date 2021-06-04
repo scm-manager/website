@@ -1,0 +1,8 @@
+---
+plugin: "scm-mail-plugin"
+tag: "2.6.0"
+date: "2021-06-04T13:32:18Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-mail-plugin/2.6.0/scm-mail-plugin-2.6.0.smp"
+checksum: "6f5f0e847468fe07f2d45488878a499d51eb353ac40bce0923f4e4d2db4f2eea"
+conditions:
+  minVersion: "2.19.0"
