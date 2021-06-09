@@ -1,0 +1,11 @@
+tag: 2.19.1
+date: '2021-06-09T15:32:06Z'
+packages:
+- {type: unix, checksum: 1db9e8b49293a68c4649fc74ef193538d985664d83c8b30dd2163192454ea612,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.19.1/unix-2.19.1.tar.gz'}
+- {type: windows, checksum: 47b7d566b3f84f10fdce376a14e207396979eb11cfc7d6b215057d467b7658f4,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.19.1/windows-2.19.1.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
