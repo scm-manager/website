@@ -23,7 +23,7 @@ The approache of using gamification and micro-learning for this work very well a
 to sensitize developers to the major topic of software security in the long term.
 
 ## What is the SCM-SCW-Plugin?
-The `SCM-SCW plugin` brings parts of the `Secure Code Warrior` knowledge into your SCM-Manager. 
+The `SCM-SCW-Plugin` brings parts of the `Secure Code Warrior` knowledge into your SCM-Manager. 
 We focused mainly on two scenarios for the first implementation, 
 both of which depend on the pull requests you may know from the `SCM-Review-Plugin`.
 
