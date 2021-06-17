@@ -1,0 +1,6 @@
+name: scm-scw-plugin
+displayName: Secure Code Warrior
+description: Secure Code Warrior support
+category: workflow
+author: Cloudogu GmbH
+type: CLOUDOGU

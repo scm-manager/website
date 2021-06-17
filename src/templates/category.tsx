@@ -24,6 +24,16 @@ const Category = ({ data }) => {
     plugins = data.allPlugins;
   }
 
+  const getCloudoguLink = (node) => {
+    let cloudoguLink = undefined;
+    data.cloudoguReleases.nodes.forEach(r => {
+      if (r.plugin === node.name) {
+        cloudoguLink = r.installLink;
+      }
+    });
+    return cloudoguLink;
+  }
+
   return (
     <Page>
       <SEO title={"Category " + category.displayName} />
@@ -34,9 +44,12 @@ const Category = ({ data }) => {
         </Title>
         <Subtitle>{category.description}</Subtitle>
         <PluginList className="content">
-          {plugins.nodes.map(node => (
-            <Plugin key={node.name} plugin={node} />
-          ))}
+          {plugins.nodes.map((node) => {
+            const cloudoguLink = getCloudoguLink(node);
+            return (
+              <Plugin key={node.name} plugin={{ ...node, cloudoguLink }} />
+            );
+          })}
         </PluginList>
       </div>
     </Page>
@@ -44,21 +57,28 @@ const Category = ({ data }) => {
 };
 
 export const query = graphql`
-  query($name: String!) {
+  query ($name: String!) {
     category: categoriesYaml(name: { eq: $name }) {
       icon
       name
       displayName
       description
     }
-    allPlugins: allPluginYaml(
-     sort: { fields: displayName }
-    ) {
+    allPlugins: allPluginYaml(sort: { fields: displayName }) {
       nodes {
         name
         author
         displayName
         description
+      }
+    }
+    cloudoguReleases: allReleasesYaml(
+      sort: { fields: plugin }
+      filter: { installLink: { ne: null } }
+    ) {
+      nodes {
+        plugin
+        installLink
       }
     }
     plugins: allPluginYaml(

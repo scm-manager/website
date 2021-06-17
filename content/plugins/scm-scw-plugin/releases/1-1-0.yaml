@@ -1,0 +1,10 @@
+plugin: "scm-scw-plugin"
+tag: "1.1.0"
+date: "2021-05-06T14:27:36Z"
+url: "https://files.cloudogu.com/download/scm-manager/plugins/secure-code-warrior/latest"
+checksum: "4226f8b6d5bab5fb4f34030a89e38c4e8073af12b5a3ff8676cdd319e5cea319"
+dependencies: []
+optionalDependencies: []
+installLink: "https://forum.cloudogu.com/topic/101"
+conditions:
+  minVersion: "2.18.0"
