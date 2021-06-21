@@ -1,5 +1,5 @@
 name: scm-mail-plugin
 displayName: Mail
 description: Provides an api for sending e-mails and can be used by other plugins
-category: library
+category: Library
 author: Cloudogu GmbH

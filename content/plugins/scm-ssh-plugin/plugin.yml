@@ -1,5 +1,5 @@
 name: scm-ssh-plugin
 displayName: SSH
 description: SSH support for SCM-Manager
-category: authentication
+category: Authentication
 author: Cloudogu GmbH

@@ -1,5 +1,5 @@
 name: scm-el-plugin
 displayName: Expression Language
 description: Expression language support for SCM-Manager plugins
-category: library
+category: Library
 author: Cloudogu GmbH

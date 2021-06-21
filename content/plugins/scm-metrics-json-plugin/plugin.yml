@@ -1,5 +1,5 @@
 name: scm-metrics-json-plugin
 displayName: JSON Metrics
 description: Provides metrics as JSON
-category: administration
+category: Administration
 author: Cloudogu GmbH

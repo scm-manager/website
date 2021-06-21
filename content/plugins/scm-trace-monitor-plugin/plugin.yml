@@ -1,5 +1,5 @@
 name: scm-trace-monitor-plugin
 displayName: Trace Monitor
 description: Traces outgoing requests from SCM-Manager
-category: administration
+category: Administration
 author: Cloudogu GmbH

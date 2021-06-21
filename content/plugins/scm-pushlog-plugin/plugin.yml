@@ -1,5 +1,5 @@
 name: scm-pushlog-plugin
 displayName: Pushlog
 description: Tracks who pushed what to a repository
-category: administration
+category: Administration
 author: Cloudogu GmbH
