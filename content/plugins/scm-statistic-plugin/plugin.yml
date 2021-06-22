@@ -1,5 +1,5 @@
 name: scm-statistic-plugin
 displayName: Statistic
 description: Build statistics for every repository
-category: information
+category: Information
 author: Cloudogu GmbH

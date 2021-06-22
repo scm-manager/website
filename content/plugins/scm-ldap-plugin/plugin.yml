@@ -1,5 +1,5 @@
 name: scm-ldap-plugin
 displayName: LDAP
 description: Authentication for SCM-Manager using LDAP
-category: authentication
+category: Authentication
 author: Thorsten Ludewig

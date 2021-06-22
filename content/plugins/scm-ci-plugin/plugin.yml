@@ -1,5 +1,5 @@
 name: scm-ci-plugin
 displayName: Continuous integration
 description: Accepts analysis status and displays it
-category: continuous-integration
+category: Continuous Integration
 author: Cloudogu GmbH

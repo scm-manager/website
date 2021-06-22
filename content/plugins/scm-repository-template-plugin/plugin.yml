@@ -1,5 +1,5 @@
 name: scm-repository-template-plugin
 displayName: Repository Template
 description: Enable creators of repositories to choose a template repository upon initialization
-category: workflow
+category: Workflow
 author: Cloudogu GmbH

@@ -1,5 +1,5 @@
 name: scm-archive-plugin
 displayName: Archive
 description: Create a zip archive of a repository revision
-category: workflow
+category: Workflow
 author: Cloudogu GmbH

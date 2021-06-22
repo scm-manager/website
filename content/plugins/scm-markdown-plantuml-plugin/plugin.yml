@@ -1,5 +1,5 @@
 name: scm-markdown-plantuml-plugin
 displayName: Markdown PlantUML
 description: Enables plant uml rendering in markdown files
-category: documentation
+category: Documentation
 author: Cloudogu GmbH
