@@ -25,13 +25,7 @@ const Category = ({ data }) => {
   }
 
   const getCloudoguLink = (node) => {
-    let cloudoguLink = undefined;
-    data.cloudoguReleases.nodes.forEach(r => {
-      if (r.plugin === node.name) {
-        cloudoguLink = r.installLink;
-      }
-    });
-    return cloudoguLink;
+    return data.cloudoguReleases.nodes.filter(r => r.plugin === node.name)[0]?.installLink;
   }
 
   return (
