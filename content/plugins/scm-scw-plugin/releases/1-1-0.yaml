@@ -7,4 +7,4 @@ dependencies: []
 optionalDependencies: []
 installLink: "https://forum.cloudogu.com/topic/101"
 conditions:
-  minVersion: "2.18.0"
+  minVersion: "2.21.0"
