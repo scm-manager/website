@@ -3,7 +3,7 @@ import SEO from "../components/SEO";
 import Page from "../layout/Page";
 import Title from "../components/Title";
 import Subtitle from "../components/Subtitle";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import {
   SourceCodeManagement,
@@ -24,17 +24,14 @@ import useLatestRelease from "../hooks/useLatestRelease";
 
 const IndexPage = () => {
   const release = useLatestRelease();
-  const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "images/scm-manager_logo.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 256) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
+  const data = useStaticQuery(graphql`{
+  file(relativePath: {eq: "images/scm-manager_logo.png"}) {
+    childImageSharp {
+      gatsbyImageData(width: 256, layout: CONSTRAINED, placeholder: BLURRED)
     }
-  `);
+  }
+}
+`);
 
   return (
     <Page>
@@ -53,10 +50,7 @@ const IndexPage = () => {
               </Link>
             </div>
             <div className="column is-hidden-mobile">
-              <Img
-                alt="SCM-Manager Logo"
-                fluid={data.file.childImageSharp.fluid}
-              />
+              <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} alt="SCM-Manager Logo" />
             </div>
           </div>
         </div>

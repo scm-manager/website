@@ -1,15 +1,13 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export default function() {
   const data = useStaticQuery(graphql`
-    query {
+    {
       file(relativePath: { eq: "images/hero-image.png" }) {
         childImageSharp {
-          fluid(maxWidth: 720) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 720, layout: CONSTRAINED, placeholder: BLURRED)
         }
       }
     }
@@ -17,9 +15,9 @@ export default function() {
 
   return (
     <div className="section-image">
-      <Img
+      <GatsbyImage
+        image={data.file.childImageSharp.gatsbyImageData}
         alt="SCM-Manager Process Image"
-        fluid={data.file.childImageSharp.fluid}
       />
     </div>
   );

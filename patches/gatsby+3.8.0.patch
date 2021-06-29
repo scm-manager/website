@@ -1,0 +1,13 @@
+diff --git a/node_modules/gatsby/dist/utils/webpack-utils.js b/node_modules/gatsby/dist/utils/webpack-utils.js
+index d29ab17..68d082a 100644
+--- a/node_modules/gatsby/dist/utils/webpack-utils.js
++++ b/node_modules/gatsby/dist/utils/webpack-utils.js
+@@ -483,7 +483,7 @@ const createWebpackUtils = (stage, program) => {
+           full: true,
+           plugins: [// potentially destructive plugins removed - see https://github.com/gatsbyjs/gatsby/issues/15629
+           // use correct config format and remove plugins requiring specific params - see https://github.com/gatsbyjs/gatsby/issues/31619
+-          `removeUselessDefs`, `cleanupAttrs`, `cleanupEnableBackground`, `cleanupIDs`, `cleanupListOfValues`, `cleanupNumericValues`, `collapseGroups`, `convertColors`, `convertPathData`, `convertStyleToAttrs`, `convertTransform`, `inlineStyles`, `mergePaths`, `minifyStyles`, `moveElemsAttrsToGroup`, `moveGroupAttrsToElems`, `prefixIds`, `removeAttrs`, `removeComments`, `removeDesc`, `removeDimensions`, `removeDoctype`, `removeEditorsNSData`, `removeEmptyAttrs`, `removeEmptyContainers`, `removeEmptyText`, `removeHiddenElems`, `removeMetadata`, `removeNonInheritableGroupAttrs`, `removeOffCanvasPaths`, `removeRasterImages`, `removeScriptElement`, `removeStyleElement`, `removeTitle`, `removeUnknownsAndDefaults`, `removeUnusedNS`, `removeUselessStrokeAndFill`, `removeXMLNS`, `removeXMLProcInst`, `reusePaths`, `sortAttrs`]
++          `removeUselessDefs`, `cleanupAttrs`, `cleanupEnableBackground`, `cleanupIDs`, `cleanupListOfValues`, `cleanupNumericValues`, `collapseGroups`, `convertColors`, `convertPathData`, `convertStyleToAttrs`, `convertTransform`, `inlineStyles`, `mergePaths`, `minifyStyles`, `moveElemsAttrsToGroup`, `moveGroupAttrsToElems`, `prefixIds`, `removeAttrs`, `removeComments`, `removeDesc`, `removeDimensions`, `removeDoctype`, `removeEditorsNSData`, `removeEmptyAttrs`, `removeEmptyContainers`, `removeEmptyText`, `removeHiddenElems`, `removeMetadata`, `removeNonInheritableGroupAttrs`, `removeOffCanvasPaths`, `removeRasterImages`, `removeScriptElement`, `removeStyleElement`, `removeTitle`, `removeUnknownsAndDefaults`, `removeUnusedNS`, `removeUselessStrokeAndFill`, `removeXMLProcInst`, `reusePaths`, `sortAttrs`]
+         }
+       }]
+     }
