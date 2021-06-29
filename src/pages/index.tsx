@@ -40,7 +40,7 @@ const IndexPage = () => {
         <div className="container hero-body">
           <div className="columns is-vcentered has-text-centered">
             <div className="column is-three-quarters-tablet">
-              <Title>SCM-Manager</Title>
+              <Title>SCM-Manager Sample Change</Title>
               <Subtitle>
                 The easiest way to share and manage your Git, Mercurial and
                 Subversion repositories
