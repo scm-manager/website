@@ -139,6 +139,27 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-transformer-yaml`,
+      options: {
+        typeName: ({ node, object, isArray }) => {
+          if (isArray || node.name === "plugin") {
+            // array:
+            // docs/languages.yml
+            // plugins/categories.yaml
+            // docs/2.0.x/en/navigation.yml
+            // plugins/scm-review-plugin/docs/2.1.x/en/navigation.yml
+
+            // plugin
+            // plugins/scm-webhook-plugin/plugin.yml
+            return _.upperFirst(_.camelCase(`${node.name} Yaml`))
+          } else {
+            // plugins/scm-branchwp-plugin/releases/2-0-0-rc4.yaml
+            return _.upperFirst(_.camelCase(`${path.basename(node.dir)} Yaml`))
+          }
+        },
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -173,27 +194,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-catch-links`,
-    {
-      resolve: `gatsby-transformer-yaml`,
-      options: {
-        typeName: ({ node, object, isArray }) => {
-          if (isArray || node.name === "plugin") {
-            // array:
-            // docs/languages.yml
-            // plugins/categories.yaml
-            // docs/2.0.x/en/navigation.yml
-            // plugins/scm-review-plugin/docs/2.1.x/en/navigation.yml
-
-            // plugin
-            // plugins/scm-webhook-plugin/plugin.yml
-            return _.upperFirst(_.camelCase(`${node.name} Yaml`))
-          } else {
-            // plugins/scm-branchwp-plugin/releases/2-0-0-rc4.yaml
-            return _.upperFirst(_.camelCase(`${path.basename(node.dir)} Yaml`))
-          }
-        },
-      }
-    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
