@@ -28,7 +28,7 @@ pipeline {
         docker {
           image 'scmmanager/node-build:14.16.1'
           label 'docker'
-          args  '-v ${PWD}:/usr/src/app -e HOME=/usr/src/app -w /usr/src/app'
+          args  "-v ${env.WORKSPACE}:/tmp/app -e HOME=/tmp/app"
           reuseNode true
         }
       }
@@ -38,7 +38,10 @@ pipeline {
           sh "yarn run collect-content"
         }
         withEnv(["SITE_URL=${siteUrl}"]) {
-          sh "yarn run build"
+          // we have to ensure that the build uses the same path
+          // on all build nodes to avoid broken gatsby caches.
+          // The workspace is mounted to /tmp/app, see docker agent.
+          sh "cd /tmp/app && yarn run build"
         }
       }
     }
@@ -63,6 +66,7 @@ pipeline {
           image 'lachlanevenson/k8s-helm:v3.2.1'
           label 'docker'
           reuseNode true
+          args '--entrypoint=""'
         }
       }
       steps {
@@ -79,6 +83,7 @@ pipeline {
           image 'lachlanevenson/k8s-helm:v3.2.1'
           label 'docker'
           reuseNode true
+          args '--entrypoint=""'
         }
       }
       steps {
@@ -110,4 +115,9 @@ pipeline {
 
 String getSiteUrl() {
   return env.BRANCH_NAME == 'staging' ? 'https://staging-website.scm-manager.org' : 'https://scm-manager.org'
+}
+
+String getVersion() {
+  def commitHashShort = sh(returnStdout: true, script: 'git rev-parse --short HEAD')
+  return "${new Date().format('yyyyMMddHHmm')}-${commitHashShort}".trim()
 }
