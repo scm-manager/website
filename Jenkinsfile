@@ -14,6 +14,14 @@ pipeline {
 
   stages {
 
+    stage('Compute Version') {
+      steps {
+        script {
+          version = computeVersion()
+        }
+      }
+    }
+
     stage('Apply Cache') {
       steps {
         sh 'rm -rf public .cache website.tar.gz || true'
@@ -113,11 +121,13 @@ pipeline {
   }
 }
 
+String version
+
 String getSiteUrl() {
   return env.BRANCH_NAME == 'staging' ? 'https://staging-website.scm-manager.org' : 'https://scm-manager.org'
 }
 
-String getVersion() {
+String computeVersion() {
   def commitHashShort = sh(returnStdout: true, script: 'git rev-parse --short HEAD')
   return "${new Date().format('yyyyMMddHHmm')}-${commitHashShort}".trim()
 }
