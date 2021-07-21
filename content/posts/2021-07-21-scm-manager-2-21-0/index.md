@@ -45,7 +45,7 @@ Hint: For automatic deployments you can create the administrator user automatica
 
 ## Other changes
 - The date on the repository overview is now the last modified date of the repository.
-- With the newest version of the [scm-editor-plugin](https://scm-manager.org/plugins/scm-editor-plugin/) you can create files in `not initialized` repositories.
+- With the newest version of the [editor plugin](https://scm-manager.org/plugins/scm-editor-plugin/) you can create files in empty repositories.
 - Improved cache invalidation when creating/deleting gpg keys.
 - Cloudogu plugins are now included in the SCM-Manager plugin center.
 
