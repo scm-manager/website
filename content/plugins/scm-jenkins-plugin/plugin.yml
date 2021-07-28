@@ -3,3 +3,4 @@ displayName: Jenkins
 description: Pings your Jenkins CI server when a new commit is pushed to SCM-Manager
 category: Continuous Integration
 author: Cloudogu GmbH
+avatar: jenkins-logo.png
