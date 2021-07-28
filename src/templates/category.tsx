@@ -64,7 +64,16 @@ export const query = graphql`
         author
         displayName
         description
-        avatarUrl
+        avatar {
+          extension
+          publicURL
+          childImageSharp {
+            gatsbyImageData(
+              width: 32
+              placeholder: BLURRED
+            )
+          }
+        }
       }
     }
     cloudoguReleases: allReleasesYaml(
@@ -85,7 +94,16 @@ export const query = graphql`
         author
         displayName
         description
-        avatarUrl
+        avatar {
+          extension
+          publicURL
+          childImageSharp {
+            gatsbyImageData(
+              width: 32
+              placeholder: BLURRED
+            )
+          }
+        }
       }
     }
   }

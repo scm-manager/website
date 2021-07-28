@@ -3,4 +3,4 @@ displayName: Central Authentication Service
 description: Authentication for SCM-Manager using CAS
 category: Authentication
 author: Cloudogu GmbH
-avatarUrl: cas-logo.png
+avatar: cas-logo.png

@@ -3,4 +3,4 @@ displayName: Jira
 description: Integrates Atlassian JIRA to SCM-Manager
 category: Issue Tracker
 author: Cloudogu GmbH
-avatarUrl: jira-logo.svg
+avatar: jira-logo.svg

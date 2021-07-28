@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPuzzlePiece } from "@fortawesome/free-solid-svg-icons";
 import CloudoguLogo from "./CloudoguLogo";
 import styled from "styled-components";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { FC } from "react";
 
 type Props = {
   plugin: PluginType;
@@ -16,21 +18,35 @@ const ImageContainer = styled.div`
   align-items: center;
 `;
 
-const Plugin: FunctionComponent<Props> = ({ plugin }) => {
-  const renderIcon = () => {
-    if (plugin.avatarUrl) {
-      return <img src={`/img/${plugin.avatarUrl}`} alt="logo" />
-    }
+const PluginAvatar: FC<Props> = ({ plugin }) => {
+  if (plugin.avatar?.extension === "svg") {
     return (
-      <>
-        {plugin.cloudoguLink ? (
-          <CloudoguLogo size={32} />
-        ) : (
-          <FontAwesomeIcon icon={faPuzzlePiece} size="2x" />
-        )}
-      </>
+      <img
+        src={plugin.avatar.publicURL}
+        alt={`Logo of ${plugin.displayName}`}
+      />
     );
-  };
+  } else if (plugin.avatar) {
+    return (
+      <GatsbyImage
+        image={getImage(plugin.avatar)}
+        alt={`Logo of ${plugin.displayName}`}
+      />
+    );
+  }
+  return (
+    <>
+      {plugin.cloudoguLink ? (
+        <CloudoguLogo size={32} />
+      ) : (
+        <FontAwesomeIcon icon={faPuzzlePiece} size="2x" />
+      )}
+    </>
+  );
+};
+
+const Plugin: FC<Props> = ({ plugin }) => {
+  const renderIcon = () => {};
 
   const onClick = () => {
     if (plugin.cloudoguLink) {
@@ -38,11 +54,13 @@ const Plugin: FunctionComponent<Props> = ({ plugin }) => {
     } else {
       return navigate(`/plugins/${plugin.name}/`);
     }
-  }
+  };
 
   return (
-    <article className="media pointer" onClick={() => onClick()}>
-      <ImageContainer className="media-left image is-32x32">{renderIcon()}</ImageContainer>
+    <article className="media pointer" onClick={onClick}>
+      <ImageContainer className="media-left image is-32x32">
+        <PluginAvatar plugin={plugin} />
+      </ImageContainer>
       <div className="media-content">
         <p>
           <strong>{plugin.displayName}</strong>{" "}
