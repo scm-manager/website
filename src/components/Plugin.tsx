@@ -4,13 +4,23 @@ import { navigate } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPuzzlePiece } from "@fortawesome/free-solid-svg-icons";
 import CloudoguLogo from "./CloudoguLogo";
+import styled from "styled-components";
 
 type Props = {
   plugin: PluginType;
 };
 
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Plugin: FunctionComponent<Props> = ({ plugin }) => {
   const renderIcon = () => {
+    if (plugin.avatarUrl) {
+      return <img src={`/img/${plugin.avatarUrl}`} alt="logo" />
+    }
     return (
       <>
         {plugin.cloudoguLink ? (
@@ -31,8 +41,8 @@ const Plugin: FunctionComponent<Props> = ({ plugin }) => {
   }
 
   return (
-    <article className="media pointer" onClick={(e) => onClick()}>
-      <p className="media-left image is-32x32">{renderIcon()}</p>
+    <article className="media pointer" onClick={() => onClick()}>
+      <ImageContainer className="media-left image is-32x32">{renderIcon()}</ImageContainer>
       <div className="media-content">
         <p>
           <strong>{plugin.displayName}</strong>{" "}

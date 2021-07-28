@@ -3,3 +3,4 @@ displayName: Cockpit
 description: Offers a subset of the SCM-Manager v1 REST API for the use of Cloudogu Ecosystem Cockpit
 category: Legacy Support
 author: Cloudogu GmbH
+avatarUrl: cockpit-logo.png

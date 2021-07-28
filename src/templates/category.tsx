@@ -64,6 +64,7 @@ export const query = graphql`
         author
         displayName
         description
+        avatarUrl
       }
     }
     cloudoguReleases: allReleasesYaml(
@@ -84,6 +85,7 @@ export const query = graphql`
         author
         displayName
         description
+        avatarUrl
       }
     }
   }
