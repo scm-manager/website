@@ -18,10 +18,10 @@ today we present you the next iteration of the new omni search and also the new 
 We also added powerful caching for internal working copies and fixed some bugs you reported.
 
 ## Omni Search - Details Page
-Before you could search for repositories using the omni search in the header. Now you may still search for repositories shown as quick result, but also you can show `More results`. 
-This leads to the new search details page which shows all search results categorized by result type. If you search for repository descriptions we also added highlighting inside the matching text fragments.
+With the last release, we added the search for repositories using the omni search in the header. Now, with the new release, we've added a button to show **More Results** additionally to the repositories shown as quick results. 
+This leads to the new search details page which shows all search results categorized by the result type. If you search for repository descriptions, we also added highlighting inside the matching text fragments.
 
-Tell us what you think about the new features and also stay excited since we just started to implement the code search, so you can search inside your repository files.
+Tell us what you think about the new features and also stay excited since we've just started to implement the code search, so you can search inside your repository files, soon.
 
 ![Omni Search](assets/details-search.png)
 
@@ -35,15 +35,15 @@ We really need your opinion on this, so please give us feedback on how you like 
 ## Caching for Working Directories
 
 This feature is still experimental and a little hidden. Now you can activate caching for the internal working copies. 
-This is especially helpful if you work a lot with the [Editor plugin](https://scm-manager.org/plugins/scm-editor-plugin/) since it boosts the performance dramatically.
+This is especially helpful if you work a lot with the [editor plugin](https://scm-manager.org/plugins/scm-editor-plugin/) or the [review plugin](https://scm-manager.org/plugins/scm-review-plugin/), since it boosts the performance dramatically.
 
-Try it out using our [documentation](https://scm-manager.org/docs/2.22.x/en/administration/workdir_caching/).
+Try it out following our [documentation](https://scm-manager.org/docs/latest/en/administration/workdir_caching/).
 
 ## Other changes
 - We fixed the file detection for hg repositories if directory and files were named the same
-- We decreased the log level of DefaultAdministrationContext from info to debug
-- We use fixed the logo for the small header
-- We removed the repository short links on the overview since there were not used at all.
+- We decreased the log level of `DefaultAdministrationContext` from info to debug
+- We designed a new logo for the small header
+- We removed the repository short links on the overview since they were not used at all.
 
 
 ## Closing Words
