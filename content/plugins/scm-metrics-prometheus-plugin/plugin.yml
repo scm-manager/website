@@ -3,4 +3,4 @@ displayName: Prometheus Metrics
 description: Provides metrics to Prometheus
 category: Administration
 author: Cloudogu GmbH
-avatar: prometheus-logo.png
+avatarUrl: prometheus-logo.png

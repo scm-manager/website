@@ -1,12 +1,10 @@
-import React, { FunctionComponent } from "react";
+import React, { FC } from "react";
 import { Plugin as PluginType } from "../types/plugin";
 import { navigate } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPuzzlePiece } from "@fortawesome/free-solid-svg-icons";
 import CloudoguLogo from "./CloudoguLogo";
 import styled from "styled-components";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { FC } from "react";
 
 type Props = {
   plugin: PluginType;
@@ -19,17 +17,10 @@ const ImageContainer = styled.div`
 `;
 
 const PluginAvatar: FC<Props> = ({ plugin }) => {
-  if (plugin.avatar?.extension === "svg") {
+  if (plugin.avatarUrl) {
     return (
       <img
-        src={plugin.avatar.publicURL}
-        alt={`Logo of ${plugin.displayName}`}
-      />
-    );
-  } else if (plugin.avatar) {
-    return (
-      <GatsbyImage
-        image={getImage(plugin.avatar)}
+        src={`/img/${plugin.avatarUrl}`}
         alt={`Logo of ${plugin.displayName}`}
       />
     );
@@ -46,8 +37,6 @@ const PluginAvatar: FC<Props> = ({ plugin }) => {
 };
 
 const Plugin: FC<Props> = ({ plugin }) => {
-  const renderIcon = () => {};
-
   const onClick = () => {
     if (plugin.cloudoguLink) {
       window.open(plugin.cloudoguLink, "_blank");
