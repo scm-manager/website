@@ -1,6 +1,6 @@
 ---
 title: Survey - New Mercurial features
-date: 2021-08-04T15:00:00+0000
+date: 2021-09-01T15:00:00+0000
 author: Eduard Heimbuch
 categories:
 - scm-manager
