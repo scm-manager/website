@@ -11,9 +11,9 @@ export const PATH_PART_INDEX_PLUGIN_VERSION = 4;
 export const PATH_PART_INDEX_PLUGIN_LANGUAGE = 5;
 
 
-const changeVersion = (path: string, version: string, index = PATH_PART_INDEX_DOCS_VERSION) => {
-  const lang = findLanguage(path, PATH_PART_INDEX_DOCS_LANGUAGE);
-  const newPath = replacePathPartAndCutOff(path, index, version, lang);
+const changeVersion = (path: string, version: string, versionPathIndex = PATH_PART_INDEX_DOCS_VERSION, languagePathIndex = PATH_PART_INDEX_DOCS_LANGUAGE) => {
+  const lang = findLanguage(path, languagePathIndex);
+  const newPath = replacePathPartAndCutOff(path, versionPathIndex, version, lang);
      navigate(newPath);
 };
 
@@ -62,7 +62,7 @@ const NavigationSettings: FC<Props> = ({ path, versionPathIndex, languagePathInd
         options={versions.group
           .map(g => g.fieldValue)
           .sort(versionRangeComparator)}
-        onChange={version => changeVersion(path, version, versionPathIndex)}
+        onChange={version => changeVersion(path, version, versionPathIndex, languagePathIndex)}
       />
       <LanguageSetting
         value={findLanguage(path, languagePathIndex)}
