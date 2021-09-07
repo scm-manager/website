@@ -13,45 +13,6 @@ const SupportPage = () => (
         Cloudogu will be watching. We are looking forward to hearing from you.
       </p>
       <hr />
-      <h2>Community Support</h2>
-      <p>Use this forum for general questions.</p>
-      <p>
-        <a
-          className="button is-primary"
-          href="https://groups.google.com/forum/#!forum/scmmanager"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GoogleGroup / Mailinglist
-        </a>
-      </p>
-
-      <p>Report bugs and create feature requests here.</p>
-      <p>
-        <a
-          className="button is-primary"
-          href="https://github.com/scm-manager/scm-manager/issues"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Issue tracker
-        </a>
-      </p>
-      <p>
-        Feel free to use Stackoverflow for your questions, but make sure to use
-        the tag "scmmanager".
-      </p>
-      <p>
-        <a
-          className="button is-primary"
-          href="https://stackoverflow.com/questions/tagged/scmmanager"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Stackoverflow
-        </a>
-      </p>
-      <hr />
       <h2>Enterprise Support</h2>
       <p>
         With our enterprise support services we offer you the integration of
@@ -66,6 +27,43 @@ const SupportPage = () => (
           rel="noopener noreferrer"
         >
           Request your quote
+        </a>
+      </p>
+      <hr />
+      <h2>Community Support</h2>
+      <p>Use this forum for general questions and to discuss feature ideas.</p>
+      <p>
+        <a
+          className="button is-primary"
+          href="https://community.cloudogu.com/c/scm-manager/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Community Forum
+        </a>
+      </p>
+
+      <p>Report bugs and create feature requests here.</p>
+      <p>
+        <a
+          className="button is-primary"
+          href="https://github.com/scm-manager/scm-manager/issues"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Issue tracker
+        </a>
+      </p>
+
+      <p>Mailing List</p>
+      <p>
+        <a
+          className="button is-primary"
+          href="https://groups.google.com/forum/#!forum/scmmanager"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GoogleGroup / Mailinglist
         </a>
       </p>
     </div>
