@@ -156,17 +156,14 @@ const createPluginReleasesPage = node => {
   };
 };
 
-const createPluginDocPage = (node, pluginDocPath, isLatest = false) => {
+const createPluginDocPage = (node, pluginDocPath, latestVersion) => {
   const slugParts = node.fields.slug.split("/").filter(p => p.length > 0);
   // e.g.: /plugins/scm-review-plugin/docs/2.0.x/en/tasks
   const name = slugParts[1];
   const version = slugParts[3];
   const language = slugParts[4];
 
-  let canonicalPath;
-  if (!isLatest) {
-    canonicalPath = `/plugins/${name}/docs/latest/${language}/`;
-  }
+  const canonicalPath = `/plugins/${name}/docs/${latestVersion}/${language}/${node.fields.slug.split("/").slice(6).join("/")}`;
 
   return {
     path: pluginDocPath ? pluginDocPath : node.fields.slug,
@@ -191,7 +188,7 @@ const createPluginLicensePage = node => {
   };
 };
 
-const createDocPage = (node, docPath, isLatest = false) => {
+const createDocPage = (node, docPath, latestVersion) => {
   const slugParts = node.fields.slug.split("/");
   // array start with an empty string
   slugParts.shift();
@@ -199,11 +196,7 @@ const createDocPage = (node, docPath, isLatest = false) => {
   slugParts.shift();
   const version = slugParts.shift();
   const language = slugParts.shift();
-
-  let canonicalPath;
-  if (!isLatest) {
-    canonicalPath = `/docs/latest/${language}/`;
-  }
+  const canonicalPath = `/docs/${latestVersion}/${language}/${node.fields.slug.split("/").slice(4).join("/")}`;
 
   return {
     path: docPath ? docPath : node.fields.slug,
@@ -225,8 +218,8 @@ const createLatestDocPage = node => {
   // followed by docs
   slugParts.shift();
   // followed by version
-  slugParts.shift();
-  return createDocPage(node, ["", "docs", "latest", ...slugParts].join("/"), true);
+  const version = slugParts.shift();
+  return createDocPage(node, ["", "docs", "latest", ...slugParts].join("/"), version);
 };
 
 const createLatestPluginDocPage = node => {
@@ -240,8 +233,8 @@ const createLatestPluginDocPage = node => {
   // followed by docs
   slugParts.shift();
   // followed by version
-  slugParts.shift();
-  return createPluginDocPage(node, ["", "plugins", name, "docs", "latest", ...slugParts].join("/"), true);
+  const version = slugParts.shift();
+  return createPluginDocPage(node, ["", "plugins", name, "docs", "latest", ...slugParts].join("/"), version);
 };
 
 const createPost = (node, socialSharingCard) => {
@@ -377,7 +370,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       .map(g => g.fieldValue)
       .sort(versionRangeComparator)[0];
 
-    const latestPluginVersion = result.data.pluginVersions.group
+    const latestPluginVersions = result.data.pluginVersions.group
       .map((plugin) => {
         const versions = { ...plugin.nodes }[0].documentation;
         let latestVersion = null;
@@ -401,15 +394,16 @@ exports.createPages = ({ graphql, actions, reporter }) => {
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       if (node.fields.slug.startsWith("/docs")) {
-        createPage(createDocPage(node));
+        createPage(createDocPage(node, null, latestVersion));
         if (latestVersion === node.fields.slug.split("/")[2]) {
           createPage(createLatestDocPage(node));
         }
       } else if (node.fields.slug.startsWith("/plugins")) {
         const slugParts = node.fields.slug.split("/");
         if (slugParts[3] === "docs") {
-          createPage(createPluginDocPage(node));
-          if (latestPluginVersion.find(o => o.name === node.fields.slug.split("/")[2]).latestVersion === node.fields.slug.split("/")[4]) {
+          const latestPluginVersion = latestPluginVersions.find(o => o.name === node.fields.slug.split("/")[2]).latestVersion;
+          createPage(createPluginDocPage(node, null, latestPluginVersion));
+          if (latestPluginVersion === node.fields.slug.split("/")[4]) {
             createPage(createLatestPluginDocPage(node));
           }
         }
