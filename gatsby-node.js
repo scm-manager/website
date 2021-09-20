@@ -12,7 +12,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 const compareVersions = require("semver/functions/compare");
 const minVersion = require("semver/ranges/min-version");
 const versionRangeComparator = require("./src/lib/versionRangeComparator");
-const { createSocialSharingCard, renderSocialSharingCards} = require("./src/lib/socialSharingCards");
+const { createSocialSharingCard, renderSocialSharingCards } = require("./src/lib/socialSharingCards");
 
 // resolve src for mdx
 // https://github.com/ChristopherBiscardi/gatsby-mdx/issues/176#issuecomment-429569578
@@ -243,7 +243,7 @@ const createPost = (node, socialSharingCard) => {
     component: path.resolve(`./src/templates/post.tsx`),
     context: {
       slug: node.fields.slug,
-      socialSharingCard
+      socialSharingCard,
     },
   };
 };
@@ -331,10 +331,25 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           value
         }
       }
+      
+      allVersions: allMarkdownRemark {
+        nodes {
+          fields {
+            plugin
+            slug
+            version
+          }
+        }
+      }
 
-      versions: allMarkdownRemark(filter: { fields:{ plugin: { eq: null } } }) {
-        group(field: fields___version) {
-          fieldValue
+      versions: allMarkdownRemark(
+        filter: { fields: { plugin: { eq: null }, version: { ne: null } } }
+      ) {
+        nodes {
+          fields {
+            slug
+            version
+          }
         }
       }
       
@@ -366,24 +381,30 @@ exports.createPages = ({ graphql, actions, reporter }) => {
 
     const defaultLanguage =
       result.data.languages.childrenLanguagesYaml[0].value;
-    const latestVersion = result.data.versions.group
-      .map(g => g.fieldValue)
-      .sort(versionRangeComparator)[0];
 
-    const latestPluginVersions = result.data.pluginVersions.group
-      .map((plugin) => {
-        const versions = { ...plugin.nodes }[0].documentation;
-        let latestVersion = null;
-        if (versions.length > 0) {
-          latestVersion = versions
-            .map(g => g.version)
-            .sort(versionRangeComparator)[0];
-        }
-        return {
-          name: plugin.fieldValue,
-          latestVersion,
-        };
-      });
+    // TODO: Remove this (And also the graphql query, if its not used elsewhere)
+    // const latestVersion = result.data.versions.group
+    //   .map(g => g.fieldValue)
+    //   .sort(versionRangeComparator)[0];
+
+    // TODO: Remove this (And also the graphql query, if its not used elsewhere)
+    // const latestPluginVersions = result.data.pluginVersions.group
+    //   .map((plugin) => {
+    //     const versions = { ...plugin.nodes }[0].documentation;
+    //     let latestVersion = null;
+    //     if (versions.length > 0) {
+    //       latestVersion = versions
+    //         .map(g => g.version)
+    //         .sort(versionRangeComparator)[0];
+    //     }
+    //     return {
+    //       name: plugin.fieldValue,
+    //       latestVersion,
+    //     };
+    //   });
+
+    const slugVersions = result.data.allVersions.nodes.map(n => n.fields);
+    const docsVersions = result.data.versions.nodes.map(n => n.fields);
 
     createRedirect({
       fromPath: "/docs/",
@@ -393,19 +414,34 @@ exports.createPages = ({ graphql, actions, reporter }) => {
     });
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      if (node.fields.slug.startsWith("/docs")) {
-        createPage(createDocPage(node, null, latestVersion));
-        if (latestVersion === node.fields.slug.split("/")[2]) {
+      const nodeSlug = node.fields.slug;
+      const nodeSlugParts = nodeSlug.split("/");
+      if (nodeSlug.startsWith("/docs")) {
+        const pageVersion = nodeSlugParts[2];
+        const getPagePath = p => p.split("/").slice(3).join("/");
+        const pagePath = nodeSlugParts.slice(3).join("/");
+        const docsSlugVersions = docsVersions.filter(slugVersion => getPagePath(slugVersion.slug) === pagePath && !!slugVersion.version);
+        const latestDocsVersion = docsSlugVersions
+          .map(slugVersion => slugVersion.version)
+          .sort(versionRangeComparator)[0];
+
+        console.log(pagePath, pageVersion, latestDocsVersion);
+        createPage(createDocPage(node, null, latestDocsVersion));
+        if (latestDocsVersion === pageVersion) {
           createPage(createLatestDocPage(node));
         }
-      } else if (node.fields.slug.startsWith("/plugins")) {
-        const slugParts = node.fields.slug.split("/");
-        if (slugParts[3] === "docs") {
-          const latestPluginVersion = latestPluginVersions.find(o => o.name === node.fields.slug.split("/")[2]).latestVersion;
-          createPage(createPluginDocPage(node, null, latestPluginVersion));
-          if (latestPluginVersion === node.fields.slug.split("/")[4]) {
-            createPage(createLatestPluginDocPage(node));
-          }
+      } else if (nodeSlug.startsWith("/plugins") && nodeSlugParts[3] === "docs") {
+        const getPagePath = p => p.split("/").slice(5).join("/");
+        const pluginName = nodeSlugParts[2];
+        const pagePath = nodeSlugParts.slice(5).join("/");
+        const pluginSlugVersions = slugVersions.filter(slugVersion => slugVersion.plugin === pluginName && getPagePath(slugVersion.slug) === pagePath);
+        const latestPluginVersion = pluginSlugVersions
+          .map(slugVersion => slugVersion.version)
+          .sort(versionRangeComparator)[0];
+        createPage(createPluginDocPage(node, null, latestPluginVersion));
+        const pluginVersion = nodeSlugParts[4];
+        if (latestPluginVersion === pluginVersion) {
+          createPage(createLatestPluginDocPage(node));
         }
       }
     });
@@ -531,7 +567,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
     });
 
     const socialSharingCards = [];
-    posts.forEach(({node: post}) => {
+    posts.forEach(({ node: post }) => {
       let socialSharingCard;
 
       if (!post.frontmatter.featuredImage && isSocialSharingCardGenerationEnabled()) {
@@ -540,8 +576,8 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         socialSharingCard = {
           width: card.width,
           height: card.height,
-          src: "/" + card.path
-        }
+          src: "/" + card.path,
+        };
       }
 
       createPage(createPost(post, socialSharingCard));
@@ -553,7 +589,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
 
 
 const isSocialSharingCardGenerationEnabled = () => {
-  return process.env.NODE_ENV === 'production' || process.env.GENERATE_SOCIAL_SHARING_CARDS === 'true'
+  return process.env.NODE_ENV === "production" || process.env.GENERATE_SOCIAL_SHARING_CARDS === "true";
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
