@@ -12,7 +12,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 const compareVersions = require("semver/functions/compare");
 const minVersion = require("semver/ranges/min-version");
 const versionRangeComparator = require("./src/lib/versionRangeComparator");
-const { createSocialSharingCard, renderSocialSharingCards} = require("./src/lib/socialSharingCards");
+const { createSocialSharingCard, renderSocialSharingCards } = require("./src/lib/socialSharingCards");
 
 // resolve src for mdx
 // https://github.com/ChristopherBiscardi/gatsby-mdx/issues/176#issuecomment-429569578
@@ -156,17 +156,14 @@ const createPluginReleasesPage = node => {
   };
 };
 
-const createPluginDocPage = (node, pluginDocPath, isLatest = false) => {
+const createPluginDocPage = (node, pluginDocPath, latestVersion) => {
   const slugParts = node.fields.slug.split("/").filter(p => p.length > 0);
   // e.g.: /plugins/scm-review-plugin/docs/2.0.x/en/tasks
   const name = slugParts[1];
   const version = slugParts[3];
   const language = slugParts[4];
 
-  let canonicalPath;
-  if (!isLatest) {
-    canonicalPath = `/plugins/${name}/docs/latest/${language}/`;
-  }
+  const canonicalPath = `/plugins/${name}/docs/${latestVersion}/${language}/${node.fields.slug.split("/").slice(6).join("/")}`;
 
   return {
     path: pluginDocPath ? pluginDocPath : node.fields.slug,
@@ -191,7 +188,7 @@ const createPluginLicensePage = node => {
   };
 };
 
-const createDocPage = (node, docPath, isLatest = false) => {
+const createDocPage = (node, docPath, latestVersion) => {
   const slugParts = node.fields.slug.split("/");
   // array start with an empty string
   slugParts.shift();
@@ -199,11 +196,7 @@ const createDocPage = (node, docPath, isLatest = false) => {
   slugParts.shift();
   const version = slugParts.shift();
   const language = slugParts.shift();
-
-  let canonicalPath;
-  if (!isLatest) {
-    canonicalPath = `/docs/latest/${language}/`;
-  }
+  const canonicalPath = `/docs/${latestVersion}/${language}/${node.fields.slug.split("/").slice(4).join("/")}`;
 
   return {
     path: docPath ? docPath : node.fields.slug,
@@ -225,8 +218,8 @@ const createLatestDocPage = node => {
   // followed by docs
   slugParts.shift();
   // followed by version
-  slugParts.shift();
-  return createDocPage(node, ["", "docs", "latest", ...slugParts].join("/"), true);
+  const version = slugParts.shift();
+  return createDocPage(node, ["", "docs", "latest", ...slugParts].join("/"), version);
 };
 
 const createLatestPluginDocPage = node => {
@@ -240,8 +233,8 @@ const createLatestPluginDocPage = node => {
   // followed by docs
   slugParts.shift();
   // followed by version
-  slugParts.shift();
-  return createPluginDocPage(node, ["", "plugins", name, "docs", "latest", ...slugParts].join("/"), true);
+  const version = slugParts.shift();
+  return createPluginDocPage(node, ["", "plugins", name, "docs", "latest", ...slugParts].join("/"), version);
 };
 
 const createPost = (node, socialSharingCard) => {
@@ -250,7 +243,7 @@ const createPost = (node, socialSharingCard) => {
     component: path.resolve(`./src/templates/post.tsx`),
     context: {
       slug: node.fields.slug,
-      socialSharingCard
+      socialSharingCard,
     },
   };
 };
@@ -338,20 +331,24 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           value
         }
       }
-
-      versions: allMarkdownRemark(filter: { fields:{ plugin: { eq: null } } }) {
-        group(field: fields___version) {
-          fieldValue
+      
+      allVersions: allMarkdownRemark {
+        nodes {
+          fields {
+            plugin
+            slug
+            version
+          }
         }
       }
-      
-      pluginVersions: allPluginYaml {
-        group(field: name) {
-          fieldValue
-          nodes {
-            documentation {
-              version
-            }
+
+      versions: allMarkdownRemark(
+        filter: { fields: { plugin: { eq: null }, version: { ne: null } } }
+      ) {
+        nodes {
+          fields {
+            slug
+            version
           }
         }
       }
@@ -373,24 +370,9 @@ exports.createPages = ({ graphql, actions, reporter }) => {
 
     const defaultLanguage =
       result.data.languages.childrenLanguagesYaml[0].value;
-    const latestVersion = result.data.versions.group
-      .map(g => g.fieldValue)
-      .sort(versionRangeComparator)[0];
 
-    const latestPluginVersion = result.data.pluginVersions.group
-      .map((plugin) => {
-        const versions = { ...plugin.nodes }[0].documentation;
-        let latestVersion = null;
-        if (versions.length > 0) {
-          latestVersion = versions
-            .map(g => g.version)
-            .sort(versionRangeComparator)[0];
-        }
-        return {
-          name: plugin.fieldValue,
-          latestVersion,
-        };
-      });
+    const slugVersions = result.data.allVersions.nodes.map(n => n.fields);
+    const docsVersions = result.data.versions.nodes.map(n => n.fields);
 
     createRedirect({
       fromPath: "/docs/",
@@ -400,18 +382,33 @@ exports.createPages = ({ graphql, actions, reporter }) => {
     });
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      if (node.fields.slug.startsWith("/docs")) {
-        createPage(createDocPage(node));
-        if (latestVersion === node.fields.slug.split("/")[2]) {
+      const nodeSlug = node.fields.slug;
+      const nodeSlugParts = nodeSlug.split("/");
+      if (nodeSlug.startsWith("/docs")) {
+        const pageVersion = nodeSlugParts[2];
+        const getPagePath = p => p.split("/").slice(3).join("/");
+        const pagePath = nodeSlugParts.slice(3).join("/");
+        const docsSlugVersions = docsVersions.filter(slugVersion => getPagePath(slugVersion.slug) === pagePath && !!slugVersion.version);
+        const latestDocsVersion = docsSlugVersions
+          .map(slugVersion => slugVersion.version)
+          .sort(versionRangeComparator)[0];
+
+        createPage(createDocPage(node, null, latestDocsVersion));
+        if (latestDocsVersion === pageVersion) {
           createPage(createLatestDocPage(node));
         }
-      } else if (node.fields.slug.startsWith("/plugins")) {
-        const slugParts = node.fields.slug.split("/");
-        if (slugParts[3] === "docs") {
-          createPage(createPluginDocPage(node));
-          if (latestPluginVersion.find(o => o.name === node.fields.slug.split("/")[2]).latestVersion === node.fields.slug.split("/")[4]) {
-            createPage(createLatestPluginDocPage(node));
-          }
+      } else if (nodeSlug.startsWith("/plugins") && nodeSlugParts[3] === "docs") {
+        const getPagePath = p => p.split("/").slice(5).join("/");
+        const pluginName = nodeSlugParts[2];
+        const pagePath = nodeSlugParts.slice(5).join("/");
+        const pluginSlugVersions = slugVersions.filter(slugVersion => slugVersion.plugin === pluginName && getPagePath(slugVersion.slug) === pagePath);
+        const latestPluginVersion = pluginSlugVersions
+          .map(slugVersion => slugVersion.version)
+          .sort(versionRangeComparator)[0];
+        const pluginVersion = nodeSlugParts[4];
+        createPage(createPluginDocPage(node, null, latestPluginVersion));
+        if (latestPluginVersion === pluginVersion) {
+          createPage(createLatestPluginDocPage(node));
         }
       }
     });
@@ -537,7 +534,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
     });
 
     const socialSharingCards = [];
-    posts.forEach(({node: post}) => {
+    posts.forEach(({ node: post }) => {
       let socialSharingCard;
 
       if (!post.frontmatter.featuredImage && isSocialSharingCardGenerationEnabled()) {
@@ -546,8 +543,8 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         socialSharingCard = {
           width: card.width,
           height: card.height,
-          src: "/" + card.path
-        }
+          src: "/" + card.path,
+        };
       }
 
       createPage(createPost(post, socialSharingCard));
@@ -559,7 +556,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
 
 
 const isSocialSharingCardGenerationEnabled = () => {
-  return process.env.NODE_ENV === 'production' || process.env.GENERATE_SOCIAL_SHARING_CARDS === 'true'
+  return process.env.NODE_ENV === "production" || process.env.GENERATE_SOCIAL_SHARING_CARDS === "true";
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
