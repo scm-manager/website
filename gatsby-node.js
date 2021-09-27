@@ -352,17 +352,6 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           }
         }
       }
-      
-      pluginVersions: allPluginYaml {
-        group(field: name) {
-          fieldValue
-          nodes {
-            documentation {
-              version
-            }
-          }
-        }
-      }
 
       releases: allReleasesYaml(
         filter: { plugin: { eq: null } }
@@ -381,27 +370,6 @@ exports.createPages = ({ graphql, actions, reporter }) => {
 
     const defaultLanguage =
       result.data.languages.childrenLanguagesYaml[0].value;
-
-    // TODO: Remove this (And also the graphql query, if its not used elsewhere)
-    // const latestVersion = result.data.versions.group
-    //   .map(g => g.fieldValue)
-    //   .sort(versionRangeComparator)[0];
-
-    // TODO: Remove this (And also the graphql query, if its not used elsewhere)
-    // const latestPluginVersions = result.data.pluginVersions.group
-    //   .map((plugin) => {
-    //     const versions = { ...plugin.nodes }[0].documentation;
-    //     let latestVersion = null;
-    //     if (versions.length > 0) {
-    //       latestVersion = versions
-    //         .map(g => g.version)
-    //         .sort(versionRangeComparator)[0];
-    //     }
-    //     return {
-    //       name: plugin.fieldValue,
-    //       latestVersion,
-    //     };
-    //   });
 
     const slugVersions = result.data.allVersions.nodes.map(n => n.fields);
     const docsVersions = result.data.versions.nodes.map(n => n.fields);
@@ -425,7 +393,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           .map(slugVersion => slugVersion.version)
           .sort(versionRangeComparator)[0];
 
-        console.log(pagePath, pageVersion, latestDocsVersion);
+        console.log("create docs page", pagePath, pageVersion, latestDocsVersion);
         createPage(createDocPage(node, null, latestDocsVersion));
         if (latestDocsVersion === pageVersion) {
           createPage(createLatestDocPage(node));
@@ -438,8 +406,9 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         const latestPluginVersion = pluginSlugVersions
           .map(slugVersion => slugVersion.version)
           .sort(versionRangeComparator)[0];
-        createPage(createPluginDocPage(node, null, latestPluginVersion));
         const pluginVersion = nodeSlugParts[4];
+        console.log("create plugin page", pluginName, pagePath, pluginVersion, latestPluginVersion);
+        createPage(createPluginDocPage(node, null, latestPluginVersion));
         if (latestPluginVersion === pluginVersion) {
           createPage(createLatestPluginDocPage(node));
         }
