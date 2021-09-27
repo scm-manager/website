@@ -172,6 +172,7 @@ const createPluginDocPage = (node, pluginDocPath, latestVersion) => {
       name,
       slug: node.fields.slug,
       version,
+      latestVersion,
       language,
       canonicalPath,
     },
@@ -204,6 +205,7 @@ const createDocPage = (node, docPath, latestVersion) => {
     context: {
       slug: node.fields.slug,
       version,
+      latestVersion,
       language,
       relativePath: "/" + slugParts.join("/"),
       canonicalPath,

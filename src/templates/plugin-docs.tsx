@@ -37,8 +37,9 @@ const Navigation = ({ plugin, version, language }) => {
 };
 
 type PageContext = {
-  canonicalPath?: string;
+  canonicalPath: string;
   version: string;
+  latestVersion: string;
   language: string;
 };
 
@@ -53,6 +54,7 @@ const PluginDocs: FC<PageProps<any, PageContext>> = ({ data, path, pageContext }
       <CanonicalLink path={pageContext.canonicalPath}/>
       <div className="columns">
         <div className="column is-three-quarters">
+          {pageContext.latestVersion !== pageContext.version ? <Link style={{ "paddingBottom": "16px", display: "block" }} to={pageContext.canonicalPath}>Go to the latest version of this page</Link> : null}
           <Title>{data.markdownRemark.frontmatter.title}</Title>
           <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
           {renderToc(data.markdownRemark)}

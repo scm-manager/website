@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { graphql, PageProps } from "gatsby";
+import { graphql, Link, PageProps } from "gatsby";
 
 import Title from "../components/Title";
 import Subtitle from "../components/Subtitle";
@@ -21,8 +21,9 @@ const renderToc = page => {
 type PageContext = {
   slug: string;
   version: string;
+  latestVersion: string;
   language: string;
-  canonicalPath?: string;
+  canonicalPath: string;
 };
 
 const Doc: FC<PageProps<any,PageContext>> = ({ path, data, pageContext }) => (
@@ -35,6 +36,7 @@ const Doc: FC<PageProps<any,PageContext>> = ({ path, data, pageContext }) => (
     <CanonicalLink path={pageContext.canonicalPath} />
     <div className="columns">
       <div className="column is-three-quarters">
+        {pageContext.latestVersion !== pageContext.version ? <Link style={{ "paddingBottom": "16px", display: "block" }} to={pageContext.canonicalPath}>Go to the latest version of this page</Link> : null}
         <Title>{data.markdownRemark.frontmatter.title}</Title>
         <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
         {renderToc(data.markdownRemark)}
