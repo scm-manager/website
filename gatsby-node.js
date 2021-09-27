@@ -393,7 +393,6 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           .map(slugVersion => slugVersion.version)
           .sort(versionRangeComparator)[0];
 
-        console.log("create docs page", pagePath, pageVersion, latestDocsVersion);
         createPage(createDocPage(node, null, latestDocsVersion));
         if (latestDocsVersion === pageVersion) {
           createPage(createLatestDocPage(node));
@@ -407,7 +406,6 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           .map(slugVersion => slugVersion.version)
           .sort(versionRangeComparator)[0];
         const pluginVersion = nodeSlugParts[4];
-        console.log("create plugin page", pluginName, pagePath, pluginVersion, latestPluginVersion);
         createPage(createPluginDocPage(node, null, latestPluginVersion));
         if (latestPluginVersion === pluginVersion) {
           createPage(createLatestPluginDocPage(node));
