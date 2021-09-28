@@ -16,7 +16,9 @@ const WarningBanner: FC<Props> = ({ version, latestPageVersion, latestVersion, l
   if (version === latestVersion) {
     return null;
   } else if (latestPageVersion !== latestVersion && version !== latestPageVersion) {
-    subtitle = <>This page does not refer to the most recent version of {isPlugin ? "this plugin" : "the SCM-Manager"}. <Link  to={latestRootLink}>Go to the latest documentation</Link> or <Link to={latestPageLink}>go to the latest version of this page</Link>.</>;
+    subtitle = <>This page does not refer to the most recent version of {isPlugin ? "this plugin" : "the SCM-Manager"}. <Link to={latestRootLink}>Go to the latest documentation</Link> or <Link to={latestPageLink}>go to the latest version of this page</Link>.</>;
+  } else if (version === latestPageVersion) {
+    subtitle = <>This page does not refer to the most recent version of {isPlugin ? "this plugin" : "the SCM-Manager"}. <Link to={latestRootLink}>Go to the latest documentation</Link>.</>;
   } else {
     subtitle = <>This page does not refer to the most recent version of {isPlugin ? "this plugin" : "the SCM-Manager"}. <Link to={latestPageLink}>Go to the latest version of this page</Link>.</>;
   }
