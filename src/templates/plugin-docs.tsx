@@ -57,7 +57,7 @@ const PluginDocs: FC<PageProps<any, PageContext>> = ({ data, path, pageContext }
       <CanonicalLink path={pageContext.canonicalPath}/>
       <div className="columns">
         <div className="column is-three-quarters">
-          <WarningBanner {...pageContext} latestRootLink={pageContext.latestRootPath} latestPageLink={pageContext.canonicalPath} />
+          <WarningBanner {...pageContext} latestRootLink={pageContext.latestRootPath} latestPageLink={pageContext.canonicalPath} isPlugin={true} />
           <Title>{data.markdownRemark.frontmatter.title}</Title>
           <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
           {renderToc(data.markdownRemark)}

@@ -417,7 +417,9 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           .map(slugVersion => slugVersion.version)
           .sort(versionRangeComparator)[0];
         const latestPluginVersion =
-          slugVersions.filter(slugVersion => slugVersion.plugin === pluginName).map(slugVersion => slugVersion.version)
+          slugVersions
+            .filter(slugVersion => slugVersion.plugin === pluginName && !!slugVersion.version)
+            .map(slugVersion => slugVersion.version)
           .sort(versionRangeComparator)[0];
         const pluginVersion = nodeSlugParts[4];
         createPage(createPluginDocPage(node, null, latestPageVersion, latestPluginVersion));
