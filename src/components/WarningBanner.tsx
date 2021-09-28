@@ -10,28 +10,19 @@ type Props = {
 }
 
 const WarningBanner: FC<Props> = ({ version, latestPageVersion, latestVersion, latestRootLink, latestPageLink }) => {
-  let title, subtitle;
+  let subtitle;
 
   if (version === latestVersion) {
     return null;
-  } else if (latestPageVersion !== latestVersion) {
-    title = "This page is outdated";
-    subtitle = <>It does not exist in the latest documentation. <Link to={latestRootLink}>Click here to go to the latest documentation</Link> or <Link to={latestPageLink}>click here to go to the latest version of this page</Link></>;
+  } else if (latestPageVersion !== latestVersion && version !== latestPageVersion) {
+    subtitle = <>This page does not refer to the most recent version of the SCM-Manager. <Link  to={latestRootLink}>Go to the latest documentation</Link> or <Link to={latestPageLink}>go to the latest version of this page</Link>.</>;
   } else {
-    title = "This documentation is outdated";
-    subtitle = <Link to={latestPageLink}>Go to the latest version of this page</Link>;
+    subtitle = <>This page does not refer to the most recent version of the SCM-Manager. <Link to={latestPageLink}>Go to the latest version of this page</Link>.</>;
   }
 
-  return <section className="hero is-warning mb-4">
-    <div className="hero-body">
-      <p className="title">
-        {title}
-      </p>
-      <p className="subtitle">
-        {subtitle}
-      </p>
-    </div>
-  </section>;
+  return <div className="notification is-warning mb-4">
+    {subtitle}
+  </div>;
 };
 
 export default WarningBanner;
