@@ -10,6 +10,7 @@ import HtmlContent from "../layout/HtmlContent";
 import TableOfContents from "../layout/TableOfContents";
 import { PATH_PART_INDEX_DOCS_LANGUAGE, PATH_PART_INDEX_DOCS_VERSION } from "../components/NavigationSettings";
 import CanonicalLink from "../components/CanonicalLink";
+import WarningBanner from "../components/WarningBanner";
 
 const renderToc = page => {
   if (page.frontmatter.displayToc) {
@@ -22,8 +23,10 @@ type PageContext = {
   slug: string;
   version: string;
   latestVersion: string;
+  latestPageVersion: string;
   language: string;
   canonicalPath: string;
+  latestRootPath: string;
 };
 
 const Doc: FC<PageProps<any,PageContext>> = ({ path, data, pageContext }) => (
@@ -36,7 +39,7 @@ const Doc: FC<PageProps<any,PageContext>> = ({ path, data, pageContext }) => (
     <CanonicalLink path={pageContext.canonicalPath} />
     <div className="columns">
       <div className="column is-three-quarters">
-        {pageContext.latestVersion !== pageContext.version ? <Link style={{ "paddingBottom": "16px", display: "block" }} to={pageContext.canonicalPath}>Go to the latest version of this page</Link> : null}
+        <WarningBanner {...pageContext} latestRootLink={pageContext.latestRootPath} latestPageLink={pageContext.canonicalPath} />
         <Title>{data.markdownRemark.frontmatter.title}</Title>
         <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
         {renderToc(data.markdownRemark)}
