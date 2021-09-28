@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { graphql, PageProps } from "gatsby";
+import { graphql, Link, PageProps } from "gatsby";
 
 import Title from "../components/Title";
 import Subtitle from "../components/Subtitle";
@@ -10,6 +10,7 @@ import HtmlContent from "../layout/HtmlContent";
 import TableOfContents from "../layout/TableOfContents";
 import { PATH_PART_INDEX_DOCS_LANGUAGE, PATH_PART_INDEX_DOCS_VERSION } from "../components/NavigationSettings";
 import CanonicalLink from "../components/CanonicalLink";
+import WarningBanner from "../components/WarningBanner";
 
 const renderToc = page => {
   if (page.frontmatter.displayToc) {
@@ -21,8 +22,11 @@ const renderToc = page => {
 type PageContext = {
   slug: string;
   version: string;
+  latestVersion: string;
+  latestPageVersion: string;
   language: string;
-  canonicalPath?: string;
+  canonicalPath: string;
+  latestRootPath: string;
 };
 
 const Doc: FC<PageProps<any,PageContext>> = ({ path, data, pageContext }) => (
@@ -35,6 +39,7 @@ const Doc: FC<PageProps<any,PageContext>> = ({ path, data, pageContext }) => (
     <CanonicalLink path={pageContext.canonicalPath} />
     <div className="columns">
       <div className="column is-three-quarters">
+        <WarningBanner {...pageContext} latestRootLink={pageContext.latestRootPath} latestPageLink={pageContext.canonicalPath} />
         <Title>{data.markdownRemark.frontmatter.title}</Title>
         <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
         {renderToc(data.markdownRemark)}

@@ -11,6 +11,7 @@ import MenuEntry from "../components/MenuEntry";
 import { PATH_PART_INDEX_PLUGIN_LANGUAGE, PATH_PART_INDEX_PLUGIN_VERSION } from "../components/NavigationSettings";
 import SEO from "../components/SEO";
 import CanonicalLink from "../components/CanonicalLink";
+import WarningBanner from "../components/WarningBanner";
 
 const renderToc = page => {
   if (page.frontmatter.displayToc) {
@@ -37,8 +38,11 @@ const Navigation = ({ plugin, version, language }) => {
 };
 
 type PageContext = {
-  canonicalPath?: string;
+  canonicalPath: string;
+  latestRootPath: string;
   version: string;
+  latestVersion: string;
+  latestPageVersion: string;
   language: string;
 };
 
@@ -53,6 +57,7 @@ const PluginDocs: FC<PageProps<any, PageContext>> = ({ data, path, pageContext }
       <CanonicalLink path={pageContext.canonicalPath}/>
       <div className="columns">
         <div className="column is-three-quarters">
+          <WarningBanner {...pageContext} latestRootLink={pageContext.latestRootPath} latestPageLink={pageContext.canonicalPath} isPlugin={true} />
           <Title>{data.markdownRemark.frontmatter.title}</Title>
           <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
           {renderToc(data.markdownRemark)}
