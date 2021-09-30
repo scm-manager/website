@@ -1,142 +1,202 @@
 <html>
-  <head>
-    <style type="text/css">
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+<head>
+  <style type="text/css">
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
 
-      .body,
-      html {
-        width: 800px;
-        height: 410px;
-      }
+    .body,
+    html {
+      width: 1200px;
+      height: 628px;
+    }
 
-      svg {
-        width: 800px;
-        height: 400px;
-      }
+    svg {
+      width: 1200px;
+      height: 628px
+    }
 
-      .title-container {
-        height: 100%;
-        width: 100%;
-        position: relative;
-      }
+    .title-container {
+      height: 100%;
+      width: 100%;
+      position: relative;
+    }
 
-      .title {
-        font-size: 48px;
-        font-family: Montserrat;
-        font-weight: 700;
-        text-overflow: ellipsis;
-        margin: 0;
-        color: #525252;
-        position: absolute;
-        bottom: 0;
-      }
+    .title {
+      font-size: 60px;
+      font-family: Montserrat;
+      font-weight: 600;
+      text-overflow: ellipsis;
+      margin: 0;
+      color: #fff;
+      position: absolute;
+      bottom: 0;
+    }
 
-      text {
-        font-family: Montserrat;
-        fill: #525252;
-        font-size: 24px;
-        font-weight: 400;
-      }
+    text {
+      font-family: Montserrat;
+      fill: #fff;
+      font-size: 24px;
+      font-weight: 400;
+    }
 
-      .smaller text {
-        font-size: 18px;
-      }
-    </style>
-  </head>
-  <body>
-    <svg width="800" height="400" viewport="0 0 800 400">
-      <defs>
-        <linearGradient
-          id="border-gradient"
-          x1="0%"
-          y1="50%"
-          x2="100%"
-          y2="50%"
-        >
-          <stop offset="0%" style="stop-color: #a6ddf3" />
-          <stop offset="100%" style="stop-color: #40b2e3" />
-        </linearGradient>
-        <radialGradient
-          id="gradient"
-          gradientUnits="userSpaceOnUse"
-          cx="150"
-          cy="220"
-          r="200"
-        >
-          <stop offset="0%" stop-color="#fff" />
-          <stop offset="100%" stop-color="#eee" />
-        </radialGradient>
-        <pattern
-          id="dots"
-          x="0"
-          y="0"
-          width="10"
-          height="10"
-          patternUnits="userSpaceOnUse"
-        >
-          <circle fill="#fff" cx="5" cy="5" r="2" />
-        </pattern>
-        <mask id="mask">
-          <rect width="100%" height="100%" fill="url(#dots)" />
-        </mask>
-        <clipPath id="circle-clip">
-          <circle r="21" cx="21" cy="21" />
-        </clipPath>
-      </defs>
-      <rect
-        id="background"
-        width="100%"
-        height="100%"
-        fill="url(#gradient)"
-        mask="url(#mask)"
-      />
-      <rect
-        id="border"
-        width="100%"
-        height="100%"
-        fill="none"
-        stroke="url(#border-gradient)"
-        stroke-width="25"
-      />
-      <image
-        id="logo"
-        href="https://raw.githubusercontent.com/scm-manager/scm-manager/develop/docs/en/logo/scm-manager_logo_img.png"
-        y="50"
-        height="300"
-      />
-      <foreignObject x="300" y="30" width="475" height="170">
+    .author-name {
+      font-size: 38px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .categories {
+      font-size: 42px;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 628">
+    <defs>
+      <clipPath id="circle-clip">
+        <circle r="50" cx="50" cy="50" />
+      </clipPath>
+      <clipPath id="clip-path" transform="translate(1.21 0.37)">
+        <path fill="none"
+          d="M860.94,479.36h0a46.21,46.21,0,0,1,6.12-14.26c45.78-113.74,178-165,248.93-177.32l0-.34A194.92,194.92,0,0,0,1090.58,276c-33.35,9.06-200.73,61.27-229.64,203.36" />
+      </clipPath>
+      <linearGradient id="linear-gradient" x1="117.49" y1="618.34" x2="122.18" y2="618.34"
+        gradientTransform="matrix(54.32, 0, 0, -54.32, -5519.93, 33967.72)" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#45bee9" />
+        <stop offset="0.5" stop-color="#33a7df" />
+        <stop offset="1" stop-color="#2b92d0" />
+      </linearGradient>
+      <clipPath id="clip-path-2" transform="translate(1.21 0.37)">
+        <path fill="none"
+          d="M864.47,454.88c-.88,5.9-1.77,11.83-2.64,17.72,22.48-127.72,153.42-184.47,208.68-202.91a256.46,256.46,0,0,0-29.18-5.94c-58.91,25.56-160.22,84.36-176.86,191.13" />
+      </clipPath>
+      <linearGradient id="linear-gradient-2" x1="120.5" y1="619.49" x2="125.2" y2="619.49"
+        gradientTransform="matrix(44.39, 0, 0, -44.39, -4485.36, 27864.71)" xlink:href="#linear-gradient" />
+      <clipPath id="clip-path-3" transform="translate(1.21 0.37)">
+        <path fill="none"
+          d="M990.71,261.55c-72,45.84-111.82,99.1-121.7,162.87l-2.65,17.74c4.91-27.91,19.86-112.82,153.69-180.55-5.1-.3-10.2-.45-15.26-.45q-7.08,0-14.08.39" />
+      </clipPath>
+      <linearGradient id="linear-gradient-3" x1="126.48" y1="621.76" x2="131.19" y2="621.76"
+        gradientTransform="matrix(32.69, 0, 0, -32.69, -3267.23, 20677.41)" xlink:href="#linear-gradient" />
+      <clipPath id="clip-path-4" transform="translate(1.21 0.37)">
+        <path fill="none"
+          d="M940.61,270.59c-28.89,28.52-57,62.91-66.67,120.81-.88,5.9-1.77,11.8-2.65,17.74,4.44-25.26,14.86-84.37,95.33-145a179.79,179.79,0,0,0-26,6.41" />
+      </clipPath>
+      <linearGradient id="linear-gradient-4" x1="140.36" y1="626.85" x2="145.06" y2="626.85"
+        gradientTransform="matrix(20.28, 0, 0, -20.28, -1973.66, 13048.44)" xlink:href="#linear-gradient" />
+      <clipPath id="clip-path-5" transform="translate(1.21 0.37)">
+        <path fill="none"
+          d="M916.8,281.13a89.64,89.64,0,0,0-12.25,8.39c-12.92,22.53-20.91,40.59-26,71.42l-2.66,17.73c3.26-18.5,10-57,48-101.31-2.44,1.18-4.81,2.44-7.09,3.77" />
+      </clipPath>
+      <linearGradient id="linear-gradient-5" x1="176.42" y1="639.74" x2="181.12" y2="639.74"
+        gradientTransform="matrix(10.22, 0, 0, -10.22, -926.32, 6867.65)" xlink:href="#linear-gradient" />
+    </defs>
+    <g id="background">
+      <path fill="#0483a0"
+        d="M1162.86,188.35l10.75,7.87h0c-29.17-91.3-72.44-189.37-75.76-196.59H854.9C867.74,5.8,1014.82,80.36,1162.86,188.35Z"
+        transform="translate(1.21 0.37)" />
+      <path fill="#0496ad" d="M1097.85-.37c3.32,7.22,46.57,105.29,75.76,196.68h0q13.44,9.93,26.81,20.28V-.37Z"
+        transform="translate(1.21 0.37)" />
+      <path fill="#005281"
+        d="M-1.21,363.8c37.83,21.89,154.47,93,387.24,264.48l.36.27h814v-412q-13.38-10.34-26.81-20.28-5.35-4-10.75-7.87c-148-108-295.12-182.61-308-188.78H-1.21Z"
+        transform="translate(1.21 0.37)" />
+      <path fill="#013c66" d="M386,628.28C153.26,456.76,36.62,385.69-1.21,363.8v264Z"
+        transform="translate(1.21 0.37)" />
+    </g>
+    <g id="left">
+      <foreignObject x="115" y="75" width="540" height="215">
         <div class="title-container">
           <p class="title" xmlns="http://www.w3.org/1999/xhtml">
             {title}
           </p>
         </div>
       </foreignObject>
-
-      <text x="300" y="230" width="470" class="tags">
+      <text class="categories" x="115" y="360">
         {categories}
       </text>
-
-      <g class="smaller">
-        <text x="300" y="270">{date} - {wordCount} words - {timeToRead}min read</text>
+      <text transform="translate(116.26 416.23)">
+        {date} - {wordCount} words - {timeToRead}min read
+      </text>
+      <g id="author">
+        <g id="author-avatar">
+          <image width="100" height="100" transform="translate(109.53 472) scale(0.75)"
+            href="{avatar}"
+            clip-path="url(#circle-clip)" />
+          <circle cx="50" cy="50" r="54" stroke="#fff" stroke-width="4" fill="none"
+            transform="translate(109.53 472) scale(0.75)" />
+        </g>
+        <text class="author-name" transform="translate(205.82 523.74)">
+          {author}
+        </text>
       </g>
-
-      <g transform="translate(300,300)">
-        <image
-          href="{avatar}"
-          height="42"
-          width="42"
-          clip-path="url(#circle-clip)"
-        />
-        <circle
-          cx="21"
-          cy="21"
-          r="23"
-          stroke="#aaa"
-          stroke-width="2"
-          fill="none"
-        />
-        <text x="60" y="30" class="footer-text">{author}</text>
+    </g>
+    <g id="right">
+      <g id="scm_logo" data-name="scm logo">
+        <path fill="#c7c6c5"
+          d="M721.44,143.69l-.18.28C767.49,199,835.41,323.24,796.9,439.65a46.36,46.36,0,0,1-5.18,16c71-127.44-23.7-275.87-43.41-304.31a191.43,191.43,0,0,0-26.87-7.67"
+          transform="translate(1.21 0.37)" />
+        <path fill="#c7c6c5"
+          d="M796.05,448.77c65.39-112.08,2-239.7-28.31-289.35a254.85,254.85,0,0,1,26.13,14.25c28.5,57.42,67.92,167.54,11.63,259.84l-9.45,15.26"
+          transform="translate(1.21 0.37)" />
+        <path fill="#c7c6c5"
+          d="M812.27,422.56c14.28-24.48,57.76-99-.75-236.85A256.18,256.18,0,0,1,834,204.54c25.41,81.36,21.39,147.68-12.27,202.76Z"
+          transform="translate(1.21 0.37)" />
+        <path fill="#c7c6c5"
+          d="M829.85,394.16c12.93-22.16,43.19-74,20.84-172.11a177.91,177.91,0,0,1,15.75,21.63c3.62,40.38,2.86,84.72-27.15,135.22q-4.71,7.64-9.44,15.26"
+          transform="translate(1.21 0.37)" />
+        <path fill="#c7c6c5"
+          d="M846.08,368c9.47-16.25,29.17-50,28.75-108.35,1.11,2.49,2.1,5,3,7.46a91.82,91.82,0,0,1,3.94,14.29c-4.68,25.53-10.26,44.47-26.25,71.35Z"
+          transform="translate(1.21 0.37)" />
+        <g clip-path="url(#clip-path)">
+          <rect fill="url(#linear-gradient)" x="862.15" y="276.37" width="255.11" height="203.36" />
+        </g>
+        <g clip-path="url(#clip-path-2)">
+          <rect fill="url(#linear-gradient-2)" x="863.04" y="264.12" width="208.68" height="208.85" />
+        </g>
+        <g clip-path="url(#clip-path-3)">
+          <rect fill="url(#linear-gradient-3)" x="867.57" y="261.53" width="153.69" height="181" />
+        </g>
+        <g clip-path="url(#clip-path-4)">
+          <rect fill="url(#linear-gradient-4)" x="872.5" y="264.55" width="95.33" height="144.95" />
+        </g>
+        <g clip-path="url(#clip-path-5)">
+          <rect fill="url(#linear-gradient-5)" x="877.05" y="277.73" width="48.05" height="101.32" />
+        </g>
       </g>
-    </svg>
-  </body>
+      <g id="cloudogu_logo" data-name="cloudogu logo">
+        <path fill="#fff"
+          d="M970,538.11a22.81,22.81,0,0,1-5.36.54c-5.4,0-9.47-3.33-9.47-10.1v-3.86c0-6.77,4.07-10.09,9.47-10.09a22.81,22.81,0,0,1,5.36.54c.7.16.87.41.87,1.08v2.7c0,.41-.33.62-.75.62H970a35.43,35.43,0,0,0-5.36-.29c-2,0-4,1.12-4,5.44v3.86c0,4.32,2,5.44,4,5.44a35.43,35.43,0,0,0,5.36-.29h.12c.42,0,.75.21.75.63V537C970.84,537.69,970.67,537.94,970,538.11Z"
+          transform="translate(1.21 0.37)" />
+        <path fill="#fff"
+          d="M977,538.31h-3.86a.86.86,0,0,1-.83-.87v-29.9a.83.83,0,0,1,.83-.83H977a.79.79,0,0,1,.79.83v29.9A.83.83,0,0,1,977,538.31Z"
+          transform="translate(1.21 0.37)" />
+        <path fill="#fff"
+          d="M989.53,538.65c-6.53,0-9.93-4.41-9.93-10.35v-3.36c0-5.94,3.4-10.34,9.93-10.34s9.92,4.4,9.92,10.34v3.36C999.45,534.24,996.05,538.65,989.53,538.65ZM994,524.94c0-3.41-1.54-5.61-4.44-5.61s-4.45,2.2-4.45,5.61v3.36c0,3.41,1.54,5.61,4.45,5.61s4.44-2.2,4.44-5.61Z"
+          transform="translate(1.21 0.37)" />
+        <path fill="#fff"
+          d="M1019.53,538.31h-3.82a.83.83,0,0,1-.83-.83v-1a10.71,10.71,0,0,1-6.52,2.07,7.08,7.08,0,0,1-5.11-1.74c-1.54-1.54-2.08-4.11-2.08-7.56V515.76a.87.87,0,0,1,.83-.87h3.82a.86.86,0,0,1,.83.87V529.3c0,2.08.17,3.28,1,4a3.59,3.59,0,0,0,2.57.75c1.54,0,3.53-1,4.7-1.67V515.76a.86.86,0,0,1,.83-.87h3.82a.86.86,0,0,1,.83.87v21.72A.83.83,0,0,1,1019.53,538.31Z"
+          transform="translate(1.21 0.37)" />
+        <path fill="#fff"
+          d="M1040.42,537.57a35.6,35.6,0,0,1-8.35,1.08c-6.68,0-9.92-3.95-9.92-10.43V525c0-6.48,3.24-10.42,9.92-10.42a31,31,0,0,1,4,.29v-7.35a.83.83,0,0,1,.83-.83h3.82a.83.83,0,0,1,.83.83v28.9C1041.54,537.07,1041.38,537.32,1040.42,537.57Zm-4.36-18.2a36,36,0,0,0-4-.29c-3.57,0-4.44,2.54-4.44,5.94v3.2c0,3.41.87,5.94,4.44,5.94a23.77,23.77,0,0,0,4-.29Z"
+          transform="translate(1.21 0.37)" />
+        <path fill="#fff"
+          d="M1053.25,538.65c-6.52,0-9.93-4.41-9.93-10.35v-3.36c0-5.94,3.41-10.34,9.93-10.34s9.93,4.4,9.93,10.34v3.36C1063.18,534.24,1059.77,538.65,1053.25,538.65Zm4.45-13.71c0-3.41-1.54-5.61-4.45-5.61s-4.44,2.2-4.44,5.61v3.36c0,3.41,1.53,5.61,4.44,5.61s4.45-2.2,4.45-5.61Z"
+          transform="translate(1.21 0.37)" />
+        <path fill="#fff"
+          d="M1084.52,518.67l-1.37.54a5.25,5.25,0,0,1,1,3.32v.29c0,5.19-3.57,7.56-9.84,7.56a12.55,12.55,0,0,1-4.53-.7,1.31,1.31,0,0,0-.71,1.07c0,.84.46,1.17,1.41,1.37l4.91,1.17c5.64,1.33,9.3,2.2,9.3,6.64v.29c0,4.24-3.12,6.52-10.18,6.52-6.72,0-10.3-2.53-10.3-6.89v-.37a6.22,6.22,0,0,1,2.12-4.57,4.83,4.83,0,0,1-1.87-3.82v0a4.07,4.07,0,0,1,1.66-3.37,6.43,6.43,0,0,1-1.7-4.86v-.29c0-4.15,2.7-7.64,9.89-7.64h9.71a1.12,1.12,0,0,1,1.13,1.12v1.74C1085.19,518.38,1085,518.46,1084.52,518.67Zm-5.27,21.26c0-.91-.54-1.45-4.9-2.49l-3.7-.87a4.12,4.12,0,0,0-1,2.91v.37c0,1.7,1,2.74,4.94,2.74s4.7-.87,4.7-2.37Zm-.46-17.32c0-2-.87-3.53-4.44-3.53s-4.49,1.58-4.49,3.53V523c0,1.53.62,3.28,4.49,3.28,3.44,0,4.44-1.21,4.44-3.28Z"
+          transform="translate(1.21 0.37)" />
+        <path fill="#fff"
+          d="M1104.6,538.31h-3.82a.83.83,0,0,1-.83-.83v-1a10.73,10.73,0,0,1-6.52,2.07,7.08,7.08,0,0,1-5.11-1.74c-1.54-1.54-2.08-4.11-2.08-7.56V515.76a.87.87,0,0,1,.83-.87h3.82a.86.86,0,0,1,.83.87V529.3c0,2.08.17,3.28,1,4a3.59,3.59,0,0,0,2.57.75c1.54,0,3.53-1,4.7-1.67V515.76a.86.86,0,0,1,.83-.87h3.82a.86.86,0,0,1,.83.87v21.72A.83.83,0,0,1,1104.6,538.31Z"
+          transform="translate(1.21 0.37)" />
+        <path fill="#fff"
+          d="M1065.44,458.56a19.57,19.57,0,0,0-16.07-.68,18.77,18.77,0,0,0-6.2-12.84c-7.63-7.23-20-6.56-27.17,1.47a18.44,18.44,0,0,0-4.81,11.37,19.55,19.55,0,0,0-16.06.68c-7.64,3.57-13.66,14.81-8.17,25.69,4,7.93,14,11.7,20.35,11.06h46.08c6.38.58,16.24-3.2,20.22-11.07C1079.1,473.37,1073.08,462.13,1065.44,458.56Zm1.59,22.76c-2.35,4.32-6.4,5.95-11,6.37h-16.23a11.73,11.73,0,0,1-9.52,4.74,11.53,11.53,0,0,1-9.53-4.74h-16.1c-4.64-.39-8.76-2-11.14-6.38a11.94,11.94,0,1,1,21.36-10.62,13,13,0,0,1,.68,2l.53-.63a20.08,20.08,0,0,1,5.8-4.34,10.13,10.13,0,0,1-1.5-1.78l-.13-.23a11.94,11.94,0,1,1,20.75-1.26h0a12.1,12.1,0,0,1-2.37,3.26,20.08,20.08,0,0,1,5.8,4.34l.53.63a13,13,0,0,1,.68-2A11.94,11.94,0,1,1,1067,481.32Z"
+          transform="translate(1.21 0.37)" />
+        <path fill="#fff"
+          d="M1063.2,475.51a6.6,6.6,0,0,1-12.74,2.42l.06.28-12.85,2.54a7.37,7.37,0,0,1-14.73,0l-13-2.56a6.6,6.6,0,1,1,.58-2.7l12.76,2.63h0a7.39,7.39,0,0,1,5.62-4.86h0v-7.64a6.62,6.62,0,1,1,2.64,0v7.62a7.41,7.41,0,0,1,5.69,4.85l12.68-2.61.06.31c0-.1,0-.21,0-.31a6.6,6.6,0,0,1,13.2,0Z"
+          transform="translate(1.21 0.37)" />
+      </g>
+    </g>
+  </svg>
+</body>
 </html>

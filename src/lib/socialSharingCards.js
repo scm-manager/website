@@ -4,9 +4,9 @@ const crypto = require("crypto");
 const puppeteer = require("puppeteer");
 
 const cardSize = {
-  width: 800,
-  height: 400,
-  deviceScaleFactor: 2
+  width: 1200,
+  height: 628,
+  deviceScaleFactor: 1
 };
 
 const directoryName = "social-sharing-cards";

@@ -37,9 +37,9 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
             siteUrl
           }
         }
-        defaultImage: file(relativePath: {eq: "images/scm-manager_logo.png"}) {
+        defaultImage: file(relativePath: {eq: "images/default-social-sharing-card.png"}) {
           childImageSharp {
-            original {
+            fixed(width: 1200, height: 628) {
               src
               width
               height
