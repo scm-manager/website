@@ -53,7 +53,7 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
   const metaDescription = truncate(description || site.siteMetadata.description, {
     length: 160,
   });
-  const image = metaImage || defaultImage?.childImageSharp?.original;
+  const image = metaImage || defaultImage?.childImageSharp?.fixed;
   const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
 
   return (
