@@ -1,0 +1,6 @@
+name: scm-ces-plugin
+displayName: CES Integration
+description: Offers integration into the Cloudogu Ecosystem
+category: Library
+author: Cloudogu GmbH
+avatarUrl: cloudogu-logo.png
