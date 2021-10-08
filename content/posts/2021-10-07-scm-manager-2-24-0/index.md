@@ -24,7 +24,7 @@ That's why we developed two new plugins that will make it easier for non-IT peop
 The [History Download Plugin](/plugins/scm-landingpage-plugin/) is more like a shortcut for a feature which was already technically possible. 
 On the sources view you can see the files inside a repository. 
 Click on the new icon to expand history view with all versions of this file and the direct download links.
-You can see the 10 latest changes but can fetch more results as you click on the bar below.
+You see the 10 latest changes but can fetch more results as you click on the bar below.
 
 ![History Download](assets/history-download.png)
 
