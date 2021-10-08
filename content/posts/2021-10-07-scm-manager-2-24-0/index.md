@@ -43,7 +43,7 @@ Since this are repositories each change has to be a commit/changeset. If you del
 
 ![Folder Creation](assets/folder-creation.png)
 
-Recommendation: This plugin is a great addition if you already work with the [Editor Plugin] (https://scm-manager.org/plugins/scm-editor-plugin/).
+Recommendation: This plugin is a great addition if you already work with the [Editor Plugin](/plugins/scm-editor-plugin/).
 
 ### Minor changes
 - We fixed some minor bugs in the global search.
