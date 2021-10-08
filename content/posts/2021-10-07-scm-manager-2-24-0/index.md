@@ -28,7 +28,7 @@ You see the 10 latest changes but can fetch more results as you click on the bar
 
 ![History Download](assets/history-download.png)
 
-This feature was requested by SCM-Manager users which wanted to access they binary files directly from the sources view.
+This feature was requested by SCM-Manager users who wanted to access their binary files directly from the sources view.
 
 ## Manage Folder Plugin
 The [Manage Folder Plugin](/plugins/scm-manage-folder-plugin) is perfect for people who are used to working with directories.
