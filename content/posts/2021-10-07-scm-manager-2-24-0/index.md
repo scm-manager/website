@@ -48,7 +48,7 @@ Recommendation: This plugin is a great addition if you already work with the [Ed
 ### Minor changes
 - We fixed some minor bugs in the global search.
 - We cleaned up our own frontend code and prepared for upcoming accessibility improvements.
-- We fixed a bug regarding incorrect encoding for SVN directories with spaces.
+- We fixed a bug regarding incorrect encoding for SVN directories with whitespaces.
 
 ## Final words
 Are you still missing an important feature? How can SCM Manager help you improve your work processes? We would love to hear from you about what you need most!
