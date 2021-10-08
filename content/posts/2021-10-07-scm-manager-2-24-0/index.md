@@ -47,7 +47,7 @@ Recommendation: This plugin is a great addition if you already work with the [Ed
 
 ### Minor changes
 - We fixed some minor bugs in the global search.
-- We cleaned up our own frontend code and prepared for the coming accessibility improvement.
+- We cleaned up our own frontend code and prepared for upcoming accessibility improvements.
 - We fixed a bug regarding incorrect encoding for SVN directories with spaces.
 
 ## Final words
