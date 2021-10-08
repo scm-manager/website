@@ -14,7 +14,7 @@ keywords:
 Hello SCM-Manager Community,
 
 Since SCM-Manager is mainly concerned with repository management, our target audience is mostly from the IT field.
-However, during the development of SCM-Manager we found that quite other fields like engineers, craftsmen, scientists and office workers also want to use this tool for their purposes and workflows.
+However, during the development of SCM-Manager we found that other fields like engineers, craftsmen, scientists and office workers also want to use this tool for their purposes and workflows.
 SCM-Manager is a heavily repository-focused tool, and we have no plans to change that.
 However, since it is already possible to write plugins for almost anything without bloating the core of SCM-Manager,
 we would like to support other users besides developers and administrators.
