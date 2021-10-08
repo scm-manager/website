@@ -18,7 +18,7 @@ However, during the development of SCM-Manager we found that other fields like e
 SCM-Manager is a repository-focused tool, and we have no plans to change that.
 However, since it is already possible to write plugins for almost anything without bloating the core of SCM-Manager,
 we would like to support other users besides developers and administrators.
-That's why we developed two new plugins that could make it easier for non-IT people to work with SCM-Manager.
+That's why we developed two new plugins that will make it easier for non-IT people to work with the SCM-Manager.
 
 ## History Download Plugin
 The [History Download Plugin](/plugins/scm-landingpage-plugin/) is more like a shortcut for a feature which was already technically possible. 
