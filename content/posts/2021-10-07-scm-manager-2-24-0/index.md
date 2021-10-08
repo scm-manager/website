@@ -39,7 +39,7 @@ To realize this feature with the different clients Git, HG and SVN, we introduce
 ![Folder Actions](assets/folder-actions.png)
 
 By clicking on the create button a folder creation modal shows up. You can create sub-directories on one or more nested levels. 
-Since this are repositories each change has to be a commit/changeset. If you delete a directories all included files and sub-directories also gets deleted.
+Since these are repositories each change has to be a commit/changeset. If you delete directories all included files and sub-directories also get deleted.
 
 ![Folder Creation](assets/folder-creation.png)
 
