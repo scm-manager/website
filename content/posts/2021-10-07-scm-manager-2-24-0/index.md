@@ -21,7 +21,7 @@ we would like to support other users besides developers and administrators.
 That's why we developed two new plugins that could make it easier for non-IT people to work with SCM-Manager.
 
 ## History Download Plugin
-The [History Download Plugin]() is more like a shortcut for a feature which was already technically possible. 
+The [History Download Plugin](/plugins/scm-landingpage-plugin/) is more like a shortcut for a feature which was already technically possible. 
 On the sources view you can see the files inside a repository. 
 Click on the new icon to expand history view with all versions of this file and the direct download links.
 You can see the 10 latest changes but can fetch more results as you click on the bar below.
