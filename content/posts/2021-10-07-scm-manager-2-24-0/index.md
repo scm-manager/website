@@ -5,7 +5,7 @@ author: Eduard Heimbuch
 categories:
 - scm-manager
 - release
-  keywords:
+keywords:
 - folder
 - history
 - download
