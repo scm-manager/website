@@ -31,7 +31,7 @@ You can see the 10 latest changes but can fetch more results as you click on the
 This feature was requested by SCM-Manager users which wanted to access they binary files directly from the sources view.
 
 ## Manage Folder Plugin
-The [Manage Folder Plugin]() is perfect for people who are used to working with directories.
+The [Manage Folder Plugin](/plugins/scm-manage-folder-plugin) is perfect for people who are used to working with directories.
 By default, Git and Mercurial don't know directories at all, only files and paths.
 We wanted to make creating new directories and deleting entire directories more intuitive for office workers (similar to Windows).
 To realize this feature with the different clients Git, HG and SVN, we introduced a `.scmkeep` file that holds your directory structures.
