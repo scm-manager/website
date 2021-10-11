@@ -88,4 +88,4 @@ There were a few bugs you reported that we were able to fix with this version, e
 Are you still missing an important feature? How can SCM Manager help you improve your work processes? We would love to hear from you about what you need most!
 
 Do you have any questions or suggestions about the SCM Manager? 
-Contact the DEV team directly on [GitHub] (https://github.com/scm-manager/scm-manager/) and make sure to check out our new [community platform] (https://community.cloudogu.com/c/scm-manager/).
+Contact the DEV team directly on [GitHub](https://github.com/scm-manager/scm-manager/) and make sure to check out our new [community platform](https://community.cloudogu.com/c/scm-manager/).
