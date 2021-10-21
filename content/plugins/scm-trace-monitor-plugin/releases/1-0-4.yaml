@@ -1,0 +1,10 @@
+---
+plugin: "scm-trace-monitor-plugin"
+tag: "1.0.4"
+date: "2021-10-21T12:33:19Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-trace-monitor-plugin/1.0.4/scm-trace-monitor-plugin-1.0.4.smp"
+checksum: "7040d21ec79be2e041cb6393a9dd81500145a09e95fc5c6ebb08531050ec73c8"
+optionalDependencies:
+- "scm-landingpage-plugin"
+conditions:
+  minVersion: "2.9.0"
