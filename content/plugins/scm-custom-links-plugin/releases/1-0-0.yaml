@@ -6,3 +6,5 @@ url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plug
 checksum: "4deba379b4d7f8cb85c1f52ef12a972068c07563e0e59e604f478cb3fd0faab3"
 conditions:
   minVersion: "2.24.0"
+installLink: "https://community.cloudogu.com/t/instructions-custom-links-plugin-for-scm-manager/289"
+
