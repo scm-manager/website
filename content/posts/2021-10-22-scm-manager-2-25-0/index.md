@@ -16,6 +16,7 @@ With the new version 2.25.0 we have completely redesigned the landing page.
 We also fixed some minor bugs and added some minor features to various plugins.
 Our next big topic will be **accessibility aka a11y**.
 Here we will improve keyboard navigation and screen reader support, and we have already started to create our new theme `High Contrast Mode` which is actually dark but not the `Dark Mode`.
+
 But let's talk about what the current version includes.
 
 ## Landing Page Plugin
@@ -25,8 +26,8 @@ This page showed all user related information like favorite repositories, open t
 **OLD LANDINGPAGE**
 ![Old Landing Page](assets/old_landing_page.png)
 
-We improved this landing page by merging it into the repository overview. 
-We transferred the additional widgets like favorite repositories and also make it customizable by each user which widgets should be shown on your repository overview.
+We improved this landing page by merging the widgets like the favorite repositories into the repository overview.
+Also, we added a configuration to let you choose which widgets should be shown on your personal repository overview.
 
 **NEW LANDINGPAGE**
 ![New Landing Page](assets/new_landing_page.png)
@@ -46,7 +47,7 @@ This plugin is currently not available from the official SCM-Manager plugin cent
 - We added another specific permission with write access for the [SSL Context Plugin](https://scm-manager.org/plugins/scm-ssl-context-plugin).
 - The footer is now also displayed on the login page.
 - The [Repository Template Plugin](https://scm-manager.org/plugins/scm-repository-template-plugin) can now automatically mark repositories as templates by using the corresponding action in the repository settings.
-- It is no longer possible to delete the default branch of a repository as this causes several problems in the SCM-Manager.
+- It is no longer possible to delete the default branch of a repository as this may cause several problems in SCM-Manager.
 
 ## Final words
 Are you still missing an important feature? How can SCM Manager help you improve your work processes? We would love to hear from you about what you need most!
