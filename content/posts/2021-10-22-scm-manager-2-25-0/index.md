@@ -22,10 +22,6 @@ But let's talk about what the current version includes.
 ## Landing Page Plugin
 SCM-Manager already provided a [Landing Page Plugin](https://scm-manager.org/plugins/scm-landingpage-plugin/) which adds a new start page before the repository overview. 
 This page showed all user related information like favorite repositories, open tasks and recent events in SCM-Manager.
-
-**OLD LANDINGPAGE**
-![Old Landing Page](assets/old_landing_page.png)
-
 We improved this landing page by merging the widgets like the favorite repositories into the repository overview.
 Also, we added a configuration to let you choose which widgets should be shown on your personal repository overview.
 
