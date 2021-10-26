@@ -163,7 +163,8 @@ const createPluginDocPage = (node, pluginDocPath, latestPageVersion, latestVersi
   const version = slugParts[3];
   const language = slugParts[4];
 
-  const canonicalPath = `/plugins/${name}/docs/${latestPageVersion}/${language}/${node.fields.slug.split("/").slice(6).join("/")}`;
+  const canonicalVersion = latestPageVersion === latestVersion ? "latest" : latestPageVersion;
+  const canonicalPath = `/plugins/${name}/docs/${canonicalVersion}/${language}/${node.fields.slug.split("/").slice(6).join("/")}`;
   const latestRootPath = `/plugins/${name}/docs/${latestVersion}/${language}/`;
 
   return {
@@ -200,7 +201,9 @@ const createDocPage = (node, docPath, latestPageVersion, latestVersion) => {
   slugParts.shift();
   const version = slugParts.shift();
   const language = slugParts.shift();
-  const canonicalPath = `/docs/${latestPageVersion}/${language}/${node.fields.slug.split("/").slice(4).join("/")}`;
+
+  const canonicalVersion = latestPageVersion === latestVersion ? "latest" : latestPageVersion;
+  const canonicalPath = `/docs/${canonicalVersion}/${language}/${node.fields.slug.split("/").slice(4).join("/")}`;
   const latestRootPath = `/docs/${latestVersion}/${language}/`;
 
   return {
