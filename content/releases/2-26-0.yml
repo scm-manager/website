@@ -1,0 +1,11 @@
+tag: 2.26.0
+date: '2021-11-04T13:23:32Z'
+packages:
+- {type: unix, checksum: f212c97e047575c3a669c501d572d24284ab9ea6c6ff3ca3612d382654bad24d,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.26.0/unix-2.26.0.tar.gz'}
+- {type: windows, checksum: 0e64879cc2eda9a36e058eb3294182d17e42d7d14786769128880b62d2fda6ea,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.26.0/windows-2.26.0.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
