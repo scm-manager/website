@@ -1,0 +1,8 @@
+---
+plugin: "scm-authormapping-plugin"
+tag: "2.0.2"
+date: "2021-11-04T08:45:56Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-authormapping-plugin/2.0.2/scm-authormapping-plugin-2.0.2.smp"
+checksum: "628d7f330b8fe71b2abe6a31fd24776377b679ceda26ff24943f83b8085d517d"
+conditions:
+  minVersion: "2.25.0"
