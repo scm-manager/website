@@ -14,7 +14,7 @@ Hey SCM-Manager Community,
 Java 8 has been around for quite a long time now and it has served SCM-Manager quite well. But everything
 has come to an end.
 
-So today we are here to tell you, that we will quit support for Java 8 in March 2021. We chose this date,
+So today we are here to tell you, that we will quit support for Java 8 in March 2022. We chose this date,
 because according to Oracle the [support for Java 8](https://www.oracle.com/java/technologies/java-se-support-roadmap.html)
 will end then, too. So, if you still run SCM-Manager on Java 8, you should start your transition to Java 11,
 which will be our next target platform.
