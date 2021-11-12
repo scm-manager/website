@@ -128,7 +128,7 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#33b2e8`,
         display: `minimal-ui`,
-        icon: `content/images/scm-manager_logo_favicon.png`, // This path is relative to the root of the site.
+        icon: `content/images/scm_manager_logo_favicon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-typescript`,
