@@ -1,0 +1,5 @@
+name: scm-gotenberg-plugin
+displayName: Gotenberg Plugin
+description: Display office documents in the source code viewer of SCM-Manager
+category: Documentation
+author: Cloudogu GmbH
