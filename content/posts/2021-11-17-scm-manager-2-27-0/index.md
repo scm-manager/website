@@ -59,7 +59,7 @@ Locked files can be unlocked by every user with write permission to the reposito
 ## Other changes
 - Upgrades to Webpack 5 and Node 16
 - Improved screen reader support
-- Show Repository Contact on overview
+- Show repository contact in the overview
 - Fix minor ui glitches after introducing the high contrast mode
 
 ## Final words
