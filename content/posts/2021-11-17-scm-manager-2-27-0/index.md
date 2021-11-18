@@ -62,6 +62,12 @@ Locked files can be unlocked by every user with write permission to the reposito
 - Show repository contact in the overview
 - Fix minor ui glitches after introducing the high contrast mode
 
+## Version 2.27.1?
+Right after we released version 2.27.0, an SCM-Manager community member reported to us that the frontend bundles are broken. 
+This is a nasty error between Webpack 5 and the plugins we use. 
+It is really hard to reproduce, but we think that we have fixed it.
+If you also got errors on the SCM-Manager frontend, please let us know.
+
 ## Final words
 Are you still missing an important feature? How can SCM-Manager help you improve your work processes? We would love to hear from you about what you need most!
 
