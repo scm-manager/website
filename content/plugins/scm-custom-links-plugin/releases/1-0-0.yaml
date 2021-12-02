@@ -3,7 +3,7 @@ plugin: "scm-custom-links-plugin"
 tag: "1.0.0"
 date: "2021-10-22T08:48:07Z"
 url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-custom-links-plugin/1.0.0/scm-custom-links-plugin-1.0.0.smp"
-checksum: "4deba379b4d7f8cb85c1f52ef12a972068c07563e0e59e604f478cb3fd0faab3"
+checksum: "14e4b9e7e39f146515ff63366dba2b8dc7cf0d845468ac1d88287d4d9792d6a9"
 conditions:
   minVersion: "2.24.0"
 installLink: "https://community.cloudogu.com/t/instructions-custom-links-plugin-for-scm-manager/289"
