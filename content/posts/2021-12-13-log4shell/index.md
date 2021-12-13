@@ -34,6 +34,6 @@ javax.script.ScriptException: javax.script.ScriptException: groovy.lang.MissingP
 
 If log4j is available, you will get the name of the library.
 
-Feel free to contact us if you have further questions. Yo can contact the DEV team directly on
+Feel free to contact us if you have further questions. You can contact the DEV team directly on
 [GitHub](https://github.com/scm-manager/scm-manager/) and make sure to check out our new
 [community platform](https://community.cloudogu.com/c/scm-manager/).
