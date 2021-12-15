@@ -5,8 +5,10 @@ author: René Pfeuffer
 categories:
 - scm-manager
 - security
+- release
 keywords:
 - log4j
+- logback
 - log4shell
 ---
 
@@ -37,3 +39,12 @@ If log4j is available, you will get the name of the library.
 Feel free to contact us if you have further questions. You can contact the DEV team directly on
 [GitHub](https://github.com/scm-manager/scm-manager/) and make sure to check out our new
 [community platform](https://community.cloudogu.com/c/scm-manager/).
+
+# Update (2021-12-15)
+
+On December, 14th the Logback team [released a patch](http://logback.qos.ch/news.html)
+that removed a potential vulnerability.
+This can be exploited, if the attacker has write access to the logback configuration
+file. Although this should not be possible with SCM-Manager out of the box, we still
+recommend to upgrade to [version 2.27.3](https://scm-manager.org/download/2.27.3/) of SCM-Manager,
+where we have updated this dependency.
