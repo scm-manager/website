@@ -1,0 +1,11 @@
+tag: 2.28.0
+date: '2021-12-22T18:15:26Z'
+packages:
+- {type: unix, checksum: c4108d671304e916003391ac81f74f04c699e5c24587539c86107c9b813ed1f6,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.28.0/unix-2.28.0.tar.gz'}
+- {type: windows, checksum: 69ac3551becc994223dd67f78a08ad68cd8980b902746081106c81507ca067b7,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.28.0/windows-2.28.0.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
