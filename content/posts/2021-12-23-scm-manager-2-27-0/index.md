@@ -39,7 +39,7 @@ Don't want to clone a repository just to rename a file or directory? Now you can
 The high contrast mode had some issues like unreadable colors in the user/group select component for example.
 We fixed the flaws in the core (and we promise to fix the remaining bugs in some plugins soon).
 
-And the next time you use the search functionality, you may notice some changes, too, like code highlight if you
+And the next time you use the search functionality, you may notice some changes too, like code syntax highlighting if you
 have installed the [content search plugin](https://scm-manager.org/plugins/scm-content-search-plugin).
 
 ![Search result with code highlight](assets/search_result.png)
