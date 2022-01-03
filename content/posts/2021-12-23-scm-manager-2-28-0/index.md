@@ -13,7 +13,7 @@ keywords:
 
 Hey SCM-Manager Community,
 
-some time has passed sind 2.27.0, and the hassle around log4shell brought us some bugfix releases (because we
+some time has passed since 2.27.0, and the hassle around log4shell brought us some bugfix releases (because we
 use logback and not log4j, we had some less severe issues in SCM-Manager).
 But now it is time for a new feature release 2.28.0.
 
