@@ -22,7 +22,7 @@ But before going forward we wanted to do a little recap and share our SCM-Manage
 We had 16 feature releases in the last year including these big changes:
 - Repository Import and Export for Git, HG and Subversion
 - Frontend refactored to utilize react-query which dramatically improved performance
-- Metrics for SCM-Manager which can be collected with the related plugins as [JSON](https://scm-manager.org/plugins/scm-metrics-json-plugin/) or [PromQL](https://scm-manager.org/plugins/scm-metrics-prometheus-plugin/)
+- Metrics for SCM-Manager which can be collected with the related plugins as [JSON](https://scm-manager.org/plugins/scm-metrics-json-plugin/) or [OpenMetrics](https://scm-manager.org/plugins/scm-metrics-prometheus-plugin/)
 - Global Notification System
 - Repository Mirroring with the [Repository Mirror Plugin](https://scm-manager.org/plugins/scm-repository-mirror-plugin/)
 - Global search for most entities in SCM-Manager
