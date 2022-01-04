@@ -40,7 +40,7 @@ We cannot go into the details of all the new plugins here, but we strongly recom
 ## Blog Post Series
 
 The SCM-Manager is getting bigger 
-and more complex with every release. We are aware of this, because of which we are working to make plugin development easier and more accessible for everyone. 
+and more complex with every release. We are aware of this and work on making plugin development easier and more accessible for everyone. 
 If you are interested in developing your own SCM-Manager plugins we would love to share our knowledge with you and support your plugin.
 
 Some months ago we released a guide on how to create your first SCM-Manager plugin. 
