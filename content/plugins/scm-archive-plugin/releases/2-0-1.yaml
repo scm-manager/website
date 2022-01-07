@@ -1,0 +1,8 @@
+---
+plugin: "scm-archive-plugin"
+tag: "2.0.1"
+date: "2022-01-07T18:13:15Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-archive-plugin/2.0.1/scm-archive-plugin-2.0.1.smp"
+checksum: "65cc40ff806daccab192ef003b822318a9aa952e1bc81d8686a3aad80344b09c"
+conditions:
+  minVersion: "2.26.0"
