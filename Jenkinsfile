@@ -103,12 +103,13 @@ pipeline {
       }
     }
 
-    stage('Trigger API Build') {
+    stage('Trigger Dependend Builds') {
       when {
         branch 'master'
       }
       steps {
         build job: 'scm-manager-github/plugin-center-api/master', wait: false
+        build job: 'scm-manager-github/alerts/main', wait: false
       }
     }
 
