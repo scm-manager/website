@@ -7,6 +7,8 @@ import PageContainer from "../layout/PageContainer";
 import BlogSideNavigation from "../components/BlogSideNavigation";
 import HtmlContent from "../layout/HtmlContent";
 import TableOfContents from "../layout/TableOfContents";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 
 const Post = ({ data: { post }, pageContext: { socialSharingCard } }) => {
   const image = post.frontmatter.image
@@ -22,7 +24,7 @@ const Post = ({ data: { post }, pageContext: { socialSharingCard } }) => {
       />
       <div className="columns">
         <div className="column is-three-quarters">
-          <Title>{post.frontmatter.title}</Title>
+          <Title>{post.frontmatter.alert ? <FontAwesomeIcon icon={faExclamationTriangle} /> : null}{" "}{post.frontmatter.title}</Title>
           <p className="has-text-grey">
             Posted on {post.frontmatter.date} by{" "}
             <Link to={`/blog/authors/${post.frontmatter.author.id}`}>
@@ -63,6 +65,7 @@ export const query = graphql`
           id
         }
         categories
+        alert
         displayToc
         description
         keywords

@@ -2,6 +2,8 @@ import React, { FC } from "react";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import HtmlContent from "../layout/HtmlContent";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
   posts: Array<any>;
@@ -16,7 +18,10 @@ const PostList: FC<Props> = ({ posts }) => (
     {posts.map(post => (
       <div key={post.fields.slug} className="content">
         <h2>
-          <Link to={`/blog${post.fields.slug}`}>{post.frontmatter.title}</Link>
+          <Link to={`/blog${post.fields.slug}`}>
+            {post.frontmatter.alert ? <FontAwesomeIcon icon={faExclamationTriangle} /> : null}{" "}
+            {post.frontmatter.title}
+          </Link>
         </h2>
         <p className="has-text-grey	">
           Posted on {post.frontmatter.date} by{" "}
@@ -54,6 +59,7 @@ export const postListFragment = graphql`
         id
       }
       categories
+      alert
     }
     excerpt(pruneLength: 280, format: HTML)
   }
