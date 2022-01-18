@@ -1,0 +1,11 @@
+tag: 2.20.1
+date: '2022-01-18T09:17:06Z'
+packages:
+- {type: unix, checksum: fc309d468e7525392c1143b49d1e2607419472932b38f951a58ceba4b9f56960,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.20.1/unix-2.20.1.tar.gz'}
+- {type: windows, checksum: 14179f507bb045cea36aa3658f5df467d2f4c8aceed17f3852ebb11817f9f644,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.20.1/windows-2.20.1.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
