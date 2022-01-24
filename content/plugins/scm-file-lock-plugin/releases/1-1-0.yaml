@@ -1,0 +1,8 @@
+---
+plugin: "scm-file-lock-plugin"
+tag: "1.1.0"
+date: "2022-01-24T14:39:52Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-file-lock-plugin/1.1.0/scm-file-lock-plugin-1.1.0.smp"
+checksum: "3db853e879c91694ae5fc1fe0dcfef40d0ab4d211d1444fc78db458f84c72bef"
+conditions:
+  minVersion: "2.30.0"
