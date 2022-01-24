@@ -1,0 +1,10 @@
+---
+plugin: "scm-pathwp-plugin"
+tag: "2.1.0"
+date: "2022-01-24T13:41:28Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-pathwp-plugin/2.1.0/scm-pathwp-plugin-2.1.0.smp"
+checksum: "6d239659e62a551d4f4d7511a27b0651820e4c8c43b50e1bb5fa763e5a3f2af3"
+optionalDependencies:
+- "scm-editor-plugin"
+conditions:
+  minVersion: "2.0.0"
