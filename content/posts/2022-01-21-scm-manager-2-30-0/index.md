@@ -1,6 +1,6 @@
 ---
 title: SCM-Manager 2.30.0
-date: 2022-01-21T17:00:00+0000
+date: 2022-01-24T17:00:00+0000
 author: Eduard Heimbuch
 categories:
 - scm-manager
@@ -26,7 +26,7 @@ These alerts in the header will only appear if there are known vulnerabilities t
 
 ## Compare
 Another code related feature we have added is 'Compare'. 
-You can now compare diffs and changesets between two branches, tags or revisions. 
+You can now create diffs and list changesets between two branches, tags or revisions. 
 This function can be found on the branch/tag detail page and at the top of the source viewer. 
 
 Note: For revisions you can use the shortened version, but it must be a unique identifier.
