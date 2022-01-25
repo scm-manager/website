@@ -18,7 +18,7 @@ you may have read our last blog post warning you about a Path Traversal vulnerab
 If you haven't already, please update your instance to the latest SCM-Manager version as soon as possible to fix this issue.
 
 ## Alerting
-We have already been working on an alert system that will warn you directly in your instance when an instance to warn you when a vulnerability is found that affects your installed SCM-Manager core and plugin versions.
+We have already been working on an alert system that will warn you directly in your instance when a vulnerability is found that affects your installed SCM-Manager core and plugin versions.
 To make sure you don't miss any important patches, each user is notified of existing security vulnerabilities.
 These alerts in the header will only appear if there are known vulnerabilities that affect your installed versions.
 
