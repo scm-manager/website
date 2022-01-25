@@ -1,0 +1,8 @@
+---
+plugin: "scm-repository-template-plugin"
+tag: "1.1.1"
+date: "2022-01-25T13:00:17Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-repository-template-plugin/1.1.1/scm-repository-template-plugin-1.1.1.smp"
+checksum: "1ecf3e7094af40bd2a46b1b41f38a11e7937b31e102e79aea2dac2984ff44c7e"
+conditions:
+  minVersion: "2.24.0"
