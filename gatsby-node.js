@@ -535,11 +535,13 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       .filter(tag => !tag.includes("-"))
       .sort(versionRangeComparator)[0];
 
-    createRedirect({
-      fromPath: `/download/`,
-      toPath: `/download/${lastRelease}/`,
-      isPermanent: false,
-      redirectInBrowser: true,
+    createPage({
+      path: `/download`,
+      component: path.resolve("./src/templates/download.tsx"),
+      context: {
+        tag: lastRelease,
+        latest: true
+      },
     });
 
     result.data.releases.nodes.map(node => node.tag).forEach(tag => {
@@ -547,7 +549,8 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         path: `/download/${tag}`,
         component: path.resolve("./src/templates/download.tsx"),
         context: {
-          tag: tag,
+          tag,
+          latest: tag === lastRelease
         },
       });
     });

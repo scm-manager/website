@@ -25,7 +25,7 @@ const NavbarMenu = ({ active, toggleActive }: Props) => {
         <NavbarItem to="/" value="Home" />
         <NavbarItem to="/blog/" value="Blog" partiallyActive={true} />
         <NavbarItem
-          to={`/download/${release.tag}/`}
+          to={`/download`}
           activeOn="/download"
           value="Download"
           partiallyActive={true}
