@@ -35,7 +35,7 @@ const DownloadPage: FC<PageProps<any, Context>> = ({ data, pageContext }) => {
 const NotLatestWarning = () => (
   <div className="notification is-warning">
     <p>This page does not refer to the most recent version of SCM-Manager.</p>
-    <Link to="/download">Go to the download of the latest Version</Link>
+    <Link to="/download/">Go to the download of the latest Version</Link>
   </div>
 );
 
