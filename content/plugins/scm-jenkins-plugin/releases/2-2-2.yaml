@@ -1,0 +1,14 @@
+---
+plugin: "scm-jenkins-plugin"
+tag: "2.2.2"
+date: "2022-01-28T13:44:25Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-jenkins-plugin/2.2.2/scm-jenkins-plugin-2.2.2.smp"
+checksum: "5c6b1b79727ae7cd371f15605b79857131194b17f324731a430d63b9cef3a75e"
+dependencies:
+- "scm-el-plugin"
+optionalDependencies:
+- "scm-review-plugin"
+- "scm-ssh-plugin"
+- "scm-mail-plugin"
+conditions:
+  minVersion: "2.10.0"
