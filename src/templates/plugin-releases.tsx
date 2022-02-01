@@ -1,10 +1,12 @@
 import { graphql } from "gatsby";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { satisfies } from "compare-versions";
 import PluginLayout from "../layout/PluginLayout";
 import Accordion from "../layout/Accordion";
 import Icon from "../components/Icon";
 import Changes from "../components/Changes";
+import AlertsNotification from "../components/AlertsNotification";
 
 const Download = ({ url }) => {
   if (url) {
@@ -79,10 +81,11 @@ const ChecksumButton = ({ onClick }) => (
   </ChecksumToggleWrapper>
 );
 
-const Release = ({ release, changelog }) => {
+const Release = ({ release, changelog, alerts }) => {
   const [showChecksum, setShowChecksum] = useState(false);
   return (
     <>
+      <AlertsNotification alerts={alerts.filter(a => satisfies(release.tag, a.affectedVersions))} />
       <div className="media">
         <div className="media-left">
           <Download url={release.url} />
@@ -98,7 +101,7 @@ const Release = ({ release, changelog }) => {
   );
 };
 
-const Releases = ({ releases, changelog }) => {
+const Releases = ({ releases, changelog, alerts }) => {
   if (releases.length === 0) {
     return <p className="notification is-info">No CHANGELOG.md found</p>;
   }
@@ -111,7 +114,7 @@ const Releases = ({ releases, changelog }) => {
           open={i === 0}
           key={release.tag}
         >
-          <Release release={release} changelog={changelog} />
+          <Release release={release} changelog={changelog} alerts={alerts} />
         </Accordion>
       ))}
     </>
@@ -120,7 +123,7 @@ const Releases = ({ releases, changelog }) => {
 
 const PluginReleases = ({ data }) => (
   <PluginLayout plugin={data.plugin}>
-    <Releases releases={data.releases.nodes} changelog={data.changelog} />
+    <Releases releases={data.releases.nodes} changelog={data.changelog} alerts={data.alerts.nodes} />
   </PluginLayout>
 );
 
@@ -149,6 +152,13 @@ export const query = graphql`
         changes {
           html
         }
+      }
+    }
+    alerts: allAlertsYaml(
+      filter: { fields: { component: { eq: $name } } }
+    ) {
+      nodes {
+        ...DownloadAlertsFragment
       }
     }
   }

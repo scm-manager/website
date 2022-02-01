@@ -12,8 +12,9 @@ import {
   Gnubash,
 } from "@icons-pack/react-simple-icons";
 import styled from "styled-components";
-import Changes from "../components/Changes";
+import Changes from "./Changes";
 import CloudoguLogo, { Alignment } from "./CloudoguLogo";
+import AlertsNotification from "./AlertsNotification";
 
 type Package = {
   type: string;
@@ -262,9 +263,10 @@ const Changelog: FC<ChangelogProps> = ({ versionLog }) => {
 type DownloadProps = {
   release: any;
   changelog: any;
+  alerts: any;
 };
 
-const Download: FC<DownloadProps> = ({ release, changelog }) => {
+const Download: FC<DownloadProps> = ({ release, changelog, alerts }) => {
   const props = release.packages
     .map(pkg => createProps(release.tag, pkg, "3em", "top"))
     .filter(p => !!p)
@@ -276,6 +278,7 @@ const Download: FC<DownloadProps> = ({ release, changelog }) => {
       <h2 className="title is-4">
         {release.tag} - ({release.date})
       </h2>
+      <AlertsNotification alerts={alerts} />
       <p>
         If you are looking for an other version of SCM-Manager, please have a
         look at the <Link to="/download/archive">archive</Link>.

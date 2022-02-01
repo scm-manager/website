@@ -90,6 +90,23 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
       name: `slug`,
       value: "/" + parts.join("/") + "/",
     });
+  } else if (node.internal.type === `AlertsYaml`) {
+    const path = createFilePath({ node, getNode });
+
+    if(path.split("/").length > 4) {
+      const plugin = slug.split("/")[2];
+      createNodeField({
+        node,
+        name: `component`,
+        value: plugin,
+      });
+    } else {
+      createNodeField({
+        node,
+        name: `component`,
+        value: `core`,
+      });
+    }
   } else if (
     node.internal.type === `Changelog` ||
     node.internal.type === "PlainText"
