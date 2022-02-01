@@ -75,9 +75,8 @@ const PackageDownload: FC<PackageDownloadProps> = ({
       <p className="image">{icon}</p>
     </figure>
     <div className="media-content">
-      <a id={type}></a>
       <div className="content">
-        <h5>{title}:</h5>
+        <h5 id={type}>{title}:</h5>
         <p>{description}</p>
         {checksum && <Checksum checksum={checksum} />}
         <div className="field is-grouped">
@@ -253,8 +252,7 @@ const Changelog: FC<ChangelogProps> = ({ versionLog }) => {
   }
   return (
     <ChangelogContainer>
-      <h3 className="title is-5">Changelog</h3>
-      <a id="changelog"></a>
+      <h3 className="title is-5" id="changelog">Changelog</h3>
       <Changes content={versionLog.changes.html} />
     </ChangelogContainer>
   );
@@ -284,8 +282,7 @@ const Download: FC<DownloadProps> = ({ release, changelog, alerts }) => {
         look at the <Link to="/download/archive">archive</Link>.
       </p>
       <TableOfContents packages={props} versionLog={versionLog} />
-      <h3 className="title is-5">Packages</h3>
-      <a id="packages"></a>
+      <h3 className="title is-5" id="packages">Packages</h3>
       {props.map(p => (
         <PackageDownload key={p.type} {...p} />
       ))}
