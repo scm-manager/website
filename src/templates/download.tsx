@@ -14,7 +14,9 @@ type Context = {
 };
 
 const DownloadPage: FC<PageProps<any, Context>> = ({ data, pageContext }) => {
-  const alerts = data.alerts.nodes.filter(p => satisfies(pageContext.tag, p.affectedVersions));
+  const alerts = data.alerts.nodes.filter(p =>
+    satisfies(pageContext.tag, p.affectedVersions)
+  );
   return (
     <PageContainer>
       <SEO title={`Download ${pageContext.tag}`} />
@@ -60,9 +62,7 @@ export const query = graphql`
         }
       }
     }
-    alerts: allAlertsYaml(
-      filter: { fields: { component: { eq: "core" } } }
-    ) {
+    alerts: allAlertsYaml(filter: { fields: { component: { eq: "core" } } }) {
       nodes {
         ...DownloadAlertsFragment
       }

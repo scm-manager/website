@@ -1,15 +1,15 @@
 import React, { FC, ReactNode } from "react";
 import { graphql, Link } from "gatsby";
 import {
+  Apple,
+  Debian,
+  Docker,
+  Gnubash,
+  Java,
+  Kubernetes,
   Linux,
   Redhat,
-  Debian,
   Windows,
-  Apple,
-  Docker,
-  Kubernetes,
-  Java,
-  Gnubash,
 } from "@icons-pack/react-simple-icons";
 import styled from "styled-components";
 import Changes from "./Changes";
@@ -214,7 +214,10 @@ type TableOfContentsProps = {
   versionLog: any;
 };
 
-const TableOfContents: FC<TableOfContentsProps> = ({ packages, versionLog }) => (
+const TableOfContents: FC<TableOfContentsProps> = ({
+  packages,
+  versionLog,
+}) => (
   <div className="content">
     <ul>
       <li>
@@ -252,7 +255,9 @@ const Changelog: FC<ChangelogProps> = ({ versionLog }) => {
   }
   return (
     <ChangelogContainer>
-      <h3 className="title is-5" id="changelog">Changelog</h3>
+      <h3 className="title is-5" id="changelog">
+        Changelog
+      </h3>
       <Changes content={versionLog.changes.html} />
     </ChangelogContainer>
   );
@@ -282,7 +287,9 @@ const Download: FC<DownloadProps> = ({ release, changelog, alerts }) => {
         look at the <Link to="/download/archive">archive</Link>.
       </p>
       <TableOfContents packages={props} versionLog={versionLog} />
-      <h3 className="title is-5" id="packages">Packages</h3>
+      <h3 className="title is-5" id="packages">
+        Packages
+      </h3>
       {props.map(p => (
         <PackageDownload key={p.type} {...p} />
       ))}

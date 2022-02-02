@@ -12,13 +12,20 @@ const AlertsNotification: FC<Props> = ({ alerts }) => {
 
   return (
     <div className="notification is-warning mb-4 content">
-      <p className="mb-2">This version contains a known security vulnerability.</p>
+      <p className="mb-2">
+        This version contains a known security vulnerability.
+      </p>
       <ul>
-        {alerts.map((alert) => {
+        {alerts.map(alert => {
           return (
             <li key={alert.title}>
-              <p><a href={alert.link}><strong>{alert.title}</strong> ({alert.fields.component} {alert.affectedVersions})<br/>
-                {alert.description}</a></p>
+              <p>
+                <a href={alert.link}>
+                  <strong>{alert.title}</strong> ({alert.fields.component}{" "}
+                  {alert.affectedVersions})<br />
+                  {alert.description}
+                </a>
+              </p>
             </li>
           );
         })}

@@ -12,7 +12,10 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 const compareVersions = require("semver/functions/compare");
 const minVersion = require("semver/ranges/min-version");
 const versionRangeComparator = require("./src/lib/versionRangeComparator");
-const { createSocialSharingCard, renderSocialSharingCards } = require("./src/lib/socialSharingCards");
+const {
+  createSocialSharingCard,
+  renderSocialSharingCards,
+} = require("./src/lib/socialSharingCards");
 
 // resolve src for mdx
 // https://github.com/ChristopherBiscardi/gatsby-mdx/issues/176#issuecomment-429569578
@@ -93,7 +96,7 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
   } else if (node.internal.type === `AlertsYaml`) {
     const path = createFilePath({ node, getNode });
 
-    if(path.split("/").length > 4) {
+    if (path.split("/").length > 4) {
       const plugin = slug.split("/")[2];
       createNodeField({
         node,
@@ -173,15 +176,24 @@ const createPluginReleasesPage = node => {
   };
 };
 
-const createPluginDocPage = (node, pluginDocPath, latestPageVersion, latestVersion) => {
+const createPluginDocPage = (
+  node,
+  pluginDocPath,
+  latestPageVersion,
+  latestVersion
+) => {
   const slugParts = node.fields.slug.split("/").filter(p => p.length > 0);
   // e.g.: /plugins/scm-review-plugin/docs/2.0.x/en/tasks
   const name = slugParts[1];
   const version = slugParts[3];
   const language = slugParts[4];
 
-  const canonicalVersion = latestPageVersion === latestVersion ? "latest" : latestPageVersion;
-  const canonicalPath = `/plugins/${name}/docs/${canonicalVersion}/${language}/${node.fields.slug.split("/").slice(6).join("/")}`;
+  const canonicalVersion =
+    latestPageVersion === latestVersion ? "latest" : latestPageVersion;
+  const canonicalPath = `/plugins/${name}/docs/${canonicalVersion}/${language}/${node.fields.slug
+    .split("/")
+    .slice(6)
+    .join("/")}`;
   const latestRootPath = `/plugins/${name}/docs/${latestVersion}/${language}/`;
 
   return {
@@ -195,7 +207,7 @@ const createPluginDocPage = (node, pluginDocPath, latestPageVersion, latestVersi
       latestPageVersion,
       language,
       canonicalPath,
-      latestRootPath
+      latestRootPath,
     },
   };
 };
@@ -219,8 +231,12 @@ const createDocPage = (node, docPath, latestPageVersion, latestVersion) => {
   const version = slugParts.shift();
   const language = slugParts.shift();
 
-  const canonicalVersion = latestPageVersion === latestVersion ? "latest" : latestPageVersion;
-  const canonicalPath = `/docs/${canonicalVersion}/${language}/${node.fields.slug.split("/").slice(4).join("/")}`;
+  const canonicalVersion =
+    latestPageVersion === latestVersion ? "latest" : latestPageVersion;
+  const canonicalPath = `/docs/${canonicalVersion}/${language}/${node.fields.slug
+    .split("/")
+    .slice(4)
+    .join("/")}`;
   const latestRootPath = `/docs/${latestVersion}/${language}/`;
 
   return {
@@ -234,7 +250,7 @@ const createDocPage = (node, docPath, latestPageVersion, latestVersion) => {
       language,
       relativePath: "/" + slugParts.join("/"),
       canonicalPath,
-      latestRootPath
+      latestRootPath,
     },
   };
 };
@@ -247,7 +263,12 @@ const createLatestDocPage = node => {
   slugParts.shift();
   // followed by version
   const version = slugParts.shift();
-  return createDocPage(node, ["", "docs", "latest", ...slugParts].join("/"), version, version);
+  return createDocPage(
+    node,
+    ["", "docs", "latest", ...slugParts].join("/"),
+    version,
+    version
+  );
 };
 
 const createLatestPluginDocPage = node => {
@@ -262,7 +283,12 @@ const createLatestPluginDocPage = node => {
   slugParts.shift();
   // followed by version
   const version = slugParts.shift();
-  return createPluginDocPage(node, ["", "plugins", name, "docs", "latest", ...slugParts].join("/"), version, version);
+  return createPluginDocPage(
+    node,
+    ["", "plugins", name, "docs", "latest", ...slugParts].join("/"),
+    version,
+    version
+  );
 };
 
 const createPost = (node, socialSharingCard) => {
@@ -359,7 +385,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           value
         }
       }
-      
+
       allVersions: allMarkdownRemark {
         nodes {
           fields {
@@ -417,9 +443,16 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       const nodeSlugParts = nodeSlug.split("/");
       if (nodeSlug.startsWith("/docs")) {
         const pageVersion = nodeSlugParts[2];
-        const getPagePath = p => p.split("/").slice(3).join("/");
+        const getPagePath = p =>
+          p
+            .split("/")
+            .slice(3)
+            .join("/");
         const pagePath = nodeSlugParts.slice(3).join("/");
-        const docsSlugVersions = docsVersions.filter(slugVersion => getPagePath(slugVersion.slug) === pagePath && !!slugVersion.version);
+        const docsSlugVersions = docsVersions.filter(
+          slugVersion =>
+            getPagePath(slugVersion.slug) === pagePath && !!slugVersion.version
+        );
         const latestPageVersion = docsSlugVersions
           .map(slugVersion => slugVersion.version)
           .sort(versionRangeComparator)[0];
@@ -428,21 +461,41 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         if (latestVersion === pageVersion) {
           createPage(createLatestDocPage(node));
         }
-      } else if (nodeSlug.startsWith("/plugins") && nodeSlugParts[3] === "docs") {
-        const getPagePath = p => p.split("/").slice(5).join("/");
+      } else if (
+        nodeSlug.startsWith("/plugins") &&
+        nodeSlugParts[3] === "docs"
+      ) {
+        const getPagePath = p =>
+          p
+            .split("/")
+            .slice(5)
+            .join("/");
         const pluginName = nodeSlugParts[2];
         const pagePath = nodeSlugParts.slice(5).join("/");
-        const pluginSlugVersions = slugVersions.filter(slugVersion => slugVersion.plugin === pluginName && getPagePath(slugVersion.slug) === pagePath);
+        const pluginSlugVersions = slugVersions.filter(
+          slugVersion =>
+            slugVersion.plugin === pluginName &&
+            getPagePath(slugVersion.slug) === pagePath
+        );
         const latestPageVersion = pluginSlugVersions
           .map(slugVersion => slugVersion.version)
           .sort(versionRangeComparator)[0];
-        const latestPluginVersion =
-          slugVersions
-            .filter(slugVersion => slugVersion.plugin === pluginName && !!slugVersion.version)
-            .map(slugVersion => slugVersion.version)
+        const latestPluginVersion = slugVersions
+          .filter(
+            slugVersion =>
+              slugVersion.plugin === pluginName && !!slugVersion.version
+          )
+          .map(slugVersion => slugVersion.version)
           .sort(versionRangeComparator)[0];
         const pluginVersion = nodeSlugParts[4];
-        createPage(createPluginDocPage(node, null, latestPageVersion, latestPluginVersion));
+        createPage(
+          createPluginDocPage(
+            node,
+            null,
+            latestPageVersion,
+            latestPluginVersion
+          )
+        );
         if (latestPluginVersion === pluginVersion) {
           createPage(createLatestPluginDocPage(node));
         }
@@ -547,7 +600,8 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       });
     });
 
-    const lastRelease = result.data.releases.nodes.map(node => node.tag)
+    const lastRelease = result.data.releases.nodes
+      .map(node => node.tag)
       // remove rc releases
       .filter(tag => !tag.includes("-"))
       .sort(versionRangeComparator)[0];
@@ -557,26 +611,31 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       component: path.resolve("./src/templates/download.tsx"),
       context: {
         tag: lastRelease,
-        latest: true
+        latest: true,
       },
     });
 
-    result.data.releases.nodes.map(node => node.tag).forEach(tag => {
-      createPage({
-        path: `/download/${tag}`,
-        component: path.resolve("./src/templates/download.tsx"),
-        context: {
-          tag,
-          latest: tag === lastRelease
-        },
+    result.data.releases.nodes
+      .map(node => node.tag)
+      .forEach(tag => {
+        createPage({
+          path: `/download/${tag}`,
+          component: path.resolve("./src/templates/download.tsx"),
+          context: {
+            tag,
+            latest: tag === lastRelease,
+          },
+        });
       });
-    });
 
     const socialSharingCards = [];
     posts.forEach(({ node: post }) => {
       let socialSharingCard;
 
-      if (!post.frontmatter.featuredImage && isSocialSharingCardGenerationEnabled()) {
+      if (
+        !post.frontmatter.featuredImage &&
+        isSocialSharingCardGenerationEnabled()
+      ) {
         const card = createSocialSharingCard(post);
         socialSharingCards.push(card);
         socialSharingCard = {
@@ -593,9 +652,11 @@ exports.createPages = ({ graphql, actions, reporter }) => {
   });
 };
 
-
 const isSocialSharingCardGenerationEnabled = () => {
-  return process.env.NODE_ENV === "production" || process.env.GENERATE_SOCIAL_SHARING_CARDS === "true";
+  return (
+    process.env.NODE_ENV === "production" ||
+    process.env.GENERATE_SOCIAL_SHARING_CARDS === "true"
+  );
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -695,7 +756,7 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
               .find(node => node.fields.slug === entrySlug);
             if (!node) {
               reporter.error(
-                `could not find navigation entry for ${entrySlug}`,
+                `could not find navigation entry for ${entrySlug}`
               );
             }
             return node;

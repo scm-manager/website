@@ -85,7 +85,9 @@ const Release = ({ release, changelog, alerts }) => {
   const [showChecksum, setShowChecksum] = useState(false);
   return (
     <>
-      <AlertsNotification alerts={alerts.filter(a => satisfies(release.tag, a.affectedVersions))} />
+      <AlertsNotification
+        alerts={alerts.filter(a => satisfies(release.tag, a.affectedVersions))}
+      />
       <div className="media">
         <div className="media-left">
           <Download url={release.url} />
@@ -123,7 +125,11 @@ const Releases = ({ releases, changelog, alerts }) => {
 
 const PluginReleases = ({ data }) => (
   <PluginLayout plugin={data.plugin}>
-    <Releases releases={data.releases.nodes} changelog={data.changelog} alerts={data.alerts.nodes} />
+    <Releases
+      releases={data.releases.nodes}
+      changelog={data.changelog}
+      alerts={data.alerts.nodes}
+    />
   </PluginLayout>
 );
 
@@ -154,9 +160,7 @@ export const query = graphql`
         }
       }
     }
-    alerts: allAlertsYaml(
-      filter: { fields: { component: { eq: $name } } }
-    ) {
+    alerts: allAlertsYaml(filter: { fields: { component: { eq: $name } } }) {
       nodes {
         ...DownloadAlertsFragment
       }
