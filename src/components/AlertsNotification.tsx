@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import { graphql } from "gatsby";
 
 type Props = {
@@ -10,11 +10,15 @@ const AlertsNotification: FC<Props> = ({ alerts }) => {
     return null;
   }
 
+  let vulnerabilityText =
+    "This version contains a known security vulnerability.";
+  if (alerts.length > 1)
+    vulnerabilityText =
+      "This version contains several known security vulnerabilities.";
+
   return (
     <div className="notification is-warning mb-4 content">
-      <p className="mb-2">
-        This version contains a known security vulnerability.
-      </p>
+      <p className="mb-2">{vulnerabilityText}</p>
       <ul>
         {alerts.map(alert => {
           return (
@@ -22,9 +26,10 @@ const AlertsNotification: FC<Props> = ({ alerts }) => {
               <p>
                 <a href={alert.link}>
                   <strong>{alert.title}</strong> ({alert.fields.component}{" "}
-                  {alert.affectedVersions})<br />
-                  {alert.description}
+                  {alert.affectedVersions})
                 </a>
+                <br />
+                {alert.description}
               </p>
             </li>
           );
