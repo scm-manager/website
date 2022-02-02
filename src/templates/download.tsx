@@ -1,9 +1,10 @@
 import React, { FC } from "react";
+import { graphql, Link, PageProps } from "gatsby";
+import satisfies from "semver/functions/satisfies";
 import SEO from "../components/SEO";
 import Title from "../components/Title";
 import Subtitle from "../components/Subtitle";
 import PageContainer from "../layout/PageContainer";
-import { graphql, Link, PageProps } from "gatsby";
 import Download from "../components/Download";
 import ReleaseFeedNote from "../components/ReleaseFeedNote";
 
@@ -13,6 +14,9 @@ type Context = {
 };
 
 const DownloadPage: FC<PageProps<any, Context>> = ({ data, pageContext }) => {
+  const alerts = data.alerts.nodes.filter(p =>
+    satisfies(pageContext.tag, p.affectedVersions)
+  );
   return (
     <PageContainer>
       <SEO title={`Download ${pageContext.tag}`} />
@@ -27,6 +31,7 @@ const DownloadPage: FC<PageProps<any, Context>> = ({ data, pageContext }) => {
       <Download
         release={data.releases.nodes[0]}
         changelog={data.changelog.childChangelog}
+        alerts={alerts}
       />
     </PageContainer>
   );
@@ -55,6 +60,11 @@ export const query = graphql`
         versions(tag: $tag) {
           ...DownloadChangelogFragment
         }
+      }
+    }
+    alerts: allAlertsYaml(filter: { fields: { component: { eq: "core" } } }) {
+      nodes {
+        ...DownloadAlertsFragment
       }
     }
   }
