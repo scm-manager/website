@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { satisfies } from "compare-versions";
+import satisfies from "semver/functions/satisfies";
 import PluginLayout from "../layout/PluginLayout";
 import Accordion from "../layout/Accordion";
 import Icon from "../components/Icon";

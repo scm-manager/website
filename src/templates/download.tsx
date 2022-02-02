@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { graphql, Link, PageProps } from "gatsby";
-import { satisfies } from "compare-versions";
+import satisfies from "semver/functions/satisfies";
 import SEO from "../components/SEO";
 import Title from "../components/Title";
 import Subtitle from "../components/Subtitle";
