@@ -1,0 +1,5 @@
+title: Expat vulnerability
+description: Your instance is affected if you have the PlantUML-Plugin installed.
+link: https://scm-manager.org/blog/posts/2022-02-02-expat/
+issuedAt: 2022-02-02
+affectedVersions: ">=2.0.0 <=2.30.1"
