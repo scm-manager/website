@@ -1,6 +1,18 @@
 import React, { FC, ReactNode } from "react";
 import { graphql } from "gatsby";
 
+type LinkAlertProps = {
+  link: string;
+  children: ReactNode;
+};
+
+const LinkAlertWhenPossible: FC<LinkAlertProps> = ({ link, children }) => {
+  if (link) {
+    return <a href={link}>{children}</a>;
+  }
+  return <>{children}</>;
+};
+
 type Props = {
   alerts: any;
 };
@@ -24,10 +36,10 @@ const AlertsNotification: FC<Props> = ({ alerts }) => {
           return (
             <li key={alert.title}>
               <p>
-                <a href={alert.link}>
+                <LinkAlertWhenPossible link={alert.link}>
                   <strong>{alert.title}</strong> ({alert.fields.component}{" "}
                   {alert.affectedVersions})
-                </a>
+                </LinkAlertWhenPossible>
                 <br />
                 {alert.description}
               </p>
