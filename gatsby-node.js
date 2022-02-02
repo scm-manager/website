@@ -97,7 +97,7 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
     const path = createFilePath({ node, getNode });
 
     if (path.split("/").length > 4) {
-      const plugin = slug.split("/")[2];
+      const plugin = path.split("/")[2];
       createNodeField({
         node,
         name: `component`,
