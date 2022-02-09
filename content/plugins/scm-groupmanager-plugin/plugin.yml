@@ -1,5 +1,5 @@
 name: scm-groupmanager-plugin
 displayName: Group Manager
-description: Notifies a remote webserver whenever a repository is pushed to
+description: Adds the possibility to define group managers who can manage group members
 category: Authorization
 author: Cloudogu GmbH
