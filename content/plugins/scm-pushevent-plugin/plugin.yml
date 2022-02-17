@@ -1,0 +1,5 @@
+name: scm-pushevent-plugin
+displayName: Push Event
+description: Whenever a push event occours, this Plugin sends meta information about the push (modified files, commit messages, touched branches etc.) to a REST endpoint.
+category: Workflow
+author: Cloudogu GmbH
