@@ -1,0 +1,11 @@
+tag: 2.31.1
+date: '2022-02-21T13:28:53Z'
+packages:
+- {type: unix, checksum: 44d78ce2bf3608e6ab652b95cd768756b7a0ec2099241bbcb1219518cdfee94a,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.31.1/unix-2.31.1.tar.gz'}
+- {type: windows, checksum: 503a59d1aeb36e7362acf3b01062d1b3bfaadbde1ed3eb2025bdd4b351494ddf,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.31.1/windows-2.31.1.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
