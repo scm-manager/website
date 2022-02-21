@@ -21,8 +21,8 @@ To build the website in development mode, we need the following content from the
 
 The content can be fetched automatically by using the collect-content script from the `package.json`.
 
-The script requires a valid github api token with access to public repositories: 
-[create personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).
+The script requires a valid GitHub API token with full access to repositories. That means that you have to tick off the `repo` scope (Full control of private repositories). For help how to create a token have a look at the GitHub topic:  
+[Creating a personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).
 
 After the access token is copied, we have to export the token as environment variable `GITHUB_API_TOKEN`.
 Now we are able to run the `collect-content` script and than we can start gatsby in development mode.
