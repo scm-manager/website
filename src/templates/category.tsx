@@ -28,6 +28,9 @@ const Category = ({ data }) => {
     return data.cloudoguReleases.nodes.filter(r => r.plugin === node.name)[0]?.installLink;
   }
 
+  const sortedPlugins = [...plugins.nodes];
+  sortedPlugins.sort((firstEl, secondEl) => firstEl.displayName.toLowerCase() < secondEl.displayName.toLowerCase() ? -1 : 1);
+
   return (
     <Page>
       <SEO title={"Category " + category.displayName} />
@@ -38,7 +41,7 @@ const Category = ({ data }) => {
         </Title>
         <Subtitle>{category.description}</Subtitle>
         <PluginList className="content">
-          {plugins.nodes.map((node) => {
+          {sortedPlugins.map((node) => {
             const cloudoguLink = getCloudoguLink(node);
             return (
               <Plugin key={node.name} plugin={{ ...node, cloudoguLink }} />
