@@ -1,6 +1,6 @@
 name: scm-redmine-plugin
 displayName: Redmine
-description: Integrates Redmine to SCM-Manager
+description: Redmine/EasyRedmine integration
 category: Issue Tracker
 author: Marvin Froeder
 avatarUrl: redmine-logo.png
