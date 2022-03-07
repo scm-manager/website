@@ -1,0 +1,10 @@
+---
+plugin: "scm-pushevent-plugin"
+tag: "1.0.0"
+date: "2022-03-07T07:25:19Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-pushevent-plugin/1.0.0/scm-pushevent-plugin-1.0.0.smp"
+checksum: "cabaea25d66c2ba523e96bb66209ab5b42d721a5ce34303bd72791c8803080e7"
+dependencies:
+- "scm-pathwp-plugin"
+conditions:
+  minVersion: "2.0.0"

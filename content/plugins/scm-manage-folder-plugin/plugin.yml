@@ -1,0 +1,5 @@
+name: scm-manage-folder-plugin
+displayName: Manage Folder
+description: Manage folders through the web interface
+category: Workflow
+author: Cloudogu GmbH

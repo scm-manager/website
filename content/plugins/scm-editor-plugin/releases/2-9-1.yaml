@@ -1,0 +1,10 @@
+---
+plugin: "scm-editor-plugin"
+tag: "2.9.1"
+date: "2022-01-07T17:24:20Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-editor-plugin/2.9.1/scm-editor-plugin-2.9.1.smp"
+checksum: "a991c05b7d0da69b3e0c3a676dfc6a02f899f4477b84f9ac7a913d40dd2ec2db"
+dependencies:
+- "scm-code-editor-plugin"
+conditions:
+  minVersion: "2.29.0"

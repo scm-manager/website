@@ -1,0 +1,5 @@
+name: scm-htpasswd-plugin
+displayName: htpasswd
+description: Authentication for SCM-Manager 2.x using htpasswd
+category: Authentication
+author: Guillermo Grandes

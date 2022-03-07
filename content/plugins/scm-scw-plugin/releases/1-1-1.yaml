@@ -1,0 +1,11 @@
+plugin: "scm-scw-plugin"
+tag: "1.1.1"
+date: "2021-05-06T14:27:36Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-scw-plugin/1.1.1/scm-scw-plugin-1.1.1.smp"
+checksum: "9130f2b84895896b5432c5cc58d03f888bfe37cbf1d39a841945374b3a641c78"
+dependencies:
+- "scm-review-plugin"
+optionalDependencies: []
+installLink: "https://community.cloudogu.com/t/instructions-documentation-secure-code-warrior-plugin-for-scm-manager/88"
+conditions:
+  minVersion: "2.18.0"

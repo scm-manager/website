@@ -1,19 +1,20 @@
 import React, { FC, ReactNode } from "react";
 import { graphql, Link } from "gatsby";
 import {
+  Apple,
+  Debian,
+  Docker,
+  Gnubash,
+  Java,
+  Kubernetes,
   Linux,
   Redhat,
-  Debian,
   Windows,
-  Apple,
-  Docker,
-  Kubernetes,
-  Java,
-  Gnubash,
 } from "@icons-pack/react-simple-icons";
 import styled from "styled-components";
-import Changes from "../components/Changes";
+import Changes from "./Changes";
 import CloudoguLogo, { Alignment } from "./CloudoguLogo";
+import AlertsNotification from "./AlertsNotification";
 
 type Package = {
   type: string;
@@ -74,9 +75,8 @@ const PackageDownload: FC<PackageDownloadProps> = ({
       <p className="image">{icon}</p>
     </figure>
     <div className="media-content">
-      <a id={type}></a>
       <div className="content">
-        <h5>{title}:</h5>
+        <h5 id={type}>{title}:</h5>
         <p>{description}</p>
         {checksum && <Checksum checksum={checksum} />}
         <div className="field is-grouped">
@@ -214,7 +214,10 @@ type TableOfContentsProps = {
   versionLog: any;
 };
 
-const TableOfContents: FC<TableOfContentsProps> = ({ packages, versionLog }) => (
+const TableOfContents: FC<TableOfContentsProps> = ({
+  packages,
+  versionLog,
+}) => (
   <div className="content">
     <ul>
       <li>
@@ -252,8 +255,9 @@ const Changelog: FC<ChangelogProps> = ({ versionLog }) => {
   }
   return (
     <ChangelogContainer>
-      <h3 className="title is-5">Changelog</h3>
-      <a id="changelog"></a>
+      <h3 className="title is-5" id="changelog">
+        Changelog
+      </h3>
       <Changes content={versionLog.changes.html} />
     </ChangelogContainer>
   );
@@ -262,9 +266,10 @@ const Changelog: FC<ChangelogProps> = ({ versionLog }) => {
 type DownloadProps = {
   release: any;
   changelog: any;
+  alerts: any;
 };
 
-const Download: FC<DownloadProps> = ({ release, changelog }) => {
+const Download: FC<DownloadProps> = ({ release, changelog, alerts }) => {
   const props = release.packages
     .map(pkg => createProps(release.tag, pkg, "3em", "top"))
     .filter(p => !!p)
@@ -276,13 +281,15 @@ const Download: FC<DownloadProps> = ({ release, changelog }) => {
       <h2 className="title is-4">
         {release.tag} - ({release.date})
       </h2>
+      <AlertsNotification alerts={alerts} />
       <p>
         If you are looking for an other version of SCM-Manager, please have a
         look at the <Link to="/download/archive">archive</Link>.
       </p>
       <TableOfContents packages={props} versionLog={versionLog} />
-      <h3 className="title is-5">Packages</h3>
-      <a id="packages"></a>
+      <h3 className="title is-5" id="packages">
+        Packages
+      </h3>
       {props.map(p => (
         <PackageDownload key={p.type} {...p} />
       ))}

@@ -1,0 +1,8 @@
+---
+plugin: "scm-commit-message-checker-plugin"
+tag: "1.2.2"
+date: "2022-02-18T13:43:22Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-commit-message-checker-plugin/1.2.2/scm-commit-message-checker-plugin-1.2.2.smp"
+checksum: "3d8318a5be731c980253817fb8837d1b2b5d41fee17da9c6494353faacfd887c"
+conditions:
+  minVersion: "2.31.0"

@@ -1,0 +1,15 @@
+tag: 2.27.3
+date: '2021-12-14T19:24:42Z'
+packages:
+- type: unix
+  checksum: cd63c9db9530df52e16607f0755bf0c65d52abb23cd7435e735c3140a053f670
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.27.3/unix-2.27.3.tar.gz
+- type: windows
+  checksum: aa761b78afd41a2226b1b186e2c9c9c8026e704192d216bdb5e1360c1de52cd9
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.27.3/windows-2.27.3.zip
+- type: debian
+- type: redhat
+- type: docker
+- type: k8s
+- type: osx
+- type: ces

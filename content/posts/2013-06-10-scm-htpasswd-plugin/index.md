@@ -2,7 +2,6 @@
 title: scm-htpasswd-plugin
 date: 2013-06-10T14:59:49+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-htpasswd-plugin/
 categories:
   - plugins
   - authentication-plugins
