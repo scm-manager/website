@@ -26,13 +26,13 @@ dark mode has more relaxed colors which might help if you have to code late at n
 ![Theme Switcher](assets/theme_switcher.png)
 
 ## Feedback
-We would like to get more feedback from you the user, and therefore we tried to make it more simple to provide us
-feedback directly from within the SCM-Manager. You can use the button in the lower right corner to display a form and
+We would like to get more feedback from you, and therefore we tried to make it more simple to provide us
+feedback directly. You can use the button in the lower right corner to display a form and
 easily submit your thoughts, suggestions and compliments.
 
 ![Feedback](assets/feedback.png)
 
-Disclaimer: the data you provide will only be used by the SCM-Manager development team and will not be shared with
+**Disclaimer:** The data you provide will only be used by the SCM-Manager development team and will not be shared with
 third parties. For further information check out our [Privacy Policy](/imprint).
 
 ## Final words
