@@ -1,6 +1,13 @@
 const _ = require("lodash");
 const path = require("path");
 
+// We use graceful-fs to avoid "Error: EMFILE: too many open files" errors. Especially because on Windows one cannot
+// increase the open files limit as a workaround.
+// See also: https://github.com/gatsbyjs/gatsby/issues/12011
+const fs = require('fs');
+const gracefulFs = require('graceful-fs');
+gracefulFs.gracefulify(fs);
+
 const rssMetadataQuery = `
 {
   site {
