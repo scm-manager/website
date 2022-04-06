@@ -18,7 +18,7 @@ type Props = {
 };
 
 const AlertsNotification: FC<Props> = ({ alerts }) => {
-  if (alerts.length === 0) {
+  if (!alerts || alerts.length === 0) {
     return null;
   }
 

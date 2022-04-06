@@ -407,8 +407,16 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         }
       }
 
-      releases: allReleasesYaml(
-        filter: { plugin: { eq: null } }
+      coreReleases: allReleasesYaml(
+        filter: { plugin: { eq: null }, type: { ne: "cli" } }
+        sort: { fields: [date], order: DESC }
+      ) {
+        nodes {
+          tag
+        }
+      }
+      cliReleases: allReleasesYaml(
+        filter: { plugin: { eq: null }, type: { eq: "cli" } }
         sort: { fields: [date], order: DESC }
       ) {
         nodes {
@@ -600,7 +608,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       });
     });
 
-    const lastRelease = result.data.releases.nodes
+    const lastCoreRelease = result.data.coreReleases.nodes
       .map(node => node.tag)
       // remove rc releases
       .filter(tag => !tag.includes("-"))
@@ -610,12 +618,12 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       path: `/download`,
       component: path.resolve("./src/templates/download.tsx"),
       context: {
-        tag: lastRelease,
+        tag: lastCoreRelease,
         latest: true,
       },
     });
 
-    result.data.releases.nodes
+    result.data.coreReleases.nodes
       .map(node => node.tag)
       .forEach(tag => {
         createPage({
@@ -623,7 +631,35 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           component: path.resolve("./src/templates/download.tsx"),
           context: {
             tag,
-            latest: tag === lastRelease,
+            latest: tag === lastCoreRelease,
+          },
+        });
+      });
+
+    const lastCliRelease = result.data.cliReleases.nodes
+      .map(node => node.tag)
+      // remove rc releases
+      .filter(tag => !tag.includes("-"))
+      .sort(versionRangeComparator)[0];
+
+    createPage({
+      path: `/cli`,
+      component: path.resolve("./src/templates/cli.tsx"),
+      context: {
+        tag: lastCliRelease,
+        latest: true,
+      },
+    });
+
+    result.data.cliReleases.nodes
+      .map(node => node.tag)
+      .forEach(tag => {
+        createPage({
+          path: `/cli/${tag}`,
+          component: path.resolve("./src/templates/cli.tsx"),
+          context: {
+            tag,
+            latest: tag === lastCliRelease,
           },
         });
       });

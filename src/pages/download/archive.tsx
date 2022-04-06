@@ -85,7 +85,7 @@ const DownloadArchiv = ({ data }) => (
 export const query = graphql`
   query {
     releases: allReleasesYaml(
-      filter: { plugin: { eq: null } }
+      filter: { plugin: { eq: null }, type: { ne: "cli" } }
       sort: { fields: [date], order: DESC }
     ) {
       nodes {
