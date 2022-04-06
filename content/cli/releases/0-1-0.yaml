@@ -54,5 +54,6 @@ packages:
     - type: deb
       os: linux
       arch: amd64
+    - type: homebrew
     - type: scoop
 
