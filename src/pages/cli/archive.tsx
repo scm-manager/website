@@ -47,7 +47,7 @@ const CliArchiv = ({ data }) => (
             <div className="buttons is-right">
               <Link
                 className="button is-outlined is-primary"
-                title={`Downlaod version ${release.tag}`}
+                title={`Download version ${release.tag}`}
                 to={`/cli/${release.tag}`}
               >
                 Packages
