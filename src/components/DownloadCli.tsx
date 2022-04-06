@@ -226,7 +226,7 @@ const DownloadCli: FC<DownloadProps> = ({ release, changelog }) => {
         {release.tag} - ({release.date})
       </h2>
       <p>
-        If you are looking for an other version of SCM-Manager, please have a
+        If you are looking for an other CLI version, please have a
         look at the <Link to="/cli/archive">archive</Link>.
       </p>
       <TableOfContents packages={props} versionLog={versionLog} />

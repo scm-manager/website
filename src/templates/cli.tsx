@@ -32,7 +32,7 @@ const CliPage: FC<PageProps<any, Context>> = ({ data, pageContext }) => {
 
 const NotLatestWarning = () => (
   <div className="notification is-warning">
-    <p>This page does not refer to the most recent version of SCM-Manager.</p>
+    <p>This page does not refer to the most recent CLI version.</p>
     <Link to="/cli/">Go to the download of the latest Version</Link>
   </div>
 );

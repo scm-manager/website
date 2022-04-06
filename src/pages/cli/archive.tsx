@@ -33,7 +33,7 @@ const CliArchiv = ({ data }) => (
           <TagColumn>{release.tag}</TagColumn>
           <Column className="has-text-centered">{release.date}</Column>
           <Column className="has-text-centered">
-            {release.packages
+            {release.packages // TODO: correct icons
               .map(p => createProps(release.tag, p, "1.5rem"))
               .filter(p => !!p)
               .sort((a, b) => a.type.localeCompare(b.type))
