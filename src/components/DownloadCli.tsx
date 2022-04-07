@@ -32,11 +32,12 @@ type ButtonProps = {
   color: string;
   href: string;
   label: string;
+  className?: string;
 };
 
-const Button: FC<ButtonProps> = ({ color, href, label }) => (
+const Button: FC<ButtonProps> = ({ color, href, label, className }) => (
   <p className="control">
-    <a className={`button is-${color} is-outlined`} href={href}>
+    <a className={`button is-${color} is-outlined ${className}`} href={href}>
       {label}
     </a>
   </p>
@@ -50,32 +51,32 @@ const PackageDownloadGroup: FC<{ release: any }> = ({ release }) => {
     .filter(p => p.arch === selectedArch)
     .sort((a, b) => a.os.localeCompare(b.os))
     .forEach(pkg => {
-      packagesByOs[pkg.os] = { ...createProps(pkg.os), packages: [] };
+      const packages = packagesByOs[pkg.os]?.packages || [];
+      packages?.push(pkg);
+      packagesByOs[pkg.os] = { ...createProps(pkg.os), packages };
     });
-
-  console.log("pre", packagesByOs);
-
-  Object.keys(packagesByOs).forEach(os => {
-    release.packages
-      .filter(p => p.arch === selectedArch && p.os === os)
-      .forEach(p => {
-        let osPackage = packagesByOs[os];
-        osPackage?.packages?.push(p);
-      });
-  });
-
-  console.log("post", packagesByOs);
 
   return (
     <>
+      <div className="is-flex is-flex-direction-row is-justify-content-space-between">
+        <h3 className="title is-5" id="packages">
+          Packages
+        </h3>
+      </div>
+
       {Object.values(packagesByOs).map(osPackage => (
-        <PackageDownload version={release.tag} {...osPackage}>
+        <>
           <ArchitectureSwitch
             packages={release.packages}
             selectedArch={selectedArch}
             setSelectedArch={setSelectedArch}
+          />{" "}
+          <PackageDownload
+            key={osPackage.os}
+            version={release.tag}
+            {...osPackage}
           />
-        </PackageDownload>
+        </>
       ))}
     </>
   );
@@ -83,7 +84,7 @@ const PackageDownloadGroup: FC<{ release: any }> = ({ release }) => {
 
 const PackageDownload: FC<OsPackage & {
   version: string;
-}> = ({ icon, title, description, os, packages, version, children }) => {
+}> = ({ icon, title, description, os, packages, version }) => {
   return (
     <article className="media">
       <figure className="media-left has-text-centered">
@@ -93,12 +94,14 @@ const PackageDownload: FC<OsPackage & {
         <div className="content">
           <h5 id={os}>{title}:</h5>
           <p>{description}</p>
-          {children}
-          <Button
-            color="info"
-            href={createDefaultInstructionUrl(version, os)}
-            label="Installation instructions"
-          />
+          <div className="is-flex is-justify-content-end mb-2">
+            <Button
+              color="info"
+              href={createDefaultInstructionUrl(version, os)}
+              label="Installation instructions"
+            />
+          </div>
+
           <table className="table is-striped is-fullwidth">
             <tbody>
               {packages.map(pkg => (
@@ -107,16 +110,10 @@ const PackageDownload: FC<OsPackage & {
                   <td className="has-text-centered">
                     <Checksum checksum={pkg.checksum} />
                   </td>
-                  <td className="has-text-centered">
-                    <div className="field is-grouped">
-                      {pkg.url && (
-                        <Button
-                          color="primary"
-                          href={pkg.url}
-                          label="Download"
-                        />
-                      )}
-                    </div>
+                  <td className="has-text-right">
+                    {pkg.url && (
+                      <Button color="primary" href={pkg.url} label="Download" />
+                    )}
                   </td>
                 </tr>
               ))}
@@ -150,28 +147,31 @@ const createProps = (os: string) => {
       return {
         icon: <Windows size={size} />,
         title: "Windows users",
-        description: "-",
+        description:
+          "Download the windows package or follow the instructions to install via scoop.",
         os,
       };
     case "linux":
       return {
         icon: <Linux size={size} />,
         title: "Linux users",
-        description: "-",
+        description:
+          "Download the linux package or follow the instructions to install via yum, apt or homebrew.",
         os,
       };
     case "darwin":
       return {
         icon: <Apple size={size} />,
         title: "Darwin users",
-        description: "-",
+        description:
+          "Download the darwin package or follow the instructions to install via homebrew.",
         os,
       };
     case "freebsd":
       return {
         icon: <Freebsd size={size} />,
         title: "FreeBSD users",
-        description: "-",
+        description: "Download the freebsd package and follow the instructions.",
         os,
       };
     default:
@@ -312,9 +312,7 @@ const DownloadCli: FC<DownloadProps> = ({ release, changelog }) => {
         <Link to="/cli/archive">archive</Link>.
       </p>
       <TableOfContents release={release} versionLog={versionLog} />
-      <h3 className="title is-5" id="packages">
-        Packages
-      </h3>
+
       <PackageDownloadGroup release={release} />
       <Changelog versionLog={versionLog} />
     </>
