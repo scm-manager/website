@@ -1,6 +1,13 @@
 import React, { FC, ReactNode, useState } from "react";
 import { graphql, Link } from "gatsby";
-import { Apple, Freebsd, Linux, Windows } from "@icons-pack/react-simple-icons";
+import {
+  Apple,
+  Debian,
+  Freebsd,
+  Linux,
+  Redhat,
+  Windows,
+} from "@icons-pack/react-simple-icons";
 import styled from "styled-components";
 import Changes from "./Changes";
 import classNames from "classnames";
@@ -43,12 +50,19 @@ const Button: FC<ButtonProps> = ({ color, href, label, className }) => (
   </p>
 );
 
+const FullWidthDiv = styled.div`
+  width: 100%;
+`;
+
+const StyledUl = styled.ul`
+  list-style: none !important;
+`;
+
 const PackageDownloadGroup: FC<{ release: any }> = ({ release }) => {
   const [selectedArch, setSelectedArch] = useState("amd64");
 
   const packagesByOs: PackagesByOs = {};
   release.packages
-    .filter(p => p.arch === selectedArch)
     .sort((a, b) => a.os.localeCompare(b.os))
     .forEach(pkg => {
       const packages = packagesByOs[pkg.os]?.packages || [];
@@ -59,32 +73,46 @@ const PackageDownloadGroup: FC<{ release: any }> = ({ release }) => {
   return (
     <>
       <div className="is-flex is-flex-direction-row is-justify-content-space-between">
-        <h3 className="title is-5" id="packages">
+        <h3 className="title is-5 mb-3" id="packages">
           Packages
         </h3>
       </div>
 
       {Object.values(packagesByOs).map(osPackage => (
-        <>
-          <ArchitectureSwitch
-            packages={release.packages}
-            selectedArch={selectedArch}
-            setSelectedArch={setSelectedArch}
-          />{" "}
-          <PackageDownload
-            key={osPackage.os}
-            version={release.tag}
-            {...osPackage}
-          />
-        </>
+        <PackageDownload
+          key={osPackage.os}
+          version={release.tag}
+          selectedArch={selectedArch}
+          setSelectedArch={setSelectedArch}
+          {...osPackage}
+        />
       ))}
     </>
   );
 };
 
 const PackageDownload: FC<OsPackage & {
+  selectedArch: string;
+  setSelectedArch: (selectedArch: string) => void;
   version: string;
-}> = ({ icon, title, description, os, packages, version }) => {
+}> = ({
+  icon,
+  title,
+  description,
+  os,
+  packages,
+  version,
+  selectedArch,
+  setSelectedArch,
+}) => {
+  const manualPackage = packages
+    .filter(p => p.arch === selectedArch)
+    .filter(p => !!p.checksum)[0];
+  const archs = packages
+    .map(p => p.arch)
+    .filter((i, index, self) => self.indexOf(i) === index)
+    .sort((a, b) => a.localeCompare(b));
+
   return (
     <article className="media">
       <figure className="media-left has-text-centered">
@@ -94,31 +122,50 @@ const PackageDownload: FC<OsPackage & {
         <div className="content">
           <h5 id={os}>{title}:</h5>
           <p>{description}</p>
-          <div className="is-flex is-justify-content-end mb-2">
-            <Button
-              color="info"
-              href={createDefaultInstructionUrl(version, os)}
-              label="Installation instructions"
-            />
-          </div>
 
-          <table className="table is-striped is-fullwidth">
-            <tbody>
-              {packages.map(pkg => (
-                <tr key={pkg.type}>
-                  <th>{pkg.type}</th>
-                  <td className="has-text-centered">
-                    <Checksum checksum={pkg.checksum} />
-                  </td>
-                  <td className="has-text-right">
-                    {pkg.url && (
-                      <Button color="primary" href={pkg.url} label="Download" />
-                    )}
-                  </td>
-                </tr>
+          <div className="is-flex flex-direction-row">
+            <div>
+              {archs.map(arc => (
+                <div
+                  className={classNames(
+                    "panel-block",
+                    "is-clickable",
+                    "px-3",
+                    "py-4",
+                    "is-size-6",
+                    { "has-background-light": selectedArch === arc }
+                  )}
+                  onClick={() => setSelectedArch(arc)}
+                >
+                  {arc.toUpperCase()}
+                </div>
               ))}
-            </tbody>
-          </table>
+            </div>
+            <FullWidthDiv className="has-background-light px-4 py-2">
+              <StyledUl className="m-0 mb-2">
+                {packages
+                  .filter(p => p.arch === selectedArch)
+                  .map(pkg => (
+                    <li key={pkg.type} className="mb-2">
+                      <a href={createDefaultInstructionUrl(version, os, pkg.type)}>
+                        {resolvePackageName(pkg.type)}
+                      </a>{" "}
+                      {resolvePackageIcon(pkg.type)}
+                    </li>
+                  ))}
+              </StyledUl>
+              <h6>Manual Installation: </h6>
+              <div className="is-flex is-justify-content-space-around">
+                <strong>{manualPackage.type}</strong>
+                <Checksum checksum={manualPackage.checksum} />
+                <Button
+                  color="primary"
+                  href={manualPackage.url}
+                  label="Download"
+                />
+              </div>
+            </FullWidthDiv>
+          </div>
         </div>
       </div>
     </article>
@@ -129,15 +176,44 @@ const createDocBaseUrl = (version: string) => {
   const parts = version.split(".");
   const major = parts[0];
   if (major === "1") {
-    return `/docs/1.x/en`;
+    return `/cli/docs/1.x/en`;
   } else {
     const minor = parts[1];
-    return `/docs/${major}.${minor}.x/en`;
+    return `/cli/docs/${major}.${minor}.x/en`;
   }
 };
 
-const createDefaultInstructionUrl = (version: string, os: string) => {
-  return `${createDocBaseUrl(version)}/installation/${os}/`;
+const createDefaultInstructionUrl = (version: string, os: string, type: string) => {
+  return `${createDocBaseUrl(version)}/installation/${os}/${type}/`;
+};
+
+const resolvePackageIcon = (type: string) => {
+  const size = "18px";
+  switch (type) {
+    case "rpm":
+      return <Redhat size={size} />;
+    case "deb":
+      return <Debian size={size} />;
+  }
+};
+
+const resolvePackageName = (type: string) => {
+  switch (type) {
+    case "gz":
+      return "tar.gz archive";
+    case "zip":
+      return "zip archive";
+    case "rpm":
+      return "Redhat (RPM)";
+    case "deb":
+      return "Debian (DEB)";
+    case "homebrew":
+      return "Homebrew";
+    case "scoop":
+      return "Scoop";
+    default:
+      return "Unknown package";
+  }
 };
 
 const createProps = (os: string) => {
@@ -171,7 +247,8 @@ const createProps = (os: string) => {
       return {
         icon: <Freebsd size={size} />,
         title: "FreeBSD users",
-        description: "Download the freebsd package and follow the instructions.",
+        description:
+          "Download the freebsd package and follow the instructions.",
         os,
       };
     default:
@@ -183,48 +260,6 @@ const createProps = (os: string) => {
       };
   }
 };
-
-const ArchitectureSwitch: FC<{
-  packages: Package[];
-  selectedArch: string;
-  setSelectedArch: (arch: string) => void;
-}> = ({ packages, selectedArch, setSelectedArch }) => (
-  <div className="field has-addons">
-    {packages
-      .map(e => e.arch)
-      .sort((a, b) => a.localeCompare(b))
-      .filter((i, index, self) => self.indexOf(i) === index)
-      .map((arch, index) => (
-        <div className="control">
-          <input
-            type="radio"
-            name={arch}
-            id={arch}
-            onClick={() => setSelectedArch(arch)}
-            checked={selectedArch === arch}
-            className="is-hidden"
-          />
-          <label
-            key={index}
-            onClick={() => setSelectedArch(arch)}
-            className={classNames(
-              "button",
-              "is-link",
-              {
-                "is-active": selectedArch === arch,
-              },
-              {
-                "is-outlined": selectedArch !== arch,
-              }
-            )}
-            htmlFor={arch}
-          >
-            {arch.toUpperCase()}
-          </label>
-        </div>
-      ))}
-  </div>
-);
 
 type TableOfContentsProps = {
   release: any;
