@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 import { Apple, Freebsd, Linux, Windows } from "@icons-pack/react-simple-icons";
 import styled from "styled-components";
 import Changes from "./Changes";
+import classNames from "classnames";
 
 type Package = {
   type: string;
@@ -41,38 +42,91 @@ const Button: FC<ButtonProps> = ({ color, href, label }) => (
   </p>
 );
 
-const PackageDownload: FC<OsPackage> = ({
-  icon,
-  title,
-  description,
-  os,
-  instructions,
-  packages,
-}) => (
-  <article className="media">
-    <figure className="media-left has-text-centered">
-      <p className="image">{icon}</p>
-    </figure>
-    <div className="media-content">
-      <div className="content">
-        <h5 id={os}>{title}:</h5>
-        <p>{description}</p>
-        {/*TABLE*/}
-        {/*{checksum && <Checksum checksum={checksum} />}*/}
-        {/*<div className="field is-grouped">*/}
-        {/*  /!*{url && <Button color="primary" href={url} label="Download" />}*!/*/}
-        {/*  {instructions && (*/}
-        {/*    <Button*/}
-        {/*      color="info"*/}
-        {/*      href={instructions}*/}
-        {/*      label="Installation instructions"*/}
-        {/*    />*/}
-        {/*  )}*/}
-        {/*</div>*/}
+const PackageDownloadGroup: FC<{ release: any }> = ({ release }) => {
+  const [selectedArch, setSelectedArch] = useState("amd64");
+
+  const packagesByOs: PackagesByOs = {};
+  release.packages
+    .filter(p => p.arch === selectedArch)
+    .sort((a, b) => a.os.localeCompare(b.os))
+    .forEach(pkg => {
+      packagesByOs[pkg.os] = { ...createProps(pkg.os), packages: [] };
+    });
+
+  console.log("pre", packagesByOs);
+
+  Object.keys(packagesByOs).forEach(os => {
+    release.packages
+      .filter(p => p.arch === selectedArch && p.os === os)
+      .forEach(p => {
+        let osPackage = packagesByOs[os];
+        osPackage?.packages?.push(p);
+      });
+  });
+
+  console.log("post", packagesByOs);
+
+  return (
+    <>
+      {Object.values(packagesByOs).map(osPackage => (
+        <PackageDownload version={release.tag} {...osPackage}>
+          <ArchitectureSwitch
+            packages={release.packages}
+            selectedArch={selectedArch}
+            setSelectedArch={setSelectedArch}
+          />
+        </PackageDownload>
+      ))}
+    </>
+  );
+};
+
+const PackageDownload: FC<OsPackage & {
+  version: string;
+}> = ({ icon, title, description, os, packages, version, children }) => {
+  return (
+    <article className="media">
+      <figure className="media-left has-text-centered">
+        <p className="image">{icon}</p>
+      </figure>
+      <div className="media-content">
+        <div className="content">
+          <h5 id={os}>{title}:</h5>
+          <p>{description}</p>
+          {children}
+          <Button
+            color="info"
+            href={createDefaultInstructionUrl(version, os)}
+            label="Installation instructions"
+          />
+          <table className="table is-striped is-fullwidth">
+            <tbody>
+              {packages.map(pkg => (
+                <tr key={pkg.type}>
+                  <th>{pkg.type}</th>
+                  <td className="has-text-centered">
+                    <Checksum checksum={pkg.checksum} />
+                  </td>
+                  <td className="has-text-centered">
+                    <div className="field is-grouped">
+                      {pkg.url && (
+                        <Button
+                          color="primary"
+                          href={pkg.url}
+                          label="Download"
+                        />
+                      )}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-  </article>
-);
+    </article>
+  );
+};
 
 const createDocBaseUrl = (version: string) => {
   const parts = version.split(".");
@@ -85,8 +139,8 @@ const createDocBaseUrl = (version: string) => {
   }
 };
 
-const createDefaultInstructionUrl = (version: string, type: string) => {
-  return `${createDocBaseUrl(version)}/installation/${type}/`;
+const createDefaultInstructionUrl = (version: string, os: string) => {
+  return `${createDocBaseUrl(version)}/installation/${os}/`;
 };
 
 const createProps = (os: string) => {
@@ -135,33 +189,55 @@ const ArchitectureSwitch: FC<{
   selectedArch: string;
   setSelectedArch: (arch: string) => void;
 }> = ({ packages, selectedArch, setSelectedArch }) => (
-  <div className="control">
+  <div className="field has-addons">
     {packages
       .map(e => e.arch)
+      .sort((a, b) => a.localeCompare(b))
       .filter((i, index, self) => self.indexOf(i) === index)
       .map((arch, index) => (
-        <label key={index} className="radio">
+        <div className="control">
           <input
             type="radio"
             name={arch}
+            id={arch}
             onClick={() => setSelectedArch(arch)}
             checked={selectedArch === arch}
+            className="is-hidden"
           />
-          {arch}
-        </label>
+          <label
+            key={index}
+            onClick={() => setSelectedArch(arch)}
+            className={classNames(
+              "button",
+              "is-link",
+              {
+                "is-active": selectedArch === arch,
+              },
+              {
+                "is-outlined": selectedArch !== arch,
+              }
+            )}
+            htmlFor={arch}
+          >
+            {arch.toUpperCase()}
+          </label>
+        </div>
       ))}
   </div>
 );
 
 type TableOfContentsProps = {
-  packagesByOs: PackagesByOs;
+  release: any;
   versionLog: any;
 };
 
-const TableOfContents: FC<TableOfContentsProps> = ({
-  packagesByOs,
-  versionLog,
-}) => {
+const TableOfContents: FC<TableOfContentsProps> = ({ release, versionLog }) => {
+  const packagesByOs: PackagesByOs = {};
+  release.packages
+    .sort((a, b) => a.os.localeCompare(b.os))
+    .forEach(pkg => {
+      packagesByOs[pkg.os] = { ...createProps(pkg.os), packages: [] };
+    });
   return (
     <div className="content">
       <ul>
@@ -219,33 +295,12 @@ type OsPackage = {
   title: string;
   description: string;
   os: string;
-  instructions?: string;
   packages: Package[];
 };
 
 type PackagesByOs = Record<string, OsPackage>;
 
 const DownloadCli: FC<DownloadProps> = ({ release, changelog }) => {
-  const [selectedArch, setSelectedArch] = useState("amd64");
-
-  const packagesByOs: PackagesByOs = {};
-  release.packages
-    .filter(p => p.arch === selectedArch)
-    .forEach(pkg => {
-      let packages: Package[] = packagesByOs[pkg.os]?.packages || [];
-      packages.push(pkg);
-      packagesByOs[pkg.os] = { ...createProps(pkg.os), packages };
-    });
-
-  Object.keys(packagesByOs).forEach(os => {
-    release.packages
-      .filter(p => p.arch === selectedArch && p.os === os)
-      .forEach(p => {
-        let osPackage = packagesByOs[os];
-        osPackage?.packages?.push(p);
-      });
-  });
-
   const versionLog = changelog.versions.find(v => v.tag === release.tag);
   return (
     <>
@@ -256,20 +311,11 @@ const DownloadCli: FC<DownloadProps> = ({ release, changelog }) => {
         If you are looking for an other CLI version, please have a look at the{" "}
         <Link to="/cli/archive">archive</Link>.
       </p>
-      <TableOfContents packagesByOs={packagesByOs} versionLog={versionLog} />
+      <TableOfContents release={release} versionLog={versionLog} />
       <h3 className="title is-5" id="packages">
         Packages
       </h3>
-      {Object.values(packagesByOs).map(p => (
-        <>
-          <ArchitectureSwitch
-            packages={release.packages}
-            selectedArch={selectedArch}
-            setSelectedArch={setSelectedArch}
-          />
-          <PackageDownload key={p.os} {...p} />
-        </>
-      ))}
+      <PackageDownloadGroup release={release} />
       <Changelog versionLog={versionLog} />
     </>
   );
