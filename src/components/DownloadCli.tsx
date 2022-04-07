@@ -1,11 +1,6 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactNode, useState } from "react";
 import { graphql, Link } from "gatsby";
-import {
-  Apple,
-  Freebsd,
-  Linux,
-  Windows,
-} from "@icons-pack/react-simple-icons";
+import { Apple, Freebsd, Linux, Windows } from "@icons-pack/react-simple-icons";
 import styled from "styled-components";
 import Changes from "./Changes";
 
@@ -70,7 +65,9 @@ const PackageDownload: FC<PackageDownloadProps> = ({
     </figure>
     <div className="media-content">
       <div className="content">
-        <h5 id={`${type}-${os}`}>{title} ({arch}, {type}):</h5>
+        <h5 id={`${type}-${os}`}>
+          {title} ({arch}, {type}):
+        </h5>
         <p>{description}</p>
         {checksum && <Checksum checksum={checksum} />}
         <div className="field is-grouped">
@@ -103,56 +100,69 @@ const createDefaultInstructionUrl = (version: string, type: string) => {
   return `${createDocBaseUrl(version)}/installation/${type}/`;
 };
 
-export const createProps = (
-  version: string,
-  pkg: Package,
-  size: string
-) => {
-  switch (pkg.os) {
+const getOsBlock = (os: string) => {
+  const size = "3em";
+  switch (os) {
     case "windows":
       return {
-        ...pkg,
         icon: <Windows size={size} />,
         title: "Windows users",
-        description:
-          "Download the package and follow the installation instructions.",
-        instructions: createDefaultInstructionUrl(version, pkg.type),
+        description: "-",
       };
     case "linux":
       return {
-        ...pkg,
         icon: <Linux size={size} />,
         title: "Linux users",
-        description:
-          "Download the package and follow the installation instructions.",
-        instructions: createDefaultInstructionUrl(version, pkg.type),
+        description: "-",
       };
     case "darwin":
       return {
-        ...pkg,
         icon: <Apple size={size} />,
         title: "Darwin users",
-        description: "You can use our homebrew tap.",
-        instructions: createDefaultInstructionUrl(version, pkg.type),
+        description: "-",
       };
     case "freebsd":
       return {
-        ...pkg,
         icon: <Freebsd size={size} />,
         title: "FreeBSD users",
-        description: "We provide a docker image on the offical Docker Hub.",
-        instructions: createDefaultInstructionUrl(version, pkg.type),
+        description: "-",
+      };
+    case "homebrew":
+      return {
+        icon: <Apple size={size} />,
+        title: "Homebrew users",
+        description: "-",
+      };
+    case "scoop":
+      return {
+        icon: <Windows size={size} />,
+        title: "Windows users",
+        description: "-",
       };
     default:
       return {
-        ...pkg,
         icon: null,
         title: "Other?",
         description: "-",
-        instructions: createDefaultInstructionUrl(version, pkg.type),
       };
   }
 };
+
+
+
+const ArchitectureSwitch: FC = ({ packages, setSelectedArch }) => (
+  <div className="toggles">
+    {packages
+      .map(e => e.arch)
+      .filter((i, index, self) => self.indexOf(i) === index)
+      .map(arch => (
+        <>
+          <input type="radio" id={arch} onClick={() => setSelectedArch(arch)} />
+          <label for={arch}>{arch}</label>
+        </>
+      ))}
+  </div>
+);
 
 type TableOfContentsProps = {
   packages: PackageDownloadProps[];
@@ -214,10 +224,12 @@ type DownloadProps = {
 };
 
 const DownloadCli: FC<DownloadProps> = ({ release, changelog }) => {
+  const [selectedArch, setSelectedArch] = useState("amd64");
+
   const props = release.packages
-    .map(pkg => createProps(release.tag, pkg, "3em"))
-    .filter(p => !!p)
-    .sort((a, b) => a.type.localeCompare(b.type));
+    .map(pkg => getOsBlock(pkg.os))
+    .filter(p => !!p);
+  //.sort((a, b) => a.type.localeCompare(b.type));
 
   const versionLog = changelog.versions.find(v => v.tag === release.tag);
   return (
@@ -226,15 +238,18 @@ const DownloadCli: FC<DownloadProps> = ({ release, changelog }) => {
         {release.tag} - ({release.date})
       </h2>
       <p>
-        If you are looking for an other CLI version, please have a
-        look at the <Link to="/cli/archive">archive</Link>.
+        If you are looking for an other CLI version, please have a look at the{" "}
+        <Link to="/cli/archive">archive</Link>.
       </p>
       <TableOfContents packages={props} versionLog={versionLog} />
       <h3 className="title is-5" id="packages">
         Packages
       </h3>
       {props.map(p => (
-        <PackageDownload key={p.type} {...p} />
+        <>
+          <ArchitectureSwitch packages={release.packages} setSelectedArch={setSelectedArch} />
+          <PackageDownload key={p.type} {...p} />
+        </>
       ))}
       <Changelog versionLog={versionLog} />
     </>
