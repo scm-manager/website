@@ -4,7 +4,6 @@ import SEO from "../../components/SEO";
 import Title from "../../components/Title";
 import Subtitle from "../../components/Subtitle";
 import { graphql, Link } from "gatsby";
-import { createProps } from "../../components/Download";
 import styled from "styled-components";
 
 const TagColumn = styled.th`
@@ -15,10 +14,6 @@ const TagColumn = styled.th`
 const Column = styled.td`
   vertical-align: middle !important;
   white-space: nowrap;
-`;
-
-const Icon = styled(Link)`
-  margin-right: 1rem;
 `;
 
 const CliArchiv = ({ data }) => (
@@ -32,17 +27,6 @@ const CliArchiv = ({ data }) => (
         <tr key={release.tag} className="">
           <TagColumn>{release.tag}</TagColumn>
           <Column className="has-text-centered">{release.date}</Column>
-          <Column className="has-text-centered">
-            {release.packages // TODO: correct icons
-              .map(p => createProps(release.tag, p, "1.5rem"))
-              .filter(p => !!p)
-              .sort((a, b) => a.type.localeCompare(b.type))
-              .map(props => (
-                <Icon key={props.type} to={`/cli/${release.tag}/#${props.type}`}>
-                  {props.icon}
-                </Icon>
-              ))}
-          </Column>
           <Column>
             <div className="buttons is-right">
               <Link
@@ -70,9 +54,6 @@ export const query = graphql`
       nodes {
         tag
         date(formatString: "Y-MM-DD")
-        packages {
-          type
-        }
       }
     }
   }
