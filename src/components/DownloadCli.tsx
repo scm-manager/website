@@ -6,8 +6,8 @@ import Changes from "./Changes";
 
 type Package = {
   type: string;
-  os?: string;
-  arch?: string;
+  os: string;
+  arch: string;
   url?: string;
   checksum?: string;
 };
@@ -27,13 +27,6 @@ const Checksum = ({ checksum }) => {
   return null;
 };
 
-type PackageDownloadProps = Package & {
-  icon: ReactNode;
-  title: string;
-  description: string;
-  instructions?: string;
-};
-
 type ButtonProps = {
   color: string;
   href: string;
@@ -48,16 +41,13 @@ const Button: FC<ButtonProps> = ({ color, href, label }) => (
   </p>
 );
 
-const PackageDownload: FC<PackageDownloadProps> = ({
+const PackageDownload: FC<OsPackage> = ({
   icon,
   title,
   description,
-  type,
   os,
-  arch,
-  url,
-  checksum,
   instructions,
+  packages,
 }) => (
   <article className="media">
     <figure className="media-left has-text-centered">
@@ -65,21 +55,20 @@ const PackageDownload: FC<PackageDownloadProps> = ({
     </figure>
     <div className="media-content">
       <div className="content">
-        <h5 id={`${type}-${os}`}>
-          {title} ({arch}, {type}):
-        </h5>
+        <h5 id={os}>{title}:</h5>
         <p>{description}</p>
-        {checksum && <Checksum checksum={checksum} />}
-        <div className="field is-grouped">
-          {url && <Button color="primary" href={url} label="Download" />}
-          {instructions && (
-            <Button
-              color="info"
-              href={instructions}
-              label="Installation instructions"
-            />
-          )}
-        </div>
+        {/*TABLE*/}
+        {/*{checksum && <Checksum checksum={checksum} />}*/}
+        {/*<div className="field is-grouped">*/}
+        {/*  /!*{url && <Button color="primary" href={url} label="Download" />}*!/*/}
+        {/*  {instructions && (*/}
+        {/*    <Button*/}
+        {/*      color="info"*/}
+        {/*      href={instructions}*/}
+        {/*      label="Installation instructions"*/}
+        {/*    />*/}
+        {/*  )}*/}
+        {/*</div>*/}
       </div>
     </div>
   </article>
@@ -100,7 +89,7 @@ const createDefaultInstructionUrl = (version: string, type: string) => {
   return `${createDocBaseUrl(version)}/installation/${type}/`;
 };
 
-const getOsBlock = (os: string) => {
+const createProps = (os: string) => {
   const size = "3em";
   switch (os) {
     case "windows":
@@ -108,93 +97,95 @@ const getOsBlock = (os: string) => {
         icon: <Windows size={size} />,
         title: "Windows users",
         description: "-",
+        os,
       };
     case "linux":
       return {
         icon: <Linux size={size} />,
         title: "Linux users",
         description: "-",
+        os,
       };
     case "darwin":
       return {
         icon: <Apple size={size} />,
         title: "Darwin users",
         description: "-",
+        os,
       };
     case "freebsd":
       return {
         icon: <Freebsd size={size} />,
         title: "FreeBSD users",
         description: "-",
-      };
-    case "homebrew":
-      return {
-        icon: <Apple size={size} />,
-        title: "Homebrew users",
-        description: "-",
-      };
-    case "scoop":
-      return {
-        icon: <Windows size={size} />,
-        title: "Windows users",
-        description: "-",
+        os,
       };
     default:
       return {
         icon: null,
         title: "Other?",
         description: "-",
+        os,
       };
   }
 };
 
-
-
-const ArchitectureSwitch: FC = ({ packages, setSelectedArch }) => (
-  <div className="toggles">
+const ArchitectureSwitch: FC<{
+  packages: Package[];
+  selectedArch: string;
+  setSelectedArch: (arch: string) => void;
+}> = ({ packages, selectedArch, setSelectedArch }) => (
+  <div className="control">
     {packages
       .map(e => e.arch)
       .filter((i, index, self) => self.indexOf(i) === index)
-      .map(arch => (
-        <>
-          <input type="radio" id={arch} onClick={() => setSelectedArch(arch)} />
-          <label for={arch}>{arch}</label>
-        </>
+      .map((arch, index) => (
+        <label key={index} className="radio">
+          <input
+            type="radio"
+            name={arch}
+            onClick={() => setSelectedArch(arch)}
+            checked={selectedArch === arch}
+          />
+          {arch}
+        </label>
       ))}
   </div>
 );
 
 type TableOfContentsProps = {
-  packages: PackageDownloadProps[];
+  packagesByOs: PackagesByOs;
   versionLog: any;
 };
 
 const TableOfContents: FC<TableOfContentsProps> = ({
-  packages,
+  packagesByOs,
   versionLog,
-}) => (
-  <div className="content">
-    <ul>
-      <li>
-        <a href="#packages">Packages</a>
-        <ul>
-          {packages.map(pkg => (
-            <li key={`${pkg.type}-${pkg.os}`}>
-              <a href={`#${pkg.type}-${pkg.os}`} title={pkg.description}>
-                {pkg.title} ({pkg.type})
-              </a>
-            </li>
-          ))}
-        </ul>
-      </li>
-      {versionLog && (
+}) => {
+  return (
+    <div className="content">
+      <ul>
         <li>
-          <a href="#changelog">Changelog</a>
+          <a href="#packages">Packages</a>
+          <ul>
+            {Object.values(packagesByOs).map((osPackage: OsPackage) => (
+              <li key={osPackage.os}>
+                <a href={`#${osPackage.os}`} title={osPackage.description}>
+                  {osPackage.title}
+                </a>
+              </li>
+            ))}
+          </ul>
         </li>
-      )}
-    </ul>
-  </div>
-);
+        {versionLog && (
+          <li>
+            <a href="#changelog">Changelog</a>
+          </li>
+        )}
+      </ul>
+    </div>
+  );
+};
 
 type ChangelogProps = {
   versionLog: any;
@@ -223,13 +214,37 @@ type DownloadProps = {
   changelog: any;
 };
 
+type OsPackage = {
+  icon: ReactNode;
+  title: string;
+  description: string;
+  os: string;
+  instructions?: string;
+  packages: Package[];
+};
+
+type PackagesByOs = Record<string, OsPackage>;
+
 const DownloadCli: FC<DownloadProps> = ({ release, changelog }) => {
   const [selectedArch, setSelectedArch] = useState("amd64");
 
-  const props = release.packages
-    .map(pkg => getOsBlock(pkg.os))
-    .filter(p => !!p);
-  //.sort((a, b) => a.type.localeCompare(b.type));
+  const packagesByOs: PackagesByOs = {};
+  release.packages
+    .filter(p => p.arch === selectedArch)
+    .forEach(pkg => {
+      let packages: Package[] = packagesByOs[pkg.os]?.packages || [];
+      packages.push(pkg);
+      packagesByOs[pkg.os] = { ...createProps(pkg.os), packages };
+    });
+
+  Object.keys(packagesByOs).forEach(os => {
+    release.packages
+      .filter(p => p.arch === selectedArch && p.os === os)
+      .forEach(p => {
+        let osPackage = packagesByOs[os];
+        osPackage?.packages?.push(p);
+      });
+  });
 
   const versionLog = changelog.versions.find(v => v.tag === release.tag);
   return (
@@ -241,14 +256,18 @@ const DownloadCli: FC<DownloadProps> = ({ release, changelog }) => {
         If you are looking for an other CLI version, please have a look at the{" "}
         <Link to="/cli/archive">archive</Link>.
       </p>
-      <TableOfContents packages={props} versionLog={versionLog} />
+      <TableOfContents packagesByOs={packagesByOs} versionLog={versionLog} />
       <h3 className="title is-5" id="packages">
         Packages
       </h3>
-      {props.map(p => (
+      {Object.values(packagesByOs).map(p => (
         <>
-          <ArchitectureSwitch packages={release.packages} setSelectedArch={setSelectedArch} />
-          <PackageDownload key={p.type} {...p} />
+          <ArchitectureSwitch
+            packages={release.packages}
+            selectedArch={selectedArch}
+            setSelectedArch={setSelectedArch}
+          />
+          <PackageDownload key={p.os} {...p} />
         </>
       ))}
       <Changelog versionLog={versionLog} />
