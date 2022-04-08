@@ -38,6 +38,36 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
     });
     if (slug.startsWith("/docs")) {
       appendVersionAndLanguageFields(createNodeField, node, slug.substring(5));
+    } else if (slug.startsWith("/cli")) {
+      const parts = slug.split("/");
+      const cli = parts[1];
+      createNodeField({
+        node,
+        name: `cli`,
+        value: cli,
+      });
+      if (parts.length > 3 && parts[2] === "docs") {
+        createNodeField({
+          node,
+          name: `version`,
+          value: parts[3],
+        });
+        createNodeField({
+          node,
+          name: `language`,
+          value: parts[4],
+        });
+        createNodeField({
+          node,
+          name: `installation`,
+          value: parts[5],
+        });
+        createNodeField({
+          node,
+          name: `os`,
+          value: parts[6],
+        });
+      }
     } else if (slug.startsWith("/plugins")) {
       const parts = slug.split("/");
       const plugin = parts[2];
@@ -469,6 +499,14 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         if (latestVersion === pageVersion) {
           createPage(createLatestDocPage(node));
         }
+      } else if (nodeSlug.startsWith("/cli")) {
+        createPage(  {
+          path: nodeSlug,
+          component: path.resolve(`./src/templates/cli-install.tsx`),
+          context: {
+            name: node.name,
+          },
+        })
       } else if (
         nodeSlug.startsWith("/plugins") &&
         nodeSlugParts[3] === "docs"

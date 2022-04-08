@@ -173,7 +173,7 @@ const PackageDownload: FC<OsPackage & {
                     manualPackage.type
                   )}
                 >
-                  {resolvePackageName(manualPackage.type)}
+                  Instruction
                 </a>
                 <Checksum checksum={manualPackage.checksum} />
                 <Button
