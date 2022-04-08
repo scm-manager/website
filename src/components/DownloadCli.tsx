@@ -23,7 +23,7 @@ type Package = {
 const Checksum = ({ checksum }) => {
   if (checksum) {
     return (
-      <p>
+      <p className="is-hidden-touch">
         <small>
           <strong>Checksum (SHA256):</strong>
         </small>
@@ -59,8 +59,6 @@ const StyledUl = styled.ul`
 `;
 
 const PackageDownloadGroup: FC<{ release: any }> = ({ release }) => {
-  const [selectedArch, setSelectedArch] = useState("amd64");
-
   const packagesByOs: PackagesByOs = {};
   release.packages
     .sort((a, b) => a.os.localeCompare(b.os))
@@ -77,13 +75,10 @@ const PackageDownloadGroup: FC<{ release: any }> = ({ release }) => {
           Packages
         </h3>
       </div>
-
       {Object.values(packagesByOs).map(osPackage => (
         <PackageDownload
           key={osPackage.os}
           version={release.tag}
-          selectedArch={selectedArch}
-          setSelectedArch={setSelectedArch}
           {...osPackage}
         />
       ))}
@@ -92,8 +87,6 @@ const PackageDownloadGroup: FC<{ release: any }> = ({ release }) => {
 };
 
 const PackageDownload: FC<OsPackage & {
-  selectedArch: string;
-  setSelectedArch: (selectedArch: string) => void;
   version: string;
 }> = ({
   icon,
@@ -102,9 +95,9 @@ const PackageDownload: FC<OsPackage & {
   os,
   packages,
   version,
-  selectedArch,
-  setSelectedArch,
 }) => {
+  const [selectedArch, setSelectedArch] = useState("amd64")
+
   const manualPackage = packages
     .filter(p => p.arch === selectedArch)
     .filter(p => !!p.checksum)[0];
@@ -112,6 +105,10 @@ const PackageDownload: FC<OsPackage & {
     .map(p => p.arch)
     .filter((i, index, self) => self.indexOf(i) === index)
     .sort((a, b) => a.localeCompare(b));
+
+  const instructions = packages
+    .filter(p => p.arch === selectedArch)
+    .filter(p => p.type !== "zip" && p.type !== "gz");
 
   return (
     <article className="media">
@@ -125,45 +122,67 @@ const PackageDownload: FC<OsPackage & {
 
           <div className="is-flex flex-direction-row">
             <div>
-              {archs.map(arc => (
+              {archs.map(arch => (
                 <div
+                  key={arch}
                   className={classNames(
-                    "panel-block",
+                    "is-flex",
+                    "is-justify-content-flex-start",
+                    "is-align-items-centered",
                     "is-clickable",
                     "px-3",
                     "py-4",
                     "is-size-6",
-                    { "has-background-light": selectedArch === arc }
+                    { "has-background-light": selectedArch === arch }
                   )}
-                  onClick={() => setSelectedArch(arc)}
+                  onClick={() => setSelectedArch(arch)}
                 >
-                  {arc.toUpperCase()}
+                  {arch.toUpperCase()}
                 </div>
               ))}
             </div>
             <FullWidthDiv className="has-background-light px-4 py-2">
-              <StyledUl className="m-0 mb-2">
-                {packages
-                  .filter(p => p.arch === selectedArch)
-                  .map(pkg => (
-                    <li key={pkg.type} className="mb-2">
-                      <a href={createDefaultInstructionUrl(version, os, pkg.type)}>
-                        {resolvePackageName(pkg.type)}
-                      </a>{" "}
-                      {resolvePackageIcon(pkg.type)}
-                    </li>
-                  ))}
-              </StyledUl>
+              {instructions.length > 0 && (
+                <>
+                  <h6>Installation instructions: </h6>{" "}
+                  <StyledUl className="m-0 mb-5 ml-4">
+                    {instructions.map(pkg => (
+                      <li key={pkg.type} className="mb-2">
+                        <a
+                          href={createDefaultInstructionUrl(
+                            version,
+                            os,
+                            pkg.type
+                          )}
+                        >
+                          {resolvePackageName(pkg.type)}
+                        </a>{" "}
+                        {resolvePackageIcon(pkg.type)}
+                      </li>
+                    ))}
+                  </StyledUl>
+                </>
+              )}
               <h6>Manual Installation: </h6>
-              <div className="is-flex is-justify-content-space-around">
-                <strong>{manualPackage.type}</strong>
+              <FullWidthDiv className="is-flex is-justify-content-space-between">
+                <a
+                  className="ml-4"
+                  href={createDefaultInstructionUrl(
+                    version,
+                    os,
+                    manualPackage.type
+                  )}
+                >
+                  {resolvePackageName(manualPackage.type)}
+                </a>
                 <Checksum checksum={manualPackage.checksum} />
                 <Button
                   color="primary"
                   href={manualPackage.url}
                   label="Download"
+                  className="mr-4"
                 />
-              </div>
+              </FullWidthDiv>
             </FullWidthDiv>
           </div>
         </div>
@@ -183,7 +202,11 @@ const createDocBaseUrl = (version: string) => {
   }
 };
 
-const createDefaultInstructionUrl = (version: string, os: string, type: string) => {
+const createDefaultInstructionUrl = (
+  version: string,
+  os: string,
+  type: string
+) => {
   return `${createDocBaseUrl(version)}/installation/${os}/${type}/`;
 };
 
@@ -200,9 +223,9 @@ const resolvePackageIcon = (type: string) => {
 const resolvePackageName = (type: string) => {
   switch (type) {
     case "gz":
-      return "tar.gz archive";
+      return "Tar archive";
     case "zip":
-      return "zip archive";
+      return "Zip archive";
     case "rpm":
       return "Redhat (RPM)";
     case "deb":
