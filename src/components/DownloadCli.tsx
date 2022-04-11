@@ -151,7 +151,8 @@ const PackageDownload: FC<OsPackage & {
                         <a
                           href={createDefaultInstructionUrl(
                             version,
-                            os
+                            os,
+                            pkg.type
                           )}
                         >
                           {resolvePackageName(pkg.type)}
@@ -203,7 +204,14 @@ const createDocBaseUrl = (version: string) => {
 const createDefaultInstructionUrl = (
   version: string,
   os: string,
+  type: string
 ) => {
+  if (type === "rpm") {
+    return `${createDocBaseUrl(version)}/installation/redhat/`;
+  }
+  if (type === "deb") {
+    return `${createDocBaseUrl(version)}/installation/debian/`;
+  }
   return `${createDocBaseUrl(version)}/installation/${os}/`;
 };
 
