@@ -28,11 +28,9 @@ type PageContext = {
 };
 
 const CliInstall: FC<PageProps<any, PageContext>> = ({
-  path,
   data,
   pageContext,
 }) => {
-  console.log(data);
   return (
     <PageContainer>
       <SEO
@@ -50,6 +48,7 @@ const CliInstall: FC<PageProps<any, PageContext>> = ({
             {...pageContext}
             latestRootLink={pageContext.latestRootPath}
             latestPageLink={pageContext.canonicalPath}
+            type="cli"
           />
           <Title>{data.markdownRemark.frontmatter.title}</Title>
           <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>

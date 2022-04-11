@@ -151,8 +151,7 @@ const PackageDownload: FC<OsPackage & {
                         <a
                           href={createDefaultInstructionUrl(
                             version,
-                            os,
-                            pkg.type
+                            os
                           )}
                         >
                           {resolvePackageName(pkg.type)}
@@ -169,8 +168,7 @@ const PackageDownload: FC<OsPackage & {
                   className="ml-4"
                   href={createDefaultInstructionUrl(
                     version,
-                    os,
-                    manualPackage.type
+                    os
                   )}
                 >
                   Instruction
@@ -205,9 +203,8 @@ const createDocBaseUrl = (version: string) => {
 const createDefaultInstructionUrl = (
   version: string,
   os: string,
-  type: string
 ) => {
-  return `${createDocBaseUrl(version)}/installation/${os}/${type}/`;
+  return `${createDocBaseUrl(version)}/installation/${os}/`;
 };
 
 const resolvePackageIcon = (type: string) => {

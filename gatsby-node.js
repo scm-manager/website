@@ -252,6 +252,32 @@ const createPluginLicensePage = node => {
   };
 };
 
+const createCliInstallationPage = (node, latestVersion) => {
+  const slugParts = node.fields.slug.split("/").filter(p => p.length > 0);
+  // e.g.: /cli/docs/0.1.x/en/installation/darwin/
+  const name = slugParts[5];
+  const version = slugParts[2];
+  const language = slugParts[3];
+
+  const canonicalPath = `/cli/docs/${latestVersion}/${language}/installation/${name || ""}`;
+  const latestRootPath = `/cli/docs/${latestVersion}/${language}/installation/`;
+
+  return {
+    path: node.fields.slug,
+    component: path.resolve(`./src/templates/cli-install.tsx`),
+    context: {
+      name,
+      slug: node.fields.slug,
+      version,
+      latestVersion,
+      latestPageVersion: latestVersion,
+      language,
+      canonicalPath,
+      latestRootPath
+    },
+  };
+};
+
 const createDocPage = (node, docPath, latestPageVersion, latestVersion) => {
   const slugParts = node.fields.slug.split("/");
   // array start with an empty string
@@ -500,13 +526,21 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           createPage(createLatestDocPage(node));
         }
       } else if (nodeSlug.startsWith("/cli")) {
-        createPage(  {
-          path: nodeSlug,
-          component: path.resolve(`./src/templates/cli-install.tsx`),
-          context: {
-            name: node.name,
-          },
-        })
+        const getPagePath = p =>
+          p
+            .split("/")
+            .slice(6)
+            .join("/");
+        const pagePath = nodeSlugParts.slice(6).join("/");
+        const cliVersions = result.data.versions.nodes.filter(n => n.fields.slug.startsWith("/cli")).map(n => n.fields);
+        const cliSlugVersions = cliVersions.filter(
+          slugVersion =>
+            getPagePath(slugVersion.slug) === pagePath && !!slugVersion.version
+        );
+        const latestCliVersion = cliSlugVersions
+          .map(slugVersion => slugVersion.version)
+          .sort(versionRangeComparator)[0];
+        createPage(createCliInstallationPage(node, latestCliVersion));
       } else if (
         nodeSlug.startsWith("/plugins") &&
         nodeSlugParts[3] === "docs"

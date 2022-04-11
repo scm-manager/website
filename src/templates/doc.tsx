@@ -39,7 +39,7 @@ const Doc: FC<PageProps<any,PageContext>> = ({ path, data, pageContext }) => (
     <CanonicalLink path={pageContext.canonicalPath} />
     <div className="columns">
       <div className="column is-three-quarters">
-        <WarningBanner {...pageContext} latestRootLink={pageContext.latestRootPath} latestPageLink={pageContext.canonicalPath} />
+        <WarningBanner {...pageContext} latestRootLink={pageContext.latestRootPath} latestPageLink={pageContext.canonicalPath} type="core" />
         <Title>{data.markdownRemark.frontmatter.title}</Title>
         <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
         {renderToc(data.markdownRemark)}
