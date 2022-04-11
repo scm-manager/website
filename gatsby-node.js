@@ -259,7 +259,8 @@ const createCliInstallationPage = (node, latestVersion) => {
   const version = slugParts[2];
   const language = slugParts[3];
 
-  const canonicalPath = `/cli/docs/${latestVersion}/${language}/installation/${name || ""}`;
+  const canonicalPath = `/cli/docs/${latestVersion}/${language}/installation/${name ||
+    ""}`;
   const latestRootPath = `/cli/docs/${latestVersion}/${language}/installation/`;
 
   return {
@@ -273,7 +274,7 @@ const createCliInstallationPage = (node, latestVersion) => {
       latestPageVersion: latestVersion,
       language,
       canonicalPath,
-      latestRootPath
+      latestRootPath,
     },
   };
 };
@@ -525,14 +526,16 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         if (latestVersion === pageVersion) {
           createPage(createLatestDocPage(node));
         }
-      } else if (nodeSlug.startsWith("/cli")) {
+      } else if (nodeSlug.startsWith("/cli") && nodeSlugParts[2] === "docs") {
         const getPagePath = p =>
           p
             .split("/")
             .slice(6)
             .join("/");
         const pagePath = nodeSlugParts.slice(6).join("/");
-        const cliVersions = result.data.versions.nodes.filter(n => n.fields.slug.startsWith("/cli")).map(n => n.fields);
+        const cliVersions = result.data.versions.nodes
+          .filter(n => n.fields.slug.startsWith("/cli"))
+          .map(n => n.fields);
         const cliSlugVersions = cliVersions.filter(
           slugVersion =>
             getPagePath(slugVersion.slug) === pagePath && !!slugVersion.version

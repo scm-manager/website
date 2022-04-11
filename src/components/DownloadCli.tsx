@@ -169,7 +169,8 @@ const PackageDownload: FC<OsPackage & {
                   className="ml-4"
                   href={createDefaultInstructionUrl(
                     version,
-                    os
+                    os,
+                    "manual"
                   )}
                 >
                   Instruction
