@@ -207,13 +207,23 @@ const createDefaultInstructionUrl = (
   os: string,
   type: string
 ) => {
+  const baseUrl = `${createDocBaseUrl(version)}/installation`
   if (type === "rpm") {
-    return `${createDocBaseUrl(version)}/installation/redhat/`;
+    return `${baseUrl}/redhat/`;
   }
   if (type === "deb") {
-    return `${createDocBaseUrl(version)}/installation/debian/`;
+    return `${baseUrl}/debian/`;
   }
-  return `${createDocBaseUrl(version)}/installation/${os}/`;
+  if (type === "homebrew") {
+    return `${baseUrl}/homebrew/`;
+  }
+  if (type === "manual") {
+    if (os === "windows") {
+      return `${baseUrl}/windows/#manual-installation`
+    }
+    return `${baseUrl}/unix/`
+  }
+  return `${baseUrl}/${os}/`;
 };
 
 const resolvePackageIcon = (type: string) => {
