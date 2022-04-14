@@ -57,7 +57,7 @@ pipeline {
     stage('Image') {
       steps {
         script {
-          def image = docker.build "scmmanager/website:${version}"
+          def image = docker.build "scmmanager/website:${version}", "--build-arg=SERVER_NAME=${serverName}"
           docker.withRegistry('', 'hub.docker.com-cesmarvin') {
             image.push()
           }
@@ -129,7 +129,11 @@ pipeline {
 String version
 
 String getSiteUrl() {
-  return env.BRANCH_NAME == 'staging' ? 'https://staging-website.scm-manager.org' : 'https://scm-manager.org'
+  return "https://${serverName}"
+}
+
+String getServerName() {
+  return env.BRANCH_NAME == 'staging' ? 'staging-website.scm-manager.org' : 'scm-manager.org'
 }
 
 String computeVersion() {
