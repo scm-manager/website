@@ -60,7 +60,7 @@ const DownloadArchiv = ({ data }) => (
                 {hasChangelog(data.changelog.childChangelog, release.tag) && (
                   <Link
                     className="button is-outlined is-info"
-                    title={`Downlaod version ${release.tag}`}
+                    title={`Download version ${release.tag}`}
                     to={`/download/${release.tag}/#changelog`}
                   >
                     Changelog
@@ -68,7 +68,7 @@ const DownloadArchiv = ({ data }) => (
                 )}
                 <Link
                   className="button is-outlined is-primary"
-                  title={`Downlaod version ${release.tag}`}
+                  title={`Download version ${release.tag}`}
                   to={`/download/${release.tag}`}
                 >
                   Packages
@@ -85,7 +85,7 @@ const DownloadArchiv = ({ data }) => (
 export const query = graphql`
   query {
     releases: allReleasesYaml(
-      filter: { plugin: { eq: null } }
+      filter: { plugin: { eq: null }, type: { ne: "cli" } }
       sort: { fields: [date], order: DESC }
     ) {
       nodes {

@@ -173,7 +173,7 @@ export const createProps = (
         ...pkg,
         icon: <Docker size={size} />,
         title: "Docker users",
-        description: "We provide a docker image on the offical Docker Hub.",
+        description: "We provide a docker image on the official Docker Hub.",
         instructions: createDefaultInstructionUrl(version, pkg.type),
       };
     case "k8s":

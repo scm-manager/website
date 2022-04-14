@@ -37,6 +37,12 @@ const NavbarMenu = ({ active, toggleActive }: Props) => {
           partiallyActive={true}
         />
         <NavbarItem to="/plugins/" value="Plugins" partiallyActive={true} />
+        <NavbarItem
+          to={`/cli/`}
+          activeOn="/cli"
+          value="CLI"
+          partiallyActive={true}
+        />
         <NavbarItem to="/support/" value="Support" />
       </div>
     </div>

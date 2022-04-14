@@ -38,6 +38,36 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
     });
     if (slug.startsWith("/docs")) {
       appendVersionAndLanguageFields(createNodeField, node, slug.substring(5));
+    } else if (slug.startsWith("/cli")) {
+      const parts = slug.split("/");
+      const cli = parts[1];
+      createNodeField({
+        node,
+        name: `cli`,
+        value: cli,
+      });
+      if (parts.length > 3 && parts[2] === "docs") {
+        createNodeField({
+          node,
+          name: `version`,
+          value: parts[3],
+        });
+        createNodeField({
+          node,
+          name: `language`,
+          value: parts[4],
+        });
+        createNodeField({
+          node,
+          name: `installation`,
+          value: parts[5],
+        });
+        createNodeField({
+          node,
+          name: `os`,
+          value: parts[6],
+        });
+      }
     } else if (slug.startsWith("/plugins")) {
       const parts = slug.split("/");
       const plugin = parts[2];
@@ -218,6 +248,33 @@ const createPluginLicensePage = node => {
     component: path.resolve(`./src/templates/plugin-license.tsx`),
     context: {
       name: node.name,
+    },
+  };
+};
+
+const createCliInstallationPage = (node, latestVersion) => {
+  const slugParts = node.fields.slug.split("/").filter(p => p.length > 0);
+  // e.g.: /cli/docs/0.1.x/en/installation/darwin/
+  const name = slugParts[5];
+  const version = slugParts[2];
+  const language = slugParts[3];
+
+  const canonicalPath = `/cli/docs/${latestVersion}/${language}/installation/${name ||
+    ""}`;
+  const latestRootPath = `/cli/docs/${latestVersion}/${language}/installation/`;
+
+  return {
+    path: node.fields.slug,
+    component: path.resolve(`./src/templates/cli-install.tsx`),
+    context: {
+      name,
+      slug: node.fields.slug,
+      version,
+      latestVersion,
+      latestPageVersion: latestVersion,
+      language,
+      canonicalPath,
+      latestRootPath,
     },
   };
 };
@@ -407,8 +464,16 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         }
       }
 
-      releases: allReleasesYaml(
-        filter: { plugin: { eq: null } }
+      coreReleases: allReleasesYaml(
+        filter: { plugin: { eq: null }, type: { ne: "cli" } }
+        sort: { fields: [date], order: DESC }
+      ) {
+        nodes {
+          tag
+        }
+      }
+      cliReleases: allReleasesYaml(
+        filter: { plugin: { eq: null }, type: { eq: "cli" } }
         sort: { fields: [date], order: DESC }
       ) {
         nodes {
@@ -461,6 +526,24 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         if (latestVersion === pageVersion) {
           createPage(createLatestDocPage(node));
         }
+      } else if (nodeSlug.startsWith("/cli") && nodeSlugParts[2] === "docs") {
+        const getPagePath = p =>
+          p
+            .split("/")
+            .slice(6)
+            .join("/");
+        const pagePath = nodeSlugParts.slice(6).join("/");
+        const cliVersions = result.data.versions.nodes
+          .filter(n => n.fields.slug.startsWith("/cli"))
+          .map(n => n.fields);
+        const cliSlugVersions = cliVersions.filter(
+          slugVersion =>
+            getPagePath(slugVersion.slug) === pagePath && !!slugVersion.version
+        );
+        const latestCliVersion = cliSlugVersions
+          .map(slugVersion => slugVersion.version)
+          .sort(versionRangeComparator)[0];
+        createPage(createCliInstallationPage(node, latestCliVersion));
       } else if (
         nodeSlug.startsWith("/plugins") &&
         nodeSlugParts[3] === "docs"
@@ -600,7 +683,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       });
     });
 
-    const lastRelease = result.data.releases.nodes
+    const lastCoreRelease = result.data.coreReleases.nodes
       .map(node => node.tag)
       // remove rc releases
       .filter(tag => !tag.includes("-"))
@@ -610,12 +693,12 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       path: `/download`,
       component: path.resolve("./src/templates/download.tsx"),
       context: {
-        tag: lastRelease,
+        tag: lastCoreRelease,
         latest: true,
       },
     });
 
-    result.data.releases.nodes
+    result.data.coreReleases.nodes
       .map(node => node.tag)
       .forEach(tag => {
         createPage({
@@ -623,7 +706,35 @@ exports.createPages = ({ graphql, actions, reporter }) => {
           component: path.resolve("./src/templates/download.tsx"),
           context: {
             tag,
-            latest: tag === lastRelease,
+            latest: tag === lastCoreRelease,
+          },
+        });
+      });
+
+    const lastCliRelease = result.data.cliReleases.nodes
+      .map(node => node.tag)
+      // remove rc releases
+      .filter(tag => !tag.includes("-"))
+      .sort(versionRangeComparator)[0];
+
+    createPage({
+      path: `/cli`,
+      component: path.resolve("./src/templates/cli.tsx"),
+      context: {
+        tag: lastCliRelease,
+        latest: true,
+      },
+    });
+
+    result.data.cliReleases.nodes
+      .map(node => node.tag)
+      .forEach(tag => {
+        createPage({
+          path: `/cli/${tag}`,
+          component: path.resolve("./src/templates/cli.tsx"),
+          context: {
+            tag,
+            latest: tag === lastCliRelease,
           },
         });
       });
