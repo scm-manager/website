@@ -382,6 +382,12 @@ const DownloadCli: FC<DownloadProps> = ({ release, changelog }) => {
         {release.tag} - ({release.date})
       </h2>
       <p>
+        The CLI can be used to directly access your SCM-Manager resources like repositories, users or groups from your terminal.
+        This client does not work standalone but need a running SCM-Manager server with version 2.33.0 or newer to connect with.<br/>
+        You can find further documentation on how to use the CLI in the <a href="/docs/latest/en/user/cli/">user documentation</a>.
+      </p>
+      <hr/>
+      <p>
         If you are looking for an other CLI version, please have a look at the{" "}
         <Link to="/cli/archive">archive</Link>.
       </p>
