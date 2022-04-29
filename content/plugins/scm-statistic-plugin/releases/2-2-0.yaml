@@ -1,0 +1,8 @@
+---
+plugin: "scm-statistic-plugin"
+tag: "2.2.0"
+date: "2022-04-29T11:21:17Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-statistic-plugin/2.2.0/scm-statistic-plugin-2.2.0.smp"
+checksum: "4cc0b498e9f82366339c798cd6d7ed9103609ff41923b7e47bbb364d0e340c8f"
+conditions:
+  minVersion: "2.27.0"
