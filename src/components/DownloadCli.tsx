@@ -195,7 +195,7 @@ const createDocBaseUrl = (version: string) => {
   const parts = version.split(".");
   const major = parts[0];
   if (major === "1") {
-    return `/cli/docs/1.x/en`;
+    return `/cli/docs/1.0.x/en`;
   } else {
     const minor = parts[1];
     return `/cli/docs/${major}.${minor}.x/en`;
