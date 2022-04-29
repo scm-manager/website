@@ -1,0 +1,11 @@
+tag: 2.33.0
+date: '2022-04-29T12:16:51Z'
+packages:
+- {type: unix, checksum: b57b854101039b74df7fcc94b5b516fdfb2233c906db827bcc8c72affb4cde14,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.33.0/unix-2.33.0.tar.gz'}
+- {type: windows, checksum: 1589d7fe73ab688cc587355521aefcbdef24efcbc944dee298c0fc29af263293,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.33.0/windows-2.33.0.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
