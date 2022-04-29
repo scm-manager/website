@@ -1,0 +1,12 @@
+---
+plugin: "scm-redmine-plugin"
+tag: "3.1.1"
+date: "2022-04-29T11:39:46Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-redmine-plugin/3.1.1/scm-redmine-plugin-3.1.1.smp"
+checksum: "e228e21cd748347c426774c0d860f8d1cc8b2cb08a96d798bf8f4d1a4797b32f"
+dependencies:
+- "scm-issuetracker-plugin"
+optionalDependencies:
+- "scm-commit-message-checker-plugin"
+conditions:
+  minVersion: "2.15.0"
