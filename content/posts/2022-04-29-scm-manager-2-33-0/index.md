@@ -36,7 +36,7 @@ Syntax Highlighting is a very big topic for SCM-Manager since we have different 
 One bigger issue we had on this was that the browser happened to freeze with some huge files.
 
 We managed to fix this issue by disabling the syntax highlighting dynamically if some certain threshold was exceeded. 
-There it may occur that some of your files will no longer be highlighted properly.
+Therefore it may occur that some of your files will no longer be highlighted properly.
 Before your browser would simply crash, so this should be the better solution.
 
 We actually have an idea to enable syntax highlighting on any file size but this is very complex, and we will deal with it in the future.
