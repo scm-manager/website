@@ -1,0 +1,12 @@
+---
+plugin: "scm-issuetracker-plugin"
+tag: "3.2.1"
+date: "2022-05-12T09:03:43Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-issuetracker-plugin/3.2.1/scm-issuetracker-plugin-3.2.1.smp"
+checksum: "a9d3a10b127eb1891a21c491045d68adab9aff1f5f5d619658c59125ab53f7de"
+dependencies:
+- "scm-mail-plugin"
+optionalDependencies:
+- "scm-review-plugin"
+conditions:
+  minVersion: "2.15.0"
