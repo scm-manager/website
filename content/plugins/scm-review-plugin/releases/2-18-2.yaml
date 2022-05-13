@@ -1,0 +1,13 @@
+---
+plugin: "scm-review-plugin"
+tag: "2.18.2"
+date: "2022-05-13T13:49:50Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-review-plugin/2.18.2/scm-review-plugin-2.18.2.smp"
+checksum: "c4d7e561176148f8da9e9f8bcb81ee02b989303eee9e69cce0c7769247a12b7f"
+dependencies:
+- "scm-mail-plugin"
+optionalDependencies:
+- "scm-editor-plugin"
+- "scm-landingpage-plugin"
+conditions:
+  minVersion: "2.32.0"
