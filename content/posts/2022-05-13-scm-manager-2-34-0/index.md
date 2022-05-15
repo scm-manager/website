@@ -17,25 +17,26 @@ keywords:
 
 Hi SCM-Manager Community,
 
-we have done some serious sprint cleaning in the last couple of weeks which includes many improvements in the areas of accessibility and user experience and a large number of bugfixes.
+we have done some serious spring cleaning in the last couple of weeks which included many improvements in the areas of accessibility and user experience as well as a large number of bugfixes.
 
-There is too much to cover it all but a small selection of tweaks and new features are featured in this blog post,
-for the full list, please head over to our [changelog](https://github.com/scm-manager/scm-manager/blob/2.34.0/CHANGELOG.md#2340---2022-05-13).
+There is too much to cover it all but a small selection of tweaks and new features are showcased in this blog post.
+For the full list, please head over to our [changelog](https://scm-manager.org/download/2.34.0#changelog).
 
 ## New Docker multi-arch builds
 
 Did you know that you can also use the SCM-Manager with Docker ?
 Our official images are available on [Dockerhub](https://registry.hub.docker.com/r/scmmanager/scm-manager)
-and from this version forward, we are releasing additional linux builds for *arm64* and *arm/v7*.
-This future-proves our build-pipeline and allows for example Mac users to use the SCM-Manager Docker images on Machines with ARM chips.
+and from this version forward, we are releasing additional linux builds for *arm64* and *arm/v7* architectures.
+It future-proves our build-pipeline for broader application possibilities and 
+if you ever wanted to run your SCM-Manager in a Docker container on a Raspberry Pi, this is also for you!
 
 ## Ignoring changeset CI status in Pull Request workflow rules
 
-Overall our workflow engine for pull requests was performing well, but there was an edge case where a build-breaker was 
-carried over when branching and the resulting pull request would fail workflow rules based on CI status, even if the
+Overall our workflow engine for pull requests is performing as intended, but there was an edge case where a build-breaker 
+carried over when branching which resulted in the pull request having failed workflow rules based on CI status, even if the
 target branch did not contain it anymore. The rule simply checked both the changeset and the pull request and if any of them
 were unsuccessful, it failed. To fix this, we added a new checkbox to all workflow rules regarding CI status' that allows you to
-disable changeset checks and only verify the PR status for that particular rule.
+disable changeset checks and only verify the PR status for a particular rule.
 
 ## New Overflow Menu
 
