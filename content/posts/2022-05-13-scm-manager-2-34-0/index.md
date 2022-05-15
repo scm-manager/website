@@ -38,6 +38,8 @@ target branch did not contain it anymore. The rule simply checked both the chang
 were unsuccessful, it failed. To fix this, we added a new checkbox to all workflow rules regarding CI status' that allows you to
 disable changeset checks and only verify the PR status for a particular rule.
 
+![New Work Engine Setting](./assets/workflow_engine_flag.png)
+
 ## New Overflow Menu
 
 The action bar in the source view has been struggling with an ever-increasing number of buttons due to new features added from plugins over the last couple of months.
@@ -45,6 +47,8 @@ It is not tragic yet, but could soon pose a problem and is already borderline un
 We therefore implemented a new overflow menu that hides secondary actions and frees space in the action bar while
 still giving plugin developers full control where to place their actions. All [Editor Plugin](https://scm-manager.org/plugins/scm-editor-plugin/) actions are now displayed in this menu,
 but the [File Lock Plugin](https://scm-manager.org/plugins/scm-file-lock-plugin/) for example still displays the lock state outside the menu as a primary action.
+
+![Overflow Menu](./assets/overflow_menu.png)
 
 ## Visibility of selected lines in source view
 
@@ -56,6 +60,16 @@ between page background and highlighted line as well as the contrast between hig
 readable level. This proved close to impossible which lead to a compromise: the selected line now has an additional bar
 on the left side which provides visually impaired users a clear indicator that stands in stark contrast to the page background
 while the background color of the highlighted line is tuned to ensure optimal readability.
+
+### High Contrast Mode
+![Highlighted line in high contrast mode](./assets/highlighted_line_high_contrast.png)
+
+### Dark Mode
+![Highlighted line in high dark mode](./assets/highlighted_line_dark.png)
+
+### Light Mode
+![Highlighted line in high light mode](./assets/highlighted_line_light.png)
+
 
 ## Closing words
 Are you still missing an important feature? How can SCM-Manager help you improve your work processes?
