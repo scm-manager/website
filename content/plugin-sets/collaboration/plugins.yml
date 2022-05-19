@@ -1,0 +1,14 @@
+id: collaboration
+versions: ">=2.0.0"
+sequence: 1
+plugins:
+  - scm-landingpage-plugin
+  - scm-review-plugin
+  - scm-content-search-plugin
+  - scm-editor-plugin
+  - scm-readme-plugin
+  - scm-gravatar-plugin
+  - scm-repository-avatar-plugin
+  - scm-markdown-plantuml-plugin
+  - scm-smeagol-plugin
+  - scm-repository-template-plugin
