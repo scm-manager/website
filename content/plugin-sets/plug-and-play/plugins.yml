@@ -1,0 +1,13 @@
+id: plug-and-play
+versions: ">=2.0.0"
+sequence: 4
+plugins:
+  - scm-landingpage-plugin
+  - scm-editor-plugin
+  - scm-content-search-plugin
+  - scm-support-plugin
+  - scm-review-plugin
+  - scm-repository-avatar-plugin
+  - scm-gravatar-plugin
+  - scm-repository-mirror-plugin
+  - scm-archive-plugin

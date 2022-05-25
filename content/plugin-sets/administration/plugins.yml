@@ -1,0 +1,13 @@
+id: administration
+versions: ">=2.0.0"
+sequence: 2
+plugins:
+  - scm-support-plugin
+  - scm-trace-monitor-plugin
+  - scm-ssl-context-plugin
+  - scm-openapi-plugin
+  - scm-pathwp-plugin
+  - scm-tagprotection-plugin
+  - scm-branchwp-plugin
+  - scm-metrics-prometheus-plugin
+  - scm-ssh-plugin

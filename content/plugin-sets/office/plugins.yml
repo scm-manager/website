@@ -1,0 +1,12 @@
+id: office
+versions: ">=2.0.0"
+sequence: 3
+plugins:
+  - scm-gotenberg-plugin
+  - scm-markdown-plantuml-plugin
+  - scm-content-search-plugin
+  - scm-archive-plugin
+  - scm-file-lock-plugin
+  - scm-history-download-plugin
+  - scm-editor-plugin
+  - scm-manage-folder-plugin
