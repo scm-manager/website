@@ -34,7 +34,7 @@ We've done this, so that you can get the best experience possible from your SCM-
 
 For some time now, we have the [Commit Message Checker](https://scm-manager.org/plugins/scm-commit-message-checker-plugin/).
 With this, you can make sure that your commit messages comply with pre-defined rules. Though this is useful, it still may be
-tedious, when you have created a bunch of commits locally before pushing them and just then being reminded about the
+tedious, when you have created a bunch of commits locally before pushing them and are just then being reminded of the
 rules. With our new [CLI client](https://scm-manager.org/cli/) it is now possible to create a pre-commit hook that will
 check you commit message against the SCM-Manager server and doing so will ensure, that your commit will not be rejected
 afterwards.
