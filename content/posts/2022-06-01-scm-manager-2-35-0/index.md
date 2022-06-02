@@ -20,7 +20,7 @@ you still use Java 8, now is the time to update your system.
 
 From version 2.35.0 on, SCM-Manager has to be run at least with Java 11. If you still use Java 8, this is the time to
 update, not only due to SCM-Manager, but also because Java 8 is out of maintenance. We have eagerly anticipated this for a long
-time, because now we can use some nice new features of the more current Java releases.
+time, because now we can use some nice new features of the more recent Java releases.
 
 ## Plugin Wizard
 
