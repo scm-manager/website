@@ -25,7 +25,7 @@ time, because now we can use some nice new features of the more recent Java rele
 ## Plugin Wizard
 
 For those of you that are about to set up a new server, you will notice an additional initialization page: a plugin
-wizard. We have thought about different use cases of SCM-Manager from personal usage up to big development teams.
+wizard. We have thought about different use-cases of the SCM-Manager from personal usage up to large development teams.
 We've done this, so that you can get the best experience possible from your SCM-Manager.
 
 ![The new plugin wizard page](assets/plugin-wizard.png)
