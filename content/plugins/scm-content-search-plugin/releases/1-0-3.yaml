@@ -1,0 +1,8 @@
+---
+plugin: "scm-content-search-plugin"
+tag: "1.0.3"
+date: "2022-06-02T08:25:40Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-content-search-plugin/1.0.3/scm-content-search-plugin-1.0.3.smp"
+checksum: "41709fa6c5c9480c9967cfadbd7f4a459533aad51acd8d8181824d21e6ad24db"
+conditions:
+  minVersion: "2.28.0"
