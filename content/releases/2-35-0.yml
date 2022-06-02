@@ -1,0 +1,11 @@
+tag: 2.35.0
+date: '2022-06-02T08:12:06Z'
+packages:
+- {type: unix, checksum: ca77b570985d5e133060ba8b1fa6f5a52244b6dfade8a2c7aea0dd36fb6ae793,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.35.0/unix-2.35.0.tar.gz'}
+- {type: windows, checksum: e4065562b342de9d93db737ee3b4a59c668bfd97ff7f283ad8b573baa8062bc7,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.35.0/windows-2.35.0.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
