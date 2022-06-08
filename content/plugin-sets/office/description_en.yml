@@ -1,6 +1,6 @@
 name: Office
 features:
-  - Create documentation without effort
-  - Simplify file management without the command line
-  - View offices files, spreadsheets and presentations
-  - Avoid versioning conflicts for binary files (like office files)
+  - create documentation without effort
+  - simplify file management without the command line
+  - view offices files, spreadsheets and presentations
+  - avoid versioning conflicts for binary files (like office files)
