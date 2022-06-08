@@ -67,10 +67,11 @@ const Categories = () => {
     <section className="section">
       <div className="container categories">
         <Title>
-          <a id="categories" />Categories
+          <a id="categories" />Plugins
         </Title>
-        <Subtitle>SCM-Manager v2 Plugin categories</Subtitle>
+        <Subtitle>Categories of SCM-Manager Plugins</Subtitle>
         {renderRows(rows)}
+        <p>Please note: SCM-Manager v1 is deprecated and plugins for this version are no longer available for download. You may still build them yourself from the sources at <a href="https://github.com/scm-manager/">scm-manager on github</a>.</p>
       </div>
     </section>
   );
