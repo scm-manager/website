@@ -10,21 +10,30 @@ const semver = require("semver");
 async function collectReleases(api, repository) {
   const releases = [];
 
-  for await (const tags of api.paginate.iterator(api.repos.listTags, {
-    owner: organization,
-    repo: repository,
-  })) {
-    for (const tag of tags.data) {
-      if (semver.valid(tag.name)) {
-        releases.push({
-          version: tag.name,
-          sha: tag.commit.sha,
-        });
-      } else {
-        logger.warn(`skipped non semver version ${tag.name} at ${repository}`);
+  try {
+    for await (const tags of api.paginate.iterator(api.repos.listTags, {
+      owner: organization,
+      repo: repository,
+    })) {
+      for (const tag of tags.data) {
+        if (semver.valid(tag.name)) {
+          releases.push({
+            version: tag.name,
+            sha: tag.commit.sha,
+          });
+        } else {
+          logger.warn(`skipped non semver version ${tag.name} at ${repository}`);
+        }
       }
     }
+  } catch (e) {
+    if (e instanceof Error && 'status' in e && e.status === 404) {
+      logger.warn(`Ignore content because ${repository} could not be found`);
+    } else {
+      throw e;
+    }
   }
+
 
   return releases;
 }
