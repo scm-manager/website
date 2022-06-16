@@ -1,0 +1,8 @@
+---
+plugin: "scm-support-plugin"
+tag: "2.1.0"
+date: "2022-06-16T12:33:59Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-support-plugin/2.1.0/scm-support-plugin-2.1.0.smp"
+checksum: "28b1c7049129e6edc37c3f6c297956b73b446942036d69d9e281ac897ed85696"
+conditions:
+  minVersion: "2.0.0"
