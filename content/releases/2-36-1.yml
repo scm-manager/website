@@ -1,0 +1,11 @@
+tag: 2.36.1
+date: '2022-06-21T15:06:12Z'
+packages:
+- {type: unix, checksum: 4b086bebe2e95cbe7d87b9b2580c875154d6c6e3262e0eb83291e01191ae943c,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.36.1/unix-2.36.1.tar.gz'}
+- {type: windows, checksum: 87bf63fb61d2ad7fb3d06c4faaba86f2aa69fe56fbd7df4459f83e295c190006,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.36.1/windows-2.36.1.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
