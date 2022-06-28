@@ -1,0 +1,8 @@
+---
+plugin: "scm-mail-plugin"
+tag: "2.8.0"
+date: "2022-06-28T12:53:39Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-mail-plugin/2.8.0/scm-mail-plugin-2.8.0.smp"
+checksum: "525b51ef5914022bd45647d07cc500a23aab5b2f776e357e264f059096d2219d"
+conditions:
+  minVersion: "2.19.0"
