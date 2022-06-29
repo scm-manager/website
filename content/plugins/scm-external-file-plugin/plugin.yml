@@ -1,0 +1,5 @@
+name: scm-external-file-plugin
+displayName: External File Links
+description: Manage links to files in SCM-Manager which are stored externally
+category: Workflow
+author: Cloudogu GmbH
