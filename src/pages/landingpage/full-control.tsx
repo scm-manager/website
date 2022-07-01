@@ -1,18 +1,14 @@
 import React from "react";
 import SEO from "../../components/SEO";
 import Page from "../../layout/Page";
-import Title from "../../components/Title";
 import Subtitle from "../../components/Subtitle";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import Screenshot from '../../../static/img/scm-screenshots.png';
 import Plugins from '../../../static/img/scm-plugins.png';
 import { useStaticQuery, graphql, Link } from "gatsby";
-import {
-  Features,
-} from "../../components/features";
 import styled from "styled-components";
 import useLatestRelease from "../../hooks/useLatestRelease";
-
 const Landingpage = () => {
   const release = useLatestRelease();
   const data = useStaticQuery(graphql`{
@@ -53,10 +49,10 @@ const Iframe = styled.iframe`
     top: 0;
     left: 0;
     display: block;
-    margin: auto;
     position: relative;
     height: 320px;
     width: 570px;
+    max-width: 100%;
 `;
 const SVG = styled.svg`
     margin: auto;
@@ -89,6 +85,7 @@ const SVGBorder = styled.div`
               </Link>
             </div>
             <div className="column">
+              <div className="pt-6 is-hidden-tablet"></div>
               <Video>
                 <Iframe src="https://www.youtube-nocookie.com/embed/jm4arazJ_VU?rel=0" frameBorder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen=""
@@ -106,10 +103,10 @@ const SVGBorder = styled.div`
                   <h2 className="title is-3 mb-5">Lightweight and flexible</h2>
                 </div>
               </div>
-              <div className="columns is-multiline is-variable is-8 is-centered" >
-                <div className="column is-3">
-                  <div className="card has-full-height mb-6">
-                    <div className="card-content  has-text-centered">
+              <div className="columns is-multiline is-variable is-4-desktop is-centered" >
+                <div className="column is-one-quarter-desktop is-half-tablet">
+                  <div className="card has-full-height">
+                    <div className="card-content has-text-centered">
                       <div className="mb-5">
                         <SVGBorder>
                           <SVG xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" viewBox="0 0 48 48" fill="#005281">
@@ -127,9 +124,9 @@ const SVGBorder = styled.div`
                     </div>
                   </div>
                 </div>
-                <div className="column is-3">
-                  <div className="card has-full-height mb-6">
-                    <div className="card-content  has-text-centered">
+                <div className="column is-one-quarter-desktop is-half-tablet">
+                  <div className="card has-full-height">
+                    <div className="card-content has-text-centered">
                       <div className="mb-5">
                         <SVGBorder>
                         <SVG xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" viewBox="0 0 48 48" fill="#005281">
@@ -149,9 +146,9 @@ const SVGBorder = styled.div`
                     </div>
                   </div>
                 </div>
-                <div className="column is-3">
-                  <div className="card has-full-height mb-6">
-                    <div className="card-content  has-text-centered">
+                <div className="column is-one-quarter-desktop is-two-quarters-tablet">
+                  <div className="card has-full-height">
+                    <div className="card-content has-text-centered">
                       <div className="mb-5">
                         <SVGBorder>
                         <SVG xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" viewBox="0 0 48 48" fill="#005281">
@@ -175,9 +172,9 @@ const SVGBorder = styled.div`
                     </div>
                   </div>
                 </div>
-                <div className="column is-3">
-                  <div className="card has-full-height mb-6">
-                    <div className="card-content  has-text-centered">
+                <div className="column is-one-quarter-desktop is-two-quarters-tablet">
+                  <div className="card has-full-height">
+                    <div className="card-content has-text-centered">
                       <div className="mb-5">
                         <SVGBorder>
                           <SVG xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" viewBox="0 0 48 48" fill="#005281">
@@ -201,9 +198,12 @@ const SVGBorder = styled.div`
                     </div>
                   </div>
                 </div>
-                <Link className="button is-primary is-large mt-6" to="/download">
-                  Download SCM-Manager now
-                </Link>
+                <div className="column is-full has-text-centered mt-6">
+                  <FontAwesomeIcon icon={faDownload} size="1x" className="has-text-link"/>&nbsp;
+                  <Link className="is-primary is-underlined is-large mt-6" to="/download">
+                    Download SCM-Manager now
+                  </Link>
+                </div>
               </div>
             </div>
       </section>
@@ -217,7 +217,7 @@ const SVGBorder = styled.div`
             <div className="column pl-5">
               <h2 className="title is-3 mb-5">Stay independent</h2>
               <div className="has-full-height content is-medium">
-                <ul className="ml-5">
+                <ul className="ml-5 mb-5">
                   <li>SCM-Manager is <b>free for commercial and personal use</b> – regardless of the size of your team.
                   </li>
                   <li>
@@ -230,7 +230,8 @@ const SVGBorder = styled.div`
                     <b>No cloud requirements:</b> Self-hosting is possible on many platforms.
                   </li>
                 </ul>
-                <Link className="button is-primary is-large mt-6" to="/download">
+                <FontAwesomeIcon icon={faDownload} size="1x" className="has-text-link"/>&nbsp;
+                <Link className="is-primary is-underlined is-size-6 mt-6" to="/download">
                   Download SCM-Manager now
                 </Link>
               </div>
@@ -264,7 +265,7 @@ const SVGBorder = styled.div`
               </div>
             </div>
             <div className="column">
-              <img className="image pl-3" src={Plugins} alt="Example screenshot" />
+              <img className="image pl-3 is-hidden-mobile" src={Plugins} alt="Example screenshot" />
             </div>
           </div>
           <div className="columns">
