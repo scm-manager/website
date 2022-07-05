@@ -698,6 +698,11 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       },
     });
 
+    createPage({
+      path: "/control-your-source-code-management",
+      component: path.resolve(`./src/components/landingpages/control-your-source-code-management.tsx`),
+    });
+
     result.data.coreReleases.nodes
       .map(node => node.tag)
       .forEach(tag => {
