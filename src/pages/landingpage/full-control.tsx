@@ -4,8 +4,8 @@ import Page from "../../layout/Page";
 import Subtitle from "../../components/Subtitle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
-import Screenshot from '../../../static/img/scm-screenshots.png';
-import Plugins from '../../../static/img/scm-plugins.png';
+import Screenshot from '../../styles/assets/scm-screenshots.png';
+import Plugins from '../../styles/assets/scm-plugins.png';
 import { useStaticQuery, graphql, Link } from "gatsby";
 import styled from "styled-components";
 import useLatestRelease from "../../hooks/useLatestRelease";
@@ -198,6 +198,8 @@ const SVGBorder = styled.div`
                     </div>
                   </div>
                 </div>
+              </div>
+              <div className="columns">
                 <div className="column is-full has-text-centered mt-6">
                   <FontAwesomeIcon icon={faDownload} size="1x" className="has-text-link"/>&nbsp;
                   <Link className="is-primary is-underlined is-large mt-6" to="/download">
@@ -265,7 +267,7 @@ const SVGBorder = styled.div`
               </div>
             </div>
             <div className="column">
-              <img className="image pl-3 is-hidden-mobile" src={Plugins} alt="Example screenshot" />
+              <img className="image pl-3 is-hidden-mobile" src={Plugins} alt="Image of SCM-Manager plugin categories" />
             </div>
           </div>
           <div className="columns">
