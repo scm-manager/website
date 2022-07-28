@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import Screenshot from '../../styles/assets/scm-screenshots.png';
 import Plugins from '../../styles/assets/scm-plugins.png';
+import Replacement from '../../styles/assets/Placeholder-Video.png';
 import { useStaticQuery, graphql, Link } from "gatsby";
 import styled from "styled-components";
 import useLatestRelease from "../../hooks/useLatestRelease";
@@ -71,7 +72,7 @@ const SVGBorder = styled.div`
 
   return (
     <Page>
-      <SEO title="Home" />
+      <SEO title="Full control over your source code management" />
       <section className="hero is-welcome">
         <div className="container hero-body">
           <div className="columns is-vcentered">
@@ -86,11 +87,9 @@ const SVGBorder = styled.div`
             </div>
             <div className="column">
               <div className="pt-6 is-hidden-tablet"></div>
-              <Video>
-                <Iframe src="https://www.youtube-nocookie.com/embed/jm4arazJ_VU?rel=0" frameBorder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen=""
-                        enablejsapi="true" id="widget2"></Iframe>
-              </Video>
+              <figure className="image">
+               <img className="image pr-5" src={Replacement} alt="SCM-Manager User Interface Repositories" />
+              </figure>
             </div>
           </div>
         </div>
@@ -209,7 +208,7 @@ const SVGBorder = styled.div`
               </div>
             </div>
       </section>
-      {/*  Feature Independance  */}
+      {/*  Feature Independence  */}
       <section className="section has-background-light">
         <div className="container pb-4">
           <div className="columns is-vcentered" >
