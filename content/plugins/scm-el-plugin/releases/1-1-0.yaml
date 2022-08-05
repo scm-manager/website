@@ -1,0 +1,8 @@
+---
+plugin: "scm-el-plugin"
+tag: "1.1.0"
+date: "2022-08-05T12:29:37Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-el-plugin/1.1.0/scm-el-plugin-1.1.0.smp"
+checksum: "22b72adac2f751f779b2b1a47c27aaa116e178fabe257322be88474987fe3b0f"
+conditions:
+  minVersion: "2.0.0"
