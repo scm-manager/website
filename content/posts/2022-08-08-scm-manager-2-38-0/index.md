@@ -44,7 +44,9 @@ They provide information on the status of the workflow engine as well as the cur
 
 ## SSH Plugin
 
-Ubuntu 22.04, breaking change blocked, manual update required.
+An automatic update to sshd under Ubuntu 22.04 implicitly caused the default algorithm to change, which lead to an indirect breaking change.
+To prevent this in the future, we added a property to the ssh config to lock the algorithm.
+If you want to upgrade, you need to manually set this property to the up-to-date value.
 
 ## Closing words
 Are you still missing an important feature? How can SCM-Manager help you improve your work processes?
