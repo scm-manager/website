@@ -35,7 +35,7 @@ It is now possible to manage plugins and permissions to the same extend to which
 
 ## Contextual Search
 
-We made our search context-sensitive, which allows you to search in namespaces or a specific repository directly.
+We made our global search context-sensitive, which allows you to search in a specific namespace or a specific repository directly.
 
 ## Enhanced Pull Request Overview
 
