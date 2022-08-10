@@ -44,9 +44,10 @@ They provide information on the status of the workflow engine as well as the cur
 
 ## SSH Plugin
 
-An automatic update to sshd under Ubuntu 22.04 implicitly caused the default algorithm to change, which lead to an indirect breaking change.
-To prevent this in the future, we added a property to the ssh config to lock the algorithm.
-If you want to upgrade, you need to manually set this property to the up-to-date value.
+We bumped the version of the underlying library sshd from 2.5.1 to 2.9.0. This was required because Ubuntu 22.04 could not handle the SSH keys with the "outdated" RSA algorithm. This update caused a breaking change we were not aware of. The default host key algorithm was changed from RSA to EC automatically and the host keys were regenerated. This caused a lot of trouble because all systems had to accept the changed host keys.
+
+To prevent this issue for everyone else, we added a config field which keeps the previous host key algorithm.
+If you want to upgrade your algorithm, you need to manually change your host key algorithm in the SSH config via the UI.
 
 ## Closing words
 Are you still missing an important feature? How can SCM-Manager help you improve your work processes?
