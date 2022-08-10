@@ -22,12 +22,9 @@ keywords:
 
 Hello SCM-Manager Community,
 
-we continuously put in the effort to improve the SCM-Manager. This iteration focused on extensions to the CLI,
-contextual search and additional information for the pull request overview.
+we continuously put in the effort to improve the SCM-Manager. This iteration focused on extensions to the CLI, contextual search and additional information for the pull request overview.
 
-Due to complex changes to our underlying frontend build infrastructure, we experienced unexpected problems 
-with local plugin builds after the release. We have implemented a solution and released it under 2.38.1, but
-none of this negatively impacts production instances.
+Due to complex changes to our underlying frontend build infrastructure, we experienced unexpected problems with local plugin builds after the release. We have implemented a solution and released it under 2.38.1, but none of this negatively impacts production instances.
 
 ## CLI Extensions
 
