@@ -34,10 +34,14 @@ It is now possible to manage plugins and permissions to the same extend to which
 
 We made our global search context-sensitive, which allows you to search in a specific namespace or a specific repository directly.
 
+![Contextual Search](./assets/contextual_search.png)
+
 ## Enhanced Pull Request Overview
 
 Improvements were made to both the Review- and the CI-Plugin that add additional columns to the Pull Request table.
 They provide information on the status of the workflow engine as well as the current CI-status.
+
+![CI Status in PR Table](./assets/pr_table_ci_status.png)
 
 ## SSH Plugin
 
