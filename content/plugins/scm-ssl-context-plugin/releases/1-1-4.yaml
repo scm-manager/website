@@ -1,0 +1,8 @@
+---
+plugin: "scm-ssl-context-plugin"
+tag: "1.1.4"
+date: "2022-08-11T09:20:02Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-ssl-context-plugin/1.1.4/scm-ssl-context-plugin-1.1.4.smp"
+checksum: "55b119e716d42da6010d917368b9db5cd78c5c99dc052bc472988310e8c84b29"
+conditions:
+  minVersion: "2.25.0"
