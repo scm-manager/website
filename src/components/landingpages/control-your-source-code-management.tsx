@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import Screenshot from '../../styles/assets/scm-screenshots.png';
 import Plugins from '../../styles/assets/scm-plugins.png';
-import Replacement from '../../styles/assets/Placeholder-Video.png';
 import { useStaticQuery, graphql, Link } from "gatsby";
 import styled from "styled-components";
 import useLatestRelease from "../../hooks/useLatestRelease";
@@ -87,9 +86,11 @@ const SVGBorder = styled.div`
             </div>
             <div className="column">
               <div className="pt-6 is-hidden-tablet"></div>
-              <figure className="image">
-               <img className="image pr-5" src={Replacement} alt="SCM-Manager User Interface Repositories" />
-              </figure>
+              <Video>
+                <Iframe src="https://www.youtube-nocookie.com/embed/oIMwYOLnqUQ?rel=0" frameBorder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen
+                        id="widget2" />
+              </Video>
             </div>
           </div>
         </div>
