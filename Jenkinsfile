@@ -57,7 +57,7 @@ pipeline {
     stage('Image') {
       steps {
         script {
-          def image = docker.build "scmmanager/website:${version}", "--build-arg=SERVER_NAME=${serverName}"
+          def image = docker.build "scmmanager/website:${version}", "--build-arg=SERVER_NAME=${serverName} ."
           docker.withRegistry('', 'hub.docker.com-cesmarvin') {
             image.push()
           }
