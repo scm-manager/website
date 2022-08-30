@@ -1,14 +1,15 @@
 ingress:
   enabled: true
   annotations:
-    kubernetes.io/ingress.class: traefik
+    kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
+    acme.cert-manager.io/http01-ingress-class: nginx
   hosts:
     - host: staging-website.scm-manager.org
       paths:
         - /
 
-  tls: 
+  tls:
     - secretName: staging-website-tls
       hosts:
         - staging-website.scm-manager.org
