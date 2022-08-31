@@ -15,13 +15,14 @@ fullnameOverride: ""
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8000
 
 ingress:
   enabled: true
   annotations:
-    kubernetes.io/ingress.class: traefik
+    kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
+    acme.cert-manager.io/http01-ingress-class: nginx
   hosts:
     - host: scm-manager.org
       paths:
@@ -30,7 +31,7 @@ ingress:
       paths:
         - /
 
-  tls: 
+  tls:
     - secretName: website-tls
       hosts:
         - scm-manager.org
