@@ -1,7 +1,7 @@
 plugin: "scm-ci-plugin"
 tag: "2.0.0"
 date: "2020-06-04T17:07:20Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-ci-plugin/2.0.0/scm-ci-plugin-2.0.0.smp"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-ci-plugin/2.0.0/scm-ci-plugin-2.0.0.smp"
 checksum: "836337348eb922a756c9706a67988e099834fde7a938eb0af0a0381f05d5774f"
 dependencies: []
 optionalDependencies:

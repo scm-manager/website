@@ -1,7 +1,7 @@
 plugin: "scm-rest-legacy-plugin"
 tag: "2.0.0"
 date: "2020-06-04T19:09:25Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-rest-legacy-plugin/2.0.0/scm-rest-legacy-plugin-2.0.0.smp"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-rest-legacy-plugin/2.0.0/scm-rest-legacy-plugin-2.0.0.smp"
 checksum: "6c01c101872c3cdf060493aea44243d929a7ff28a5e53a36dc1476a950e8685d"
 dependencies: []
 conditions:

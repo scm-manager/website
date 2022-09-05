@@ -1,7 +1,7 @@
 plugin: scm-review-plugin
 tag: 2.0.0-rc10
 date: '2020-03-27T08:25:06Z'
-url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-review-plugin/2.0.0-rc10/scm-review-plugin-2.0.0-rc10.smp
+url: https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-review-plugin/2.0.0-rc10/scm-review-plugin-2.0.0-rc10.smp
 checksum: 1148b61b311e82da9d948e11ea12bdffc5c2980cb921250c0548b91d6a70f7f8
 dependencies:
 - scm-mail-plugin

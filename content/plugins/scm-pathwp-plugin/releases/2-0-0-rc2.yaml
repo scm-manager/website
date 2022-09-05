@@ -1,7 +1,7 @@
 plugin: scm-pathwp-plugin
 tag: 2.0.0-rc2
 date: '2020-01-29T12:26:06Z'
-url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-pathwp-plugin/2.0.0-rc2/scm-pathwp-plugin-2.0.0-rc2.smp
+url: https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-pathwp-plugin/2.0.0-rc2/scm-pathwp-plugin-2.0.0-rc2.smp
 checksum: b4f0a8a8262d30d2765aea07a197980b3b16fff82e1200c02178825d3cbf8351
 conditions:
   minVersion: 2.0.0-rc2

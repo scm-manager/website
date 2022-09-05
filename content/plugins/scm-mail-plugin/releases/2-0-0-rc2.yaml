@@ -1,7 +1,7 @@
 plugin: scm-mail-plugin
 tag: 2.0.0-rc2
 date: '2020-03-13T08:41:07Z'
-url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-mail-plugin/2.0.0-rc2/scm-mail-plugin-2.0.0-rc2.smp
+url: https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-mail-plugin/2.0.0-rc2/scm-mail-plugin-2.0.0-rc2.smp
 checksum: 856302fda3e471655e6062ac31aa7ad5a11445a32d5f71b73c22f10b7da68243
 conditions:
   minVersion: 2.0.0-rc5

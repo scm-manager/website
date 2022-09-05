@@ -1,7 +1,7 @@
 plugin: "scm-el-plugin"
 tag: "1.0.0"
 date: "2020-07-22T11:58:09Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-el-plugin/1.0.0/scm-el-plugin-1.0.0.smp"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-el-plugin/1.0.0/scm-el-plugin-1.0.0.smp"
 checksum: "aa9f13309772373ebff0467cc5be5df56faa38af0620b294404b2676be94c8bc"
 dependencies: []
 conditions:

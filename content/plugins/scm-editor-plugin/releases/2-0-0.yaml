@@ -1,7 +1,7 @@
 plugin: "scm-editor-plugin"
 tag: "2.0.0"
 date: "2020-06-04T16:52:24Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-editor-plugin/2.0.0/scm-editor-plugin-2.0.0.smp"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-editor-plugin/2.0.0/scm-editor-plugin-2.0.0.smp"
 checksum: "b480e2b11f1df33a6086885da62933685e828cb1349edb00480c9f873e7cbdf7"
 dependencies: []
 conditions:

@@ -1,7 +1,7 @@
 plugin: "scm-landingpage-plugin"
 tag: "1.0.0-rc1"
 date: "2020-04-15T12:24:10Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-landingpage-plugin/1.0.0-rc1/scm-landingpage-plugin-1.0.0-rc1.smp"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-landingpage-plugin/1.0.0-rc1/scm-landingpage-plugin-1.0.0-rc1.smp"
 checksum: "ac0705e968f4756ef8bcd827ee53fcc7d5ac5b4f56ebe360c7e74817ec12a771"
 dependencies: []
 conditions:

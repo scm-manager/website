@@ -1,7 +1,7 @@
 plugin: "scm-statistic-plugin"
 tag: "2.1.0"
 date: "2020-12-17T09:24:24Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-statistic-plugin/2.1.0/scm-statistic-plugin-2.1.0.smp"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-statistic-plugin/2.1.0/scm-statistic-plugin-2.1.0.smp"
 checksum: "87f3a897d2ad28770c668af1a2167a3936e8188fb9fc612420e973280672e439"
 dependencies: []
 conditions:

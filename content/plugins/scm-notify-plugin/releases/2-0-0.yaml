@@ -1,7 +1,7 @@
 plugin: "scm-notify-plugin"
 tag: "2.0.0"
 date: "2020-06-04T18:11:06Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-notify-plugin/2.0.0/scm-notify-plugin-2.0.0.smp"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-notify-plugin/2.0.0/scm-notify-plugin-2.0.0.smp"
 checksum: "81311466970b1051976f357366f3303b801bc32d9984132376bb329f8467f4d6"
 dependencies:
 - "scm-mail-plugin"

@@ -1,7 +1,7 @@
 plugin: scm-ldap-plugin
 tag: 2.0.0-rc2
 date: '2020-03-13T10:42:58Z'
-url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-ldap-plugin/2.0.0-rc2/scm-ldap-plugin-2.0.0-rc2.smp
+url: https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-ldap-plugin/2.0.0-rc2/scm-ldap-plugin-2.0.0-rc2.smp
 checksum: 428af7763472690c1510d00e2e1f0fbfe638c94336ca387df7085c87c5924964
 conditions:
   minVersion: 2.0.0-rc5

@@ -1,7 +1,7 @@
 plugin: "scm-redmine-plugin"
 tag: "2.0.0"
 date: "2020-06-04T19:03:14Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-redmine-plugin/2.0.0/scm-redmine-plugin-2.0.0.smp"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-redmine-plugin/2.0.0/scm-redmine-plugin-2.0.0.smp"
 checksum: "f8afeadef0a7d84ddb4a7d670ac491eead254050e788da31b7e3cef6b325057e"
 dependencies:
 - "scm-issuetracker-plugin"

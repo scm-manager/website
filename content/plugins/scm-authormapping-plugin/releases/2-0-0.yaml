@@ -1,7 +1,7 @@
 plugin: "scm-authormapping-plugin"
 tag: "2.0.0"
 date: "2020-06-04T17:30:16Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-authormapping-plugin/2.0.0/scm-authormapping-plugin-2.0.0.smp"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-authormapping-plugin/2.0.0/scm-authormapping-plugin-2.0.0.smp"
 checksum: "b85461451ec2dbf21f553afbb2cc243d801e2cda102f27a73fa89d53e1a9cbd9"
 dependencies: []
 conditions:

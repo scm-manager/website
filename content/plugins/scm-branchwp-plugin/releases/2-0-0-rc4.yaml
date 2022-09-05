@@ -1,7 +1,7 @@
 plugin: scm-branchwp-plugin
 tag: 2.0.0-rc4
 date: '2020-03-13T08:16:10Z'
-url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-branchwp-plugin/2.0.0-rc4/scm-branchwp-plugin-2.0.0-rc4.smp
+url: https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-branchwp-plugin/2.0.0-rc4/scm-branchwp-plugin-2.0.0-rc4.smp
 checksum: 6f31ec9f721e737024c9026ed057734bc83350c2ca3a863ce93b952fd5605533
 conditions:
   minVersion: 2.0.0-rc5

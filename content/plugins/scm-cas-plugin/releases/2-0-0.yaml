@@ -1,7 +1,7 @@
 plugin: "scm-cas-plugin"
 tag: "2.0.0"
 date: "2020-06-04T16:29:20Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-cas-plugin/2.0.0/scm-cas-plugin-2.0.0.smp"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-cas-plugin/2.0.0/scm-cas-plugin-2.0.0.smp"
 checksum: "3f6423705c2bd66855851b8bb80e323780a87c53207999d638378d997be06e98"
 dependencies: []
 conditions:

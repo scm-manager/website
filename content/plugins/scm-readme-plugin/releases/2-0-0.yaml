@@ -1,7 +1,7 @@
 plugin: "scm-readme-plugin"
 tag: "2.0.0"
 date: "2020-06-04T19:01:02Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-readme-plugin/2.0.0/scm-readme-plugin-2.0.0.smp"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-readme-plugin/2.0.0/scm-readme-plugin-2.0.0.smp"
 checksum: "236fb1bf957ad3e00debfbced940a9240f6addda0e72260d0f58fcf5d68888c9"
 dependencies: []
 conditions:

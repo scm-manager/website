@@ -1,7 +1,7 @@
 plugin: "scm-script-plugin"
 tag: "2.0.0-rc3"
 date: "2020-05-15T07:21:56Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-script-plugin/2.0.0-rc3/scm-script-plugin-2.0.0-rc3.smp"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-script-plugin/2.0.0-rc3/scm-script-plugin-2.0.0-rc3.smp"
 checksum: "0ca49baaf4d4c66be05a51265c4b0905d84777484080cd7c72671475daa51ea5"
 dependencies: []
 conditions:

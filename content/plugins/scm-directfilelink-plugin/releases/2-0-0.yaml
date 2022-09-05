@@ -1,7 +1,7 @@
 plugin: "scm-directfilelink-plugin"
 tag: "2.0.0"
 date: "2020-06-04T17:31:10Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-directfilelink-plugin/2.0.0/scm-directfilelink-plugin-2.0.0.smp"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-directfilelink-plugin/2.0.0/scm-directfilelink-plugin-2.0.0.smp"
 checksum: "d2f302b8c720b85219a3aad8f1503119bd04e3f842d78b1a333346c56c4a98f0"
 dependencies: []
 conditions:

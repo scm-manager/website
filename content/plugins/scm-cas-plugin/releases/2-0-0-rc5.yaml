@@ -1,7 +1,7 @@
 plugin: scm-cas-plugin
 tag: 2.0.0-rc5
 date: '2020-03-19T14:12:23Z'
-url: https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-cas-plugin/2.0.0-rc5/scm-cas-plugin-2.0.0-rc5.smp
+url: https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-cas-plugin/2.0.0-rc5/scm-cas-plugin-2.0.0-rc5.smp
 checksum: c1b100132158e39102007877377822304ff09cbd6687eec0aed57b634313b82c
 conditions:
   minVersion: 2.0.0-rc5

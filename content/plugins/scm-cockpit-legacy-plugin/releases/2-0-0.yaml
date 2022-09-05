@@ -1,7 +1,7 @@
 plugin: "scm-cockpit-legacy-plugin"
 tag: "2.0.0"
 date: "2020-06-04T17:05:49Z"
-url: "https://maven.scm-manager.org/nexus/content/repositories/plugin-releases/sonia/scm/plugins/scm-cockpit-legacy-plugin/2.0.0/scm-cockpit-legacy-plugin-2.0.0.smp"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-cockpit-legacy-plugin/2.0.0/scm-cockpit-legacy-plugin-2.0.0.smp"
 checksum: "46490c9bdbbbff340514838506edb4748ef8e7de347a0a31812a44ac9f3337a3"
 dependencies:
 - "scm-rest-legacy-plugin"
