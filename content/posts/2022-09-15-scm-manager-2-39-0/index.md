@@ -30,6 +30,9 @@ and bugfixes.
 
 ## Manual Reindex
 
+Under certain circumstances it could happen that imported metadata does not get indexed. We have therefore introduced
+a new button in the repository settings that allows you to completely rebuild its search index.
+
 ## What's coming next ?
 
 We are currently working hard on integrating keyboard shortcuts to first the search and then to other parts of the application.
