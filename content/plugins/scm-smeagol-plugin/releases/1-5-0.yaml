@@ -1,0 +1,10 @@
+---
+plugin: "scm-smeagol-plugin"
+tag: "1.5.0"
+date: "2022-09-15T15:37:27Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-smeagol-plugin/1.5.0/scm-smeagol-plugin-1.5.0.smp"
+checksum: "929ada2e1dfb25fe4143e2cd34cf3a63bf42e6290b60d3fd74a91fe4c20dfb13"
+dependencies:
+- "scm-rest-legacy-plugin"
+conditions:
+  minVersion: "2.39.0"
