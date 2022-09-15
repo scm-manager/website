@@ -1,0 +1,5 @@
+name: scm-commit-search-plugin
+displayName: Commit Search
+description: Enable search for commits
+category: Information
+author: Cloudogu GmbH
