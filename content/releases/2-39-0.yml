@@ -1,11 +1,14 @@
 tag: 2.39.0
 date: '2022-09-15T10:10:25Z'
 packages:
-- {type: unix, checksum: 8861aa4c765dfe046264f97347065c9c1c6055c14abf4b8d09a340f393a41b29,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.39.0/unix-2.39.0.tar.gz'}
-- {type: windows, checksum: 02fc75fdaf266baea5c05bf8db38460383bb69884f063432ac3fd02ba7ff6df7,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.39.0/windows-2.39.0.zip'}
-- {type: debian}
-- {type: redhat}
-- {type: docker}
-- {type: k8s}
+- type: unix
+  checksum: 8861aa4c765dfe046264f97347065c9c1c6055c14abf4b8d09a340f393a41b29
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.39.0/unix-2.39.0.tar.gz
+- type: windows
+  checksum: 02fc75fdaf266baea5c05bf8db38460383bb69884f063432ac3fd02ba7ff6df7
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.39.0/windows-2.39.0.zip
+- type: debian
+- type: redhat
+- type: docker
+- type: k8s
+- type: osx
