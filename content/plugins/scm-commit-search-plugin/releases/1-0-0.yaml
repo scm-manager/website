@@ -1,0 +1,8 @@
+---
+plugin: "scm-commit-search-plugin"
+tag: "1.0.0"
+date: "2022-09-15T14:27:19Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-commit-search-plugin/1.0.0/scm-commit-search-plugin-1.0.0.smp"
+checksum: "50fa3d60c442032e106f7a228f6f2f98b032e6918e9e99e69f7a8b882c3399b3"
+conditions:
+  minVersion: "2.39.0"
