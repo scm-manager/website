@@ -24,14 +24,15 @@ over a month has passed since our last feature release during which we have take
 additions to our global search. Two brand-new plugins are ready for you in addition to several quality of life improvements
 and bugfixes.
 
-## New Plugin: Commit Search
+## Global Search
 
-## New Plugin: Binary Search
+We focused again on the global search for SCM-Manager. This time we created two new plugins for you. 
+With the [Commit Search Plugin](https://scm-manager.org/plugins/scm-commit-search-plugin/install/) all your repository commit messages will be added to the search index.
+On the other hand the [Binary Search Plugin](https://scm-manager.org/plugins/scm-binary-search-plugin/install/) is very useful if you work with the common office document formats like Excel, Word, PowerPoint and many more. 
+Using [Apache Tika](https://tika.apache.org/) the textual content of these files is parsed and also added to your search index.
+But keep in mind that depending on the size of your repositories this two plugins could impact your instance performance.
 
-## Manual Reindex
-
-Under certain circumstances it could happen that imported metadata does not get indexed. We have therefore introduced
-a new button in the repository settings that allows you to completely rebuild its search index.
+Besides that we added some more convenience features like more detailed documentation and the new Reindex button to refresh your repository index manually.
 
 ## What's coming next ?
 
