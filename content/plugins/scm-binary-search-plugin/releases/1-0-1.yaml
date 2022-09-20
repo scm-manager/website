@@ -1,0 +1,10 @@
+---
+plugin: "scm-binary-search-plugin"
+tag: "1.0.1"
+date: "2022-09-20T11:46:17Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-binary-search-plugin/1.0.1/scm-binary-search-plugin-1.0.1.smp"
+checksum: "f266fd8a534ba2291c732677651bc44d1e8a1bf9c33c116c3319de92d2da8f71"
+dependencies:
+- "scm-content-search-plugin"
+conditions:
+  minVersion: "2.39.0"
