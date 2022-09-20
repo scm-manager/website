@@ -30,9 +30,9 @@ We focused again on the global search for SCM-Manager. This time we created two 
 With the [Commit Search Plugin](https://scm-manager.org/plugins/scm-commit-search-plugin/install/) all your repository commit messages will be added to the search index.
 On the other hand the [Binary Search Plugin](https://scm-manager.org/plugins/scm-binary-search-plugin/install/) is very useful if you work with the common office document formats like Excel, Word, PowerPoint and many more. 
 Using [Apache Tika](https://tika.apache.org/) the textual content of these files is parsed and also added to your search index.
-But keep in mind that depending on the size of your repositories this two plugins could impact your instance performance.
+But keep in mind that depending on the size of your repositories these two plugins could impact your instance's performance.
 
-Besides that we added some more convenience features like more detailed documentation and the new Reindex button to refresh your repository index manually.
+Besides that we added some additional convenience features like more detailed documentation and the new Reindex button to refresh your repository index manually.
 
 ## What's coming next ?
 
