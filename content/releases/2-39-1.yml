@@ -1,0 +1,11 @@
+tag: 2.39.1
+date: '2022-10-12T09:17:38Z'
+packages:
+- {type: unix, checksum: 2508315a0b48506ff8ce99e569db3844aa2a0c40a2ca2f461fb9798cd2a60e03,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.39.1/unix-2.39.1.tar.gz'}
+- {type: windows, checksum: 14f06718a68b931e6a2dcfe4626b3f880253681bc5e51439850546264f878590,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.39.1/windows-2.39.1.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
