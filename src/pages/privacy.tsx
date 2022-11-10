@@ -552,7 +552,7 @@ const PrivacyPage = () => (
         <p>
           We have integrated Google Forms into this website. The provider is
           Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland
-          (hereinafter referred to as „Google”).
+          (hereinafter referred to as “Google”).
         </p>
         <p>
           Google Forms enables us to generate online forms to record messages,
@@ -606,7 +606,7 @@ const PrivacyPage = () => (
             scmmanager@googlegroups.com
           </a>{" "}
           to be distributed to all email addresses of its members, after prior
-          moderation by the "SCMM" working group. We want to create an offer to
+          moderation by the “SCMM” working group. We want to create an offer to
           provide quality support to our users or to inform them about content
           related to our products/SCM Manager. A special feature is that e-mails
           sent to the distribution list are publicly viewable in the group's
@@ -636,7 +636,7 @@ const PrivacyPage = () => (
         </p>
         <p>
           As a member you can, beyond the possibilities of a non-member,
-          automatically receive e-mails that have been previously "moderated" by
+          automatically receive e-mails that have been previously “moderated” by
           the SCMM working group as well as make your own settings for your
           membership at{" "}
           <a
@@ -985,7 +985,7 @@ const PrivacyPage = () => (
         <p>
           We use CleverReach to send newsletters. The provider is CleverReach
           GmbH & Co. KG, Schafjückenweg 2, 26180 Rastede, Germany (hereinafter:
-          "CleverReach"). CleverReach is a service with which the newsletter
+          “CleverReach”). CleverReach is a service with which the newsletter
           dispatch can be organized and analyzed. The data you enter for the
           purpose of receiving newsletters (e.g., e-mail address) is stored on
           CleverReach's servers in Germany or Ireland.
