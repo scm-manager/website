@@ -623,9 +623,9 @@ const PrivacyPage = () => (
         <p>
           You can use the mailing list as a non-member as well as a member, in
           both cases the{" "}
-          <a href="https://policies.google.com/terms?hl=de">terms of use</a> and{" "}
-          <a href="https://policies.google.com/privacy?hl=de">privacy policy</a>{" "}
-          of Google apply.
+          <a href="https://policies.google.com/terms">terms of use</a> and{" "}
+          <a href="https://policies.google.com/privacy">privacy policy</a> of
+          Google apply.
         </p>
         <p>
           As a non-member, you can send messages to the mailing list yourself
@@ -1152,16 +1152,17 @@ const PrivacyPage = () => (
           House, Barrow Street, Dublin 4, Ireland. For details on data
           processing, please refer to the Google Chat privacy policy:{" "}
           <a
-            href="https://policies.google.com/privacy?hl=en"
+            href="https://policies.google.com/privacy"
             target="_blank"
             rel="noopener noreferrer"
           >
-            policies.google.com/privacy?hl=en
+            policies.google.com/privacy
           </a>
           .
         </p>
         <p>
-          <strong>Data processing</strong><br />
+          <strong>Data processing</strong>
+          <br />
           We have concluded a data processing agreement (DPA) for the use of the
           above-mentioned service. This is a contract mandated by data privacy
           laws that guarantees that they process personal data of our website
@@ -1175,16 +1176,17 @@ const PrivacyPage = () => (
           House, Barrow Street, Dublin 4, Ireland. For details on data
           processing, please see the Google privacy policy:{" "}
           <a
-            href="https://policies.google.com/privacy?hl=en"
+            href="https://policies.google.com/privacy"
             target="_blank"
             rel="noopener noreferrer"
           >
-            policies.google.com/privacy?hl=en
+            policies.google.com/privacy
           </a>
           .
         </p>
         <p>
-          <strong>Data processing</strong><br />
+          <strong>Data processing</strong>
+          <br />
           We have concluded a data processing agreement (DPA) for the use of the
           above-mentioned service. This is a contract mandated by data privacy
           laws that guarantees that they process personal data of our website
