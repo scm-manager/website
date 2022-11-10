@@ -18,11 +18,18 @@ const Footer = () => {
   return (
     <DarkFooter className="footer">
       <section className="section container">
-        <div className="content columns">
+        <div className="columns">
           <div className="column is-8">
-            <Link to="/imprint">Imprint & Privacy</Link>
+            <ul>
+              <li className="is-inline-block mr-3">
+                <Link to="/imprint">Imprint</Link>
+              </li>
+              <li className="is-inline-block">
+                <Link to="/privacy">Privacy</Link>
+              </li>
+            </ul>
           </div>
-          <div className="column is-4 has-text-right">
+          <div className="column is-4 content has-text-right">
             <FooterText>
               © {new Date().getFullYear()} Home of{" "}
               <a href="https://scm-manager.org">SCM-Manager</a>
