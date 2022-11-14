@@ -1,0 +1,8 @@
+---
+plugin: "scm-markdown-plantuml-plugin"
+tag: "1.1.0"
+date: "2022-11-14T13:40:35Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-markdown-plantuml-plugin/1.1.0/scm-markdown-plantuml-plugin-1.1.0.smp"
+checksum: "6c82c9b4081adf699999920f1ee7ee4efa14a6434ea46f458e547d43f76ed70f"
+conditions:
+  minVersion: "2.13.0"
