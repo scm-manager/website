@@ -5,7 +5,7 @@ import PageContainer from "../layout/PageContainer";
 import styled from "styled-components";
 
 const CounterColumn = styled.div`
-  counter-reset: h3counter h4counter h5counter;
+  counter-set: h3counter h4counter h5counter;
 
   p {
     text-align: justify;
