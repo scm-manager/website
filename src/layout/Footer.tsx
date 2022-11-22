@@ -14,6 +14,17 @@ const FooterText = styled.p`
   color: #999;
 `;
 
+const TextStyleButton = styled.button`
+  padding: 0 !important;
+  height: initial !important;
+  border: none !important;
+
+  &:hover {
+    color: white !important;
+    text-decoration: none !important;
+  }
+`;
+
 const Footer = () => {
   return (
     <DarkFooter className="footer">
@@ -24,9 +35,22 @@ const Footer = () => {
               <li className="is-inline-block mr-3">
                 <Link to="/imprint">Imprint</Link>
               </li>
-              <li className="is-inline-block">
+              <li className="is-inline-block mr-3">
                 <Link to="/privacy">Privacy</Link>
               </li>
+              {"CCM" in window ? (
+                <li className="is-inline-block">
+                  <TextStyleButton
+                    className="button is-ghost"
+                    onClick={() => {
+                      // @ts-ignore
+                      window.CCM.openWidget();
+                    }}
+                  >
+                    Cookie settings
+                  </TextStyleButton>
+                </li>
+              ) : null}
             </ul>
           </div>
           <div className="column is-4 content has-text-right">

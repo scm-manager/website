@@ -139,7 +139,18 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
             ],
         )
         .concat(meta)}
-    />
+    >
+      <script
+        id="cookie-consent-manager"
+        src="https://cloud.ccm19.de/app.js?apiKey=f19634416c234b01b69fc5444659ecd2966d996becc3e822&amp;domain=637c86e80e922a315d7a046b"
+        referrerPolicy="origin" />
+      <script id="matomo-tag-manager">{`
+        var _mtm = window._mtm = window._mtm || [];
+        _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src='https://cdn.matomo.cloud/cloudogu.matomo.cloud/container_NuEg99LG.js'; s.parentNode.insertBefore(g,s);`}
+      </script>
+    </Helmet>
   );
 };
 
