@@ -1,0 +1,45 @@
+---
+title: SCM-Manager 2.40.0
+date: 2022-11-22T17:00:00+0000
+author: Konstantin Schaper
+categories:
+- scm-manager
+- scm-review-plugin
+- scm-redmine-plugin
+- scm-jira-plugin
+- scm-webhook-plugin
+- scm-commit-message-checker-plugin
+- scm-pathwp-plugin
+- release
+- plugins
+keywords:
+- keyboard
+- power-user
+---
+
+Dear SCM-Manager Community,
+
+in the following few paragraphs we have summarized some of the changes and features available in the new release.
+We have also fixed a series of complicated bugs and are actively preparing to make new integrations with third-party systems easier in the future.
+
+## Keyboard Shortcuts
+
+Over the last month we have worked tirelessly on the previously announced keyboard shortcut system. We hope
+these will allow users to move around quicker and speed up their workflows, saving time in the process.
+
+You can open the context-sensitive list of shortcuts available to the active user on the current page by pressing `?`.
+
+Otherwise, you can always look things up in the [documentation](https://scm-manager.org/docs/2.40.x/en/user/shortcuts/).
+
+### Good News for Plugin Developers
+
+The Shortcuts API is simple to use and open for plugin developers. For further information on how to use it in your plugin,
+please refer to the documentation available in `@scm-manager/ui-components` or open a question in our forum if anything is unclear.
+
+## Closing words
+Are you still missing an important feature? How can SCM-Manager help you improve your work processes?
+We would love to hear from you about what you need most!
+
+Do you have any questions or suggestions about the SCM-Manager?
+Contact the DEV team directly on [GitHub](https://github.com/scm-manager/scm-manager/) and make sure
+to check out our new [community platform](https://community.cloudogu.com/c/scm-manager/).
