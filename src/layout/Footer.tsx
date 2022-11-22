@@ -38,7 +38,7 @@ const Footer = () => {
               <li className="is-inline-block mr-3">
                 <Link to="/privacy">Privacy</Link>
               </li>
-              {"CCM" in window ? (
+              {typeof window !== "undefined" && "CCM" in window ? (
                 <li className="is-inline-block">
                   <TextStyleButton
                     className="button is-ghost"
