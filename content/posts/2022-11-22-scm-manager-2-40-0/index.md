@@ -40,8 +40,19 @@ the URL of your old repository and some credentials (if necessary) and you are o
 
 ## Good News for Plugin Developers
 
+We love to support our community in the implementation of new ideas.
+Below, we listed some new public APIs released alongside 2.40.0 you might find interesting.
+Please open a question in our forum whenever you need a kick-start for your new plugin or if any of the new features are unclear.
+
+### Shortcuts API
+
 The Shortcuts API is simple to use and open for plugin developers. For further information on how to use it in your plugin,
-please refer to the documentation available in `@scm-manager/ui-components` or open a question in our forum if anything is unclear.
+please refer to the documentation available in `@scm-manager/ui-components`.
+
+### Extensible Webhooks
+
+We released an update to our [Webhook Plugin](https://scm-manager.org/plugins/scm-webhook-plugin/) that allows developers
+to create integrations tailored to their needs.
 
 ## Closing words
 Are you still missing an important feature? How can SCM-Manager help you improve your work processes?
