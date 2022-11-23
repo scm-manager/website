@@ -31,7 +31,14 @@ You can open the context-sensitive list of shortcuts available to the active use
 
 Otherwise, you can always look things up in the [documentation](https://scm-manager.org/docs/2.40.x/en/user/shortcuts/).
 
-### Good News for Plugin Developers
+## Enhances LFS Support
+
+For some time now, SCM-Manager supports LFS for git. With this release, LFS files will also be handled correctly
+in the repository import. So if you want to move your repository with LFS files from another repository
+manager to SCM-Manager, this now is easier than ever. Just click "Add Repository", select "Import Repository", enter
+the URL of your old repository and some credentials (if necessary) and you are on your way.
+
+## Good News for Plugin Developers
 
 The Shortcuts API is simple to use and open for plugin developers. For further information on how to use it in your plugin,
 please refer to the documentation available in `@scm-manager/ui-components` or open a question in our forum if anything is unclear.
