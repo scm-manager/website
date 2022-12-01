@@ -58,7 +58,7 @@ pipeline {
       steps {
         script {
           def image = docker.build "scmmanager/website:${version}", "--build-arg=SERVER_NAME=${serverName} ."
-          docker.withRegistry('', 'hub.docker.com-cesmarvin') {
+          docker.withRegistry('', 'cesmarvin-dockerhub-access-token') {
             image.push()
           }
         }
