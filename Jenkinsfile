@@ -42,7 +42,7 @@ pipeline {
       }
       steps {
         sh "yarn install"
-        withCredentials([usernamePassword(credentialsId: 'cesmarvin-github', passwordVariable: 'GITHUB_API_TOKEN', usernameVariable: 'GITHUB_ACCOUNT')]) {
+        withCredentials([usernamePassword(credentialsId: 'cesmarvin', passwordVariable: 'GITHUB_API_TOKEN', usernameVariable: 'GITHUB_ACCOUNT')]) {
           sh "yarn run collect-content"
         }
         withEnv(["SITE_URL=${siteUrl}"]) {
