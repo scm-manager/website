@@ -108,8 +108,8 @@ pipeline {
         branch 'master'
       }
       steps {
-        build job: 'scm-manager-github/plugin-center-api/master', wait: false
-        build job: 'scm-manager-github/alerts/main', wait: false
+        build job: 'scm-manager/plugin-center-api/master', wait: false
+        build job: 'scm-manager/alerts/main', wait: false
       }
     }
 
