@@ -1,0 +1,5 @@
+name: scm-argocd-plugin
+displayName: ArgoCD
+description: Integrates ArgoCD via Webhooks
+category: Workflow
+author: Cloudogu GmbH
