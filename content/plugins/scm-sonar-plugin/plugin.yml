@@ -1,0 +1,6 @@
+name: scm-sonar-plugin
+displayName: Sonar integration
+description: Shows CI status for Sonar analysis
+category: Continuous Integration
+author: Cloudogu GmbH
+avatarUrl: sonar-logo.png
