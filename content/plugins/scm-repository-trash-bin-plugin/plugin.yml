@@ -1,0 +1,5 @@
+name: scm-repository-trash-bin-plugin
+displayName: Repository Trash Bin
+description: Saves repositories on deletion inside temporary trash bin
+category: Administration
+author: Cloudogu GmbH
