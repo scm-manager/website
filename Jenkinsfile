@@ -45,11 +45,18 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'cesmarvin', passwordVariable: 'GITHUB_API_TOKEN', usernameVariable: 'GITHUB_ACCOUNT')]) {
           sh "yarn run collect-content"
         }
-        withEnv(["SITE_URL=${siteUrl}"]) {
-          // we have to ensure that the build uses the same path
-          // on all build nodes to avoid broken gatsby caches.
-          // The workspace is mounted to /tmp/app, see docker agent.
-          sh "cd /tmp/app && yarn run build"
+        withCredentials([string(credentialsId: "scmm-website-algolia-adminkey", variable: "ALGOLIA_ADMIN_KEY")]) {
+          withEnv([
+            "SITE_URL=${siteUrl}",
+            "GATSBY_ALGOLIA_APP_ID=UEI29OVBL2",
+            "GATSBY_ALGOLIA_SEARCH_KEY=22ec6368da4c084bd10071dd45899bb5",
+            "ALGOLIA_DRY_RUN=${env.branch!='master'}"
+          ]) {
+            // we have to ensure that the build uses the same path
+            // on all build nodes to avoid broken gatsby caches.
+            // The workspace is mounted to /tmp/app, see docker agent.
+            sh "cd /tmp/app && yarn run build"
+          }
         }
       }
     }

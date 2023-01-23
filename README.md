@@ -34,6 +34,23 @@ yarn run collect-content
 yarn run develop
 ```
 
+### Search Index
+
+To build and test the search, first create a `.env` file in this projects root directory, it should never be checked into git.
+
+It should contain the following properties:
+```
+GATSBY_ALGOLIA_APP_ID=?
+GATSBY_ALGOLIA_SEARCH_KEY=?
+ALGOLIA_ADMIN_KEY=?
+```
+Replace the question marks with values from the [Algolia](algolia.com) web app.
+Do not use the production application (SCM-Manager Website)!
+
+Afterwards you have to run the build script once, so that the index is published to Algolia.
+
+The search is now ready and available to your development environment.
+
 ## Need help?
 
 Looking for more guidance? Full documentation lives on our [homepage](https://scm-manager.org/docs/) or the dedicated pages for our [plugins](https://scm-manager.org/plugins/). Do you have further ideas or need support?

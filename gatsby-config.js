@@ -1,11 +1,13 @@
 const _ = require("lodash");
 const path = require("path");
 
+require("dotenv").config();
+
 // We use graceful-fs to avoid "Error: EMFILE: too many open files" errors. Especially because on Windows one cannot
 // increase the open files limit as a workaround.
 // See also: https://github.com/gatsbyjs/gatsby/issues/12011
-const fs = require('fs');
-const gracefulFs = require('graceful-fs');
+const fs = require("fs");
+const gracefulFs = require("graceful-fs");
 gracefulFs.gracefulify(fs);
 
 const rssMetadataQuery = `
@@ -78,15 +80,16 @@ const rssBlogSerializer = ({ query: { site, allMarkdownRemark } }) => {
       url,
       guid: url,
       custom_elements: [{ "content:encoded": edge.node.html }],
-    })
-  })
+    });
+  });
 };
 
 const rssReleaseSerializer = ({ query: { site, releases, changelogs } }) => {
   return releases.nodes.map(release => {
-
     let description;
-    const changelog = changelogs.childChangelog.versions.find(version => version.tag === release.tag);
+    const changelog = changelogs.childChangelog.versions.find(
+      version => version.tag === release.tag
+    );
     if (changelog) {
       description = changelog.changes.html;
     }
@@ -98,16 +101,17 @@ const rssReleaseSerializer = ({ query: { site, releases, changelogs } }) => {
       description,
       date: release.date,
       url,
-      guid: url}
-    });
-}
+      guid: url,
+    };
+  });
+};
 
 module.exports = {
   siteMetadata: {
     title: `SCM-Manager`,
     description: `The easiest way to share and manage your Git, Mercurial and Subversion repositories.`,
     author: `@cloudogu`,
-    keywords: ['scm', 'git', 'svn', 'mercurial'],
+    keywords: ["scm", "git", "svn", "mercurial"],
     siteUrl: process.env.SITE_URL || `https://scm-manager.org`,
   },
   plugins: [
@@ -142,8 +146,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        implementation: require('sass')
-      }
+        implementation: require("sass"),
+      },
     },
     {
       resolve: `gatsby-transformer-yaml`,
@@ -158,13 +162,13 @@ module.exports = {
 
             // plugin
             // plugins/scm-webhook-plugin/plugin.yml
-            return _.upperFirst(_.camelCase(`${node.name} Yaml`))
+            return _.upperFirst(_.camelCase(`${node.name} Yaml`));
           } else {
             // plugins/scm-branchwp-plugin/releases/2-0-0-rc4.yaml
-            return _.upperFirst(_.camelCase(`${path.basename(node.dir)} Yaml`))
+            return _.upperFirst(_.camelCase(`${path.basename(node.dir)} Yaml`));
           }
         },
-      }
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -176,8 +180,8 @@ module.exports = {
             resolve: `gatsby-remark-plantuml-lite`,
             options: {
               imageType: `svg`,
-              codeBlockLang: `uml`
-            }
+              codeBlockLang: `uml`,
+            },
           },
           `gatsby-remark-prismjs`,
           {
@@ -217,7 +221,7 @@ module.exports = {
             query: rssReleaseQuery,
             serialize: rssReleaseSerializer,
             output: "/download/rss.xml",
-          }
+          },
         ],
       },
     },
@@ -225,19 +229,33 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true, // Print removed selectors and processed file names
-        ignore: ['src/styles/prism.scss', 'fontawesome-svg-core/styles.css'],
+        ignore: ["src/styles/prism.scss", "fontawesome-svg-core/styles.css"],
         // develop: true, // Enable while using `gatsby develop`
         // tailwind: true, // Enable tailwindcss support
-        whitelist: ['img', 'image-list', 'content', 'gatsby-resp-image-wrapper'], // Don't remove this selector
+        whitelist: [
+          "img",
+          "image-list",
+          "content",
+          "gatsby-resp-image-wrapper",
+        ], // Don't remove this selector
         // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
         // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
-      }
-    }
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries: require("./src/lib/algoliaQueries"),
+        dryRun: process.env.ALGOLIA_DRY_RUN === "true",
+      },
+    },
   ],
   mapping: {
     "MarkdownRemark.frontmatter.author": `AuthorYaml`,
-  }
+  },
 };
