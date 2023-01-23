@@ -1,0 +1,8 @@
+---
+plugin: "scm-readme-plugin"
+tag: "2.1.0"
+date: "2023-01-23T13:57:27Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-readme-plugin/2.1.0/scm-readme-plugin-2.1.0.smp"
+checksum: "d02997725d5e4ccb0e3894f99aee8326c5dc7336df18128fe9b71a4b0b49b029"
+conditions:
+  minVersion: "2.41.0"
