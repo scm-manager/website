@@ -36,7 +36,7 @@ want to use.
 ## Image resolution in Markdown
 
 Maybe you are as great a fan of Markdown as we are. Then you will most probably be glad to hear
-about our lates fix: Relative image paths in markdown documents will now be displayed correctly
+about our latest fix: Relative image paths in markdown documents will now be displayed correctly
 in the previews. This also holds true for the [Review Plugin](https://scm-manager.org/plugins/scm-review-plugin/).
 
 ![Example source view of a Markdown file with relative image links](./assets/markdown.png)
