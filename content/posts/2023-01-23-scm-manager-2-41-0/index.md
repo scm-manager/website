@@ -19,7 +19,7 @@ we released version 2.41.0 of SCM-Manager with two features requested by you, ou
 
 ## Configurable repository list
 
-Some of you don't wanted to change the amount of repositories on the startup page or hide
+Some of you want to change the amount of repositories on the startup page or hide
 archived repositories. You can do
 this now with the [Landingpage Plugin](https://scm-manager.org/plugins/scm-landingpage-plugin/).
 If you have not taken a look at it before, now it is the time to do so. Besides the ability
