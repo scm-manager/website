@@ -110,6 +110,15 @@ pipeline {
       }
     }
 
+    stage('Push to GitHub') {
+      when {
+        branch 'master'
+      }
+      steps {
+        authGit 'cesmarvin', "push -f https://github.com/scm-manager/website HEAD:${env.BRANCH_NAME}"
+      }
+    }
+
     stage('Trigger Dependend Builds') {
       when {
         branch 'master'
@@ -147,3 +156,12 @@ String computeVersion() {
   def commitHashShort = sh(returnStdout: true, script: 'git rev-parse --short HEAD')
   return "${new Date().format('yyyyMMddHHmm')}-${commitHashShort}".trim()
 }
+
+void authGit(String credentials, String command) {
+  withCredentials([
+    usernamePassword(credentialsId: credentials, usernameVariable: 'AUTH_USR', passwordVariable: 'AUTH_PSW')
+  ]) {
+    sh "git -c credential.helper=\"!f() { echo username='\$AUTH_USR'; echo password='\$AUTH_PSW';  }; f\" ${command}"
+  }
+}
+
