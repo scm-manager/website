@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import React from "react";
 import {
   connectStateResults,
-  Highlight,
   Hits,
   Index,
   PoweredBy,
@@ -23,12 +22,15 @@ const HitCount = connectStateResults(({ searchResults }) => {
 const PageHit = ({ hit }) => (
   <div>
     <Link to={hit.slug}>
-      <h4>
-        <Highlight attribute="title" hit={hit} tagName="mark" />
-        <span className="tag is-light ml-2 is-uppercase">{hit.language}</span>
-      </h4>
+      <h4>{hit.title}</h4>
     </Link>
     <Snippet attribute="excerpt" hit={hit} tagName="mark" />
+    {hit.plugin ? (
+      <div>
+        <span className="tag mt-2">{hit.plugin}</span>
+      </div>
+    ) : null}
+    <hr />
   </div>
 );
 

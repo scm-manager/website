@@ -45,7 +45,7 @@ GATSBY_ALGOLIA_SEARCH_KEY=?
 ALGOLIA_ADMIN_KEY=?
 ```
 Replace the question marks with values from the [Algolia](algolia.com) web app.
-Do not use the production application (SCM-Manager Website)!
+Do not use the production application (SCM-Manager Website) or use `GATSBY_ALGOLIA_INDEX` to set a custom test index!
 
 Afterwards you have to run the build script once, so that the index is published to Algolia.
 

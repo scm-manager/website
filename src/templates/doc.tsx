@@ -13,9 +13,6 @@ import {
 } from "../components/NavigationSettings";
 import CanonicalLink from "../components/CanonicalLink";
 import WarningBanner from "../components/WarningBanner";
-import Search from "../components/search/Search";
-
-const searchIndices = [{ name: `Pages`, title: `Pages` }];
 
 const renderToc = page => {
   if (page.frontmatter.displayToc) {
@@ -59,7 +56,6 @@ const Doc: FC<PageProps<any, PageContext>> = ({ data, pageContext }) => (
         <HtmlContent content={data.markdownRemark.html} />
       </div>
       <div className="column is-one-quarter">
-        <Search indices={searchIndices} version={pageContext.latestVersion} />
         <DocNavigation
           versions={data.versions}
           languages={data.languages}

@@ -3,19 +3,25 @@ import SearchResult from "./SearchResult";
 
 const Popover = css`
   max-height: 80vh;
-  overflow: scroll;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   position: absolute;
   z-index: 200;
-  right: 0;
+  right: 10px;
   top: 100%;
-  margin-top: 0.5em;
   width: 80vw;
-  max-width: 30em;
-  box-shadow: 0 0 5px 0;
+  max-width: 40em;
   padding: 1em;
-  border-radius: 2px;
+  border: 1px solid #dbdbdb;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5em 1em -0.125em hsl(0deg 0% 4% / 10%),
+    0 0 0 1px hsl(0deg 0% 4% / 2%);
   background: ${({ theme }) => theme.background};
+  margin-top: 0;
+
+  @media (min-width: 1024px) {
+    margin-top: -2rem;
+  }
 `;
 
 export default styled(SearchResult)`
@@ -34,14 +40,14 @@ export default styled(SearchResult)`
     }
 
     li.ais-Hits-item {
-      margin-bottom: 1em;
-
       a {
-        color: ${({ theme }) => theme.foreground};
-
         h4 {
           margin-bottom: 0.2em;
         }
+      }
+
+      hr {
+        margin: 1rem 0;
       }
     }
   }

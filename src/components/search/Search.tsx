@@ -1,7 +1,7 @@
 import algoliasearch from "algoliasearch/lite";
 // @ts-ignore
 import React, { createRef, useMemo, useState } from "react";
-import { Configure, InstantSearch } from "react-instantsearch-dom";
+import { InstantSearch } from "react-instantsearch-dom";
 import styled, { ThemeProvider } from "styled-components";
 import SearchBox from "./SearchBox";
 import StyledSearchResult from "./StyledSearchResult";
@@ -17,7 +17,12 @@ const theme = {
   faded: "#888",
 };
 
-export default function Search({ indices, version }) {
+const SEARCH_INDEX = {
+  name: process.env.GATSBY_ALGOLIA_INDEX || "Pages",
+  title: process.env.GATSBY_ALGOLIA_INDEX || "Pages",
+};
+
+export default function Search() {
   const rootRef = createRef();
   const [query, setQuery] = useState();
   const [hasFocus, setFocus] = useState(false);
@@ -34,17 +39,16 @@ export default function Search({ indices, version }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <StyledSearchRoot ref={rootRef}>
+      <StyledSearchRoot ref={rootRef} className="navbar-item">
         <InstantSearch
           searchClient={searchClient}
-          indexName={indices[0].name}
+          indexName={SEARCH_INDEX.name}
           onSearchStateChange={({ query }) => setQuery(query)}
         >
-          <Configure filters={`version:${version}`} />
           <SearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} />
           <StyledSearchResult
             show={query && query.length > 0 && hasFocus}
-            indices={indices}
+            indices={[SEARCH_INDEX]}
           />
         </InstantSearch>
       </StyledSearchRoot>

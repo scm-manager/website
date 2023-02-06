@@ -2,6 +2,7 @@ import React from "react";
 import { NavbarProps } from "./NavbarProps";
 import NavbarItem from "./NavbarItem";
 import useLatestRelease from "../hooks/useLatestRelease";
+import Search from "../components/search/Search";
 
 type Props = NavbarProps;
 
@@ -20,8 +21,9 @@ const NavbarMenu = ({ active, toggleActive }: Props) => {
   };
 
   return (
-    <div className={classes} onClick={closeOnMobile}>
+    <div className={classes}>
       <div className="navbar-end">
+        <Search />
         <NavbarItem to="/" value="Home" />
         <NavbarItem to="/blog/" value="Blog" partiallyActive={true} />
         <NavbarItem

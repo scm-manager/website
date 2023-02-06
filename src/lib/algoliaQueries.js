@@ -1,5 +1,8 @@
-const pagePath = `content\/docs`;
-const indexName = `Pages`;
+const lodash = require("lodash");
+const semver = require("semver");
+
+const pagePath = `docs`;
+const DEFAULT_INDEX_NAME = `Pages`;
 
 const pageQuery = `{
   pages: allMarkdownRemark(
@@ -17,6 +20,7 @@ const pageQuery = `{
           slug
           language
           version
+          plugin
         }
         excerpt(pruneLength: 5000)
         internal {
@@ -27,7 +31,14 @@ const pageQuery = `{
   }
 }`;
 
-function pageToAlgoliaRecord({ node: { id, frontmatter, fields, ...rest } }) {
+function pageToAlgoliaRecord({
+  node: {
+    id,
+    frontmatter,
+    fields: { semverVersion, ...fields },
+    ...rest
+  },
+}) {
   return {
     objectID: fields.slug,
     ...frontmatter,
@@ -36,11 +47,35 @@ function pageToAlgoliaRecord({ node: { id, frontmatter, fields, ...rest } }) {
   };
 }
 
+function filterToLatest(edges) {
+  edges.forEach(
+    edge =>
+      (edge.node.fields.semverVersion = semver.coerce(edge.node.fields.version))
+  );
+  const grouped = lodash.groupBy(edges, "node.fields.plugin");
+  const mapped = lodash.mapValues(grouped, items =>
+    items.filter(
+      item =>
+        !items.some(
+          other =>
+            other.node.fields.semverVersion !==
+              item.node.fields.semverVersion &&
+            semver.gt(
+              other.node.fields.semverVersion,
+              item.node.fields.semverVersion
+            )
+        )
+    )
+  );
+  return lodash.flatten(Object.values(mapped));
+}
+
 const queries = [
   {
     query: pageQuery,
-    transformer: ({ data }) => data.pages.edges.map(pageToAlgoliaRecord),
-    indexName,
+    transformer: ({ data }) =>
+      filterToLatest(data.pages.edges).map(pageToAlgoliaRecord),
+    indexName: process.env.GATSBY_ALGOLIA_INDEX || DEFAULT_INDEX_NAME,
     settings: { attributesToSnippet: [`excerpt:20`] },
   },
 ];

@@ -1,13 +1,20 @@
 // @ts-ignore
-import React from "react";
+import React, { useRef } from "react";
 import { connectSearchBox } from "react-instantsearch-dom";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import classNames from "classnames";
+import { navigate } from "gatsby";
 
 export default connectSearchBox(
   ({ refine, currentRefinement, className, onFocus }) => (
-    <form className={classNames(className, "mb-4")}>
+    <form
+      className={className}
+      onSubmit={e => {
+        e.preventDefault();
+        navigate(`/search?query=${currentRefinement}`);
+        refine("");
+      }}
+    >
       <div className="field">
         <p className="control has-icons-left">
           <span className="icon is-left">
