@@ -106,6 +106,8 @@ const rssReleaseSerializer = ({ query: { site, releases, changelogs } }) => {
   });
 };
 
+console.log("process.env", process.env);
+
 module.exports = {
   siteMetadata: {
     title: `SCM-Manager`,
