@@ -50,7 +50,7 @@ pipeline {
             "SITE_URL=${siteUrl}",
             "GATSBY_ALGOLIA_APP_ID=UEI29OVBL2",
             "GATSBY_ALGOLIA_SEARCH_KEY=22ec6368da4c084bd10071dd45899bb5",
-            "ALGOLIA_DRY_RUN=${env.branch!='master'}"
+            "ALGOLIA_DRY_RUN=${env.BRANCH_NAME != 'master'}"
           ]) {
             // we have to ensure that the build uses the same path
             // on all build nodes to avoid broken gatsby caches.
