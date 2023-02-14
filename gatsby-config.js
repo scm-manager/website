@@ -106,6 +106,8 @@ const rssReleaseSerializer = ({ query: { site, releases, changelogs } }) => {
   });
 };
 
+const algoliaDryRun = process.env.ALGOLIA_DRY_RUN === "true";
+
 module.exports = {
   siteMetadata: {
     title: `SCM-Manager`,
@@ -251,7 +253,8 @@ module.exports = {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries: require("./src/lib/algoliaQueries"),
-        dryRun: process.env.ALGOLIA_DRY_RUN === "true",
+        dryRun: algoliaDryRun,
+        continueOnFailure: !algoliaDryRun,
       },
     },
   ],
