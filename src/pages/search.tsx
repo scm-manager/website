@@ -1,14 +1,14 @@
 import SEO from "../components/SEO";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Title from "../components/Title";
 import PageContainer from "../layout/PageContainer";
 import { InstantSearch } from "react-instantsearch-dom";
-import algoliasearch from "algoliasearch/lite";
 import SearchResult from "../components/search/SearchResult";
 import SearchBox from "../components/search/SearchBox";
 import qs from "qs";
 import { navigate } from "@reach/router";
 import styled from "styled-components";
+import useSearchClient from "../hooks/useSearchClient";
 
 const DEBOUNCE_TIME = 400;
 
@@ -38,14 +38,7 @@ const StyledResult = styled(SearchResult)`
 const SearchPage = ({ location }) => {
   const [searchState, setSearchState] = useState(urlToSearchState(location));
   const debouncedSetStateRef = useRef(null);
-  const searchClient = useMemo(
-    () =>
-      algoliasearch(
-        process.env.GATSBY_ALGOLIA_APP_ID,
-        process.env.GATSBY_ALGOLIA_SEARCH_KEY
-      ),
-    []
-  );
+  const searchClient = useSearchClient();
 
   function onSearchStateChange(updatedSearchState) {
     clearTimeout(debouncedSetStateRef.current);
