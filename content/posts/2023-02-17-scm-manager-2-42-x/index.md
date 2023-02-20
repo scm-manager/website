@@ -18,8 +18,8 @@ after almost a month, we have a new version for you. You might notice that there
 The reason for that was a conflict between the updated svn library and our ssh plugin. We fixed this immediately and 
 thus released [version 2.42.1](https://scm-manager.org/download/2.42.1).
 
-Apart from that we want to inform you about two new features: a new permission overview and new possibilities for 
-webhooks. Additionally, you now have the option to save default reviewers for pull requests. 
+Apart from that we want to inform you about two new features: a new permission overview, new possibilities for 
+webhooks and the selection of PR default reviewers. 
 
 ## Overview for Permissions
 
@@ -41,6 +41,15 @@ A frequently asked for feature were headers for webhooks, which we now implement
 neither be stored as clear text nor shown on the user interface.
 
 ![Image of an header in a webhook](assets/headers-in-webhooks.png)
+
+## PR Default Reviewer
+
+With the release, you now have the option to save default reviewers for pull request. Default reviewers can be selected
+in the section Pull Requests under the Pull Request Configuration. Please note that this is a repository specific 
+configuration. For each pull request the default reviewer is pre-selected, but can also be de-selected if needed. This 
+feature is located in the [Review Plugin](https://scm-manager.org/plugins/scm-review-plugin/docs/latest/en/).
+
+![Image of Pull Request Configuration](assets/pull-request-config.png)
 
 ## Closing words
 Are you still missing an important feature? How can SCM-Manager help you improve your work processes?
