@@ -1,0 +1,11 @@
+tag: 2.42.3
+date: '2023-03-13T06:34:06Z'
+packages:
+- {type: unix, checksum: 0dc9f43649dabb7651ef00377f7842dcdb2c358631988aca925f6b90509dacb7,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.42.3/unix-2.42.3.tar.gz'}
+- {type: windows, checksum: 5210e5324672ddda529f7b60510f6e4cf8b9f81c03b9ec4c9e2b37a59a590259,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.42.3/windows-2.42.3.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
