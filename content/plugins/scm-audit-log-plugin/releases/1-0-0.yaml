@@ -1,0 +1,8 @@
+---
+plugin: "scm-audit-log-plugin"
+tag: "1.0.0"
+date: "2023-04-12T14:24:18Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-audit-log-plugin/1.0.0/scm-audit-log-plugin-1.0.0.smp"
+checksum: "f1e9abe8c5cf166ce544553eb67da658e88d81c708353b68ca97136e2571f9e9"
+conditions:
+  minVersion: "2.43.0"
