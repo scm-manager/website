@@ -1,0 +1,5 @@
+name: scm-audit-log-plugin
+displayName: Audit Log
+description: Logs various actions on your server
+category: Administration
+author: Cloudogu GmbH
