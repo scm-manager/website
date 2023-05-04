@@ -1,5 +1,5 @@
-id: plug-and-play
-versions: ">=2.0.0 <2.43.0"
+id: plug-and-play-2
+versions: ">=2.43.0"
 sequence: 4
 plugins:
   - scm-landingpage-plugin
@@ -11,3 +11,4 @@ plugins:
   - scm-gravatar-plugin
   - scm-repository-mirror-plugin
   - scm-archive-plugin
+  - scm-audit-log-plugin

@@ -1,5 +1,5 @@
-id: administration
-versions: ">=2.0.0 <2.43.0"
+id: administration-2
+versions: ">=2.43.0"
 sequence: 2
 plugins:
   - scm-support-plugin
@@ -11,3 +11,4 @@ plugins:
   - scm-branchwp-plugin
   - scm-metrics-prometheus-plugin
   - scm-ssh-plugin
+  - scm-audit-log-plugin
