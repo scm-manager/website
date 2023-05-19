@@ -1,0 +1,11 @@
+---
+plugin: "scm-ci-plugin"
+tag: "2.6.0"
+date: "2023-05-19T13:31:18Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-ci-plugin/2.6.0/scm-ci-plugin-2.6.0.smp"
+checksum: "a3462068bdc51550581523373cb7231171e93e711c056a7503cfa5aaa82ffc55"
+optionalDependencies:
+- "scm-review-plugin"
+- "scm-mail-plugin"
+conditions:
+  minVersion: "2.39.0"
