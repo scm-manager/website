@@ -1,0 +1,11 @@
+tag: 2.44.0
+date: '2023-06-08T13:46:40Z'
+packages:
+- {type: unix, checksum: c0bf4479c1713101f915d9d2a73c79d9d3b1e19272df350ba746dd32f3e33daf,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.44.0/unix-2.44.0.tar.gz'}
+- {type: windows, checksum: 9e427dcf468edb6a605ad9730e6c09f9a624bf094b602949cffaa88d9aa53b67,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.44.0/windows-2.44.0.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
