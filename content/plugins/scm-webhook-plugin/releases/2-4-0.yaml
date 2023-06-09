@@ -1,0 +1,10 @@
+---
+plugin: "scm-webhook-plugin"
+tag: "2.4.0"
+date: "2023-06-09T09:57:02Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-webhook-plugin/2.4.0/scm-webhook-plugin-2.4.0.smp"
+checksum: "89259342f7564353eea631fced6a4c0029db5fa3957293d53693a3058272631d"
+dependencies:
+- "scm-el-plugin"
+conditions:
+  minVersion: "2.43.1-SNAPSHOT"
