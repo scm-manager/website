@@ -1,5 +1,5 @@
 ---
-title: SCM-Manager 2.43.0
+title: SCM-Manager 2.44.0
 date: 2023-06-09T17:00:00+0000
 author: Timo Hoppenheidt
 categories:
