@@ -62,12 +62,6 @@ const PluginNavigation: FC<Props> = ({ name }) => {
       <MenuSection title="External links">
         <MenuEntry>
           <ExternalLink
-            to={`https://oss.cloudogu.com/jenkins/job/scm-manager-plugins/job/${name}/`}
-            value="Jenkins"
-          />
-        </MenuEntry>
-        <MenuEntry>
-          <ExternalLink
             to={`https://sonarcloud.io/dashboard?id=sonia.scm.plugins%3A${name}`}
             value="SonarQube"
           />
