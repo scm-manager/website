@@ -64,4 +64,4 @@ This plugin is completely free and doesn't need an account for `Secure Code Warr
 But since it is not available in the official SCM-Manager plugin center, it has be downloaded and installed manually.
 
 Find out more about the plugin and how to install it in the [official documentation](https://forum.cloudogu.com/topic/101).
-Register and download the `SCM-SCW-Plugin` from [myCloudogu](https://files.cloudogu.com/file/scm-manager/plugins/secure-code-warrior/latest).
+Register and download the `SCM-SCW-Plugin` from the [cloudogu platform](https://files.cloudogu.com/file/scm-manager/plugins/secure-code-warrior/latest).

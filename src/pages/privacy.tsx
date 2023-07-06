@@ -676,7 +676,7 @@ const PrivacyPage = () => (
 
         <h5>Notification of forum entries</h5>
         <p>
-          As a user of the site, you will receive notifications in MyCloudogu
+          As a user of the site, you will receive notifications on the cloudogu platform
           about forum entries that you have commented on yourself after logging
           in.
         </p>
