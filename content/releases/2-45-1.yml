@@ -1,11 +1,14 @@
 tag: 2.45.1
 date: '2023-07-18T13:13:44Z'
 packages:
-- {type: unix, checksum: b091b8ce3f3054b690d636bc3d95d29bc45885ff96b498448951ba55c90b8342,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.45.1/unix-2.45.1.tar.gz'}
-- {type: windows, checksum: 998964e5674e9124119389981d3c675e319f900b8de456284f3f937c69e59941,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.45.1/windows-2.45.1.zip'}
-- {type: debian}
-- {type: redhat}
-- {type: docker}
-- {type: k8s}
+- type: unix
+  checksum: b091b8ce3f3054b690d636bc3d95d29bc45885ff96b498448951ba55c90b8342
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.45.1/unix-2.45.1.tar.gz
+- type: windows
+  checksum: 998964e5674e9124119389981d3c675e319f900b8de456284f3f937c69e59941
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.45.1/windows-2.45.1.zip
+- type: debian
+- type: redhat
+- type: docker
+- type: k8s
+- type: osx
