@@ -1,0 +1,8 @@
+---
+plugin: "scm-openapi-plugin"
+tag: "1.1.4"
+date: "2023-07-27T10:04:24Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-openapi-plugin/1.1.4/scm-openapi-plugin-1.1.4.smp"
+checksum: "e641989b4504ba41572d9596a50cdbd9cbedf2cdb6a70d7752ffe967cdafd3f1"
+conditions:
+  minVersion: "2.32.0"
