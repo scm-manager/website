@@ -1,0 +1,10 @@
+---
+plugin: "scm-argocd-plugin"
+tag: "1.0.1"
+date: "2023-08-15T08:09:05Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-argocd-plugin/1.0.1/scm-argocd-plugin-1.0.1.smp"
+checksum: "e9516810f64e38f4d38e155f05600b948f3e9d0b485f5ebe4dcaca1c811af031"
+dependencies:
+- "scm-webhook-plugin"
+conditions:
+  minVersion: "2.44.0"
