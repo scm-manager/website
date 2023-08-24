@@ -1,0 +1,11 @@
+tag: 2.46.0
+date: '2023-08-24T10:04:01Z'
+packages:
+- {type: unix, checksum: be3b48b3c76ce42881399d97e512a3002ea3fcb917cf321ccc1f29081057516d,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.46.0/unix-2.46.0.tar.gz'}
+- {type: windows, checksum: 6b3924fac6fa90fd16bb4705fdc3969abcc2e0a6d808faf8a5ac15da4068b30b,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.46.0/windows-2.46.0.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
