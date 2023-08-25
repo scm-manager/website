@@ -1,0 +1,6 @@
+name: scm-repository-size-plugin
+displayName: Repository Size
+description: Show the repository disk space size by categories
+category: Administration
+author: Cloudogu GmbH
+
