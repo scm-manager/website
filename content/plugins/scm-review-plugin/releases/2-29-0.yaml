@@ -3,7 +3,7 @@ plugin: "scm-review-plugin"
 tag: "2.29.0"
 date: "2023-08-25T08:38:55Z"
 url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-review-plugin/2.29.0/scm-review-plugin-2.29.0.smp"
-checksum: "5efa33b314a4f840c8184f294ce2324dd595779acc5cbd3d0b5836c33bdfa873"
+checksum: "bb95d262dffa683cb4e81217a1725e83568a0f1aab085bd21c30d37619ef8647"
 dependencies:
 - "scm-mail-plugin"
 - "scm-mustache-documentation-plugin"
