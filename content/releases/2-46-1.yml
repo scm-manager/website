@@ -1,0 +1,11 @@
+tag: 2.46.1
+date: '2023-09-01T09:59:02Z'
+packages:
+- {type: unix, checksum: 707240c32a660fb4c7c77ac08c2dd0881922248c27602a38c85380bc42d9f4b1,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.46.1/unix-2.46.1.tar.gz'}
+- {type: windows, checksum: 73991a4c6b4b3d385a52c8ba0c926a1137422bd6b8a20074746638db4182e08c,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.46.1/windows-2.46.1.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
