@@ -1,0 +1,10 @@
+---
+plugin: "scm-script-plugin"
+tag: "2.5.1"
+date: "2023-09-12T13:06:08Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-script-plugin/2.5.1/scm-script-plugin-2.5.1.smp"
+checksum: "ab1011a57f5455ec3a184eb42c900e58ad6dc829e7ca30c1ab519a0706d36cd0"
+dependencies:
+- "scm-code-editor-plugin"
+conditions:
+  minVersion: "2.19.0"
