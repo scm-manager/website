@@ -1,0 +1,14 @@
+---
+plugin: "scm-review-plugin"
+tag: "2.31.0"
+date: "2023-10-11T17:17:12Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-review-plugin/2.31.0/scm-review-plugin-2.31.0.smp"
+checksum: "603ebfe8f432b831ccda33088b5f13392abb72ae1cd55fc31da1cea58f1f5a35"
+dependencies:
+- "scm-mail-plugin"
+- "scm-mustache-documentation-plugin"
+optionalDependencies:
+- "scm-editor-plugin"
+- "scm-landingpage-plugin"
+conditions:
+  minVersion: "2.47.0"
