@@ -1,0 +1,11 @@
+tag: 2.47.0
+date: '2023-10-11T11:21:46Z'
+packages:
+- {type: unix, checksum: 42e04b307ad82f3115b144cf17ce813451153fda9c5c272c83d1f54d7598f9f3,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.47.0/unix-2.47.0.tar.gz'}
+- {type: windows, checksum: 5bf93547a322022a1f3a9677f88ec0f7814e41430bc1880df801899d2f9157d6,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.47.0/windows-2.47.0.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
