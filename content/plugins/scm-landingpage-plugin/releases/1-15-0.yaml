@@ -1,0 +1,8 @@
+---
+plugin: "scm-landingpage-plugin"
+tag: "1.15.0"
+date: "2023-10-11T12:06:56Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-landingpage-plugin/1.15.0/scm-landingpage-plugin-1.15.0.smp"
+checksum: "6f71c775a6c978c0170e135e4c93f75e813276786c599e72cb828d5399606006"
+conditions:
+  minVersion: "2.46.0"
