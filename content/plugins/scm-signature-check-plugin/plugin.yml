@@ -1,0 +1,5 @@
+name: scm-signature-check-plugin
+displayName: Signature Check Plugin
+description: Plugin to check if all changesets of a push have a valid signature
+category: Workflow
+author: Cloudogu GmbH
