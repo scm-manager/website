@@ -1,0 +1,5 @@
+name: scm-custom-storage-plugin
+displayName: Custom Storage Plugin
+description: Lets you change the directory where a repository is stored.
+category: Administration
+author: Cloudogu GmbH
