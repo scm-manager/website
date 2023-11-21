@@ -38,7 +38,7 @@
     "gatsby-source-filesystem": "^3.3.0",
     "gatsby-transformer-keepachangelog": "^2.0.0",
     "gatsby-transformer-plaintext": "^2.0.0",
-    "gatsby-transformer-remark": "^4.0.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^3.8.0",
     "gatsby-transformer-yaml": "^3.3.0",
     "graceful-fs": "^4.2.9",
