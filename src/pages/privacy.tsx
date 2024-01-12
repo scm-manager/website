@@ -871,7 +871,7 @@ const PrivacyPage = () => (
           revoked at any time.
         </p>
         <iframe
-          style={{ border: 0, height: "200px", width: "600px" }}
+          style={{ border: 0, height: "200px", width: "100%", maxWidth: "600px" }}
           src="https://cloudogu.matomo.cloud/index.php?module=CoreAdminHome&action=optOut&language=en&backgroundColor=f7f7f7&fontColor=999999&fontSize=16px&fontFamily=%22Droid%20Sans%22"
         ></iframe>
         <h5>IP anonymization</h5>
