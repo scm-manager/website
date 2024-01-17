@@ -13,7 +13,7 @@ keywords:
 
 Dear SCM-Manager Community,
 
-We are finally confident to announce SCM Manager 3.0.0 which will we released soon.
+We are finally confident to announce SCM-Manager 3.0.0 which will be released soon.
 But before you get too excited or even panic, we would like to clarify what actually changed and how you can make the upgrade as effortless as possible.
 
 ## Why the new major version?
@@ -113,7 +113,6 @@ This means you cannot downgrade afterwards. We want to mention that neither your
 Java 11 is outdated, as the end of life was reached in September 2023. SCM-Manager 3.x requires Java 17, which in the best case should simply be beneficial for the performance.
 
 ## tl;dr
-
 The new major version is mainly a technical upgrade. It's configuration has been simplified a lot and is now done via a single `config.yml` or environment variables.
 This is the only incompatibility which must be adjusted by an administrator.
 
