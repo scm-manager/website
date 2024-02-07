@@ -1,0 +1,11 @@
+tag: 3.0.2
+date: '2024-02-07T13:38:06Z'
+packages:
+- {type: unix, checksum: bbf0a97d311cb022fdaee590d533a0b2cd1d39a8e72b2ef640525c3c52b4d750,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.0.2/unix-3.0.2.tar.gz'}
+- {type: windows, checksum: ef0676ea73e06cacbd0146ea9bd69150b625ea96f1b65065f8fe16a4edaa3151,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.0.2/windows-3.0.2.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
