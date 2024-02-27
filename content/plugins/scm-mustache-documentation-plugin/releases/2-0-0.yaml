@@ -1,0 +1,8 @@
+---
+plugin: "scm-mustache-documentation-plugin"
+tag: "2.0.0"
+date: "2024-02-27T09:33:38Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-mustache-documentation-plugin/2.0.0/scm-mustache-documentation-plugin-2.0.0.smp"
+checksum: "34348200245905c1f719576fba195e94eef89f1cc1ab17265df0a65030873bbf"
+conditions:
+  minVersion: "3.0.0"
