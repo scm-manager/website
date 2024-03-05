@@ -1,0 +1,11 @@
+tag: 2.46.2
+date: '2024-03-05T09:13:48Z'
+packages:
+- {type: unix, checksum: 69b0285ca38ad111302b37bbb2c62a8f28d79b6d86a545ba210166e11098f7e9,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.46.2/unix-2.46.2.tar.gz'}
+- {type: windows, checksum: c9ff9755615d635caba55067da35274d3468910aee1c7e671f125d78dbf1ac9c,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.46.2/windows-2.46.2.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
