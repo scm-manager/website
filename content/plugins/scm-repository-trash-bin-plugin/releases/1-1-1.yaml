@@ -1,0 +1,8 @@
+---
+plugin: "scm-repository-trash-bin-plugin"
+tag: "1.1.1"
+date: "2024-03-14T13:29:14Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-repository-trash-bin-plugin/1.1.1/scm-repository-trash-bin-plugin-1.1.1.smp"
+checksum: "378618aeb8105c2a9b7ce06b6341e5a57763841a69ff9120c92587218c9d4669"
+conditions:
+  minVersion: "2.41.0"
