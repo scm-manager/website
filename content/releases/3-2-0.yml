@@ -1,0 +1,11 @@
+tag: 3.2.0
+date: '2024-05-23T11:36:40Z'
+packages:
+- {type: unix, checksum: 5c3f680100cf6c21da951216841ef724bef70916fe39e4e99c7148bda3ddf27b,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.2.0/unix-3.2.0.tar.gz'}
+- {type: windows, checksum: 34d98258a2c3b9a66bc1237d3a355385be8abec31ff5dc5107814a565375e44d,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.2.0/windows-3.2.0.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
