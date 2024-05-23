@@ -22,9 +22,9 @@ The buttons are located in the changeset view as well as in your pull requests.
 
 Furthermore, it is possible to show and hide your whitespaces and tabs in your file.
 
-![Ignore whitespace](assets/ignorewhitespace.jpg)
+![Ignore whitespace](assets/ignore_whitespace.png)
 
-![Show whitespaces](assets/whitespace.jpg)
+![Show whitespaces](assets/show_whitespace.png)
 
 ## Review Plugin
 
