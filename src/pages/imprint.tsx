@@ -53,21 +53,6 @@ const ImprintPage = () => (
           We are not prepared or obligated to participate in a dispute
           resolution proceeding before a consumer arbitration board.
         </p>
-        <h3>Liability for content</h3>
-        <p>
-          As a service provider, pursuant to § 7 para. 1 TMG we are responsible
-          for our own content on these web pages according to general laws.
-          However, according to §§ 8 through 10 TMG, we are not obligated to
-          monitor transferred or stored external information or to search for
-          circumstances that indicate illegal activity.
-        </p>
-        <p>
-          Obligations to remove or block the use of information according to
-          general laws remain unaffected by this. Liability in this respect
-          however is only possible from the point in time at which we become
-          aware of a specific infringement of the law. Upon becoming aware of
-          such legal infringements, we will immediately remove this content.
-        </p>
         <h3>Liability for links</h3>
         <p>
           Our website contains links to external websites of third parties, over
