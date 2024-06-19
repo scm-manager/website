@@ -1,0 +1,72 @@
+tag: 1.0.2
+date: "2024-06-19T09:51:55Z"
+type: cli
+packages:
+    - type: zip
+      os: windows
+      arch: arm64
+      url: https://packages.scm-manager.org/repository/scm-cli-releases/1.0.2/scm-cli_1.0.2_Windows_arm64.zip
+      checksum: 14923f50552952551915e55c39f034a94a6edfc82f3725cd2cc6f28591bf85f0
+    - type: gz
+      os: darwin
+      arch: arm64
+      url: https://packages.scm-manager.org/repository/scm-cli-releases/1.0.2/scm-cli_1.0.2_Darwin_arm64.tar.gz
+      checksum: 0493183f78520b7d91ba9a45c212e1b0fd4751a4ec9b0802bb18f37e9aed669b
+    - type: zip
+      os: windows
+      arch: amd64
+      url: https://packages.scm-manager.org/repository/scm-cli-releases/1.0.2/scm-cli_1.0.2_Windows_x86_64.zip
+      checksum: 55671212c80b755512149033b631fa842aad59e49bd19f235154e72a188fb7d6
+    - type: gz
+      os: linux
+      arch: amd64
+      url: https://packages.scm-manager.org/repository/scm-cli-releases/1.0.2/scm-cli_1.0.2_Linux_x86_64.tar.gz
+      checksum: f6cac1cae52f3f51016550f279445b1b36584071558aca6cf2308229ce5f9071
+    - type: gz
+      os: freebsd
+      arch: arm64
+      url: https://packages.scm-manager.org/repository/scm-cli-releases/1.0.2/scm-cli_1.0.2_freebsd_arm64.tar.gz
+      checksum: 6a7571a7a8a5a3674124351d37e82f6450b5af339ed16e57a72b9ffbcb4be577
+    - type: gz
+      os: linux
+      arch: arm64
+      url: https://packages.scm-manager.org/repository/scm-cli-releases/1.0.2/scm-cli_1.0.2_Linux_arm64.tar.gz
+      checksum: 6647800abf2c887d7581f53d7ce60bfb373fb36bfec1abbde3921199f42cd173
+    - type: gz
+      os: freebsd
+      arch: amd64
+      url: https://packages.scm-manager.org/repository/scm-cli-releases/1.0.2/scm-cli_1.0.2_freebsd_x86_64.tar.gz
+      checksum: 0721f69f51c58e9c4c790131fbf13b5e625bd952a778d39fcad0dbc0c6cc9a98
+    - type: gz
+      os: darwin
+      arch: amd64
+      url: https://packages.scm-manager.org/repository/scm-cli-releases/1.0.2/scm-cli_1.0.2_Darwin_x86_64.tar.gz
+      checksum: 9ea066b87609a3de9bb69618a220bcebc9025e8bbf6582483a0299c1184c0f47
+    - type: rpm
+      os: linux
+      arch: arm64
+    - type: rpm
+      os: linux
+      arch: amd64
+    - type: deb
+      os: linux
+      arch: arm64
+    - type: deb
+      os: linux
+      arch: amd64
+    - type: homebrew
+      os: linux
+      arch: arm64
+    - type: homebrew
+      os: linux
+      arch: amd64
+    - type: homebrew
+      os: darwin
+      arch: arm64
+    - type: homebrew
+      os: darwin
+      arch: amd64
+    - type: scoop
+      os: windows
+      arch: amd64
+
