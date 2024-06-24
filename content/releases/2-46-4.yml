@@ -1,11 +1,14 @@
 tag: 2.46.4
 date: '2024-06-24T09:38:11Z'
 packages:
-- {type: unix, checksum: f6eb478d888847ea338e611400629ba1230e0ea9becda40120de12f50b9b5ce5,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.46.4/unix-2.46.4.tar.gz'}
-- {type: windows, checksum: 1b0198a62033d408a1bb0a90118dda0138d66506b773ce2beba3bcd98a0fa7b0,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.46.4/windows-2.46.4.zip'}
-- {type: debian}
-- {type: redhat}
-- {type: docker}
-- {type: k8s}
+- type: unix
+  checksum: f6eb478d888847ea338e611400629ba1230e0ea9becda40120de12f50b9b5ce5
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.46.4/unix-2.46.4.tar.gz
+- type: windows
+  checksum: 1b0198a62033d408a1bb0a90118dda0138d66506b773ce2beba3bcd98a0fa7b0
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.46.4/windows-2.46.4.zip
+- type: debian
+- type: redhat
+- type: docker
+- type: k8s
+- type: osx
