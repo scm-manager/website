@@ -12,3 +12,4 @@ packages:
 - type: docker
 - type: k8s
 - type: osx
+- type: ces
