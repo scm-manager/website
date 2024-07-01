@@ -12,7 +12,7 @@ const ImprintPage = () => (
         <p>
           Cloudogu GmbH
           <br />
-          Brabandtstr. 9-10
+          Garküche 1
           <br />
           38100 Braunschweig
           <br />
