@@ -1,0 +1,5 @@
+name: scm-hgnested-plugin
+displayName: Hg-Nested
+description: This plugin allows the creation of an alias for nested mercurial repositories.
+category: Workflow
+author: Cloudogu GmbH
