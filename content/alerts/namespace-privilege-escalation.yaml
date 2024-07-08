@@ -1,0 +1,5 @@
+title: Namespace privilege escalation
+description: We found a vulnerability that allows users to escalate their privileges inside a namespace.
+link: https://scm-manager.org/blog/posts/2024-07-08-scm-manager-3-3-0/
+issuedAt: 2024-07-08
+affectedVersions: ">=3.0.4 <=3.2.2"
