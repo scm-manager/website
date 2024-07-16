@@ -1,0 +1,8 @@
+---
+plugin: "scm-cas-plugin"
+tag: "3.0.0"
+date: "2024-07-16T08:32:11Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-cas-plugin/3.0.0/scm-cas-plugin-3.0.0.smp"
+checksum: "4210e93781f1e3cf3391b0d4e743033a3f14f2243dc75686a60f974166ad8e87"
+conditions:
+  minVersion: "3.3.0"
