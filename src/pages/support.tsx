@@ -22,7 +22,7 @@ const SupportPage = () => (
       <p>
         <a
           className="button is-primary"
-          href="https://cloudogu.com/en/scm-manager-enterprise/"
+          href="https://platform.cloudogu.com/en/support/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -56,6 +56,7 @@ const SupportPage = () => (
       </p>
 
       <p>Mailing List</p>
+      <p><i>The mailing list is currently discontinued and only available as read only</i></p>
       <p>
         <a
           className="button is-primary"
@@ -63,7 +64,7 @@ const SupportPage = () => (
           target="_blank"
           rel="noopener noreferrer"
         >
-          GoogleGroup / Mailinglist
+          Google Group / Mailing list
         </a>
       </p>
     </div>
