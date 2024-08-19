@@ -1,0 +1,10 @@
+---
+plugin: "scm-repository-mirror-plugin"
+tag: "2.5.1"
+date: "2024-08-19T11:49:28Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-repository-mirror-plugin/2.5.1/scm-repository-mirror-plugin-2.5.1.smp"
+checksum: "660c977ccc62f270f69a751bc46b7cc64c45295ab16b563429b2ac4424532ec2"
+optionalDependencies:
+- "scm-mail-plugin"
+conditions:
+  minVersion: "3.2.1"
