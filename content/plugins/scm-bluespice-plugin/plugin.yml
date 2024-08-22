@@ -1,0 +1,5 @@
+name: scm-bluespice-plugin
+displayName: Bluespice
+description: Integrates BlueSpice MediaWiki to SCM-Manager
+category: Documentation
+author: Cloudogu GmbH
