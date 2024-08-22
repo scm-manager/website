@@ -1,6 +1,6 @@
 ---
-title: SCM-Manager 3.2.0
-date: 2024-05-23T17:00:00+0000
+title: SCM-Manager 3.4.0
+date: 2024-08-22T17:00:00+0000
 author: Thomas Zerr
 categories:
   - scm-manager
