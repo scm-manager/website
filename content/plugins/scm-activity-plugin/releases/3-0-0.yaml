@@ -1,0 +1,8 @@
+---
+plugin: "scm-activity-plugin"
+tag: "3.0.0"
+date: "2024-09-10T15:22:21Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-activity-plugin/3.0.0/scm-activity-plugin-3.0.0.smp"
+checksum: "99cb4827849c759feb2a5565e69b548003fb3b3c9e13eded9e070504be195b21"
+conditions:
+  minVersion: "3.0.0"
