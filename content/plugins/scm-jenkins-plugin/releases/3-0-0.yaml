@@ -1,0 +1,14 @@
+---
+plugin: "scm-jenkins-plugin"
+tag: "3.0.0"
+date: "2024-09-11T12:19:05Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-jenkins-plugin/3.0.0/scm-jenkins-plugin-3.0.0.smp"
+checksum: "559bd13a8c1a12a144c3ee48988f4a4f8fc1fafd9975262510eaa5c775801448"
+dependencies:
+- "scm-el-plugin"
+optionalDependencies:
+- "scm-review-plugin"
+- "scm-ssh-plugin"
+- "scm-mail-plugin"
+conditions:
+  minVersion: "3.0.0"
