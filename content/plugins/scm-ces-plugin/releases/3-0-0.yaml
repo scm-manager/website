@@ -1,0 +1,8 @@
+---
+plugin: "scm-ces-plugin"
+tag: "3.0.0"
+date: "2024-09-11T12:06:19Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-ces-plugin/3.0.0/scm-ces-plugin-3.0.0.smp"
+checksum: "860e71fc1c2120ba1c515d15dcbbc696c2101d044641f852d38657638fea85f2"
+conditions:
+  minVersion: "3.0.0"
