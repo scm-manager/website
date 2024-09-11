@@ -1,0 +1,8 @@
+---
+plugin: "scm-rest-legacy-plugin"
+tag: "3.0.0"
+date: "2024-09-11T08:33:34Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-rest-legacy-plugin/3.0.0/scm-rest-legacy-plugin-3.0.0.smp"
+checksum: "925e59e10db2dc23a447299ea1ce89a747f8ee1c747e9cb517a4ed5d644bc65f"
+conditions:
+  minVersion: "2.0.0"
