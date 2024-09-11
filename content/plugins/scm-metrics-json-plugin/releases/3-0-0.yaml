@@ -1,0 +1,8 @@
+---
+plugin: "scm-metrics-json-plugin"
+tag: "3.0.0"
+date: "2024-09-11T13:29:59Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-metrics-json-plugin/3.0.0/scm-metrics-json-plugin-3.0.0.smp"
+checksum: "40f67381ddec0e1ace06ee4014cd024912ab53fa1ef30d7925801cca43f6ae3b"
+conditions:
+  minVersion: "2.15.0"
