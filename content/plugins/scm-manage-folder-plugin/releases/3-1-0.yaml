@@ -1,0 +1,10 @@
+---
+plugin: "scm-manage-folder-plugin"
+tag: "3.1.0"
+date: "2024-09-11T13:01:27Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-manage-folder-plugin/3.1.0/scm-manage-folder-plugin-3.1.0.smp"
+checksum: "e764fab0e7bf6c4d9fd8dd48a6da258b3d852a1970fd1b9704090eed3184deaf"
+dependencies:
+- "scm-editor-plugin"
+conditions:
+  minVersion: "3.0.0"
