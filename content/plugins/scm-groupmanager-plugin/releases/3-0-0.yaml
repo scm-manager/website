@@ -1,0 +1,8 @@
+---
+plugin: "scm-groupmanager-plugin"
+tag: "3.0.0"
+date: "2024-09-11T11:00:08Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-groupmanager-plugin/3.0.0/scm-groupmanager-plugin-3.0.0.smp"
+checksum: "4d7eff2956b222a1f4cb06d89d1ce2b2131a9ca31418efafb0726a9185f6276b"
+conditions:
+  minVersion: "3.0.0"
