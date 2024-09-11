@@ -1,0 +1,8 @@
+---
+plugin: "scm-signature-check-plugin"
+tag: "3.0.0"
+date: "2024-09-11T09:23:48Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-signature-check-plugin/3.0.0/scm-signature-check-plugin-3.0.0.smp"
+checksum: "fc6fe240b850e4a9817f3af1f2e671cba0ffd4c8e586e003e67c03f44db92cdd"
+conditions:
+  minVersion: "3.0.0"
