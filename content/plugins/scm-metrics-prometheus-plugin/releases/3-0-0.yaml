@@ -1,0 +1,8 @@
+---
+plugin: "scm-metrics-prometheus-plugin"
+tag: "3.0.0"
+date: "2024-09-11T13:42:51Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-metrics-prometheus-plugin/3.0.0/scm-metrics-prometheus-plugin-3.0.0.smp"
+checksum: "ad27fb38ebac50715040df7c2d6aaa6db86fae46f0f361b8764c4caf637b32a0"
+conditions:
+  minVersion: "2.15.0"
