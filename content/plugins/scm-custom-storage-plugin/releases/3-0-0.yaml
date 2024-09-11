@@ -1,0 +1,8 @@
+---
+plugin: "scm-custom-storage-plugin"
+tag: "3.0.0"
+date: "2024-09-11T09:53:19Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-custom-storage-plugin/3.0.0/scm-custom-storage-plugin-3.0.0.smp"
+checksum: "43e444ee00a8eefbd919b43f242afb63b52b605d30a53c043ec3491762258f95"
+conditions:
+  minVersion: "3.0.0"
