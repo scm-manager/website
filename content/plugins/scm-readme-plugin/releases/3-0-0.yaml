@@ -1,0 +1,8 @@
+---
+plugin: "scm-readme-plugin"
+tag: "3.0.0"
+date: "2024-09-11T12:28:18Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-readme-plugin/3.0.0/scm-readme-plugin-3.0.0.smp"
+checksum: "6bc7f4e130e218027144ec184d951bdb25d3047a48f67aafee3b68f0eea34bbb"
+conditions:
+  minVersion: "3.1.0"
