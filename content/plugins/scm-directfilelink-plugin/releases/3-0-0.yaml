@@ -1,0 +1,8 @@
+---
+plugin: "scm-directfilelink-plugin"
+tag: "3.0.0"
+date: "2024-09-12T06:56:15Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-directfilelink-plugin/3.0.0/scm-directfilelink-plugin-3.0.0.smp"
+checksum: "9a70b2d79a2b728d03e95324c7339cf33e00f29a967f86102d0947fc17f4a628"
+conditions:
+  minVersion: "3.0.0"
