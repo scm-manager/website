@@ -1,7 +1,6 @@
 import React from "react";
 import SEO from "../../components/SEO";
 import Page from "../../layout/Page";
-import Subtitle from "../../components/Subtitle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import Screenshot from '../../styles/assets/scm-screenshots.png';
@@ -223,7 +222,7 @@ const SVGBorder = styled.div`
                   <li>SCM-Manager is <b>free for commercial and personal use</b> – regardless of the size of your team.
                   </li>
                   <li>
-                    <b>100% open source</b> under MIT license.
+                    <b>100% open source</b> under AGPL-3.0-only license.
                   </li>
                   <li>
                     <b>No external dependencies:</b> You don't need extra databases or additional webservers.

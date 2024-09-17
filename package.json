@@ -1,8 +1,9 @@
 {
   "name": "@scm-manager/website",
   "private": true,
-  "description": "SCM-Manager website",
   "version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "description": "SCM-Manager website",
   "author": "Sebastian Sdorra <sebastian.sdorra@cloudogu.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -80,7 +81,6 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",

@@ -7,7 +7,7 @@ import ImageColumn from "./ImageColumn";
 const OpenSource: FC<FeatureProps> = props => (
   <Feature {...props}>
     <TextColumn title="OpenSource">
-      SCM-Manager is free and licensed under the MIT OpenSource license.
+      SCM-Manager is free and licensed under the AGPL-3.0-only OpenSource license.
     </TextColumn>
     <ImageColumn>
       <Opensourceinitiative size="4em" />
