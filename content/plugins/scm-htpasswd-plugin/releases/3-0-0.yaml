@@ -1,0 +1,8 @@
+---
+plugin: "scm-htpasswd-plugin"
+tag: "3.0.0"
+date: "2024-09-18T11:53:17Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-htpasswd-plugin/3.0.0/scm-htpasswd-plugin-3.0.0.smp"
+checksum: "df9478b536fbcbc2de7c7f126a1d5a356c4b5716279bb11bb107bb2e58cdec88"
+conditions:
+  minVersion: "3.0.0"
