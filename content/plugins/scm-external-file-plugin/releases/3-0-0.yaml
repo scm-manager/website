@@ -1,0 +1,10 @@
+---
+plugin: "scm-external-file-plugin"
+tag: "3.0.0"
+date: "2024-09-18T16:14:39Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-external-file-plugin/3.0.0/scm-external-file-plugin-3.0.0.smp"
+checksum: "13acfb441a853288f44aa771f896b29093282239ab81aee1bc08e998a2b3fc41"
+dependencies:
+- "scm-editor-plugin"
+conditions:
+  minVersion: "3.0.0"
