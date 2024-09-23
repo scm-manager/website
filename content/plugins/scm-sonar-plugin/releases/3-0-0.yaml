@@ -1,0 +1,10 @@
+---
+plugin: "scm-sonar-plugin"
+tag: "3.0.0"
+date: "2024-09-23T12:58:02Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-sonar-plugin/3.0.0/scm-sonar-plugin-3.0.0.smp"
+checksum: "e31892cbae75da608326892384b63c83f18a8a38470807bc8d134fe067019772"
+dependencies:
+- "scm-ci-plugin"
+conditions:
+  minVersion: "3.0.0"
