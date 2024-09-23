@@ -1,0 +1,8 @@
+---
+plugin: "scm-gravatar-plugin"
+tag: "3.0.0"
+date: "2024-09-23T12:54:03Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-gravatar-plugin/3.0.0/scm-gravatar-plugin-3.0.0.smp"
+checksum: "552968286ae52466fe06c83f36c601616319679ba34949e854853b5fab61e2b0"
+conditions:
+  minVersion: "3.0.0"
