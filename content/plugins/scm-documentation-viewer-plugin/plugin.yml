@@ -1,0 +1,5 @@
+name: scm-documentation-viewer-plugin
+displayName: Documentation Viewer
+description: Plugin to view and edit the markdown documentation of a repository
+category: Documentation
+author: Cloudogu GmbH
