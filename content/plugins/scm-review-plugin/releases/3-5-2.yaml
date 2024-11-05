@@ -1,0 +1,14 @@
+---
+plugin: "scm-review-plugin"
+tag: "3.5.2"
+date: "2024-11-05T15:11:19Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-review-plugin/3.5.2/scm-review-plugin-3.5.2.smp"
+checksum: "20559b58d2b43a163460aed30d806771c5ccd35adf175a36f3cce267707787d1"
+dependencies:
+- "scm-mail-plugin"
+- "scm-mustache-documentation-plugin"
+optionalDependencies:
+- "scm-editor-plugin"
+- "scm-landingpage-plugin"
+conditions:
+  minVersion: "3.5.0"
