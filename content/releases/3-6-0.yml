@@ -1,0 +1,11 @@
+tag: 3.6.0
+date: '2024-12-05T10:40:32Z'
+packages:
+- {type: unix, checksum: b2283869b7217829db2f05caa601d5b5197c44e4059f178ed52e7fca9ffc52a3,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.6.0/unix-3.6.0.tar.gz'}
+- {type: windows, checksum: 692e8da16eafa650c0c9452fbc73b3ed3cb301cf651f9b7a129ffd8e1e0cf580,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.6.0/windows-3.6.0.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
