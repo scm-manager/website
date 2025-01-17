@@ -1,0 +1,11 @@
+tag: 2.48.4
+date: '2025-01-17T17:03:54Z'
+packages:
+- {type: unix, checksum: 25545cf5b67b5e829679c3aa48ceb1d4846fc0fd964fadc9d9f17292f2245096,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/2.48.4/unix-2.48.4.tar.gz'}
+- {type: windows, checksum: 3d608a986579b8db112d937e678b3694c630475b7eadcc08a324b6e1bc278af1,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/2.48.4/windows-2.48.4.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
