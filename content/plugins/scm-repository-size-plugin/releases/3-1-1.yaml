@@ -1,0 +1,8 @@
+---
+plugin: "scm-repository-size-plugin"
+tag: "3.1.1"
+date: "2025-01-22T15:10:04Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-repository-size-plugin/3.1.1/scm-repository-size-plugin-3.1.1.smp"
+checksum: "10968fc8cfb3ab3c592a5cf01326babeb37a7f366b237d5e7f1cf80d29b52958"
+conditions:
+  minVersion: "3.0.0"
