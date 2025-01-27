@@ -7,7 +7,7 @@ categories:
   - release
   - plugins
 keywords:
-  - minor
+  - performance
 ---
 
 Dear SCM-Manager Community,
