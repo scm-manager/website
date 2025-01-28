@@ -102,7 +102,7 @@ const PrivacyPage = () => (
         <h4>Analysis tools and tools provided by third parties</h4>
         <p>
           There is a possibility that your browsing patterns will be
-          statistically analyzed when your visit this website. Such analyses are
+          statistically analyzed when you visit this website. Such analyses are
           performed primarily with what we refer to as analysis programs.
         </p>
         <p>
@@ -126,11 +126,11 @@ const PrivacyPage = () => (
           with our potential and existing customers (Art. 6(1)(b) GDPR) and in
           the interest of secure, fast, and efficient provision of our online
           services by a professional provider (Art. 6(1)(f) GDPR). If
-          appropriate consent has been obtained, the processing is conducted
-          exclusively based on Art. 6 (1)(a) GDPR and § 25 (1) TTDSG, insofar
-          the consent includes the storage of cookies or the access to
+          appropriate consent has been obtained, the processing is carried out
+          exclusively on the basis of Art. 6 (1)(a) GDPR and § 25 (1) TDDDG,
+          insofar the consent includes the storage of cookies or the access to
           information in the user's end device (e.g., device fingerprinting)
-          within the meaning of the TTDSG. This consent can be revoked at any
+          within the meaning of the TDDDG. This consent can be revoked at any
           time.
         </p>
         <p>
@@ -150,10 +150,10 @@ const PrivacyPage = () => (
           Ireland
         </p>
         <p>
-          The server locations on which our website is hosted are in Frankfurt,
+          The servers on which our website is hosted are located in Frankfurt,
           Germany.
         </p>
-        <h4>Data processing</h4>
+        <h5>Data processing</h5>
         <p>
           We have concluded a data processing agreement (DPA) for the use of the
           above-mentioned service. This is a contract mandated by data privacy
@@ -165,7 +165,7 @@ const PrivacyPage = () => (
         <h4>Data protection</h4>
         <p>
           The operators of this website and its pages take the protection of
-          your personal data very seriously. Hence, we manage your personal data
+          your personal data very seriously. Hence, we handle your personal data
           as confidential information and in compliance with the statutory data
           protection regulations and this Data Protection Declaration.
         </p>
@@ -226,50 +226,47 @@ const PrivacyPage = () => (
         </h4>
         <p>
           If you have consented to data processing, we process your personal
-          data based on Art. 6(1)(a) GDPR or Art. 9 (2)(a) GDPR, if special
-          categories of data are processed according to Art. 9 (1) DSGVO. In the
-          case of explicit consent to the transfer of personal data to third
-          countries, the data processing is also based on Art. 49 (1)(a) GDPR.
-          If you have consented to the storage of cookies or to the access to
-          information in your end device (e.g., via device fingerprinting), the
-          data processing is additionally based on § 25 (1) TTDSG. The consent
-          can be revoked at any time. If your data is required for the
-          fulfillment of a contract or for the implementation of pre-contractual
-          measures, we process your data based on Art. 6(1)(b) GDPR.
-          Furthermore, if your data is required for the fulfillment of a legal
-          obligation, we process it based on Art. 6(1)(c) GDPR. Furthermore, the
-          data processing may be conducted based on our legitimate interest
-          according to Art. 6(1)(f) GDPR. Information on the relevant legal
-          basis in each individual case is provided in the following paragraphs
-          of this privacy policy.
+          data on the basis of Art. 6(1)(a) GDPR or Art. 9 (2)(a) GDPR, if
+          special categories of data are processed according to Art. 9 (1)
+          DSGVO. In the case of explicit consent to the transfer of personal
+          data to third countries, the data processing is also based on Art. 49
+          (1)(a) GDPR. If you have consented to the storage of cookies or to the
+          access to information in your end device (e.g., via device
+          fingerprinting), the data processing is additionally based on § 25 (1)
+          TDDDG. The consent can be revoked at any time. If your data is
+          required for the fulfillment of a contract or for the implementation
+          of pre-contractual measures, we process your data on the basis of Art.
+          6(1)(b) GDPR. Furthermore, if your data is required for the
+          fulfillment of a legal obligation, we process it on the basis of Art.
+          6(1)(c) GDPR. Furthermore, the data processing may be carried out on
+          the basis of our legitimate interest according to Art. 6(1)(f) GDPR.
+          Information on the relevant legal basis in each individual case is
+          provided in the following paragraphs of this privacy policy.
         </p>
         <h4>Designation of a data protection officer</h4>
-        <p>We have appointed a data protection officer.</p>
         <p>
-          Data protection officer
-          <br />
-          Phone: <a href="tel:+4915126523279">+49 151 26523279</a>
-          <br />
+          We have appointed a data protection officer. You can reach our data
+          protection officer under:
+        </p>
+        <p>
           E-mail:{" "}
           <a href="mailto:datenschutz@cloudogu.com">datenschutz@cloudogu.com</a>
+          <br />
+          Tel.: <a href="tel:+4915173044032">+49 151 730 44 032</a>
         </p>
-        <h4>
-          Information on data transfer to the USA and other non-EU countries
-        </h4>
+        <h4>Recipients of personal data</h4>
         <p>
-          Among other things, we use tools of companies domiciled in the United
-          States or other from a data protection perspective non-secure non-EU
-          countries. If these tools are active, your personal data may
-          potentially be transferred to these non-EU countries and may be
-          processed there. We must point out that in these countries, a data
-          protection level that is comparable to that in the EU cannot be
-          guaranteed. For instance, U.S. enterprises are under a mandate to
-          release personal data to the security agencies and you as the data
-          subject do not have any litigation options to defend yourself in
-          court. Hence, it cannot be ruled out that U.S. agencies (e.g., the
-          Secret Service) may process, analyze, and permanently archive your
-          personal data for surveillance purposes. We have no control over these
-          processing activities.
+          In the scope of our business activities, we cooperate with various
+          external parties. In some cases, this also requires the transfer of
+          personal data to these external parties. We only disclose personal
+          data to external parties if this is required as part of the
+          fulfillment of a contract, if we are legally obligated to do so (e.g.,
+          disclosure of data to tax authorities), if we have a legitimate
+          interest in the disclosure pursuant to Art. 6 (1)(f) GDPR, or if
+          another legal basis permits the disclosure of this data. When using
+          processors, we only disclose personal data of our customers on the
+          basis of a valid contract on data processing. In the case of joint
+          processing, a joint processing agreement is concluded.
         </p>
         <h4>Revocation of your consent to the processing of data</h4>
         <p>
@@ -313,11 +310,12 @@ const PrivacyPage = () => (
           state where they usually maintain their domicile, place of work or at
           the place where the alleged violation occurred. The right to log a
           complaint is in effect regardless of any other administrative or court
-          proceedings available as legal recourses.
+          proceedings available as legal recourses. The supervisory authority
+          responsible for us is:
         </p>
-        <p>The State Commissioner for Data Protection of Lower Saxony</p>
+        <p>Der Landesbeauftragte für den Datenschutz Niedersachsen</p>
         <p>
-          Barbara Thiel
+          Denis Lehmkemper
           <br />
           Prinzenstraße 5<br />
           30159 Hannover
@@ -334,19 +332,18 @@ const PrivacyPage = () => (
         </p>
         <h4>Right to data portability</h4>
         <p>
-          You have the right to demand that we hand over any data we
-          automatically process based on your consent or in order to fulfil a
-          contract be handed over to you or a third party in a commonly used,
-          machine readable format. If you should demand the direct transfer of
-          the data to another controller, this will be done only if it is
-          technically feasible.
+          You have the right to have data that we process automatically on the
+          basis of your consent or in fulfillment of a contract handed over to
+          you or to a third party in a common, machine-readable format. If you
+          should demand the direct transfer of the data to another controller,
+          this will be done only if it is technically feasible.
         </p>
         <h4>Information about, rectification and eradication of data</h4>
         <p>
           Within the scope of the applicable statutory provisions, you have the
-          right to at any time demand information about your archived personal
-          data, their source and recipients as well as the purpose of the
-          processing of your data. You may also have a right to have your data
+          right to demand information about your archived personal data, their
+          source, and recipients as well as the purpose of the processing of
+          your data at any time. You may also have a right to have your data
           rectified or eradicated. If you have questions about this subject
           matter or any other questions about personal data, please do not
           hesitate to contact us at any time.
@@ -369,7 +366,7 @@ const PrivacyPage = () => (
           <li>
             If the processing of your personal data was/is conducted in an
             unlawful manner, you have the option to demand the restriction of
-            the processing of your data in lieu of demanding the eradication of
+            the processing of your data instead of demanding the eradication of
             this data.
           </li>
           <li>
@@ -430,48 +427,45 @@ const PrivacyPage = () => (
           eradicated by your web browser.
         </p>
         <p>
-          In some cases, it is possible that third-party cookies are stored on
-          your device once you enter our site (third-party cookies). These
-          cookies enable you or us to take advantage of certain services offered
-          by the third party (e.g., cookies for the processing of payment
-          services).
+          Cookies can be issued by us (first-party cookies) or by third-party
+          companies (so-called third-party cookies). Third-party cookies enable
+          the integration of certain services of third-party companies into
+          websites (e.g., cookies for handling payment services).
         </p>
         <p>
           Cookies have a variety of functions. Many cookies are technically
           essential since certain website functions would not work in the
-          absence of the cookies (e.g., the shopping cart function or the
-          display of videos). The purpose of other cookies may be the analysis
-          of user patterns or the display of promotional messages.
+          absence of these cookies (e.g., the shopping cart function or the
+          display of videos). Other cookies may be used to analyze user behavior
+          or for promotional purposes.
         </p>
         <p>
           Cookies, which are required for the performance of electronic
-          communication transactions, or for the provision of certain functions
-          you want to use (e.g., for the shopping cart function) or those that
-          are necessary for the optimization (required cookies) of the website
+          communication transactions, for the provision of certain functions you
+          want to use (e.g., for the shopping cart function) or those that are
+          necessary for the optimization (required cookies) of the website
           (e.g., cookies that provide measurable insights into the web
           audience), shall be stored on the basis of Art. 6(1)(f) GDPR, unless a
           different legal basis is cited. The operator of the website has a
           legitimate interest in the storage of required cookies to ensure the
-          technically error free and optimized provision of the operator’s
+          technically error-free and optimized provision of the operator’s
           services. If your consent to the storage of the cookies and similar
-          recognition technologies has been requested, processing occurs
-          exclusively based on the consent obtained (Art. 6(1)(a) GDPR and § 25
-          (1) TTDSG); this consent may be revoked at any time.
+          recognition technologies has been requested, the processing occurs
+          exclusively on the basis of the consent obtained (Art. 6(1)(a) GDPR
+          and § 25 (1) TDDDG); this consent may be revoked at any time.
         </p>
         <p>
           You have the option to set up your browser in such a manner that you
           will be notified any time cookies are placed and to permit the
           acceptance of cookies only in specific cases. You may also exclude the
           acceptance of cookies in certain cases or in general or activate the
-          delete function for the automatic eradication of cookies when the
+          delete-function for the automatic eradication of cookies when the
           browser closes. If cookies are deactivated, the functions of this
           website may be limited.
         </p>
         <p>
-          In the event that third-party cookies are used or if cookies are used
-          for analytical purposes, we will separately notify you in conjunction
-          with this Data Protection Policy and, if applicable, ask for your
-          consent.
+          Which cookies and services are used on this website can be found in
+          this privacy policy.
         </p>
         <h4>CCM19</h4>
         <p>
@@ -519,68 +513,93 @@ const PrivacyPage = () => (
         </ul>
         <p>This data is not merged with other data sources.</p>
         <p>
-          This data is recorded based on Art. 6(1)(f) GDPR. The operator of the
-          website has a legitimate interest in the technically error free
+          This data is recorded on the basis of Art. 6(1)(f) GDPR. The operator
+          of the website has a legitimate interest in the technically error free
           depiction and the optimization of the operator’s website. In order to
           achieve this, server log files must be recorded. The server log files
           are stored for 14 days and then deleted.
         </p>
-        <h4>Request by e-mail, telephone, or fax</h4>
+        <h4>Contact form</h4>
         <p>
-          If you contact us by e-mail, telephone or fax, your request, including
-          all resulting personal data (name, request) will be stored and
-          processed by us for the purpose of processing your request. We do not
-          pass these, data on without your consent.
+          If you submit inquiries to us via our contact form, the information
+          provided in the contact form as well as any contact information
+          provided therein will be stored by us in order to handle your inquiry
+          and in the event that we have further questions. We will not share
+          this information without your consent.
         </p>
         <p>
-          These data are processed based on Art. 6(1)(b) GDPR if your inquiry is
-          related to the fulfillment of a contract or is required for the
-          performance of pre-contractual measures. In all other cases, the data
-          are processed based on our legitimate interest in the effective
-          handling of inquiries submitted to us (Art. 6(1)(f) GDPR) or based on
-          your consent (Art. 6(1)(a) GDPR) if it has been obtained; the consent
-          can be revoked at any time.
+          The processing of these data is based on Art. 6(1)(b) GDPR, if your
+          request is related to the execution of a contract or if it is
+          necessary to carry out pre-contractual measures. In all other cases
+          the processing is based on our legitimate interest in the effective
+          processing of the requests addressed to us (Art. 6(1)(f) GDPR) or on
+          your agreement (Art. 6(1)(a) GDPR) if this has been requested; the
+          consent can be revoked at any time.
+        </p>
+        <p>
+          The information you have entered into the contact form shall remain
+          with us until you ask us to eradicate the data, revoke your consent to
+          the archiving of data or if the purpose for which the information is
+          being archived no longer exists (e.g., after we have concluded our
+          response to your inquiry). This shall be without prejudice to any
+          mandatory legal provisions, in particular retention periods.
+        </p>
+        <h4>Request by e-mail, post, telephone, or fax</h4>
+        <p>
+          If you contact us by e-mail, post, telephone or fax, your request,
+          including all resulting personal data (name, request) will be stored
+          and processed by us for the purpose of processing your request. We do
+          not pass these data on without your consent.
+        </p>
+        <p>
+          These data are processed on the basis of Art. 6(1)(b) GDPR if your
+          inquiry is related to the fulfillment of a contract or is required for
+          the performance of pre-contractual measures. In all other cases, the
+          data are processed on the basis of our legitimate interest in the
+          effective handling of inquiries submitted to us (Art. 6(1)(f) GDPR) or
+          on the basis of your consent (Art. 6(1)(a) GDPR) if it has been
+          obtained; the consent can be revoked at any time.
         </p>
         <p>
           The data sent by you to us via contact requests remain with us until
           you request us to delete, revoke your consent to the storage or the
           purpose for the data storage lapses (e.g. after completion of your
-          request). Mandatory statutory provisions - in particular, statutory
+          request). Mandatory statutory provisions - in particular statutory
           retention periods - remain unaffected.
         </p>
         <h4>Google Forms</h4>
         <p>
-          We have integrated Google Forms into this website. The provider is
+          We have integrated Google Forms on this website. The provider is
           Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland
-          (hereinafter referred to as “Google”).
+          (hereinafter referred to as Google).
         </p>
         <p>
-          Google Forms enables us to generate online forms to record messages,
-          inquiries and other entries entered by visitors to our website. All
-          entries you make will be processed on Google’s servers. Google Forms
-          stores a cookie in your browser that contains a unique ID (NID
-          cookie). This cookie stores a wide range of information, including,
-          for example your language settings.
+          Google Forms enables us to create online forms to collect messages,
+          enquiries, and other input from our website visitors in a structured
+          manner. All entries you make are processed on Google's servers. Google
+          Forms stores a cookie in your browser that contains a unique ID (NID
+          cookie). This cookie stores various information such as your language
+          settings.
         </p>
         <p>
-          We use Google Forms based on our legitimate interest in determining
-          your needs as effectively as possible (Art. 6(1)(f) GDPR). If
-          appropriate consent has been obtained, the processing is conducted
-          exclusively based on Art. 6(1)(a) GDPR and § 25 (1) TTDSG, insofar the
-          consent includes the storage of cookies or the access to information
-          in the user’s end device (e.g., device fingerprinting) within the
-          meaning of the TTDSG. This consent can be revoked at any time.
+          The use of Google Forms is based on our legitimate interest in
+          determining your request in the most user-friendly way possible (Art.
+          6 para. 1 lit. f GDPR). If a corresponding consent has been requested,
+          the processing is carried out exclusively on the basis of Art. 6 para.
+          1 lit. a GDPR and § 25 para. 1 TDDDG, insofar as the consent includes
+          the storage of cookies or access to information in the user's terminal
+          device (e.g. device fingerprinting) within the meaning of the TDDDG.
+          Consent can be revoked at any time.
         </p>
         <p>
-          The data you enter into the form will remain in our possession until
-          you ask us to delete them, revoke your consent to the archiving of
-          your data or until the purpose of archiving the data no longer exists
-          (e.g., upon completion of the processing of your inquiry). This does
-          not affect mandatory statutory provisions – in particular, those
-          governing retention periods.
+          We will retain the data you provide on the form until you request its
+          deletion, revoke your consent for its storage, or the purpose for its
+          storage no longer pertains (e.g. after fulfilling your request).
+          Mandatory statutory provisions - in particular retention periods -
+          remain unaffected.
         </p>
         <p>
-          For more information, please consult Google’s Data Privacy Policy at{" "}
+          Further information can be found in Google's privacy policy at{" "}
           <a
             href="https://policies.google.com/"
             target="_blank"
@@ -590,6 +609,24 @@ const PrivacyPage = () => (
           </a>
           .
         </p>
+        <p>
+          The company is certified in accordance with the ‘EU-US Data Privacy
+          Framework’ (DPF). The DPF is an agreement between the European Union
+          and the USA, which is intended to ensure compliance with European data
+          protection standards for data processing in the USA. Every company
+          certified under the DPF undertakes to comply with these data
+          protection standards. Further information on this can be obtained from
+          the provider at the following link:{" "}
+          <a
+            href="https://www.dataprivacyframework.gov/s/participant-search/participant-detail?contact=true&id=a2zt000000001L5AAI&status=Active"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            .
+            www.dataprivacyframework.gov/s/participant-search/participant-detail?contact=true&id=a2zt000000001L5AAI&status=Active
+          </a>
+          .
+        </p>
         <h5>Data processing</h5>
         <p>
           We have concluded a data processing agreement (DPA) for the use of the
@@ -598,123 +635,24 @@ const PrivacyPage = () => (
           visitors only based on our instructions and in compliance with the
           GDPR.
         </p>
-
-        <h4>Google Groups</h4>
-        <p>
-          The Google Group we have created allows emails sent to{" "}
-          <a href="mailto:scmmanager@googlegroups.com">
-            scmmanager@googlegroups.com
-          </a>{" "}
-          to be distributed to all email addresses of its members, after prior
-          moderation by the “SCMM” working group. We want to create an offer to
-          provide quality support to our users or to inform them about content
-          related to our products/SCM Manager. A special feature is that e-mails
-          sent to the distribution list are publicly viewable in the group's
-          archive. The address of the mailing list is{" "}
-          <a
-            href="https://groups.google.com/g/scmmanager"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            groups.google.com/g/scmmanager
-          </a>
-          .
-        </p>
-        <p>
-          You can use the mailing list as a non-member as well as a member, in
-          both cases the{" "}
-          <a href="https://policies.google.com/terms">terms of use</a> and{" "}
-          <a href="https://policies.google.com/privacy">privacy policy</a> of
-          Google apply.
-        </p>
-        <p>
-          As a non-member, you can send messages to the mailing list yourself
-          and view the public archive of the mailing list via the address given
-          above. If a message sent by you is delivered to the members of the
-          mailing list after successful moderation, it is now publicly viewable
-          including sender, e-mail address and content.
-        </p>
-        <p>
-          As a member you can, beyond the possibilities of a non-member,
-          automatically receive e-mails that have been previously “moderated” by
-          the SCMM working group as well as make your own settings for your
-          membership at{" "}
-          <a
-            href="https://groups.google.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            groups.google.com
-          </a>
-          .
-        </p>
-
-        <h5>Data processing</h5>
-        <p>
-          We have concluded a data processing agreement (DPA) for the use of the
-          above-mentioned service. This is a contract mandated by data privacy
-          laws that guarantees that they process personal data of our website
-          visitors only based on our instructions and in compliance with the
-          GDPR.
-        </p>
-
-        <h4>Comment function on this website</h4>
-        <p>
-          For the comment function on this site, in addition to your comment,
-          information on the time of creation of the comment, your e-mail
-          address and the username you have chosen will be stored.
-        </p>
-
-        <h5>Storage of the IP address</h5>
-        <p>
-          Our comment function stores the IP addresses of users who post
-          comments. Since we do not check comments on this website before they
-          are activated, we need this data in order to be able to take action
-          against the author in the event of legal violations such as insults or
-          propaganda.
-        </p>
-
-        <h5>Notification of forum entries</h5>
-        <p>
-          As a user of the site, you will receive notifications on the cloudogu platform
-          about forum entries that you have commented on yourself after logging
-          in.
-        </p>
-
-        <h5>Storage period of comments</h5>
-        <p>
-          The comments and related data are stored and remain on this website
-          until the commented content has been completely deleted or the
-          comments have to be deleted for legal reasons (e.g. offensive
-          comments).
-        </p>
-
-        <h5>Legal basis</h5>
-        <p>
-          The storage of the comments is based on your consent (Art. 6 para. 1
-          lit. a DSGVO). You can revoke any consent you have given at any time.
-          For this purpose, an informal communication by e-mail to us is
-          sufficient. The legality of the data processing operations already
-          carried out remains unaffected by the revocation.
-        </p>
-        <h3>Social media</h3>
+        <h3>Social Media</h3>
         <h4>GitHub</h4>
         <p>
-          Icons (image of the logo of the social media platform, with a stored
-          link to our social media presence there) of the GitHub network are
-          integrated on this website. When you click on the icon, you will be
-          redirected to the GitHub page. This is not a Like or Share button. The
-          provider of the GitHub website is GitHub Inc, 88 Colin P Kelly Jr
-          Street, San Francisco, CA 94107, USA.
+          Icons (image of the logo of the social media platform, with a link to
+          our social media presence there) of the GitHub network are integrated
+          on this website. By clicking on the icon, you will be redirected to
+          the GitHub page. This is not a Like or Share button. The provider of
+          the GitHub website is GitHub Inc, 88 Colin P Kelly Jr Street, San
+          Francisco, CA 94107, USA.
         </p>
         <p>
           When you click on the GitHub icon provided on this website, a direct
           connection is established between your browser and the GitHub server.
           GitHub thereby receives the information that you have visited this
-          website with your IP address. We would like to point out that we, as
-          the provider of the pages, have no knowledge of the content of the
-          transmitted data or its use by GitHub. For more information, please
-          refer to the privacy policy of GitHub at:{" "}
+          website with your IP address. We would like to point out that, as the
+          provider of the pages, we have no knowledge of the content of the
+          transmitted data or its use by GitHub. Further information on this can
+          be found in GitHub's privacy policy at{" "}
           <a
             href="https://docs.github.com/en/github/site-policy/github-privacy-statement"
             target="_blank"
@@ -725,32 +663,70 @@ const PrivacyPage = () => (
           .
         </p>
         <p>
-          If you do not want GitHub to associate your visit to our GitHub
-          website with your GitHub user account, please log out of your GitHub
-          user account.
+          If you do not want GitHub to be able to associate your visit to our
+          GitHub website with your GitHub user account, please log out of your
+          GitHub user account.
         </p>
         <p>
-          The use of the GitHub icon with a deposited link to our GitHub page is
-          based on Art. 6 (1) lit. f DSGVO. The website operator has a
-          legitimate interest in ensuring the greatest possible visibility in
-          social media.
+          The use of the GitHub icon with a link to our GitHub page is based on
+          Art. 6 para. 1 lit. f GDPR. The website operator has a legitimate
+          interest in the widest possible visibility in social media.
         </p>
         <p>
           GitHub is responsible for the data security of the GitHub service. You
-          can assert data subject rights (e.g., requests for information)
+          can assert data subject rights (e.g. requests for information)
           regarding the data processed by GitHub directly with GitHub.
         </p>
-        <h3>Our Social Media appearances</h3>
+        <p>
+          Data transfer to the USA is based on the standard contractual clauses
+          of the EU Commission. You can find details here:{" "}
+          <a
+            href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement
+          </a>
+          .
+        </p>
+        <p>
+          The company is certified in accordance with the ‘EU-US Data Privacy
+          Framework’ (DPF). The DPF is an agreement between the European Union
+          and the USA, which is intended to ensure compliance with European data
+          protection standards for data processing in the USA. Every company
+          certified under the DPF undertakes to comply with these data
+          protection standards. Further information on this can be obtained from
+          the provider at the following link:{" "}
+          <a
+            href="https://www.dataprivacyframework.gov/s/participant-search/participant-detail?contact=true&id=a2zt0000000GnywAAC&status=Active"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            www.dataprivacyframework.gov/s/participant-search/participant-detail?contact=true&id=a2zt0000000GnywAAC&status=Active
+          </a>
+          .
+        </p>
+        <h3>Our social media appearances</h3>
+        <p>
+          This privacy policy applies to the following social media presence:{" "}
+          <a
+            href="https://github.com/scm-manager"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/scm-manager
+          </a>
+        </p>
         <h4>Data processing through social networks</h4>
         <p>
           We maintain publicly available profiles in social networks. The
           individual social networks we use can be found below.
         </p>
         <p>
-          Social networks such as Github, Twitter etc. can generally analyze
-          your user behavior comprehensively if you visit their website or a
-          website with integrated social media content (e.g., like buttons or
-          banner ads). When you visit our social media pages, numerous data
+          Social networks such as Facebook, X etc. can generally analyze your
+          user behavior comprehensively if you visit their website or a website
+          with integrated social media content (e.g., like buttons or banner
+          ads). When you visit our social media pages, numerous data
           protection-relevant processing operations are triggered. In detail:
         </p>
         <p>
@@ -773,11 +749,10 @@ const PrivacyPage = () => (
         <p>
           Please also note that we cannot retrace all processing operations on
           the social media portals. Depending on the provider, additional
-          processing operations may therefore be conducted by the operators of
+          processing operations may therefore be carried out by the operators of
           the social media portals. Details can be found in the terms of use and
           privacy policy of the respective social media portals.
         </p>
-
         <h4>Legal basis</h4>
         <p>
           Our social media appearances should ensure the widest possible
@@ -787,16 +762,15 @@ const PrivacyPage = () => (
           specified by the operators of the social networks (e.g., consent
           within the meaning of Art. 6 (1) (a) GDPR).
         </p>
-
         <h4>Responsibility and assertion of rights</h4>
         <p>
-          If you visit one of our social media sites (e.g., GitHub), we,
+          If you visit one of our social media sites (e.g., Facebook), we,
           together with the operator of the social media platform, are
           responsible for the data processing operations triggered during this
           visit. You can in principle protect your rights (information,
           correction, deletion, limitation of processing, data portability and
           complaint) vis-à-vis us as well as vis-à-vis the operator of the
-          respective social media portal (e.g., GitHub).
+          respective social media portal (e.g., Facebook).
         </p>
         <p>
           Please note that despite the shared responsibility with the social
@@ -804,7 +778,6 @@ const PrivacyPage = () => (
           processing operations of the social media portals. Our options are
           determined by the company policy of the respective provider.
         </p>
-
         <h4>Storage time</h4>
         <p>
           The data collected directly from us via the social media presence will
@@ -820,15 +793,23 @@ const PrivacyPage = () => (
           details, please contact the social network operators directly (e.g.,
           in their privacy policy, see below).
         </p>
-
+        <h4>Your rights</h4>
+        <p>
+          You have the right to receive information about the origin, recipient,
+          and purpose of your stored personal data at any time and free of
+          charge. You also have the right to object, the right to data
+          portability and the right to file a complaint with the responsible
+          regulatory agency. Furthermore, you can request the correction,
+          blocking, deletion and, under certain circumstances, the restriction
+          of the processing of your personal data.
+        </p>
         <h4>Individual social networks</h4>
         <h5>GitHub</h5>
         <p>
-          We have a profile on YouTube. The provider of this service is GitHub,
-          Inc, 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA. For details
-          on their handling of your personal data, as well as further
-          information on the GitHub Terms of Use and the GitHub Privacy Policy,
-          please visit:{" "}
+          We have a profile on GitHub. The provider of this service is GitHub,
+          Inc, 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA. Details on
+          how they handle your personal data and further information on the
+          GitHub terms of use and the GitHub privacy policy can be found at{" "}
           <a
             href="https://help.github.com/articles/github-terms-of-service/"
             target="_blank"
@@ -836,7 +817,7 @@ const PrivacyPage = () => (
           >
             help.github.com/articles/github-terms-of-service/
           </a>{" "}
-          and{" "}
+          and <br />
           <a
             href="https://help.github.com/articles/github-privacy-statement/"
             target="_blank"
@@ -846,7 +827,6 @@ const PrivacyPage = () => (
           </a>
           .
         </p>
-
         <h3>Analysis tools and advertising</h3>
         <h4>Matomo</h4>
         <p>This website uses the open-source web analysis service Matomo.</p>
@@ -854,9 +834,9 @@ const PrivacyPage = () => (
           Through Matomo, we are able to collect and analyze data on the use of
           our website-by-website visitors. This enables us to find out, for
           instance, when which page views occurred and from which region they
-          came. In addition, we collect various log files (e.g., IP address,
+          came. In addition, we collect various log files (e.g. IP address,
           referrer, browser, and operating system used) and can measure whether
-          our website visitors perform certain actions (e.g., clicks, purchases,
+          our website visitors perform certain actions (e.g. clicks, purchases,
           etc.).
         </p>
         <p>
@@ -864,16 +844,12 @@ const PrivacyPage = () => (
           website operator has a legitimate interest in the analysis of user
           patterns, in order to optimize the operator’s web offerings and
           advertising. If appropriate consent has been obtained, the processing
-          is conducted exclusively based on Art. 6(1)(a) GDPR and § 25 (1)
-          TTDSG, insofar the consent includes the storage of cookies or the
+          is carried out exclusively on the basis of Art. 6(1)(a) GDPR and § 25
+          (1) TDDDG, insofar the consent includes the storage of cookies or the
           access to information in the user’s end device (e.g., device
-          fingerprinting) within the meaning of the TTDSG. This consent can be
+          fingerprinting) within the meaning of the TDDDG. This consent can be
           revoked at any time.
         </p>
-        <iframe
-          style={{ border: 0, height: "200px", width: "100%", maxWidth: "600px" }}
-          src="https://cloudogu.matomo.cloud/index.php?module=CoreAdminHome&action=optOut&language=en&backgroundColor=f7f7f7&fontColor=999999&fontSize=16px&fontFamily=%22Droid%20Sans%22"
-        ></iframe>
         <h5>IP anonymization</h5>
         <p>
           For analysis with Matomo we use IP anonymization. Your IP address is
@@ -883,13 +859,7 @@ const PrivacyPage = () => (
         <h5>Hosting</h5>
         <p>We host Matomo with the following third-party provider:</p>
         <p>
-          InnoCraft Ltd
-          <br />
-          7 Waterloo Quay PO625
-          <br />
-          6140 Wellington
-          <br />
-          New Zealand
+          InnoCraft Ltd, 7 Waterloo Quay PO625, 6140 Wellington, New Zealand
         </p>
         <h5>Data processing</h5>
         <p>
@@ -899,7 +869,6 @@ const PrivacyPage = () => (
           visitors only based on our instructions and in compliance with the
           GDPR.
         </p>
-
         <h4>Google Ads</h4>
         <p>
           The website operator uses Google Ads. Google Ads is an online
@@ -917,8 +886,8 @@ const PrivacyPage = () => (
           led to respective clicks.
         </p>
         <p>
-          The use of these services occurs based on your consent pursuant to
-          Art. 6(1)(a) GDPR and § 25(1) TTDSG. You may revoke your consent at
+          The use of these services occurs on the basis of your consent pursuant
+          to Art. 6(1)(a) GDPR and § 25(1) TDDDG. You may revoke your consent at
           any time.
         </p>
         <p>
@@ -933,38 +902,55 @@ const PrivacyPage = () => (
           </a>{" "}
           and{" "}
           <a
-            href="https://privacy.google.com/businesses/controllerterms/mccs/"
+            href="https://business.safety.google/controllerterms/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            privacy.google.com/businesses/controllerterms/mccs/
+            business.safety.google/controllerterms/
+          </a>
+          .
+        </p>
+        <p>
+          The company is certified in accordance with the “EU-US Data Privacy
+          Framework” (DPF). The DPF is an agreement between the European Union
+          and the US, which is intended to ensure compliance with European data
+          protection standards for data processing in the US. Every company
+          certified under the DPF is obliged to comply with these data
+          protection standards. For more information, please contact the
+          provider under the following link:{" "}
+          <a
+            href="https://www.dataprivacyframework.gov/s/participant-search/participant-detail?contact=true&id=a2zt000000001L5AAI&status=Active"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            www.dataprivacyframework.gov/s/participant-search/participant-detail?contact=true&id=a2zt000000001L5AAI&status=Active
           </a>
           .
         </p>
         <h3>Newsletter</h3>
         <h4>Newsletter data</h4>
         <p>
-          In order to inform you about product news, current offers and the
-          like, we offer the possibility to register for our newsletter. If you
-          would like to receive the newsletter offered on the website or during
-          registration, we require an e-mail address from you as well as
+          In order to keep you informed about new products, current offers and
+          similar, we offer you the opportunity to subscribe to our newsletter.
+          If you would like to receive the newsletter offered on the website or
+          when registering, we require an e-mail address from you as well as
           information that allows us to verify that you are the owner of the
-          specified e-mail address and agree to receive the newsletter. Further
-          data is not collected or only on a voluntary basis.
+          e-mail address provided and that you agree to receive the newsletter.
+          No further data is collected, or only on a voluntary basis.
         </p>
         <p>
-          For registration, we use the double opt-in procedure to ensure that
-          you subscribe to the newsletter personally. In the double opt-in
-          process, we send you an e-mail to the specified e-mail address after
-          you have subscribed to the newsletter with a link to confirm that you
-          wish to receive the newsletter. This ensures that no one can register
-          with a foreign e-mail address. When you register for the newsletter,
-          the following personal data is stored:
+          We use the double opt-in procedure for registration to ensure that you
+          personally subscribe to the newsletter. In the double opt-in
+          procedure, we send you an email to the email address you have provided
+          after you have registered for the newsletter with a link to confirm
+          that you wish to receive the newsletter. This ensures that no-one can
+          register with a third-party e-mail address. When you register for the
+          newsletter, the following personal data is stored:
         </p>
         <ul>
-          <li>E-mail address</li>
+          <li>e-mail address</li>
           <li>
-            if applicable, your first and last name, if you provide this
+            Your first and last name, if applicable, if you provide this
             voluntarily
           </li>
           <li>IP address</li>
@@ -977,34 +963,33 @@ const PrivacyPage = () => (
           registration / your data will be automatically deleted after 1 week.
         </p>
         <p>
-          For the processing of the newsletter, we use the newsletter service
-          provider CleverReach.
+          We use the newsletter service provider CleverReach to process the
+          newsletter.
         </p>
-
-        <h4>CleverReach</h4>
+        <h4>Clever Reach</h4>
         <p>
           We use CleverReach to send newsletters. The provider is CleverReach
           GmbH & Co. KG, Schafjückenweg 2, 26180 Rastede, Germany (hereinafter:
-          “CleverReach”). CleverReach is a service with which the newsletter
-          dispatch can be organized and analyzed. The data you enter for the
-          purpose of receiving newsletters (e.g., e-mail address) is stored on
+          ‘CleverReach’). CleverReach is a service that can be used to organize
+          and analyze the sending of newsletters. The data you enter for the
+          purpose of receiving the newsletter (e.g. email address) is stored on
           CleverReach's servers in Germany or Ireland.
         </p>
         <p>
-          In order to be able to send you newsletters that correspond to your
-          interests, we would like to analyze the use of our e-mail newsletter -
-          for example, whether you opened the newsletter or whether certain
-          links were clicked.
+          In order to be able to send you newsletters that match your interests,
+          we would like to analyze the use of our email newsletter - for
+          example, whether you have opened the newsletter or clicked on certain
+          links.
         </p>
         <p>
-          Our newsletters sent with CleverReach allow us to analyze the behavior
-          of newsletter recipients. Among other things, we can analyze how many
-          recipients opened the newsletter message and how often which link in
-          the newsletter was clicked. With the help of so-called conversion
-          tracking, it can also be analyzed whether a predefined action (e.g.,
-          purchase of a product on this website) has taken place after clicking
-          on the link in the newsletter. For more information on data analysis
-          by CleverReach newsletters, please visit:{" "}
+          Our newsletters sent with CleverReach enable us to analyze the
+          behavior of newsletter recipients. Among other things, we can analyze
+          how many recipients have opened the newsletter message and how often
+          which link in the newsletter was clicked on. Conversion tracking can
+          also be used to analyze whether a predefined action (e.g. purchase of
+          a product on this website) has taken place after clicking on the link
+          in the newsletter. Further information on data analysis by CleverReach
+          newsletters can be found at:{" "}
           <a
             href="https://www.cleverreach.com/de/funktionen/reporting-und-tracking/"
             target="_blank"
@@ -1015,59 +1000,142 @@ const PrivacyPage = () => (
           .
         </p>
         <p>
-          We track the use of the e-mail newsletter exclusively according to
+          We track the use of the e-mail newsletter exclusively on the basis of
           your consent to receive the newsletter, which we request when you
           register for the newsletter. We use the data to continuously improve
-          the quality of the newsletter and, if necessary, to tailor content and
-          offers to you.
+          the quality of the newsletter and to customize content and offers to
+          you where necessary.
         </p>
         <p>
-          The data processing is based on your consent (Art. 6 para. 1 lit. a
-          DSGVO). You can revoke this consent at any time by unsubscribing from
-          the newsletter. For this purpose, you will find a link for
-          unsubscribing at the end of each newsletter. You can also unsubscribe
-          from the newsletter at any time by sending an informal email to{" "}
-          <a href="mailto:datenschutz@cloudogu.com">datenschutz@cloudogu.com</a>
-          .
+          The data processing takes place on the basis of your consent (Art. 6
+          para. 1 lit. a GDPR). You can revoke this consent at any time by
+          unsubscribing from the newsletter. There is an unsubscribe link at the
+          end of every newsletter. You can also unsubscribe from the newsletter
+          at any time by sending an informal email to datenschutz@cloudogu.com.
         </p>
         <p>
-          If you do not want CleverReach to analyze your data, you must
-          unsubscribe from the newsletter. For this purpose, we provide a
-          corresponding link or button in each newsletter message.
+          If you do not wish to be analyzed by CleverReach, you must unsubscribe
+          from the newsletter. For this purpose, we provide a corresponding link
+          or button in every newsletter message.
         </p>
         <p>
-          The data you provide for the purpose of receiving the newsletter will
-          be stored by us until you unsubscribe from the newsletter or the
-          newsletter service provider and will be deleted from the newsletter
-          distribution list after you unsubscribe from the newsletter. Your data
-          for the newsletter dispatch will be deleted within 3 months after
-          termination of the newsletter receipt, provided that the deletion does
-          not conflict with any legal retention obligations. Data that has been
-          stored by us for other purposes remains unaffected by this.
+          The data you provide us with for the purpose of subscribing to the
+          newsletter will be stored by us until you unsubscribe from the
+          newsletter or the newsletter service provider and deleted from the
+          newsletter distribution list after you unsubscribe from the
+          newsletter. Your data for the newsletter dispatch will be deleted
+          within 3 months after cancellation of the newsletter receipt, provided
+          that the deletion does not conflict with any statutory retention
+          requirements. Data stored by us for other purposes remains unaffected
+          by this.
         </p>
         <p>
-          After you have unsubscribed from the newsletter distribution list,
-          your e-mail address will be stored by us or the newsletter service
-          provider in a blacklist, if necessary, to prevent future mailings. The
+          After you unsubscribe from the newsletter distribution list, your
+          e-mail address may be stored by us or the newsletter service provider
+          in a blacklist if this is necessary to prevent future mailings. The
           data from the blacklist will only be used for this purpose and will
           not be merged with other data. This serves both your interest and our
-          interest in complying with legal requirements when sending newsletters
-          (legitimate interest within the meaning of Art. 6 (1) f DSGVO). The
-          storage in the blacklist is not limited in time.{" "}
-          <strong>
-            You can object to the storage if your interests outweigh our
-            legitimate interest.
-          </strong>
+          interest in complying with the legal requirements when sending
+          newsletters (legitimate interest within the meaning of Art. 6 para. 1
+          lit. f GDPR). Storage in the blacklist is not limited in time. You can
+          object to the storage if your interests outweigh our legitimate
+          interest.
         </p>
         <p>
-          For more details, please refer to the data protection provisions of
-          CleverReach at:{" "}
+          You can find more details in CleverReach's privacy policy at:{" "}
           <a
             href="https://www.cleverreach.com/de/datenschutz/"
             target="_blank"
             rel="noopener noreferrer"
           >
             www.cleverreach.com/de/datenschutz/
+          </a>
+          .
+        </p>
+        <h5>Data processing</h5>
+        <p>
+          We have concluded a data processing agreement (DPA) for the use of the
+          above-mentioned service. This is a contract mandated by data privacy
+          laws that guarantees that they process personal data of our website
+          visitors only based on our instructions and in compliance with the
+          GDPR.
+        </p>
+        <h4>Newsletter mailing to existing customers</h4>
+        <p>
+          If you order goods or services from us and enter your e-mail address,
+          this e-mail address may subsequently be used by us to send you
+          newsletters, provided we inform you of this in advance. In such a
+          case, only direct advertising for our own similar goods or services
+          will be sent via the newsletter. You can unsubscribe from this
+          newsletter at any time. There is a corresponding link in every
+          newsletter for this purpose. In this case, the legal basis for sending
+          the newsletter is Art. 6 (1)(f) GDPR in conjunction with Section 7 (3)
+          UWG.
+        </p>
+        <p>
+          After you unsubscribe from the newsletter distribution list, we may
+          store your email address in a blacklist to prevent future mailings to
+          you. The data from the blacklist will only be used for this purpose
+          and will not be merged with other data. This serves both your interest
+          and our interest in complying with the legal requirements when sending
+          newsletters (legitimate interest within the meaning of Art. 6 (1)(f)
+          GDPR). Storage in the blacklist is not limited in time. You can object
+          to the storage if your interests outweigh our legitimate interest.
+        </p>
+        <h3>Plug-ins and Tools</h3>
+        <h4>SalesViewer</h4>
+        <p>
+          This website uses SalesViewer® technology from SalesViewer® GmbH to
+          collect and store data for marketing, market research and optimization
+          purposes. The provider is SalesViewer / SalesViewer GmbH, Hueststr.
+          30, 44787 Bochum (hereinafter referred to as ‘SalesViewer’).
+        </p>
+        <p>
+          A JavaScript-based code is used for this purpose, which is used to
+          collect company-related data and the corresponding use. The data
+          collected with this technology is encrypted using a non-reversible
+          one-way function (so-called hashing). The data is immediately
+          pseudonymized and is not used to personally identify the visitor to
+          this website.
+        </p>
+        <p>
+          The data stored by SalesViewer is deleted as soon as it is no longer
+          required for its intended purpose and the deletion does not conflict
+          with any statutory retention obligations.
+        </p>
+        <p>
+          You can object to the collection and storage of data at any time with
+          effect for the future by clicking on this link{" "}
+          <a
+            href="https://www.salesviewer.com/opt-out"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            www.salesviewer.com/opt-out
+          </a>{" "}
+          to prevent the collection by SalesViewer® within this website in the
+          future. An opt-out cookie for this website will be stored on your
+          device. If you delete your cookies in this browser, you will need to
+          click this link again.
+        </p>
+        <p>
+          The use of SalesViewer is based on Art. 6 para. 1 lit. f GDPR. The
+          website operator has a legitimate interest in recording company visits
+          to our website and their user behavior. If a corresponding consent has
+          been requested, the processing is carried out exclusively on the basis
+          of Art. 6 para. 1 lit. a GDPR and § 25 para. 1 TDDDG, insofar as the
+          consent includes the storage of cookies or access to information in
+          the user's terminal device (e.g. device fingerprinting) within the
+          meaning of the TDDDG. Consent can be revoked at any time.
+        </p>
+        <p>
+          Further details can be found in the provider's privacy policy at{" "}
+          <a
+            href="https://www.salesviewer.com/de/plattform/datenschutz/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            www.salesviewer.com/de/plattform/datenschutz/
           </a>
           .
         </p>
@@ -1116,7 +1184,6 @@ const PrivacyPage = () => (
           the data protection declarations of the tools used, and which we have
           listed below this text.
         </p>
-
         <h4>Purpose and legal bases</h4>
         <p>
           The conference tools are used to communicate with prospective or
@@ -1124,11 +1191,10 @@ const PrivacyPage = () => (
           customers (Art. 6(1)(b) GDPR). Furthermore, the use of the tools
           serves to generally simplify and accelerate communication with us or
           our company (legitimate interest in the meaning of Art. 6(1)(f) GDPR).
-          As far as consent has been requested, the tools in question will be
-          used based on this consent; the consent may be revoked at any time
-          with effect from that date.
+          Insofar as consent has been requested, the tools in question will be
+          used on the basis of this consent; the consent may be revoked at any
+          time with effect from that date.
         </p>
-
         <h4>Duration of storage</h4>
         <p>
           Data collected directly by us via the video and conference tools will
@@ -1143,33 +1209,8 @@ const PrivacyPage = () => (
           purposes. For details, please directly contact the operators of the
           conference tools.
         </p>
-
         <h4>Conference tools used</h4>
         <p>We employ the following conference tools:</p>
-        <h5>Google Chat</h5>
-        <p>
-          We use Google Chat. The provider is Google Ireland Limited, Gordon
-          House, Barrow Street, Dublin 4, Ireland. For details on data
-          processing, please refer to the Google Chat privacy policy:{" "}
-          <a
-            href="https://policies.google.com/privacy"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            policies.google.com/privacy
-          </a>
-          .
-        </p>
-        <p>
-          <strong>Data processing</strong>
-          <br />
-          We have concluded a data processing agreement (DPA) for the use of the
-          above-mentioned service. This is a contract mandated by data privacy
-          laws that guarantees that they process personal data of our website
-          visitors only based on our instructions and in compliance with the
-          GDPR.
-        </p>
-
         <h5>Google Meet</h5>
         <p>
           We use Google Meet. The provider is Google Ireland Limited, Gordon
@@ -1185,33 +1226,130 @@ const PrivacyPage = () => (
           .
         </p>
         <p>
-          <strong>Data processing</strong>
-          <br />
+          The company is certified in accordance with the “EU-US Data Privacy
+          Framework” (DPF). The DPF is an agreement between the European Union
+          and the US, which is intended to ensure compliance with European data
+          protection standards for data processing in the US. Every company
+          certified under the DPF is obliged to comply with these data
+          protection standards. For more information, please contact the
+          provider under the following link:{" "}
+          <a
+            href="https://www.dataprivacyframework.gov/s/participant-search/participant-detail?contact=true&id=a2zt000000001L5AAI&status=Active"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            www.dataprivacyframework.gov/s/participant-search/participant-detail?contact=true&id=a2zt000000001L5AAI&status=Active
+          </a>
+        </p>
+        <h6>Data processing</h6>
+        <p>
           We have concluded a data processing agreement (DPA) for the use of the
           above-mentioned service. This is a contract mandated by data privacy
           laws that guarantees that they process personal data of our website
           visitors only based on our instructions and in compliance with the
           GDPR.
         </p>
-
-        <h3>Custom services</h3>
-        <h4>Handling of business cards</h4>
+        <h5>Google Chat</h5>
         <p>
-          In the course of exchanging business cards, we obtain access to the
+          We use Google Meet. The provider is Google Ireland Limited, Gordon
+          House, Barrow Street, Dublin 4, Ireland. For details on data
+          processing, please see the Google privacy policy:{" "}
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            policies.google.com/privacy
+          </a>
+          .
+        </p>
+        <p>
+          The company is certified in accordance with the “EU-US Data Privacy
+          Framework” (DPF). The DPF is an agreement between the European Union
+          and the US, which is intended to ensure compliance with European data
+          protection standards for data processing in the US. Every company
+          certified under the DPF is obliged to comply with these data
+          protection standards. For more information, please contact the
+          provider under the following link:{" "}
+          <a
+            href="https://www.dataprivacyframework.gov/s/participant-search/participant-detail?contact=true&id=a2zt000000001L5AAI&status=Active"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            www.dataprivacyframework.gov/s/participant-search/participant-detail?contact=true&id=a2zt000000001L5AAI&status=Active
+          </a>
+          .
+        </p>
+        <h6>Data processing</h6>
+        <p>
+          We have concluded a data processing agreement (DPA) for the use of the
+          above-mentioned service. This is a contract mandated by data privacy
+          laws that guarantees that they process personal data of our website
+          visitors only based on our instructions and in compliance with the
+          GDPR.
+        </p>
+        <h3>Custom Services</h3>
+        <h4>Dealing with business cards</h4>
+        <p>
+          As part of the exchange of business cards, we receive access to the
           personal data provided by you via the business card. We use the
           information on your business card for the purposes of communication
-          and follow-up of the contact. If during the conversation (exchange
-          business card) you requested that we send you information about our
-          products and services, we will send you the information about our
-          company on the contact details of your business card. If there is no
-          further exchange, or you do not respond to our contact and follow-up,
-          we will delete your data (business card) within 1 year. You have the
-          right to request the deletion of your data at any time - please send
-          us an informal e-mail to{" "}
+          and to follow up on the contact. If you have requested that we send
+          you information about our products and services during the
+          conversation (business card exchange), we will send you the
+          information about our company to the contact details on your business
+          card. If there is no further exchange or you do not respond to our
+          contact and follow-up, we will delete your data (business card) within
+          1 year. You have the right to request the deletion of your data at any
+          time - please send us an informal e-mail to{" "}
           <a href="mailto:datenschutz@cloudogu.com">datenschutz@cloudogu.com</a>
           .
         </p>
-
+        <h4>Google Drive</h4>
+        <p>
+          We have integrated Google Drive on this website. The provider is
+          Google Ireland Limited (“Google”), Gordon House, Barrow Street, Dublin
+          4, Ireland.
+        </p>
+        <p>
+          Google Drive allows us to include an upload area on our website where
+          you can upload content. When you upload content, it is stored on
+          Google Drive’s servers. When you visit our website, a connection to
+          Google Drive is additionally established so that Google Drive can
+          determine that you have visited our website.
+        </p>
+        <p>
+          The use of Google Drive is based on Art. 6(1)(f) GDPR. The website
+          operator has a legitimate interest in having a reliable upload area on
+          its website. If a corresponding consent has been obtained, the
+          processing is carried out exclusively on the basis of Art. 6(1)(a)
+          GDPR; the consent can be revoked at any time.
+        </p>
+        <p>
+          The company is certified in accordance with the “EU-US Data Privacy
+          Framework” (DPF). The DPF is an agreement between the European Union
+          and the US, which is intended to ensure compliance with European data
+          protection standards for data processing in the US. Every company
+          certified under the DPF is obliged to comply with these data
+          protection standards. For more information, please contact the
+          provider under the following link:{" "}
+          <a
+            href="https://www.dataprivacyframework.gov/s/participant-search/participant-detail?contact=true&id=a2zt000000001L5AAI&status=Active"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            www.dataprivacyframework.gov/s/participant-search/participant-detail?contact=true&id=a2zt000000001L5AAI&status=Active
+          </a>
+          .
+        </p>
+        <h6>Data processing</h6>
+        <p>
+          We have concluded a data processing agreement (DPA) for the use of the
+          above-mentioned service. This is a contract mandated by data privacy
+          laws that guarantees that they process personal data of our website
+          visitors only based on our instructions and in compliance with the
+          GDPR.
+        </p>
         <h4>Community</h4>
         <p>
           On our website you can find a link to our community website
@@ -1253,81 +1391,6 @@ const PrivacyPage = () => (
           ensure data minimization, postings that include personal data will be
           erased by our community moderators without comment. We ask for your
           understanding in this regard.
-        </p>
-
-        <h4>Handling applicant data</h4>
-        <p>
-          We offer website visitors the opportunity to submit job applications
-          to us (e.g., via e-mail, via postal services on by submitting the
-          online job application form). Below, we will brief you on the scope,
-          purpose and use of the personal data collected from you in conjunction
-          with the application process. We assure you that the collection,
-          processing, and use of your data will occur in compliance with the
-          applicable data privacy rights and all other statutory provisions and
-          that your data will always be treated as strictly confidential.
-        </p>
-
-        <h5>Scope and purpose of the collection of data</h5>
-        <p>
-          If you submit a job application to us, we will process any affiliated
-          personal data (e.g., contact and communications data, application
-          documents, notes taken during job interviews, etc.), if they are
-          required to make a decision concerning the establishment or an
-          employment relationship. The legal grounds for the aforementioned are
-          § 26 BDSG according to German Law (Negotiation of an Employment
-          Relationship), Art. 6(1)(b) GDPR (General Contract Negotiations) and –
-          provided you have given us your consent – Art. 6(1)(a) GDPR. You may
-          revoke any consent given at any time. Within our company, your
-          personal data will only be shared with individuals who participate in
-          the processing of your job application.
-        </p>
-        <p>
-          If your job application should result in your recruitment, the data
-          you have submitted will be archived on the grounds of § 26 BDSG and
-          Art. 6(1)(b) GDPR for the purpose of implementing the employment
-          relationship in our data processing system.
-        </p>
-
-        <h5>Data Archiving Period</h5>
-        <p>
-          If we are unable to make you a job offer or you reject a job offer or
-          withdraw your application, we reserve the right to retain the data you
-          have submitted on the basis of our legitimate interests (Art. 6(1)(f)
-          GDPR) for up to 6 months from the end of the application procedure
-          (rejection or withdrawal of the application). Afterwards the data will
-          be deleted, and the physical application documents will be destroyed.
-          The storage serves in particular as evidence in the event of a legal
-          dispute. If it is evident that the data will be required after the
-          expiry of the 6-month period (e.g., due to an impending or pending
-          legal dispute), deletion will only take place when the purpose for
-          further storage no longer applies.
-        </p>
-        <p>
-          Longer storage may also take place if you have given your agreement
-          (Article 6(1)(a) GDPR) or if statutory data retention requirements
-          preclude the deletion.
-        </p>
-
-        <h5>Admission to the applicant pool</h5>
-        <p>
-          If we do not make you a job offer, you may be able to join our
-          applicant pool. In case of admission, all documents and information
-          from the application will be transferred to the applicant pool in
-          order to contact you in case of suitable vacancies.
-        </p>
-        <p>
-          Admission to the applicant pool is based exclusively on your express
-          agreement (Art. 6(1)(a) GDPR). The submission agreement is voluntary
-          and has no relation to the ongoing application procedure.{" "}
-          <strong>
-            The affected person can revoke his agreement at any time.
-          </strong>{" "}
-          In this case, the data from the applicant pool will be irrevocably
-          deleted, provided there are no legal reasons for storage.
-        </p>
-        <p>
-          The data from the applicant pool will be irrevocably deleted no later
-          than two years after consent has been granted.
         </p>
       </CounterColumn>
     </div>
