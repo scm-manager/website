@@ -5,20 +5,20 @@ import PageContainer from "../layout/PageContainer";
 import styled from "styled-components";
 
 const CounterColumn = styled.div`
-  counter-set: h3counter h4counter h5counter;
+  counter-set: h3counter;
 
   p {
     text-align: justify;
   }
 
   h3 {
-    counter-reset: h4counter;
+    counter-set: h4counter;
   }
 
   h4 {
-    counter-reset: h5counter;
+    counter-set: h5counter;
   }
-
+  
   h3::before {
     counter-increment: h3counter;
     content: counter(h3counter) "\\0000a0\\0000a0";
