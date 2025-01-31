@@ -1,29 +1,24 @@
-const { organization } = require("./config");
 const logger = require("./logger");
 const semver = require("semver");
+const { listTags } = require("./scmapi");
 
 /**
- * @param {Octokit} api
+ * @param {string} namespace
  * @param {string} repository
  * @returns {Promise<Array<{version: string, sha: string}>>}
  */
-async function collectReleases(api, repository) {
+async function collectReleases(namespace, repository) {
   const releases = [];
 
   try {
-    for await (const tags of api.paginate.iterator(api.repos.listTags, {
-      owner: organization,
-      repo: repository,
-    })) {
-      for (const tag of tags.data) {
-        if (semver.valid(tag.name)) {
-          releases.push({
-            version: tag.name,
-            sha: tag.commit.sha,
-          });
-        } else {
-          logger.warn(`skipped non semver version ${tag.name} at ${repository}`);
-        }
+    for (const tag of await listTags(namespace, repository)) {
+      if (semver.valid(tag.name)) {
+        releases.push({
+          version: tag.name,
+          sha: tag.sha,
+        });
+      } else {
+        logger.warn(`skipped non semver version ${tag.name} at ${repository}`);
       }
     }
   } catch (e) {

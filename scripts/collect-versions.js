@@ -5,13 +5,13 @@ const { collectSupportBranches } = require("./collect-support-branches");
 const { collectReleases } = require("./collect-releases");
 
 /**
- * @param {Octokit} api
+ * @param {string} namespace
  * @param {string} repository
  * @returns {Promise<Array<{range: string, sha: string}>>}
  */
-async function collectVersions(api, repository) {
-  const releases = await collectReleases(api, repository);
-  const supportBranches = await collectSupportBranches(api, repository);
+async function collectVersions(namespace, repository) {
+  const releases = await collectReleases(namespace, repository);
+  const supportBranches = await collectSupportBranches(namespace, repository);
   const filteredReleases = releases.filter(({ version }) =>
     // Filter out releases which are covered by a support branch
     !supportBranches.some(({ range }) => semver.satisfies(version, range, {

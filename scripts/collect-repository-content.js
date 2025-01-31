@@ -2,20 +2,19 @@
 
 const { ensureDir, emptyDir, mkdtemp, remove, move, pathExists, readdir, stat } = require('fs-extra');
 const {spawn} = require('child_process');
-const { organization } = require('./config');
 const { join } = require('path');
 const { tmpdir } = require('os');
 const logger = require("./logger");
 
 /**
- * @param {Octokit} api
+ * @param {string} namespace
  * @param {string} repository
  * @param {Array<{range: string, sha: string}>} versions
  * @param {string} outPath
  *
  * @see https://stackoverflow.com/a/52269934
  */
-async function collectRepositoryContent(api, repository, versions, outPath) {
+async function collectRepositoryContent(namespace, repository, versions, outPath) {
   if (!versions.length) {
     logger.info(`Skipping ${repository}: no versions found`)
     return;
@@ -28,7 +27,7 @@ async function collectRepositoryContent(api, repository, versions, outPath) {
   try {
     logger.debug(`Cloning ${repository} into ${tmpClonePath} ...`);
 
-    const cloneUrl = createCloneURL(repository);
+    const cloneUrl = createCloneURL(namespace, repository);
     const git = createGit(tmpClonePath);
 
     await git(`clone`, `--no-checkout`, cloneUrl, `.`);
@@ -76,15 +75,10 @@ function createGit(workingPath) {
       })
     })
   }
-};
+}
 
-function createCloneURL(repository) {
-  let auth = "";
-  const apiToken = process.env.GITHUB_API_TOKEN;
-  if (apiToken) {
-    auth = apiToken + "@";
-  }
-  return `https://${auth}github.com/${organization}/${repository}`;
+function createCloneURL(namespace, repository) {
+  return `https://ecosystem.cloudogu.com/scm/repo/${namespace}/${repository}`;
 }
 
 async function collectVersionContent(tmpDir, version, sha, outPath) {

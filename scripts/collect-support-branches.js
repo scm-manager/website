@@ -1,33 +1,28 @@
-const { organization } = require("./config");
 const logger = require("./logger");
+const { listBranches } = require("./scmapi");
 
 const supportBranchRegex = /^support\/(.*)$/;
 
 
 /**
- * @param {Octokit} api
+ * @param {string} namespace
  * @param {string} repository
  * @returns {Promise<Array<{range: string, sha: string}>>}
  */
-async function collectSupportBranches(api, repository) {
+async function collectSupportBranches(namespace, repository) {
   const supportBranches = [];
 
   try {
-    for await (const branches of api.paginate.iterator(api.repos.listBranches, {
-      owner: organization,
-      repo: repository,
-    })) {
-      for (const branch of branches.data) {
-        const name = branch.name;
-        const regexResult = supportBranchRegex.exec(name);
-        if (regexResult) {
-          const [_matched, range] = regexResult;
-          const branchResult = {
-            range,
-            sha: branch.commit.sha,
-          };
-          supportBranches.push(branchResult);
-        }
+    for (const branch of await listBranches(namespace, repository)) {
+      const name = branch.name;
+      const regexResult = supportBranchRegex.exec(name);
+      if (regexResult) {
+        const [_matched, range] = regexResult;
+        const branchResult = {
+          range,
+          sha: branch.sha,
+        };
+        supportBranches.push(branchResult);
       }
     }
   } catch (e) {

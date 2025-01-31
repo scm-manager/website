@@ -1,18 +1,16 @@
-const { Octokit } = require("@octokit/rest");
 const { collectVersions } = require("./collect-versions");
 const { collectRepositoryContent } = require("./collect-repository-content");
 const { join } = require("path");
 
 /**
- * @param {Octokit} api
  * @param {string} plugin
  * @returns Promise<number>
  */
-async function collectPluginContent(api, plugin) {
+async function collectPluginContent(plugin) {
   const now = Date.now();
   const outPath = join(__dirname, "..", "content", "plugins", plugin);
-  const versions = await collectVersions(api, plugin);
-  await collectRepositoryContent(api, plugin, versions, outPath);
+  const versions = await collectVersions("scm-manager-plugins", plugin);
+  await collectRepositoryContent("scm-manager-plugins", plugin, versions, outPath);
   return Date.now() - now;
 }
 
