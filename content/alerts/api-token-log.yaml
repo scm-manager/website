@@ -1,5 +1,5 @@
 title: Potential leak of password details in trace log
-description: There is a potential leak that can give hints to passwords if the trace log is activated
+description: There is a potential leak that can give hints to passwords if the trace log is activated.
 link: https://scm-manager.org/blog/posts/2025-01-17-potential-password-leak/
 issuedAt: 2025-01-17
 affectedVersions: ">=3.0.0 <=3.6.0 || <2.46.5 || >=2.47.0 <2.48.4"

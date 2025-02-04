@@ -1,5 +1,5 @@
 title: Logback vulnerability
-description: The logback team announced a vulnerability in logback versions
+description: The logback team announced a vulnerability in logback versions.
 link: https://scm-manager.org/blog/posts/2021-12-13-log4shell/
 issuedAt: 2021-12-13
 affectedVersions: <2.27.3
