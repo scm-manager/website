@@ -21,15 +21,15 @@ const HitCount = connectStateResults(({ searchResults }) => {
 
 const PageHit = ({ hit }) => (
   <div>
-    <Link to={hit.slug}>
+    <Link className="is-block" to={hit.slug}>
       <h4>{hit.title}</h4>
+      <Snippet attribute="excerpt" hit={hit} tagName="mark" />
+      {hit.plugin ? (
+        <div>
+          <span className="tag mt-2">{hit.plugin}</span>
+        </div>
+      ) : null}
     </Link>
-    <Snippet attribute="excerpt" hit={hit} tagName="mark" />
-    {hit.plugin ? (
-      <div>
-        <span className="tag mt-2">{hit.plugin}</span>
-      </div>
-    ) : null}
     <hr />
   </div>
 );

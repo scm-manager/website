@@ -51,10 +51,15 @@ export default styled(SearchResult)`
       }
     }
   }
+  
+  .ais-Snippet {
+    color: ${({ theme }) => theme.foreground};
+  }
 
   .ais-PoweredBy {
     display: flex;
     justify-content: flex-end;
+    gap: 0.25rem;
     font-size: 80%;
 
     svg {
