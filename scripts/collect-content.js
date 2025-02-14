@@ -1,6 +1,7 @@
 const { collectCoreContent } = require("./collect-core-content");
 const { collectPluginContent } = require("./collect-plugin-conent");
 const { collectCliContent } = require("./collect-cli-content");
+const { collectJavadocContent } = require("./collect-javadoc-content");
 const { findPlugins } = require("./find-plugins");
 const { core } = require("./config");
 const logger = require("./logger");
@@ -13,7 +14,8 @@ async function collectContent() {
   const benchmarks = await Promise.all([
     collectCoreContent(),
     ...plugins.map(plugin => collectPluginContent(plugin)),
-    collectCliContent()
+    collectCliContent(),
+    collectJavadocContent()
   ]);
   const average = benchmarks.reduce((a, b) => a + b) / benchmarks.length;
   logger.info(`Collected the content of ${core} and ${plugins.length} plugin(s) in ${((Date.now() - now) / 1000).toPrecision(3)} seconds, averaging ${(average / 1000).toPrecision(3)} seconds.`);
