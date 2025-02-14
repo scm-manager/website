@@ -2,7 +2,6 @@
 title: Jenkins and JIRA Plugin
 date: 2011-09-09T11:13:36+00:00
 author: Sebastian Sdorra
-slug: /plugins/jenkins-and-jira-plugin/
 categories:
   - plugins
   - continuous-integration-plugins

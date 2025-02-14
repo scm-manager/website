@@ -2,7 +2,6 @@
 title: scm-fork-plugin 1.1
 date: 2013-10-16T15:15:04+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-fork-plugin-1-1-pull-requests/
 categories:
   - plugins
   - miscellaneous-plugins

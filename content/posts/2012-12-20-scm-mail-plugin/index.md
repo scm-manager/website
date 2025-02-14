@@ -2,7 +2,6 @@
 title: scm-mail-plugin
 date: 2012-12-20T08:15:01+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-mail-plugin/
 categories:
   - plugins
   - library-plugins

@@ -2,7 +2,6 @@
 title: Plugin updates
 date: 2011-12-03T14:17:10+00:00
 author: Sebastian Sdorra
-slug: /plugins/plugin-updates/
 categories:
   - plugins
   - miscellaneous-plugins

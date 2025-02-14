@@ -2,7 +2,6 @@
 title: scm-bugzilla-plugin
 date: 2013-05-06T20:21:12+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-bugzilla-plugin/
 categories:
   - plugins
   - issue-tracker-plugins

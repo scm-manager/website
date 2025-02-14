@@ -2,7 +2,6 @@
 title: scm-trac-plugin
 date: 2014-05-21T16:35:37+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-trac-plugin/
 categories:
   - plugins
   - issue-tracker-plugins

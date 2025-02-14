@@ -2,7 +2,6 @@
 title: 2 new plugins available
 date: 2011-11-05T17:39:53+00:00
 author: Sebastian Sdorra
-slug: /plugins/2-new-plugins-available/
 categories:
   - plugins
   - authorization-plugins

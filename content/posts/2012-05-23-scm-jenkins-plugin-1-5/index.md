@@ -2,7 +2,6 @@
 title: scm-jenkins-plugin 1.5
 date: 2012-05-23T16:29:15+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-jenkins-plugin-1-5/
 categories:
   - plugins
   - continuous-integration-plugins

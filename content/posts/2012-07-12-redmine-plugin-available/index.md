@@ -2,7 +2,6 @@
 title: Redmine plugin available
 date: 2012-07-12T08:04:23+00:00
 author: Sebastian Sdorra
-slug: /plugins/redmine-plugin-available/
 categories:
   - plugins
   - issue-tracker-plugins

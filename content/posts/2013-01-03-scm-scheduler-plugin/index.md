@@ -2,7 +2,6 @@
 title: scm-scheduler-plugin
 date: 2013-01-03T17:06:14+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-scheduler-plugin/
 categories:
   - plugins
   - library-plugins

@@ -2,7 +2,6 @@
 title: scm-archive-plugin 1.1
 date: 2013-01-24T08:11:01+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-archive-plugin-1-1/
 categories:
   - plugins
   - miscellaneous-plugins

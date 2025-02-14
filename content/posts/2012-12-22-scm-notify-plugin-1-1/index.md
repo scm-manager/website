@@ -2,7 +2,6 @@
 title: scm-notify-plugin 1.1
 date: 2012-12-22T13:08:16+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-notify-plugin-1-1/
 categories:
   - plugins
   - workflow-plugins

@@ -2,7 +2,6 @@
 title: scm-userrename-plugin available
 date: 2012-07-10T08:06:11+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-userrename-plugin-available/
 categories:
   - plugins
   - administration-plugins

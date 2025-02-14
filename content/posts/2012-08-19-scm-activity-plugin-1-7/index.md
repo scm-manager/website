@@ -2,7 +2,6 @@
 title: scm-activity-plugin 1.7
 date: 2012-08-19T11:41:12+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-activity-plugin-1-7/
 categories:
   - plugins
   - information-plugins

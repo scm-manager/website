@@ -2,7 +2,6 @@
 title: scm-branchwp-plugin 1.1
 date: 2012-10-29T08:27:42+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-branchwp-plugin-1-1/
 categories:
   - plugins
   - authorization-plugins

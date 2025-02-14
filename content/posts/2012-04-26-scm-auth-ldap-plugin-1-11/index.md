@@ -2,7 +2,6 @@
 title: scm-auth-ldap-plugin 1.11
 date: 2012-04-26T16:39:05+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-auth-ldap-plugin-1-11/
 categories:
   - plugins
   - authentication-plugins

@@ -2,7 +2,6 @@
 title: scm-gravatar-plugin 1.3
 date: 2012-08-19T11:43:11+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-gravatar-plugin-1-3/
 categories:
   - plugins
   - information-plugins

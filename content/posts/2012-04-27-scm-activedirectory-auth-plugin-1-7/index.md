@@ -2,7 +2,6 @@
 title: scm-activedirectory-auth-plugin 1.7
 date: 2012-04-27T14:14:44+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-activedirectory-auth-plugin-1-7/
 categories:
   - plugins
   - authentication-plugins

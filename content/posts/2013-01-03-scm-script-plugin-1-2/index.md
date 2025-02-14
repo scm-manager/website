@@ -2,7 +2,6 @@
 title: scm-script-plugin 1.2
 date: 2013-01-03T10:52:14+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-script-plugin-1-2/
 categories:
   - plugins
   - workflow-plugins

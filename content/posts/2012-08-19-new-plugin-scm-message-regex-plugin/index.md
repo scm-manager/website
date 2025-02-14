@@ -2,7 +2,6 @@
 title: New plugin scm-message-regex-plugin
 date: 2012-08-19T11:39:44+00:00
 author: Sebastian Sdorra
-slug: /plugins/new-plugin-scm-message-regex-plugin/
 categories:
   - plugins
   - miscellaneous-plugins

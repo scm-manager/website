@@ -2,7 +2,6 @@
 title: New webhook plugin available
 date: 2012-06-03T12:38:52+00:00
 author: Sebastian Sdorra
-slug: /plugins/new-webhook-plugin-available/
 categories:
   - plugins
   - workflow-plugins

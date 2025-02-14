@@ -2,7 +2,6 @@
 title: scm-statistic-plugin
 date: 2012-12-22T12:56:36+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-statistic-plugin/
 categories:
   - plugins
   - information-plugins

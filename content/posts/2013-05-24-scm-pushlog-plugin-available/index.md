@@ -2,7 +2,6 @@
 title: scm-pushlog-plugin available
 date: 2013-05-24T09:12:29+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-pushlog-plugin-available/
 categories:
   - plugins
   - administration-plugins

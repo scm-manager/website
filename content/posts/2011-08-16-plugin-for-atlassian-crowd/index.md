@@ -2,7 +2,6 @@
 title: Plugin for Atlassian Crowd
 date: 2011-08-16T09:00:48+00:00
 author: Sebastian Sdorra
-slug: /plugins/plugin-for-atlassian-crowd/
 categories:
   - plugins
   - authentication-plugins

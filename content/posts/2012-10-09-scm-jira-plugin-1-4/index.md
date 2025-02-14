@@ -2,7 +2,6 @@
 title: scm-jira-plugin 1.4
 date: 2012-10-09T21:30:28+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-jira-plugin-1-4/
 categories:
   - plugins
   - issue-tracker-plugins

@@ -2,7 +2,6 @@
 title: New Version of Crowd Plugin
 date: 2011-09-20T09:47:43+00:00
 author: Sebastian Sdorra
-slug: /plugins/new-version-of-atlassian-crowd/
 categories:
   - plugins
   - authentication-plugins

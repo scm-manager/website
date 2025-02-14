@@ -2,7 +2,6 @@
 title: scm-fork-plugin
 date: 2013-06-25T09:16:15+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-fork-plugin/
 categories:
   - plugins
   - miscellaneous-plugins

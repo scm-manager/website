@@ -2,7 +2,6 @@
 title: scm-userrepo-plugin 1.2
 date: 2012-01-23T17:07:50+00:00
 author: Sebastian Sdorra
-slug: /plugins/scm-userrepo-plugin-1-2/
 categories:
   - plugins
   - miscellaneous-plugins
