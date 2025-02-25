@@ -1,0 +1,11 @@
+tag: 3.7.3
+date: '2025-02-25T11:20:22Z'
+packages:
+- {type: unix, checksum: a9d33889de5c82f73f3e023e0c508c7715bc8dd6efa13318d42bd2947cb896fe,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.7.3/unix-3.7.3.tar.gz'}
+- {type: windows, checksum: 917481df94f9f13730e2d991dacb6dd2b37debb8e2911931e37081906b236b59,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.7.3/windows-3.7.3.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
