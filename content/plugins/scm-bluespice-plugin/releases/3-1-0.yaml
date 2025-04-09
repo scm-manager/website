@@ -1,0 +1,8 @@
+---
+plugin: "scm-bluespice-plugin"
+tag: "3.1.0"
+date: "2025-04-09T12:30:57Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-bluespice-plugin/3.1.0/scm-bluespice-plugin-3.1.0.smp"
+checksum: "9fca02c9b8469115abc37fc3498bd58577924a9d8c7a63ecc7d0c678a57c0373"
+conditions:
+  minVersion: "3.7.0"
