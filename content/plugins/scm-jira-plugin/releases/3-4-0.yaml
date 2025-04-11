@@ -1,0 +1,12 @@
+---
+plugin: "scm-jira-plugin"
+tag: "3.4.0"
+date: "2025-04-11T12:12:09Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-jira-plugin/3.4.0/scm-jira-plugin-3.4.0.smp"
+checksum: "acfba1a91afa5dde2c522df0dde1c450eb40f6ecfafe2497bccae41a9e7731a6"
+dependencies:
+- "scm-issuetracker-plugin"
+optionalDependencies:
+- "scm-commit-message-checker-plugin"
+conditions:
+  minVersion: "3.7.0"
