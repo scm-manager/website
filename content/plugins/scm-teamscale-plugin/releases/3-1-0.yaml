@@ -1,0 +1,13 @@
+---
+plugin: "scm-teamscale-plugin"
+tag: "3.1.0"
+date: "2025-04-11T05:53:07Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-teamscale-plugin/3.1.0/scm-teamscale-plugin-3.1.0.smp"
+checksum: "d62956abd631dd0dee17020bb753414aa5a17722b167811f577dab04a1cde2a1"
+dependencies:
+- "scm-ci-plugin"
+optionalDependencies:
+- "scm-mail-plugin"
+- "scm-review-plugin"
+conditions:
+  minVersion: "3.7.0"
