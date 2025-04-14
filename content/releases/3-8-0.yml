@@ -1,0 +1,11 @@
+tag: 3.8.0
+date: '2025-04-14T14:19:57Z'
+packages:
+- {type: unix, checksum: 35b73129262e925d8aef1a1760dbd7194dccc84aebd87e86cece2d6d88d38d78,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.8.0/unix-3.8.0.tar.gz'}
+- {type: windows, checksum: 0c49784f680e7ac8091a83c630f186006357e49a780c882fcc0a977c622d1735,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.8.0/windows-3.8.0.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
