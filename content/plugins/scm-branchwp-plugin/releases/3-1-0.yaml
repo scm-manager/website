@@ -1,0 +1,12 @@
+---
+plugin: "scm-branchwp-plugin"
+tag: "3.1.0"
+date: "2025-04-15T07:56:43Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-branchwp-plugin/3.1.0/scm-branchwp-plugin-3.1.0.smp"
+checksum: "581d1b0ae32fa95bf9d640459996a755ef00ed574426816248960d4fcbd3b054"
+optionalDependencies:
+- "scm-mail-plugin"
+- "scm-review-plugin"
+- "scm-editor-plugin"
+conditions:
+  minVersion: "3.7.0"
