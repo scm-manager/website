@@ -1,0 +1,8 @@
+---
+plugin: "scm-pushlog-plugin"
+tag: "3.2.0"
+date: "2025-04-15T08:13:59Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-pushlog-plugin/3.2.0/scm-pushlog-plugin-3.2.0.smp"
+checksum: "0fab3ad8d3bdcea2e7d5ab3255acc05ddb46b052e7eb89bccdc345223ef03aec"
+conditions:
+  minVersion: "3.8.0"
