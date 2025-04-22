@@ -35,7 +35,7 @@ With the latest version of the Pushlog plugin it is now also possible to downloa
 The download link for this CSV file can be found on the information page of each repository.
 This CSV contains for each commit of the repository the time when this commit was pushed and by which user.
 
-[CSV download link](./assets/export_csv.png)
+![CSV download link](./assets/export_csv.png)
 
 ## Commit Reverts
 
@@ -44,7 +44,7 @@ The version control system Git supports this with the following command `git rev
 To better support this process, we now also offer the option of reverting a specific commit in the UI of the SCM Manager.
 For this purpose, a button has been introduced in the details view of a commit which, when clicked, reverts the respective commit and then redirects the user to the new commit with the removed changes.
 
-[Revert button within the commit details view](./assets/revert_commit.png)
+![Revert button within the commit details view](./assets/revert_commit.png)
 
 ## Configuration of JWT Lifetimes
 
@@ -56,7 +56,7 @@ Several feature requests from the community have made us aware that there is a n
 We have responded to those requests from the community and have now made it possible to specify a lifetime for JWTs in hours in the general settings of the SCM-Manager.
 We ask you to use this feature with caution, as a longer JWT lifetime also represents a security risk.
 
-[JWT lifetime configuration](./assets/jwt_lifetime.png)
+![JWT lifetime configuration](./assets/jwt_lifetime.png)
 
 ## Closing Words
 
