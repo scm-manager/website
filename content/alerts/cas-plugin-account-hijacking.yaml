@@ -1,0 +1,5 @@
+title: CAS plugin account hijacking vulnerability
+description: We found a vulnerability that allows hijacking another user account.
+link: https://scm-manager.org/blog/posts/2025-05-16-cas-plugin-account-hijacking-vulnerability/
+issuedAt: 2025-05-16
+affectedVersions: ">=2.5.0 <=3.3.0"
