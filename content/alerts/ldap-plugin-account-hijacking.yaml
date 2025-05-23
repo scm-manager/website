@@ -1,0 +1,5 @@
+title: LDAP plugin account hijacking vulnerability
+description: We found a vulnerability that allows hijacking another user account.
+link: https://scm-manager.org/blog/posts/2025-05-22-ldap-plugin-account-hijacking-vulnerability/
+issuedAt: 2025-05-22
+affectedVersions: "<=3.1.0"
