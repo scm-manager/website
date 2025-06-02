@@ -1,0 +1,5 @@
+name: scm-custom-properties-plugin
+displayName: Custom Properties
+description: Plugin to add user-defined properties to a repository as a key-value structure
+category: Workflow
+author: Cloudogu GmbH
