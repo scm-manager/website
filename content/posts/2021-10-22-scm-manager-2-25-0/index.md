@@ -34,7 +34,7 @@ Tell us how you feel about these changes and what else we could do to improve yo
 We created a new plugin which allows you to add custom links to your SCM-Manager footer. 
 You can add your imprint, legal pages or some instance related links, so every user can reach them.
 
-This plugin is currently not available from the official SCM-Manager plugin center. You have to install it manually from the [Community Forum](https://community.cloudogu.com/t/instructions-custom-links-plugin-for-scm-manager/289).
+Initially, the [Custom Links Plugin](https://scm-manager.org/plugins/scm-custom-links-plugin/) could only be installed manually via the Community Forum. It can now be found on [its plugin page](https://scm-manager.org/plugins/scm-custom-links-plugin/) along with its installation instructions. 
 
 ![Custom Links](assets/custom-links-config.png)
 

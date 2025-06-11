@@ -24,10 +24,6 @@ const Category = ({ data }) => {
     plugins = data.allPlugins;
   }
 
-  const getCloudoguLink = (node) => {
-    return data.cloudoguReleases.nodes.filter(r => r.plugin === node.name)[0]?.installLink;
-  }
-
   const sortedPlugins = [...plugins.nodes];
   sortedPlugins.sort((firstEl, secondEl) => firstEl.displayName.toLowerCase() < secondEl.displayName.toLowerCase() ? -1 : 1);
 
@@ -42,9 +38,8 @@ const Category = ({ data }) => {
         <Subtitle>{category.description}</Subtitle>
         <PluginList className="content">
           {sortedPlugins.map((node) => {
-            const cloudoguLink = getCloudoguLink(node);
             return (
-              <Plugin key={node.name} plugin={{ ...node, cloudoguLink }} />
+              <Plugin key={node.name} plugin={node} />
             );
           })}
         </PluginList>
@@ -68,15 +63,6 @@ export const query = graphql`
         displayName
         description
         avatarUrl
-      }
-    }
-    cloudoguReleases: allReleasesYaml(
-      sort: { fields: plugin }
-      filter: { installLink: { ne: null } }
-    ) {
-      nodes {
-        plugin
-        installLink
       }
     }
     plugins: allPluginYaml(

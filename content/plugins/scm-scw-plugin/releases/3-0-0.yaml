@@ -6,6 +6,5 @@ url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plug
 checksum: "92ea6cb0317ea986737cb38b59403057189b2fbdb66d1ce04998187c4fd1ff1a"
 dependencies:
 - "scm-review-plugin"
-installLink: "https://community.cloudogu.com/t/instructions-documentation-secure-code-warrior-plugin-for-scm-manager/88"
 conditions:
   minVersion: "3.0.0"

@@ -6,6 +6,5 @@ checksum: "e9342f65ad326fa563a9be9348a2bc14f6c1ef96a44f76ddc0cea00d1c5f3547"
 dependencies:
 - "scm-review-plugin"
 optionalDependencies: []
-installLink: "https://community.cloudogu.com/t/instructions-documentation-secure-code-warrior-plugin-for-scm-manager/88"
 conditions:
   minVersion: "2.18.0"

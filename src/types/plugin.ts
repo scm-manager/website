@@ -4,5 +4,4 @@ export type Plugin = {
   description: string,
   author: string;
   avatarUrl?: string;
-  cloudoguLink?: string;
 };

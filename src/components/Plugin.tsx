@@ -3,7 +3,6 @@ import { Plugin as PluginType } from "../types/plugin";
 import { navigate } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPuzzlePiece } from "@fortawesome/free-solid-svg-icons";
-import CloudoguLogo from "./CloudoguLogo";
 import styled from "styled-components";
 
 type Props = {
@@ -26,23 +25,13 @@ const PluginAvatar: FC<Props> = ({ plugin }) => {
     );
   }
   return (
-    <>
-      {plugin.cloudoguLink ? (
-        <CloudoguLogo size={32} />
-      ) : (
-        <FontAwesomeIcon icon={faPuzzlePiece} size="2x" />
-      )}
-    </>
+    <FontAwesomeIcon icon={faPuzzlePiece} size="2x" />
   );
 };
 
 const Plugin: FC<Props> = ({ plugin }) => {
   const onClick = () => {
-    if (plugin.cloudoguLink) {
-      window.open(plugin.cloudoguLink, "_blank");
-    } else {
-      return navigate(`/plugins/${plugin.name}/`);
-    }
+    return navigate(`/plugins/${plugin.name}/`);
   };
 
   return (
