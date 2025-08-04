@@ -1,0 +1,8 @@
+---
+plugin: "scm-tagprotection-plugin"
+tag: "3.1.1"
+date: "2025-08-04T12:00:32Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-tagprotection-plugin/3.1.1/scm-tagprotection-plugin-3.1.1.smp"
+checksum: "61ce007b3cec80f1eb424e943cacdb227b0d3d18df95d244dcda689e94f9ad1c"
+conditions:
+  minVersion: "3.9.0"
