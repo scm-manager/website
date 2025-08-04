@@ -1,0 +1,8 @@
+---
+plugin: "scm-custom-links-plugin"
+tag: "3.2.0"
+date: "2025-08-04T08:54:32Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-custom-links-plugin/3.2.0/scm-custom-links-plugin-3.2.0.smp"
+checksum: "46a64a77eca1d0656e6db5fa3c3db089fa8185ad83a4102a467759c204b7900e"
+conditions:
+  minVersion: "3.9.0"
