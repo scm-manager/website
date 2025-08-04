@@ -1,0 +1,8 @@
+---
+plugin: "scm-hgnested-plugin"
+tag: "3.1.1"
+date: "2025-08-04T12:27:54Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-hgnested-plugin/3.1.1/scm-hgnested-plugin-3.1.1.smp"
+checksum: "3ded464b1769264363e3e308195cb5291c49183cc6bed89a9afba65eb1df53ad"
+conditions:
+  minVersion: "3.9.0"
