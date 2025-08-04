@@ -1,0 +1,8 @@
+---
+plugin: "scm-gotenberg-plugin"
+tag: "3.1.1"
+date: "2025-08-04T12:17:01Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-gotenberg-plugin/3.1.1/scm-gotenberg-plugin-3.1.1.smp"
+checksum: "3712b0d5f09ff0555313433dd6e76d10c74b7b05d5304447c98ba8c9097eed09"
+conditions:
+  minVersion: "3.9.0"
