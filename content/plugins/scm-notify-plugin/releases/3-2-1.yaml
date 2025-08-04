@@ -1,0 +1,10 @@
+---
+plugin: "scm-notify-plugin"
+tag: "3.2.1"
+date: "2025-08-04T13:10:57Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-notify-plugin/3.2.1/scm-notify-plugin-3.2.1.smp"
+checksum: "f68d6759b92c6748233f6fdb9839f71fd0e19254da6e19db58732bbbf97211de"
+dependencies:
+- "scm-mail-plugin"
+conditions:
+  minVersion: "3.9.0"
