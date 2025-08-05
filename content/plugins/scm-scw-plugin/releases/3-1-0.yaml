@@ -1,0 +1,10 @@
+---
+plugin: "scm-scw-plugin"
+tag: "3.1.0"
+date: "2025-08-05T07:45:27Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-scw-plugin/3.1.0/scm-scw-plugin-3.1.0.smp"
+checksum: "9e301d1ac3e2fb1ae8ee822b219a6fd5742207b232987d1ec23c914a3b1389fb"
+dependencies:
+- "scm-review-plugin"
+conditions:
+  minVersion: "3.0.0"
