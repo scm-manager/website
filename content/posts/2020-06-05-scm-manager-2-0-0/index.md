@@ -1,7 +1,7 @@
 ---
 title: SCM-Manager 2.0.0
 date: 2020-06-05T14:42:49+0000
-author: SCM-Team
+author: Sebastian Sdorra
 categories:
   - scm-manager
   - release

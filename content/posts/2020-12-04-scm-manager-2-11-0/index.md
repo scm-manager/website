@@ -1,7 +1,7 @@
 ---
 title: SCM-Manager 2.11.0
 date: 2020-12-04T15:00:00+0000
-author: SCM-Team
+author: René Pfeuffer
 categories:
   - scm-manager
   - release

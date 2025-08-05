@@ -1,7 +1,7 @@
 ---
 title: SCM-Manager 2.14.0
 date: 2021-03-01T15:00:00+0000
-author: SCM-Team
+author: Konstantin Schaper
 categories:
   - scm-manager
   - release

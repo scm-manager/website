@@ -1,7 +1,7 @@
 ---
 title: SCM-Manager 2.8.0
 date: 2020-10-27T16:00:00+0000
-author: SCM-Team
+author: Eduard Heimbuch
 categories:
   - scm-manager
   - release

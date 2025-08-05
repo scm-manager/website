@@ -7,8 +7,6 @@
   avatar: https://gravatar.com/avatar/132ecaa0261ee2ce66cebe2ed6bacf05
 - id: Rene Pfeuffer
   avatar: https://gravatar.com/avatar/132ecaa0261ee2ce66cebe2ed6bacf05
-- id: SCM-Team
-  avatar: https://raw.githubusercontent.com/scm-manager/website/master/content/images/scm-team.png
 - id: Sebastian Sdorra
   avatar: https://gravatar.com/avatar/c8afb88b3858e1202d582122f94ed5f6
 - id: Matthias Thieroff
@@ -20,4 +18,5 @@
 - id: Tarik Gürsoy
 - id: Viktor Egorov
 - id: Florian Scholdei
+  avatar: https://gravatar.com/avatar/1a79a6fd922839622f6d3d1c3693f97e89abeacfa39d4ebc748f94db22dbf5a8
 - id: Anna Vetcininova

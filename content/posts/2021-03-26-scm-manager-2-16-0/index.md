@@ -1,7 +1,7 @@
 ---
 title: SCM-Manager 2.16.0
 date: 2021-03-26T15:00:00+0000
-author: SCM-Team
+author: René Pfeuffer
 categories:
 - scm-manager
 - release
