@@ -1,0 +1,11 @@
+tag: 3.10.0
+date: '2025-08-19T19:37:56Z'
+packages:
+- {type: unix, checksum: af8e332d1c630837ce87866a520bb2e2769fb2fa397524fec57081699b5792e0,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.10.0/unix-3.10.0.tar.gz'}
+- {type: windows, checksum: 1e43c9e0a0a0de048840fe4d82cdc1283578f0937efbacc3050b1fe954141907,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.10.0/windows-3.10.0.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
