@@ -1,11 +1,14 @@
 tag: 3.7.6
 date: '2025-08-19T17:57:40Z'
 packages:
-- {type: unix, checksum: ee2b1a647cbd1839a423a93c13c2094bbb3677b56ce19955810e7ea52f749608,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.7.6/unix-3.7.6.tar.gz'}
-- {type: windows, checksum: ae5e661d1acdd190794a507b567eb1e92fdb7a07c916ec4262ad5242e3739bf6,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.7.6/windows-3.7.6.zip'}
-- {type: debian}
-- {type: redhat}
-- {type: docker}
-- {type: k8s}
+- type: unix
+  checksum: ee2b1a647cbd1839a423a93c13c2094bbb3677b56ce19955810e7ea52f749608
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.7.6/unix-3.7.6.tar.gz
+- type: windows
+  checksum: ae5e661d1acdd190794a507b567eb1e92fdb7a07c916ec4262ad5242e3739bf6
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.7.6/windows-3.7.6.zip
+- type: debian
+- type: redhat
+- type: docker
+- type: k8s
+- type: ces
