@@ -1,0 +1,10 @@
+---
+plugin: "scm-documentation-viewer-plugin"
+tag: "1.1.1"
+date: "2025-09-26T10:38:28Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-documentation-viewer-plugin/1.1.1/scm-documentation-viewer-plugin-1.1.1.smp"
+checksum: "9b08c5b86ca207fef532f24424c5e89a9b96cb9d4664d83732dbe937d04b98c8"
+dependencies:
+- "scm-editor-plugin"
+conditions:
+  minVersion: "3.6.0"
