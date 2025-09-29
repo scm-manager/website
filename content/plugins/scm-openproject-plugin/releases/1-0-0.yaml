@@ -1,0 +1,12 @@
+---
+plugin: "scm-openproject-plugin"
+tag: "1.0.0"
+date: "2025-09-29T07:57:40Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-openproject-plugin/1.0.0/scm-openproject-plugin-1.0.0.smp"
+checksum: "04224e09f6733aadb62a3abbfda85579e63d3998f535f38f0830baaefb479d05"
+dependencies:
+- "scm-issuetracker-plugin"
+optionalDependencies:
+- "scm-commit-message-checker-plugin"
+conditions:
+  minVersion: "3.9.0"
