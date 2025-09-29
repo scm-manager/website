@@ -1,0 +1,5 @@
+name: scm-openproject-plugin
+displayName: OpenProject
+description: OpenProject integration
+category: Issue Tracker
+author: Cloudogu GmbH
