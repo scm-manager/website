@@ -1,0 +1,5 @@
+name: scm-mcp-plugin
+displayName: MCP
+description: Simple MCP Server for SCM-Manager
+category: Library
+author: Cloudogu GmbH
