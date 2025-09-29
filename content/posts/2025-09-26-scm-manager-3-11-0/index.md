@@ -28,7 +28,8 @@ For all those who like to experiment with AI, we can recommend taking a look at 
 This implements an MCP server with initial tools for the SCM-Manager (listing repositories,
 creating repositories, creating or changing files in a repository, as well as a global search).
 After installing the plugin, the server is available under the URL path `/scm/api/mcp`. A normal API
-token is required for login. In our initial tests, the AI handled these functions well.
+token is required for login (use a header named `Authorization` with the value `Bearer ey...` (your
+API key preceded with `Bearer`). In our initial tests, the AI handled these functions well.
 
 ## Marking Reviewed Files
 
