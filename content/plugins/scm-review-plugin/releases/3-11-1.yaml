@@ -11,4 +11,4 @@ optionalDependencies:
 - "scm-editor-plugin"
 - "scm-landingpage-plugin"
 conditions:
-  minVersion: "3.10.0"
+  minVersion: "3.10.3"
