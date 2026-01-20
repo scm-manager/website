@@ -1,0 +1,10 @@
+---
+plugin: "scm-content-search-plugin"
+tag: "3.1.0"
+date: "2026-01-20T13:00:07Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-content-search-plugin/3.1.0/scm-content-search-plugin-3.1.0.smp"
+checksum: "e8bb0de4f08d23ab6be4d6d08851978bb434b3eb466b31672fd95af2e81a897a"
+optionalDependencies:
+- "scm-mcp-plugin"
+conditions:
+  minVersion: "3.11.0"
