@@ -1,5 +1,5 @@
 ---
-title: SCM-Manager 3.11.0
+title: New Plugins
 date: 2026-01-21T10:00:00+0000
 author: René Pfeuffer
 categories:
