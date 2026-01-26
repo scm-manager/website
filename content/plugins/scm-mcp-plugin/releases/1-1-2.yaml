@@ -1,0 +1,9 @@
+---
+plugin: "scm-mcp-plugin"
+tag: "1.1.2"
+date: "2026-01-26T09:22:22Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-mcp-plugin/1.1.2/scm-mcp-plugin-1.1.2.smp"
+checksum: "4936828ab897347be393d248f8954c78a8c85d63fb92ef60f81f93dfb9ccb864"
+isScm4Compatible: "true"
+conditions:
+  minVersion: "3.11.0"
