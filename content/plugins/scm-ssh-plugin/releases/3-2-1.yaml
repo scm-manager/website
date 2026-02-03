@@ -1,0 +1,8 @@
+---
+plugin: "scm-ssh-plugin"
+tag: "3.2.1"
+date: "2026-02-03T08:35:28Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-ssh-plugin/3.2.1/scm-ssh-plugin-3.2.1.smp"
+checksum: "f6be8fb4b6612ae749ef312486f096e5e011d857f1bb5214ac7da38a199a0480"
+conditions:
+  minVersion: "3.9.0"
