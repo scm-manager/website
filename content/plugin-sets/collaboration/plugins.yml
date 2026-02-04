@@ -10,5 +10,4 @@ plugins:
   - scm-gravatar-plugin
   - scm-repository-avatar-plugin
   - scm-markdown-plantuml-plugin
-  - scm-smeagol-plugin
   - scm-repository-template-plugin
