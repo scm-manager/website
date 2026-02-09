@@ -6,5 +6,3 @@ url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plug
 checksum: "c02f20c3499e7086c7cb2f4bd731532992c95a35b1dc9e32a6119d3c2700d5b5"
 conditions:
   minVersion: "3.0.0"
-isScm4Compatible: true
-
