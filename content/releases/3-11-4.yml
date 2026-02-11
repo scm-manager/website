@@ -1,11 +1,14 @@
 tag: 3.11.4
 date: '2026-02-11T14:08:47Z'
 packages:
-- {type: unix, checksum: 6e566ae24b26faac7361a071e127e18c13cd0bd73848a20a0f0c8a3d9a792540,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.11.4/unix-3.11.4.tar.gz'}
-- {type: windows, checksum: 37a01786f1dd35f30e672c4d029d6b49b86118a1d9e592fd3ca085c1192088ec,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.11.4/windows-3.11.4.zip'}
-- {type: debian}
-- {type: redhat}
-- {type: docker}
-- {type: k8s}
+- type: unix
+  checksum: 6e566ae24b26faac7361a071e127e18c13cd0bd73848a20a0f0c8a3d9a792540
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.11.4/unix-3.11.4.tar.gz
+- type: windows
+  checksum: 37a01786f1dd35f30e672c4d029d6b49b86118a1d9e592fd3ca085c1192088ec
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.11.4/windows-3.11.4.zip
+- type: debian
+- type: redhat
+- type: docker
+- type: k8s
+- type: ces
