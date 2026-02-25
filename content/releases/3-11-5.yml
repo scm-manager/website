@@ -1,11 +1,14 @@
 tag: 3.11.5
 date: '2026-02-25T13:14:22Z'
 packages:
-- {type: unix, checksum: c1103ca34279ab3547aabc7051a7c1c62fbde576cdd30f1b4fcf834ff2ed1669,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.11.5/unix-3.11.5.tar.gz'}
-- {type: windows, checksum: b6801cf92fcf4f7f3117a45709093191337c95244d6962e69e06ce90e9e0b391,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.11.5/windows-3.11.5.zip'}
-- {type: debian}
-- {type: redhat}
-- {type: docker}
-- {type: k8s}
+- type: unix
+  checksum: c1103ca34279ab3547aabc7051a7c1c62fbde576cdd30f1b4fcf834ff2ed1669
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.11.5/unix-3.11.5.tar.gz
+- type: windows
+  checksum: b6801cf92fcf4f7f3117a45709093191337c95244d6962e69e06ce90e9e0b391
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.11.5/windows-3.11.5.zip
+- type: debian
+- type: redhat
+- type: docker
+- type: k8s
+- type: ces
