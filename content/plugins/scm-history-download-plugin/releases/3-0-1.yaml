@@ -1,0 +1,8 @@
+---
+plugin: "scm-history-download-plugin"
+tag: "3.0.1"
+date: "2026-02-27T12:55:35Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-history-download-plugin/3.0.1/scm-history-download-plugin-3.0.1.smp"
+checksum: "7c547503211647fb48474aca3d65c6e363ca0635060606ffe84007963d408b17"
+conditions:
+  minVersion: "3.5.0"
