@@ -1,0 +1,11 @@
+tag: 3.11.6
+date: '2026-03-11T15:00:45Z'
+packages:
+- {type: unix, checksum: bb36f43f6030ef9d17fcb3db902353fb026de4524dcc6bc6953cbd12a8b74771,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.11.6/unix-3.11.6.tar.gz'}
+- {type: windows, checksum: 1877f8cf9a39b0be8b25e1849b5cea59f40abfeaad2fa0c61531fd37341eb54d,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.11.6/windows-3.11.6.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
