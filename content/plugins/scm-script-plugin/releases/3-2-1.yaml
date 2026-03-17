@@ -1,0 +1,10 @@
+---
+plugin: "scm-script-plugin"
+tag: "3.2.1"
+date: "2026-03-17T12:49:20Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-script-plugin/3.2.1/scm-script-plugin-3.2.1.smp"
+checksum: "5a2fe64f9773e4554af33eef5357b53a62f1c3c6e7a3332126d2dfcc61c0942a"
+dependencies:
+- "scm-code-editor-plugin"
+conditions:
+  minVersion: "3.7.0"
