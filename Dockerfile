@@ -1,4 +1,4 @@
-FROM nginx:1.29.6-alpine
+FROM nginx:1.29.7-alpine
 ARG SERVER_NAME=scm-manager.org
 
 # if more files are required, ensure .dockerignore does not exclude them
