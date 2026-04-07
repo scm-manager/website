@@ -1,0 +1,11 @@
+tag: 3.11.8
+date: '2026-04-07T09:46:55Z'
+packages:
+- {type: unix, checksum: ccc0335282ca970bf8b676309b67ed89465fdd68f989fafd61d68d0061f3c600,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.11.8/unix-3.11.8.tar.gz'}
+- {type: windows, checksum: b2ff3d3f1e68a2bbfaf42885f26c8c24a6e1c04293c32971e46633a79d3395d9,
+  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.11.8/windows-3.11.8.zip'}
+- {type: debian}
+- {type: redhat}
+- {type: docker}
+- {type: k8s}
