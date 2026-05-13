@@ -46,7 +46,7 @@
     "gatsby-transformer-sharp": "^3.8.0",
     "gatsby-transformer-yaml": "^3.3.0",
     "graceful-fs": "^4.2.9",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.23",
     "lodash.kebabcase": "^4.1.1",
     "node-fetch": "2",
     "prism-react-renderer": "^1.0.2",
