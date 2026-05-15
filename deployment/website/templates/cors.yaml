@@ -1,0 +1,23 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ .Values.ingress.cors.name }}
+  namespace: {{ .Values.ingress.cors.namespace }}
+spec:
+  headers:
+    {{- with .Values.ingress.cors.headers.accessControlAllowMethods }}
+    accessControlAllowMethods:
+      {{- toYaml . | nindent 6 }}
+    {{- end }}
+    {{- with .Values.ingress.cors.headers.accessControlAllowHeaders }}
+    accessControlAllowHeaders:
+      {{- toYaml . | nindent 6 }}
+    {{- end }}
+    {{- with .Values.ingress.cors.headers.accessControlAllowOriginList }}
+    accessControlAllowOriginList:
+      {{- toYaml . | nindent 6 }}
+    {{- end }}
+    accessControlMaxAge: {{ .Values.ingress.cors.headers.accessControlMaxAge }}
+    addVaryHeader: {{ .Values.ingress.cors.headers.addVaryHeader }}
+{{- end }}

@@ -20,13 +20,31 @@ service:
 ingress:
   enabled: true
   annotations:
-    kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
-    acme.cert-manager.io/http01-ingress-class: nginx
-    nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
-    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, OPTIONS"
-    nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"
+    acme.cert-manager.io/http01-ingress-class: traefik
+    traefik.ingress.kubernetes.io/router.middlewares: scm-manager-website-cors@kubernetescrd
+  ingressClassName: traefik
+  cors:
+    name: website-cors
+    namespace: scm-manager
+    headers:
+      accessControlAllowMethods:
+        - GET
+        - OPTIONS
+      accessControlAllowHeaders:
+        - DNT
+        - X-CustomHeader
+        - Keep-Alive
+        - User-Agent
+        - X-Requested-With
+        - If-Modified-Since
+        - Cache-Control
+        - Content-Type
+        - Authorization
+      accessControlAllowOriginList:
+        - "*"
+      accessControlMaxAge: 100
+      addVaryHeader: true
   hosts:
     - host: scm-manager.org
       paths:
