@@ -1,11 +1,14 @@
 tag: 3.11.10
 date: '2026-06-10T08:16:26Z'
 packages:
-- {type: unix, checksum: 3ce4518d40501ebf19e99ba3d48a8f58547a393f374165e998f586c213b0cfe7,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.11.10/unix-3.11.10.tar.gz'}
-- {type: windows, checksum: 6f4ecda66099a7bd5081dedd90574fe5bd90b9c102d055e50d552b91e9f0d610,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.11.10/windows-3.11.10.zip'}
-- {type: debian}
-- {type: redhat}
-- {type: docker}
-- {type: k8s}
+- type: unix
+  checksum: 3ce4518d40501ebf19e99ba3d48a8f58547a393f374165e998f586c213b0cfe7
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.11.10/unix-3.11.10.tar.gz
+- type: windows
+  checksum: 6f4ecda66099a7bd5081dedd90574fe5bd90b9c102d055e50d552b91e9f0d610
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.11.10/windows-3.11.10.zip
+- type: debian
+- type: redhat
+- type: docker
+- type: k8s
+- type: ces
