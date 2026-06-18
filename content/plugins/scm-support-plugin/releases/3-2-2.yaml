@@ -1,0 +1,8 @@
+---
+plugin: "scm-support-plugin"
+tag: "3.2.2"
+date: "2026-06-18T09:00:00Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-support-plugin/3.2.2/scm-support-plugin-3.2.2.smp"
+checksum: "bd1403a84d0dedc975114299056ba3e3f96341fd029dc176432a50801596e1ee"
+conditions:
+  minVersion: "3.8.0"
