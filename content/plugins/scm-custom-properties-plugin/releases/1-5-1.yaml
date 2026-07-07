@@ -1,0 +1,9 @@
+---
+plugin: "scm-custom-properties-plugin"
+tag: "1.5.1"
+date: "2026-07-07T13:21:10Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-custom-properties-plugin/1.5.1/scm-custom-properties-plugin-1.5.1.smp"
+checksum: "4d9754a2a2ef8020f4b9c605716d38e415160e51cdc1154b75d8a9325135758d"
+isScm4Compatible: false
+conditions:
+  minVersion: "3.7.0"
