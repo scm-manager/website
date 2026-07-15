@@ -5,15 +5,18 @@ const { collectJavadocContent } = require("./collect-javadoc-content");
 const { findPlugins } = require("./find-plugins");
 const { core } = require("./config");
 const logger = require("./logger");
+const pLimit = require("p-limit").default;
 
 async function collectContent() {
   const now = Date.now();
   const plugins = await findPlugins();
   logger.debug(`Found ${plugins.length} plugin(s): `, plugins);
   logger.info(`Collecting content...`);
+  const limit = pLimit(4);
+
   const benchmarks = await Promise.all([
     collectCoreContent(),
-    ...plugins.map(plugin => collectPluginContent(plugin)),
+    ...plugins.map(plugin => limit(() =>collectPluginContent(plugin))),
     collectCliContent(),
     collectJavadocContent()
   ]);

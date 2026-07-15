@@ -34,7 +34,7 @@ pipeline {
     stage('Build') {
       agent {
         docker {
-          image 'scmmanager/node-build:14.16.1'
+          image 'scmmanager/node-build:26.2.0-2'
           label 'docker'
           args  "-v ${env.WORKSPACE}:/tmp/app -e HOME=/tmp/app"
           reuseNode true
