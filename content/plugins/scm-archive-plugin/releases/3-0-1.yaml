@@ -1,0 +1,9 @@
+---
+plugin: "scm-archive-plugin"
+tag: "3.0.1"
+date: "2026-08-14T09:57:39Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-archive-plugin/3.0.1/scm-archive-plugin-3.0.1.smp"
+checksum: "aca35ca27a672517a3bbba760d27198c2ab11f5e0dccb8c89c301ff90ea1fd51"
+isScm4Compatible: false
+conditions:
+  minVersion: "3.7.0"
