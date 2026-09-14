@@ -1,0 +1,6 @@
+name: scm-oauth2-plugin
+displayName: OAuth2/OIDC
+description: Authentication for SCM-Manager using OAuth2/OIDC
+category: Authentication
+author: Thorsten Ludewig
+avatarUrl: OpenID-logo.png
