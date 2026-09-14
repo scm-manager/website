@@ -1,0 +1,9 @@
+---
+plugin: "scm-oauth2-plugin"
+tag: "1.0.3"
+date: "2026-09-14T08:09:09Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-oauth2-plugin/1.0.3/scm-oauth2-plugin-1.0.3.smp"
+checksum: "5ea297c456f6572e8fa3b0995d0d37065e943174d809a0ab6eaa92ca7b5d89ea"
+isScm4Compatible: false
+conditions:
+  minVersion: "3.9.0"
