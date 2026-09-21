@@ -1,0 +1,16 @@
+---
+plugin: "scm-review-plugin"
+tag: "3.17.0"
+date: "2026-09-21T09:49:51Z"
+url: "https://packages.scm-manager.org/repository/plugin-releases/sonia/scm/plugins/scm-review-plugin/3.17.0/scm-review-plugin-3.17.0.smp"
+checksum: "96773535e67bcc94ed4741d88c60cc492cc1cf9ed32deabdc0ce3dfcaed9d52f"
+isScm4Compatible: false
+dependencies:
+- "scm-mail-plugin"
+- "scm-mustache-documentation-plugin"
+optionalDependencies:
+- "scm-editor-plugin"
+- "scm-landingpage-plugin"
+- "scm-mcp-plugin"
+conditions:
+  minVersion: "3.11.0"
