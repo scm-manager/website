@@ -1,11 +1,14 @@
 tag: 3.12.2
 date: '2026-10-09T13:15:37Z'
 packages:
-- {type: unix, checksum: 44ce0bae26385ad9781aa722f76f0a880aaccc862872e666f6da4019723988ea,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.12.2/unix-3.12.2.tar.gz'}
-- {type: windows, checksum: 0ca4a178cc8f12ff84e1e6eef37b82b4eb3257bfa924690e76ae4cc9816b4c6b,
-  url: 'https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.12.2/windows-3.12.2.zip'}
-- {type: debian}
-- {type: redhat}
-- {type: docker}
-- {type: k8s}
+- type: unix
+  checksum: 44ce0bae26385ad9781aa722f76f0a880aaccc862872e666f6da4019723988ea
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/unix/3.12.2/unix-3.12.2.tar.gz
+- type: windows
+  checksum: 0ca4a178cc8f12ff84e1e6eef37b82b4eb3257bfa924690e76ae4cc9816b4c6b
+  url: https://packages.scm-manager.org/repository/releases/sonia/scm/packaging/windows/3.12.2/windows-3.12.2.zip
+- type: debian
+- type: redhat
+- type: docker
+- type: k8s
+- type: ces
