@@ -29,7 +29,7 @@ async function main() {
     }
     return result + `${slug} /${redirectUrl};`;
   }, "");
-  await writeFile(OUT_FILE, resultMapString);
+  await writeFile(OUT_FILE, `# Generated permanent redirects. See README.md before making changes.${EOL}${resultMapString}`);
   return "Success";
 }
 

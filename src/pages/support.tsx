@@ -16,13 +16,13 @@ const SupportPage = () => (
       <h2>Enterprise Support</h2>
       <p>
         With our enterprise support services we offer you the integration of
-        SCM-Manager into your  processes and to customize the tool according to
+        SCM-Manager into your processes and to customize the tool according to
         your needs. Please feel free to reach out to us.
       </p>
       <p>
         <a
           className="button is-primary"
-          href="https://platform.cloudogu.com/en/support/"
+          href="/en/enterprise-support/"
           target="_blank"
           rel="noopener noreferrer"
         >
