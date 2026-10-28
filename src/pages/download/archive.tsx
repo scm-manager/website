@@ -34,7 +34,10 @@ const hasChangelog = (changelog: Changelog, tag: string) => {
 
 const DownloadArchiv = ({ data }) => (
   <PageContainer>
-    <SEO title="Download" />
+    <SEO
+      title="Download archive"
+      description="Download SCM-Manager versions from the archive"
+    />
     <Title>Download archive</Title>
     <Subtitle>Download the SCM-Manager version you are looking for</Subtitle>
     <ReleaseFeedNote />

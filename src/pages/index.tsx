@@ -35,7 +35,11 @@ const IndexPage = () => {
 
   return (
     <Page>
-      <SEO title="Home" />
+      <SEO
+        title="SCM-Manager | Share and manage your code"
+        description="Open-source tool for managing Git, Mercurial, and Subversion repositories."
+        omitTitleSuffix
+      />
       <section className="hero is-welcome">
         <div className="container hero-body">
           <div className="columns is-vcentered has-text-centered">

@@ -18,15 +18,18 @@ const Post = ({ data: { post }, pageContext: { socialSharingCard } }) => {
     <PageContainer>
       <SEO
         title={post.frontmatter.title}
+        titleSuffix="SCM-Manager Blog"
         description={post.frontmatter.description || post.description}
         image={image}
         keywords={post.frontmatter.keywords}
+        type="article"
+        publishedTime={post.frontmatter.date}
       />
       <div className="columns">
         <div className="column is-three-quarters">
           <Title>{post.frontmatter.alert ? <FontAwesomeIcon icon={faExclamationTriangle} /> : null}{" "}{post.frontmatter.title}</Title>
           <p className="has-text-grey">
-            Posted on {post.frontmatter.date} by{" "}
+            Posted on <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time> by{" "}
             <Link to={`/blog/authors/${post.frontmatter.author.id}`}>
               {post.frontmatter.author.id}
             </Link>

@@ -11,7 +11,11 @@ import Paginator from "../components/Paginator";
 const PostsAuthor = ({ pageContext, data }) => {
   return (
     <PageContainer>
-      <SEO title="Blog" />
+      <SEO
+        title={`Posts by ${pageContext.author}`}
+        titleSuffix="SCM-Manager Blog"
+        description={`SCM-Manager blogposts written by ${pageContext.author}`}
+      />
       <div className="columns">
         <div className="column is-three-quarters">
           <Title>Author: {pageContext.author}</Title>

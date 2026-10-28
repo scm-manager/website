@@ -5,7 +5,10 @@ import PageContainer from "../layout/PageContainer";
 
 const SupportPage = () => (
   <PageContainer>
-    <SEO title="Support" />
+    <SEO
+      title="Support"
+      description="Get help through our community or enterprise support"
+    />
     <Title>Support</Title>
     <div className="content">
       <p>
@@ -56,7 +59,12 @@ const SupportPage = () => (
       </p>
 
       <p>Mailing List</p>
-      <p><i>The mailing list is currently discontinued and only available as read only</i></p>
+      <p>
+        <i>
+          The mailing list is currently discontinued and only available as read
+          only
+        </i>
+      </p>
       <p>
         <a
           className="button is-primary"

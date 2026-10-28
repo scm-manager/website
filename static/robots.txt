@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://scm-manager.org/sitemap/sitemap-index.xml

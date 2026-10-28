@@ -11,7 +11,10 @@ import Paginator from "../components/Paginator";
 const Posts = ({ data, pageContext }) => {
   return (
     <PageContainer>
-      <SEO title="Blog" />
+      <SEO
+        title="Blog"
+        description="News and release announcements from the SCM-Manager team"
+      />
       <div className="columns">
         <div className="column is-three-quarters">
           <Title>Blog</Title>

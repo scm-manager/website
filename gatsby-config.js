@@ -106,6 +106,25 @@ const rssReleaseSerializer = ({ query: { site, releases, changelogs } }) => {
   });
 };
 
+// Versioned docs (e.g. /docs/3.12.x/ or /plugins/<name>/docs/2.1.x/) are canonicalized to the "latest" docs.
+// To avoid duplicates in the sitemap we only list the "latest" pages, as long as such a "latest" docs exists.
+const versionedDocsPattern = /^(\/docs|\/plugins\/[^/]+\/docs)\/(\d+\.\d+\.x)(\/|$)/;
+const latestDocsPattern = /^(\/docs|\/plugins\/[^/]+\/docs)\/latest(\/|$)/;
+
+const resolveSitemapPages = ({ allSitePage: { nodes } }) => {
+  const docsWithLatest = new Set();
+  nodes.forEach(({ path }) => {
+    const match = latestDocsPattern.exec(path);
+    if (match) {
+      docsWithLatest.add(match[1]);
+    }
+  });
+  return nodes.filter(({ path }) => {
+    const match = versionedDocsPattern.exec(path);
+    return !match || !docsWithLatest.has(match[1]);
+  });
+};
+
 const algoliaDryRun = process.env.ALGOLIA_DRY_RUN === "true";
 
 module.exports = {
@@ -122,6 +141,13 @@ module.exports = {
     `gatsby-plugin-meta-redirect`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        resolvePages: resolveSitemapPages,
+        excludes: [`/404`, `/404.html`, `/**/404`, `/dev-404-page`],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

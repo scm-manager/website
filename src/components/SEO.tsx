@@ -22,9 +22,13 @@ type Props = {
   },
   pathname?: string;
   keywords?: string[];
+  omitTitleSuffix?: boolean;
+  titleSuffix?: string;
+  type?: "website" | "article";
+  publishedTime?: string;
 };
 
-const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaImage, title, pathname, keywords }) => {
+const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaImage, title, pathname, keywords, omitTitleSuffix, titleSuffix, type, publishedTime }) => {
   const { site, defaultImage } = useStaticQuery(
     graphql`
       query {
@@ -54,6 +58,8 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
     length: 160,
   });
   const image = metaImage || defaultImage?.childImageSharp?.fixed;
+  // the siteUrl is set by the build (SITE_URL), so staging can be detected without extra configuration
+  const isStaging = site.siteMetadata.siteUrl.includes("staging");
   const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
 
   return (
@@ -62,7 +68,7 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={omitTitleSuffix ? `%s` : `%s | ${titleSuffix || site.siteMetadata.title}`}
       link={
         canonical
           ? [
@@ -92,7 +98,7 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: type || `website`,
         },
         {
           name: `twitter:creator`,
@@ -107,6 +113,16 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
           content: metaDescription,
         },
       ]
+        .concat(
+          type === "article" && publishedTime
+            ? [
+              {
+                property: `article:published_time`,
+                content: publishedTime,
+              },
+            ]
+            : [],
+        )
         .concat(
           image
             ? [
@@ -144,12 +160,14 @@ const SEO: FunctionComponent<Props> = ({ description, lang, meta, image: metaIma
         id="cookie-consent-manager"
         src="https://cloud.ccm19.de/app.js?apiKey=f19634416c234b01b69fc5444659ecd2966d996becc3e822&amp;domain=637c86e80e922a315d7a046b"
         referrerPolicy="origin" />
-      <script id="matomo-tag-manager">{`
+      {!isStaging && (
+        <script id="matomo-tag-manager">{`
         var _mtm = window._mtm = window._mtm || [];
         _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.async=true; g.src='https://cdn.matomo.cloud/cloudogu.matomo.cloud/container_NuEg99LG.js'; s.parentNode.insertBefore(g,s);`}
-      </script>
+        </script>
+      )}
     </Helmet>
   );
 };

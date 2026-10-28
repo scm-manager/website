@@ -18,28 +18,31 @@ const Column = styled.td`
 
 const CliArchiv = ({ data }) => (
   <PageContainer>
-    <SEO title="CLI" />
+    <SEO
+      title="CLI"
+      description="Download previous versions of the Command line interface for SCM-Manager from the archive"
+    />
     <Title>CLI archive</Title>
     <Subtitle>Download the Command line interface version for SCM-Manager you are looking for</Subtitle>
     <table className="table is-striped is-fullwidth">
       <tbody>
-      {data.releases.nodes.map(release => (
-        <tr key={release.tag} className="">
-          <TagColumn>{release.tag}</TagColumn>
-          <Column className="has-text-centered">{release.date}</Column>
-          <Column>
-            <div className="buttons is-right">
-              <Link
-                className="button is-outlined is-primary"
-                title={`Download version ${release.tag}`}
-                to={`/cli/${release.tag}`}
-              >
-                Packages
-              </Link>
-            </div>
-          </Column>
-        </tr>
-      ))}
+        {data.releases.nodes.map(release => (
+          <tr key={release.tag} className="">
+            <TagColumn>{release.tag}</TagColumn>
+            <Column className="has-text-centered">{release.date}</Column>
+            <Column>
+              <div className="buttons is-right">
+                <Link
+                  className="button is-outlined is-primary"
+                  title={`Download version ${release.tag}`}
+                  to={`/cli/${release.tag}`}
+                >
+                  Packages
+                </Link>
+              </div>
+            </Column>
+          </tr>
+        ))}
       </tbody>
     </table>
   </PageContainer>

@@ -29,7 +29,14 @@ const Category = ({ data }) => {
 
   return (
     <Page>
-      <SEO title={"Category " + category.displayName} />
+      <SEO
+        title={
+          category.name === "all"
+            ? category.displayName
+            : category.displayName + " plugins"
+        }
+        description={category.description}
+      />
       <div className="container section is-category">
         <Title>
           <Icon className="has-text-info" icon={category.icon} inplace={true} />{" "}

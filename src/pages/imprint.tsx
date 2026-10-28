@@ -5,7 +5,7 @@ import PageContainer from "../layout/PageContainer";
 
 const ImprintPage = () => (
   <PageContainer>
-    <SEO title="Imprint" />
+    <SEO title="Imprint" description="Legal and contact information" />
     <Title>Imprint</Title>
     <div className="columns">
       <div className="column is-three-quarters content">

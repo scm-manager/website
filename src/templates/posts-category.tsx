@@ -11,7 +11,7 @@ import Paginator from "../components/Paginator";
 const PostsCategory = ({ pageContext, data }) => {
   return (
     <PageContainer>
-      <SEO title="Blog" />
+      <SEO title={`${pageContext.category} posts`} titleSuffix="SCM-Manager Blog" />
       <div className="columns">
         <div className="column is-three-quarters">
           <Title>Category: {pageContext.category}</Title>

@@ -29,6 +29,7 @@
     "gatsby-plugin-purgecss": "^6.0.1",
     "gatsby-plugin-react-helmet": "^4.3.0",
     "gatsby-plugin-sharp": "^3.8.0",
+    "gatsby-plugin-sitemap": "^4.10.0",
     "gatsby-plugin-styled-components": "^4.3.0",
     "gatsby-plugin-typescript": "^3.3.0",
     "gatsby-remark-autolink-headers": "^4.0.0",

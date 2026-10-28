@@ -14,11 +14,18 @@ type Context = {
 const CliPage: FC<PageProps<any, Context>> = ({ data, pageContext }) => {
   return (
     <PageContainer>
-      <SEO title={`CLI ${pageContext.tag}`} />
+      <SEO
+        title={`CLI ${pageContext.tag}`}
+        description={
+          pageContext.latest
+            ? "Download the latest version of the Command line interface for SCM-Manager"
+            : `Download version ${pageContext.tag} of the Command line interface for SCM-Manager`
+        }
+      />
       <Title>CLI</Title>
       <Subtitle>
         {pageContext.latest
-          ? "Download the latest version of Command line interface for SCM-Manager"
+          ? "Download the latest version of the Command line interface for SCM-Manager"
           : `Changelog and downloads for version ${pageContext.tag}`}
       </Subtitle>
       {pageContext.latest ? null : <NotLatestWarning />}

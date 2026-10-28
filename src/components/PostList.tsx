@@ -9,7 +9,7 @@ type Props = {
   posts: Array<any>;
 };
 
-const SmallMaringHR = styled.hr`
+const SmallMarginHR = styled.hr`
   margin: 1rem 0;
 `;
 
@@ -23,15 +23,15 @@ const PostList: FC<Props> = ({ posts }) => (
             {post.frontmatter.title}
           </Link>
         </h2>
-        <p className="has-text-grey	">
-          Posted on {post.frontmatter.date} by{" "}
+        <p className="has-text-grey">
+          Posted on <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time> by{" "}
           <Link to={`/blog/authors/${post.frontmatter.author.id}`}>
             {post.frontmatter.author.id}
           </Link>
         </p>
-        <SmallMaringHR />
+        <SmallMarginHR />
         <HtmlContent content={post.excerpt} />
-        <SmallMaringHR />
+        <SmallMarginHR />
         <p className="has-text-grey">
           Posted in{" "}
           {post.frontmatter.categories.map((category, i) => (
@@ -41,7 +41,7 @@ const PostList: FC<Props> = ({ posts }) => (
             </React.Fragment>
           ))}
         </p>
-        <SmallMaringHR />
+        <SmallMarginHR />
       </div>
     ))}
   </>

@@ -38,7 +38,7 @@ const CounterColumn = styled.div`
 
 const PrivacyPage = () => (
   <PageContainer>
-    <SEO title="Privacy" />
+    <SEO title="Privacy" description="Privacy Policy for scm-manager.org" />
     <Title>Privacy Policy</Title>
     <div className="columns">
       <CounterColumn className="column is-three-quarters content">

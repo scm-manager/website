@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Column, { ColumnProps } from "./Column";
-import Title from "../Title";
+import Subtitle from "../Subtitle";
 
 type Props = ColumnProps & {
   title: string;
@@ -8,7 +8,7 @@ type Props = ColumnProps & {
 
 const TextColumn: FC<Props> = ({ title, children, ...props }) => (
   <Column {...props}>
-    <Title>{title}</Title>
+    <Subtitle className="has-text-weight-semibold is-size-4">{title}</Subtitle>
     <p>{children}</p>
   </Column>
 );

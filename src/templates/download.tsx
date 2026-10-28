@@ -19,7 +19,14 @@ const DownloadPage: FC<PageProps<any, Context>> = ({ data, pageContext }) => {
   );
   return (
     <PageContainer>
-      <SEO title={`Download ${pageContext.tag}`} />
+      <SEO
+        title={`Download ${pageContext.tag}`}
+        description={
+          pageContext.latest
+            ? "Download the latest version of SCM-Manager or choose an older one from the archive"
+            : `Download version ${pageContext.tag} of SCM-Manager`
+        }
+      />
       <Title>Download</Title>
       <Subtitle>
         {pageContext.latest
